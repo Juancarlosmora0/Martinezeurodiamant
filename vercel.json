@@ -1,0 +1,36 @@
+{
+  "rewrites": [
+    {
+      "source": "/anillos",
+      "destination": "/anillos.html"
+    },
+    {
+      "source": "/pendientes",
+      "destination": "/pendientes.html"
+    },
+    {
+      "source": "/collares",
+      "destination": "/collares.html"
+    },
+    {
+      "source": "/pulseras",
+      "destination": "/pulseras.html"
+    },
+    {
+      "source": "/relojes",
+      "destination": "/relojes.html"
+    },
+    {
+      "source": "/opiniones",
+      "destination": "/opiniones.html"
+    },
+    {
+      "source": "/contacto",
+      "destination": "/contacto.html"
+    },
+    {
+      "source": "/sobre-nosotros",
+      "destination": "/sobre-nosotros.html"
+    }
+  ]
+}
