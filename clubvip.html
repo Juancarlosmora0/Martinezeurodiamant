@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gracias por tu confianza | Martínez Joyeros</title>
+    <link rel="stylesheet" href="style.css"> 
+    <link rel="icon" href="/favicon.ico" sizes="any">
+<meta name="theme-color" content="#F4F3F1">
+<meta property="og:title" content="Un regalo especial para ti | Martínez Joyeros">
+<meta property="og:image" content="https://martinezeurodiamant.es/imagenes/HOVER.WEBP">
+<style>
+    /* --- DISEÑO EXCLUSIVO QR --- */
+:root {
+  --dorado: #D6B76E;
+  --dorado-oscuro: #A37F43;
+  --fondo: #F4F3F1;
+  --texto: #1a1a1a;
+}
+
+body {
+  background-color: var(--fondo);
+  color: var(--texto);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  margin: 0;
+  padding: 20px;
+}
+
+.exclusive-card {
+  background: #ffffff;
+  padding: 40px 30px;
+  border-radius: 20px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+  border: 1px solid rgba(214, 183, 110, 0.3);
+  text-align: center;
+  max-width: 400px;
+  width: 100%;
+}
+
+/* Animación de entrada para los pasos */
+.step {
+  display: none;
+}
+
+.step.active {
+  display: block;
+  animation: slideUp 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+}
+
+p {
+  font-family: 'Montserrat', sans-serif;
+  line-height: 1.6;
+  font-size: 0.95rem;
+  color: #4a4a4a;
+}
+
+/* Botón Estilo Martínez Joyeros */
+.btn-hero {
+  display: inline-block;
+  width: 100%;
+  padding: 15px;
+  margin-top: 25px;
+  background-color: var(--dorado);
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 50px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: 'Montserrat', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.btn-hero:hover {
+  background-color: var(--dorado-oscuro);
+  transform: scale(1.02);
+}
+
+/* Caja del Cupón */
+.coupon-box {
+  background: #fdf8e6;
+  border: 2px dashed var(--dorado);
+  padding: 20px;
+  margin: 30px 0 15px 0;
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--texto);
+  letter-spacing: 4px;
+  border-radius: 10px;
+}
+
+        body { background: #F4F3F1; display: flex; align-items: center; justify-content: center; min-height: 100vh; margin: 0; font-family: 'Montserrat', sans-serif; }
+        .exclusive-card { background: white; padding: 40px 20px; border-radius: 20px; box-shadow: 0 15px 35px rgba(0,0,0,0.1); text-align: center; max-width: 90%; width: 400px; border: 1px solid #D6B76E; }
+        .step { display: none; }
+        .step.active { display: block; animation: fadeIn 0.5s ease; }
+        .gold-text { color: #D6B76E; font-weight: bold; }
+        .coupon-box { background: #fdf8e6; border: 2px dashed #D6B76E; padding: 20px; margin: 20px 0; font-size: 1.8rem; font-weight: bold; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        /* Estilo para los corazones flotantes */
+.heart-particle {
+  position: fixed;
+  font-size: 24px;
+  user-select: none;
+  pointer-events: none;
+  z-index: 9999;
+  animation: floatUp 3s ease-out forwards;
+}
+
+@keyframes floatUp {
+  0% { transform: translateY(0) scale(1); opacity: 1; }
+  100% { transform: translateY(-100vh) scale(1.5) rotate(45deg); opacity: 0; }
+}
+
+    </style>
+</head>
+<body>
+
+<div class="exclusive-card">
+    <div id="step-1" class="step active">
+        <h2 style="font-family: 'Playfair Display';">¡Gracias por elegirnos!</h2>
+        <p>Tu confianza es lo más valioso para nosotros. ¿Nos regalas un minuto?</p>
+        <p>Deja tu reseña en Google y consigue un <strong>5% de descuento</strong> directo.</p>
+        <a href="https://search.google.com/local/writereview?placeid=ChIJO0UhOkBJQg0RXNhDQ0A3apM" 
+           target="_blank" class="btn-hero" onclick="showStep(2)" style="display:block; margin-top:20px;">
+           Escribir reseña ahora
+        </a>
+    </div>
+
+    <div id="step-2" class="step">
+        <h2>💖 ¡Casi está!</h2>
+        <p>¿Has publicado ya tu reseña?</p>
+        <button class="btn-hero" onclick="showStep(3)" style="width:100%;">Sí, ya la he publicado</button>
+        <p style="margin-top:20px; font-size:0.8rem; opacity:0.6;">Si has tenido algún problema, dínoslo por WhatsApp.</p>
+    </div>
+
+    <div id="step-3" class="step">
+        <h2>🎁 ¡Aquí tienes tu código!</h2>
+        <p>Cópialo y úsalo en tu próxima compra online o enséñalo en nuestra tienda:</p>
+        <div id="coupon-text" class="coupon-box">ILoveMartita🩷</div>
+        <button class="btn-hero" onclick="copyToClipboard()" id="copy-btn" style="background:#1a1a1a;">Copiar Código</button>
+        <a href="index.html" style="display:block; margin-top:30px; color:#1a1a1a; text-decoration:underline; font-size:0.8rem;">
+  Volver a la colección principal
+</a>
+
+    </div>
+</div>
+
+<script>
+// 1. Función para cambiar de pasos
+function next(n) {
+  // Ocultamos todos los pasos
+  document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
+  // Mostramos el paso que toca
+  document.getElementById('paso-' + n).classList.add('active');
+  
+  // Si llegamos al paso 3 (el del código), lanzamos la fiesta
+  if(n === 3) {
+    lanzarCelebracion();
+  }
+}
+
+// 2. Función de la Gran Celebración (Confeti + Corazones)
+function lanzarCelebracion() {
+  // Lanza confeti dorado, negro y rojo
+  confetti({ 
+    particleCount: 150, 
+    spread: 70, 
+    origin: { y: 0.6 }, 
+    colors: ['#D6B76E', '#1a1a1a', '#ff0000'] 
+  });
+  
+  // Crea la lluvia de corazones
+  for (let i = 0; i < 25; i++) {
+    setTimeout(() => {
+      const heart = document.createElement('div');
+      heart.innerHTML = '❤️';
+      heart.className = 'heart-particle';
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.top = '100vh';
+      heart.style.fontSize = (Math.random() * 20 + 20) + 'px';
+      document.body.appendChild(heart);
+      
+      // Borra el corazón cuando termina de subir
+      setTimeout(() => heart.remove(), 3000);
+    }, i * 100);
+  }
+}
+
+// 3. Función para copiar el código ILoveMartita
+function copy() {
+  const text = document.getElementById('code').innerText;
+  const btn = document.getElementById('copy-btn');
+
+  navigator.clipboard.writeText(text).then(() => {
+    // Cambio visual para confirmar que se ha copiado
+    const originalText = btn.innerText;
+    btn.innerText = '¡COPIADO CON ÉXITO!';
+    btn.style.background = '#4CAF50'; // Se pone verde
+
+    setTimeout(() => { 
+      btn.innerText = 'COPIAR CÓDIGO'; 
+      btn.style.background = '#1a1a1a'; // Vuelve a negro
+    }, 2500);
+  });
+}
+
+
+
+</script>
+
+
+</body>
+</html>
+
