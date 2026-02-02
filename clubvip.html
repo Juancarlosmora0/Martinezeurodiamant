@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Club VIP | Martínez Joyeros</title>
+    
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <meta name="theme-color" content="#F4F3F1">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+    
+    <style>
+/* 1. Corrección universal de márgenes y tamaños */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --dorado: #D6B76E;
+  --dorado-oscuro: #A37F43;
+  --fondo: #F8F7F5;
+  --texto: #1a1a1a;
+  --gris-suave: #888;
+}
+
+body {
+  background-color: var(--fondo);
+  color: var(--texto);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 20px;
+  font-family: 'Montserrat', sans-serif;
+  overflow-x: hidden;
+}
+
+/* Contenedor Principal */
+.exclusive-card {
+  background: #ffffff;
+  padding: 50px 30px;
+  border-radius: 24px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.06);
+  border: 1px solid rgba(214, 183, 110, 0.2);
+  text-align: center;
+  max-width: 420px;
+  width: 100%;
+  position: relative;
+  transition: transform 0.3s ease;
+}
+
+        /* Barra de progreso */
+        .progress-container { display: flex; justify-content: space-between; margin-bottom: 40px; position: relative; }
+        .progress-bar { position: absolute; top: 50%; left: 0; height: 2px; background: #eee; width: 100%; z-index: 1; transform: translateY(-50%); }
+        .progress-fill { position: absolute; top: 50%; left: 0; height: 2px; background: var(--dorado); width: 0%; z-index: 2; transform: translateY(-50%); transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1); }
+        .dot { width: 12px; height: 12px; background: #eee; border-radius: 50%; z-index: 3; transition: 0.4s; border: 3px solid #fff; }
+        .dot.active { background: var(--dorado); border-color: #fdfaf0; box-shadow: 0 0 10px rgba(214, 183, 110, 0.5); }
+
+        .step { display: none; }
+        .step.active { display: block; animation: slideIn 0.5s ease-out; }
+
+        @keyframes slideIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+        h2 { font-family: 'Playfair Display', serif; font-size: 2rem; margin: 0 0 15px 0; font-weight: 700; }
+        p { line-height: 1.6; font-size: 1rem; color: #555; margin-bottom: 25px; }
+
+       /* Botón corregido con efecto Shimmer y centrado total */
+.btn-hero {
+  display: block; 
+  width: 100%; 
+  padding: 18px;
+  background: var(--dorado); 
+  color: #fff;
+  text-decoration: none; 
+  font-weight: 600;
+  border-radius: 12px; 
+  border: none; 
+  cursor: pointer;
+  position: relative; 
+  overflow: hidden;
+  text-transform: uppercase; 
+  letter-spacing: 1.5px; 
+  font-size: 0.85rem;
+  transition: 0.3s;
+  text-align: center; /* Centra el texto */
+  box-sizing: border-box; /* Fuerza a que el botón no se salga por la derecha */
+}
+
+.btn-hero::after {
+  content: ''; 
+  position: absolute; 
+  top: -50%; 
+  left: -60%;
+  width: 20%; 
+  height: 200%; 
+  background: rgba(255,255,255,0.3);
+  transform: rotate(30deg); 
+  animation: shimmer 4s infinite;
+}
+
+@keyframes shimmer { 
+  10% { left: 150%; } 
+  100% { left: 150%; } 
+}
+
+.btn-hero:hover { 
+  background-color: var(--dorado-oscuro); 
+  transform: translateY(-2px); 
+}
+
+
+        /* Cupón estilo Ticket */
+        .coupon-box {
+          background: #fdfaf0;
+          border: 2px dashed var(--dorado);
+          padding: 25px; margin: 20px 0;
+          font-size: 1.8rem; font-weight: 800;
+          color: var(--texto); border-radius: 15px;
+          position: relative; cursor: pointer;
+        }
+
+        .coupon-box::before, .coupon-box::after {
+          content: ''; position: absolute; width: 20px; height: 20px;
+          background: #fff; border-radius: 50%; top: 50%; transform: translateY(-50%);
+          border: 1px solid rgba(214, 183, 110, 0.2);
+        }
+        .coupon-box::before { left: -12px; }
+        .coupon-box::after { right: -12px; }
+
+        /* Loader de verificación */
+        .loader {
+          border: 3px solid #f3f3f3; border-top: 3px solid var(--dorado);
+          border-radius: 50%; width: 20px; height: 20px;
+          animation: spin 1s linear infinite; display: inline-block;
+          vertical-align: middle; margin-right: 10px;
+        }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+
+        /* Partículas */
+        .heart-particle { position: fixed; font-size: 24px; pointer-events: none; z-index: 9999; animation: floatUp 3s ease-out forwards; }
+        @keyframes floatUp { 0% { transform: translateY(0) scale(1); opacity: 1; } 100% { transform: translateY(-100vh) scale(1.5) rotate(45deg); opacity: 0; } }
+    </style>
+</head>
+<body>
+
+<div class="exclusive-card">
+    <div class="progress-container">
+        <div class="progress-bar"></div>
+        <div class="progress-fill" id="fill"></div>
+        <div class="dot active"></div>
+        <div class="dot" id="dot-2"></div>
+        <div class="dot" id="dot-3"></div>
+    </div>
+
+<div id="step-1" class="step active">
+    <h2>Un detalle para ti</h2>
+    <p>Tu opinión nos ayuda a seguir creciendo en Alcalá.</p>
+    
+    <a href="https://search.google.com/local/writereview?placeid=ChIJO0UhOkBJQg0RXNhDQ0A3apM" 
+       target="_blank" class="btn-hero" onclick="showStep(2)">
+       Escribir reseña
+    </a>
+    
+    <p style="font-size: 0.8rem; color: var(--dorado-oscuro); margin-top: 15px; font-weight: 600;">
+       ⚠️ Se abrirá en una pestaña nueva.<br>¡Vuelve aquí al terminar para ver tu regalo!
+    </p>
+</div>
+
+
+  <div id="step-2" class="step">
+    <div style="font-size: 3rem; margin-bottom: 10px;">✨</div>
+    <h2>¡Te estamos esperando!</h2>
+    <p>¿Ya has publicado tu reseña en la otra pestaña?</p>
+    
+    <button id="verify-btn" class="btn-hero" onclick="verifyAndNext()">
+       SÍ, YA LA HE PUBLICADO
+    </button>
+    
+    <a href="https://search.google.com/local/writereview?placeid=ChIJO0UhOkBJQg0RXNhDQ0A3apM" 
+       target="_blank" style="display:block; margin-top:15px; font-size:0.8rem; color:var(--gris-suave);">
+       No se abrió la página de Google, intentar de nuevo
+    </a>
+</div>
+
+
+<div id="step-3" class="step">
+    <h2>🎁 ¡Felicidades, ya eres VIP!</h2>
+    <p>Tu beneficio exclusivo está listo. Puedes copiar el código o descargar tu vale digital:</p>
+    
+    <div id="coupon-text" class="coupon-box" onclick="copyToClipboard()">MartinezJoyeros🩷</div>
+    
+    <div style="display: flex; gap: 10px; margin-bottom: 25px;">
+        <button class="btn-hero" onclick="copyToClipboard()" id="copy-btn" style="background:#1a1a1a; margin-bottom: 0; flex: 1; padding: 15px 5px; font-size: 0.7rem;">
+            COPIAR CÓDIGO
+        </button>
+        <button class="btn-hero" onclick="downloadVoucherHTML()" style="background:#6B6B54; margin-bottom: 0; flex: 1; padding: 15px 5px; font-size: 0.7rem;">
+            DESCARGAR VALE
+        </button>
+    </div>
+
+    <div style="text-align: left; background: #fdfaf0; padding: 20px; border-radius: 12px; border: 1px solid #eee; margin-bottom: 20px;">
+        <h4 style="font-family: 'Playfair Display', serif; margin-bottom: 8px; color: var(--dorado-oscuro);">¿Cómo disfrutarlo?</h4>
+        <ul style="font-size: 0.9rem; color: #555; padding-left: 18px; line-height: 1.5;">
+            <li>Válido para <strong>toda nuestra joyería</strong> (incluido Oro y Diamantes) y relojería.</li>
+            <li>Muestra el código o el vale descargado en nuestra tienda de Alcalá.</li>
+        </ul>
+    </div>
+
+    <div style="text-align: left; padding: 0 5px;">
+        <p style="font-size: 0.75rem; color: #888; line-height: 1.4;">
+            <strong>Condiciones:</strong><br>
+            • 5% de descuento en compras superiores a 20€.<br>
+            • Aplicable en todas las colecciones. <strong>Excluido Taller</strong>.<br>
+            • Caduca en 30 días. No acumulable a otras ofertas.
+        </p>
+    </div>
+
+    <a href="https://wa.me/34678417026?text=¡Hola!%20Tengo%20mi%20código%20VIP%20MartinezJoyeros🩷.%20¿Podéis%20confirmar%20disponibilidad%20de%20una%20pieza?" 
+       target="_blank" 
+       style="display:block; margin-top:20px; background:#25D366; color:white; text-decoration:none; padding:18px; border-radius:12px; font-weight:600; font-size:0.85rem; text-transform:uppercase; letter-spacing:1px; text-align:center;">
+       Consultar por WhatsApp
+    </a>
+
+    <a href="index.html" style="display:block; margin-top:25px; color:var(--gris-suave); text-decoration:none; font-size:0.8rem; font-weight:600;">
+      ← Volver a la tienda
+    </a>
+</div>
+
+
+
+</div>
+
+<script>
+// 1. Persistencia: Al cargar la web, verificamos si el cliente ya es VIP
+window.onload = () => {
+    const savedStep = localStorage.getItem('vipStep');
+    if (savedStep == 3) {
+        showStep(3, false); // Ir directo al premio sin repetir animación
+    }
+};
+
+// 2. Función Principal de Navegación (Control de Pasos y Barra de Progreso)
+function showStep(n, animate = true) {
+    // Ocultar todos los pasos y activar el actual
+    document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
+    const targetStep = document.getElementById('step-' + n);
+    if (targetStep) targetStep.classList.add('active');
+
+    // Referencias a los elementos de progreso
+    const fill = document.getElementById('fill');
+    const dot2 = document.getElementById('dot-2');
+    const dot3 = document.getElementById('dot-3');
+
+    // Lógica de la barra de oro y puntos indicadores
+    if (n === 1) {
+        if (fill) fill.style.width = '0%';
+        if (dot2) dot2.classList.remove('active');
+        if (dot3) dot3.classList.remove('active');
+    } 
+    else if (n === 2) {
+        if (fill) fill.style.width = '50%';
+        if (dot2) dot2.classList.add('active');
+        if (dot3) dot3.classList.remove('active');
+    } 
+    else if (n === 3) {
+        if (fill) fill.style.width = '100%';
+        if (dot2) dot2.classList.add('active');
+        if (dot3) dot3.classList.add('active');
+        
+        // Guardamos el estado para que no se pierda al refrescar
+        localStorage.setItem('vipStep', 3);
+        
+        if (animate) lanzarCelebracion();
+    }
+}
+
+// 3. Verificación Simulada (Aporta valor psicológico al premio)
+function verifyAndNext() {
+    const btn = document.getElementById('verify-btn');
+    
+    // Cambiamos el estado del botón (feedback visual)
+    btn.innerHTML = '<div class="loader"></div> Verificando reseña...';
+    btn.disabled = true;
+    btn.style.opacity = '0.7';
+    btn.style.cursor = 'not-allowed';
+    
+    // Simulamos un tiempo de espera de 1.8 segundos para "validar" la acción
+    setTimeout(() => {
+        showStep(3);
+    }, 1800);
+}
+
+// 4. Efectos Visuales (Confetti y Corazones)
+function lanzarCelebracion() {
+    // Confetti dorado y rojo
+    confetti({ 
+        particleCount: 150, 
+        spread: 70, 
+        origin: { y: 0.6 }, 
+        colors: ['#D6B76E', '#1a1a1a', '#ff4d4d'] 
+    });
+    
+    // Lluvia de corazones animados
+    for (let i = 0; i < 15; i++) {
+        setTimeout(() => {
+            const heart = document.createElement('div');
+            heart.innerHTML = '❤️';
+            heart.className = 'heart-particle';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.top = '100vh';
+            document.body.appendChild(heart);
+            
+            // Eliminar el elemento después de la animación para no sobrecargar la web
+            setTimeout(() => heart.remove(), 3000);
+        }, i * 200);
+    }
+}
+
+// 5. Función de Copiado con Feedback de éxito
+function copyToClipboard() {
+    const text = document.getElementById('coupon-text').innerText;
+    const btn = document.getElementById('copy-btn');
+
+    navigator.clipboard.writeText(text).then(() => {
+        const originalText = btn.innerText;
+        const originalBG = btn.style.background;
+
+        btn.innerText = '¡CÓDIGO COPIADO!';
+        btn.style.background = '#4CAF50'; // Verde éxito
+
+        // Volver al estado original después de 2.5 segundos
+        setTimeout(() => { 
+            btn.innerText = originalText; 
+            btn.style.background = originalBG || '#1a1a1a'; 
+        }, 2500);
+    }).catch(err => {
+        console.error('Error al copiar: ', err);
+    });
+}
+function downloadVoucherHTML() {
+    // El contenido exacto de tu archivo pancarta.html
+    const voucherContent = `<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Vale VIP - Martínez Joyeros</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { background-color: #F4F3F1; display: flex; justify-content: center; align-items: center; min-height: 100vh; font-family: 'Montserrat', sans-serif; }
+        .card { width: 380px; background: #ffffff; padding: 45px 35px; border-radius: 2px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); border: 1px solid #D6B76E; text-align: center; position: relative; }
+        .card::before { content: ''; position: absolute; top: 10px; left: 10px; right: 10px; bottom: 10px; border: 1px solid rgba(214, 183, 110, 0.3); pointer-events: none; }
+        h1 { font-family: 'Playfair Display', serif; font-size: 1.4rem; letter-spacing: 3px; color: #1a1a1a; text-transform: uppercase; margin-bottom: 5px; }
+        .subtitle { font-size: 0.75rem; color: #D6B76E; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 35px; font-weight: 600; }
+        .discount-box { margin: 25px 0; padding: 20px 0; border-top: 1px solid #eee; border-bottom: 1px solid #eee; }
+        .percentage { display: block; font-size: 3rem; font-family: 'Playfair Display', serif; color: #1a1a1a; line-height: 1; }
+        .code-label { display: block; font-size: 0.85rem; color: #6B6B54; margin-top: 10px; font-weight: 600; }
+        .conditions-list { text-align: left; font-size: 0.8rem; color: #6B6B54; line-height: 1.8; margin: 30px 0; }
+        .footer-note { font-size: 0.7rem; font-style: italic; color: #999; margin-top: 25px; line-height: 1.4; }
+        .contact-info { margin-top: 30px; font-size: 0.7rem; color: #1a1a1a; letter-spacing: 1px; }
+    </style>
+</head>
+<body>
+<div class="card">
+    <h1>Martínez Joyeros</h1>
+    <p class="subtitle">Beneficio Club VIP</p>
+    <div class="discount-box">
+        <span class="percentage">5% OFF</span>
+        <span class="code-label">CÓDIGO: MartinezJoyeros🩷</span>
+    </div>
+    <div class="conditions-list">
+        <p>• Compra mínima: <b>20€</b></p>
+        <p>• Validez: <b>30 días</b> desde la emisión</p>
+        <p>• Aplicable en <b>Relojería, Joyería y Tendencia</b></p>
+        <p>• Excluido: <b>Taller</b></p>
+        <p>• Uso único y personal</p>
+    </div>
+    <p class="footer-note">* Consúltanos sin compromiso si tu pieza favorita entra en la promoción.</p>
+    <div class="contact-info">ALCALÁ DE HENARES<br>WhatsApp: 678 41 70 26</div>
+</div>
+</body>
+</html>`;
+
+    const blob = new Blob([voucherContent], { type: 'text/html;charset=utf-8' });
+    const url = window.URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = 'Vale_VIP_MartinezJoyeros.html';
+    document.body.appendChild(link);
+    link.click();
+    window.URL.revokeObjectURL(url);
+    document.body.removeChild(link);
+}
+
+</script>
+
+</body>
+</html>
+
+
