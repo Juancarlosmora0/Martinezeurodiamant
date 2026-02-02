@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Club VIP | Martínez Joyeros</title>
+    
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <meta name="theme-color" content="#F4F3F1">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+    
+    <style>
+/* 1. Corrección universal de márgenes y tamaños */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --dorado: #D6B76E;
+  --dorado-oscuro: #A37F43;
+  --fondo: #F8F7F5;
+  --texto: #1a1a1a;
+  --gris-suave: #888;
+}
+
+body {
+  background-color: var(--fondo);
+  color: var(--texto);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 20px;
+  font-family: 'Montserrat', sans-serif;
+  overflow-x: hidden;
+}
+
+/* Contenedor Principal */
+.exclusive-card {
+  background: #ffffff;
+  padding: 50px 30px;
+  border-radius: 24px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.06);
+  border: 1px solid rgba(214, 183, 110, 0.2);
+  text-align: center;
+  max-width: 420px;
+  width: 100%;
+  position: relative;
+  transition: transform 0.3s ease;
+}
+
+        /* Barra de progreso */
+        .progress-container { display: flex; justify-content: space-between; margin-bottom: 40px; position: relative; }
+        .progress-bar { position: absolute; top: 50%; left: 0; height: 2px; background: #eee; width: 100%; z-index: 1; transform: translateY(-50%); }
+        .progress-fill { position: absolute; top: 50%; left: 0; height: 2px; background: var(--dorado); width: 0%; z-index: 2; transform: translateY(-50%); transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1); }
+        .dot { width: 12px; height: 12px; background: #eee; border-radius: 50%; z-index: 3; transition: 0.4s; border: 3px solid #fff; }
+        .dot.active { background: var(--dorado); border-color: #fdfaf0; box-shadow: 0 0 10px rgba(214, 183, 110, 0.5); }
+
+        .step { display: none; }
+        .step.active { display: block; animation: slideIn 0.5s ease-out; }
+
+        @keyframes slideIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+        h2 { font-family: 'Playfair Display', serif; font-size: 2rem; margin: 0 0 15px 0; font-weight: 700; }
+        p { line-height: 1.6; font-size: 1rem; color: #555; margin-bottom: 25px; }
+
+       /* Botón corregido con efecto Shimmer y centrado total */
+.btn-hero {
+  display: block; 
+  width: 100%; 
+  padding: 18px;
+  background: var(--dorado); 
+  color: #fff;
+  text-decoration: none; 
+  font-weight: 600;
+  border-radius: 12px; 
+  border: none; 
+  cursor: pointer;
+  position: relative; 
+  overflow: hidden;
+  text-transform: uppercase; 
+  letter-spacing: 1.5px; 
+  font-size: 0.85rem;
+  transition: 0.3s;
+  text-align: center; /* Centra el texto */
+  box-sizing: border-box; /* Fuerza a que el botón no se salga por la derecha */
+}
+
+.btn-hero::after {
+  content: ''; 
+  position: absolute; 
+  top: -50%; 
+  left: -60%;
+  width: 20%; 
+  height: 200%; 
+  background: rgba(255,255,255,0.3);
+  transform: rotate(30deg); 
+  animation: shimmer 4s infinite;
+}
+
+@keyframes shimmer { 
+  10% { left: 150%; } 
+  100% { left: 150%; } 
+}
+
+.btn-hero:hover { 
+  background-color: var(--dorado-oscuro); 
+  transform: translateY(-2px); 
+}
+
+
+        /* Cupón estilo Ticket */
+        .coupon-box {
+          background: #fdfaf0;
+          border: 2px dashed var(--dorado);
+          padding: 25px; margin: 20px 0;
+          font-size: 1.8rem; font-weight: 800;
+          color: var(--texto); border-radius: 15px;
+          position: relative; cursor: pointer;
+        }
+
+        .coupon-box::before, .coupon-box::after {
+          content: ''; position: absolute; width: 20px; height: 20px;
+          background: #fff; border-radius: 50%; top: 50%; transform: translateY(-50%);
+          border: 1px solid rgba(214, 183, 110, 0.2);
+        }
+        .coupon-box::before { left: -12px; }
+        .coupon-box::after { right: -12px; }
+
+        /* Loader de verificación */
+        .loader {
+          border: 3px solid #f3f3f3; border-top: 3px solid var(--dorado);
+          border-radius: 50%; width: 20px; height: 20px;
+          animation: spin 1s linear infinite; display: inline-block;
+          vertical-align: middle; margin-right: 10px;
+        }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+
+        /* Partículas */
+        .heart-particle { position: fixed; font-size: 24px; pointer-events: none; z-index: 9999; animation: floatUp 3s ease-out forwards; }
+        @keyframes floatUp { 0% { transform: translateY(0) scale(1); opacity: 1; } 100% { transform: translateY(-100vh) scale(1.5) rotate(45deg); opacity: 0; } }
+    </style>
+</head>
+<body>
+
+<div class="exclusive-card">
+    <div class="progress-container">
+        <div class="progress-bar"></div>
+        <div class="progress-fill" id="fill"></div>
+        <div class="dot active"></div>
+        <div class="dot" id="dot-2"></div>
+        <div class="dot" id="dot-3"></div>
+    </div>
+
+<div id="step-1" class="step active">
+    <h2>Un detalle para ti</h2>
+    <p>Tu opinión nos ayuda a seguir creciendo en Alcalá.</p>
+    
+    <a href="https://search.google.com/local/writereview?placeid=ChIJO0UhOkBJQg0RXNhDQ0A3apM" 
+       target="_blank" class="btn-hero" onclick="showStep(2)">
+       Escribir reseña
+    </a>
+    
+    <p style="font-size: 0.8rem; color: var(--dorado-oscuro); margin-top: 15px; font-weight: 600;">
+       ⚠️ Se abrirá en una pestaña nueva.<br>¡Vuelve aquí al terminar para ver tu regalo!
+    </p>
+</div>
+
+
+  <div id="step-2" class="step">
+    <div style="font-size: 3rem; margin-bottom: 10px;">✨</div>
+    <h2>¡Te estamos esperando!</h2>
+    <p>¿Ya has publicado tu reseña en la otra pestaña?</p>
+    
+    <button id="verify-btn" class="btn-hero" onclick="verifyAndNext()">
+       SÍ, YA LA HE PUBLICADO
+    </button>
+    
+    <a href="https://search.google.com/local/writereview?placeid=ChIJO0UhOkBJQg0RXNhDQ0A3apM" 
+       target="_blank" style="display:block; margin-top:15px; font-size:0.8rem; color:var(--gris-suave);">
+       No se abrió la página de Google, intentar de nuevo
+    </a>
+</div>
+<div id="step-3" class="step">
+    <h2>🎁 ¡Felicidades, ya eres VIP!</h2>
+    <p>Tu beneficio exclusivo está listo. Descarga tu vale para mostrarlo en la tienda:</p>
+    
+    <div id="coupon-text" class="coupon-box" onclick="copyToClipboard()">MartinezJoyeros🩷</div>
+    
+    <div style="display: flex; gap: 10px; margin-bottom: 25px;">
+        <button class="btn-hero" onclick="copyToClipboard()" id="copy-btn" style="background:#1a1a1a; flex: 1; padding: 15px 5px; font-size: 0.7rem;">
+            COPIAR CÓDIGO
+        </button>
+        <a href="imagenes/vale-vip.jpg.JPG" download="Vale_Martinez_Joyeros.jpg" class="btn-hero" style="background:#6B6B54; flex: 1; padding: 15px 5px; font-size: 0.7rem; text-decoration: none; line-height: 1.2; display: flex; align-items: center; justify-content: center;">
+            DESCARGAR VALE
+        </a>
+    </div>
+
+    <div style="text-align: left; background: #fdfaf0; padding: 15px; border-radius: 12px; border: 1px solid #eee; margin-bottom: 20px; font-size: 0.85rem;">
+        <p>• <strong>5% de descuento</strong> en toda la joyería.</p>
+        <p>• Incluye <strong>Oro, Diamantes</strong> y Relojería.</p>
+        <p>• Solo excluido el servicio de taller.</p>
+    </div>
+
+    <a href="https://wa.me/34678417026?text=¡Hola!%20Tengo%20mi%20código%20VIP%20MartinezJoyeros🩷.%20¿Me%20podéis%20confirmar%20disponibilidad%20de%20una%20pieza?" 
+       target="_blank" style="display:block; margin-top:10px; background:#25D366; color:white; text-decoration:none; padding:18px; border-radius:12px; font-weight:600; font-size:0.85rem; text-transform:uppercase; text-align:center;">
+       Consultar por WhatsApp
+    </a>
+
+    <a href="index.html" style="display:block; margin-top:25px; color:var(--gris-suave); text-decoration:none; font-size:0.8rem; font-weight:600; text-align: center;">
+      ← Volver a la tienda
+    </a>
+</div>
+
+
+
+</div>
+
+<script>
+// 1. Persistencia: Al cargar la web, verificamos si el cliente ya es VIP
+window.onload = () => {
+    const savedStep = localStorage.getItem('vipStep');
+    if (savedStep == 3) {
+        showStep(3, false); // Ir directo al premio sin repetir animación
+    }
+};
+
+// 2. Función Principal de Navegación (Control de Pasos y Barra de Progreso)
+function showStep(n, animate = true) {
+    // Ocultar todos los pasos y activar el actual
+    document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
+    const targetStep = document.getElementById('step-' + n);
+    if (targetStep) targetStep.classList.add('active');
+
+    // Referencias a los elementos de progreso
+    const fill = document.getElementById('fill');
+    const dot2 = document.getElementById('dot-2');
+    const dot3 = document.getElementById('dot-3');
+
+    // Lógica de la barra de oro y puntos indicadores
+    if (n === 1) {
+        if (fill) fill.style.width = '0%';
+        if (dot2) dot2.classList.remove('active');
+        if (dot3) dot3.classList.remove('active');
+    } 
+    else if (n === 2) {
+        if (fill) fill.style.width = '50%';
+        if (dot2) dot2.classList.add('active');
+        if (dot3) dot3.classList.remove('active');
+    } 
+    else if (n === 3) {
+        if (fill) fill.style.width = '100%';
+        if (dot2) dot2.classList.add('active');
+        if (dot3) dot3.classList.add('active');
+        
+        // Guardamos el estado para que no se pierda al refrescar
+        localStorage.setItem('vipStep', 3);
+        
+        if (animate) lanzarCelebracion();
+    }
+}
+
+// 3. Verificación Simulada (Aporta valor psicológico al premio)
+function verifyAndNext() {
+    const btn = document.getElementById('verify-btn');
+    
+    // Cambiamos el estado del botón (feedback visual)
+    btn.innerHTML = '<div class="loader"></div> Verificando reseña...';
+    btn.disabled = true;
+    btn.style.opacity = '0.7';
+    btn.style.cursor = 'not-allowed';
+    
+    // Simulamos un tiempo de espera de 1.8 segundos para "validar" la acción
+    setTimeout(() => {
+        showStep(3);
+    }, 1800);
+}
+
+// 4. Efectos Visuales (Confetti y Corazones)
+function lanzarCelebracion() {
+    // Confetti dorado y rojo
+    confetti({ 
+        particleCount: 150, 
+        spread: 70, 
+        origin: { y: 0.6 }, 
+        colors: ['#D6B76E', '#1a1a1a', '#ff4d4d'] 
+    });
+    
+    // Lluvia de corazones animados
+    for (let i = 0; i < 15; i++) {
+        setTimeout(() => {
+            const heart = document.createElement('div');
+            heart.innerHTML = '❤️';
+            heart.className = 'heart-particle';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.top = '100vh';
+            document.body.appendChild(heart);
+            
+            // Eliminar el elemento después de la animación para no sobrecargar la web
+            setTimeout(() => heart.remove(), 3000);
+        }, i * 200);
+    }
+}
+
+// 5. Función de Copiado con Feedback de éxito
+function copyToClipboard() {
+    const text = document.getElementById('coupon-text').innerText;
+    const btn = document.getElementById('copy-btn');
+
+    navigator.clipboard.writeText(text).then(() => {
+        const originalText = btn.innerText;
+        const originalBG = btn.style.background;
+
+        btn.innerText = '¡CÓDIGO COPIADO!';
+        btn.style.background = '#4CAF50'; // Verde éxito
+
+        // Volver al estado original después de 2.5 segundos
+        setTimeout(() => { 
+            btn.innerText = originalText; 
+            btn.style.background = originalBG || '#1a1a1a'; 
+        }, 2500);
+    }).catch(err => {
+        console.error('Error al copiar: ', err);
+    });
+}
+</script>
+
+</body>
+</html>
+
+
