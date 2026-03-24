@@ -6,20 +6,22 @@
   <meta name="theme-color" content="#F6F0E7">
 
   <title>Collares y Gargantillas en Alcalá de Henares | Martínez Joyeros</title>
-  
-  <meta name="description" content="Explora nuestra colección de collares y gargantillas en Alcalá de Henares. Joyas exclusivas en oro, plata y diseños de Vidal & Vidal en Martínez Joyeros. Encuentra la pieza perfecta.">
-  
+  <meta name="description" content="Collares y gargantillas de oro y plata en Alcalá de Henares. Colgantes exclusivos de Vidal & Vidal y diseños únicos. Más de 30 años de experiencia y taller propio. Visítanos en Calle Marqués de Alonso Martínez, 5.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://martinezeurodiamant.es/collares.html">
 
-  <meta property="og:title" content="Collares y Gargantillas Exclusivos | Martínez Joyeros Alcalá">
+  <!-- Preload imagen LCP -->
+  <link rel="preload" as="image" href="imagenes/collares-og.jpg">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Collares y Gargantillas en Alcalá de Henares | Martínez Joyeros">
   <meta property="og:description" content="Elegancia y diseño en cada detalle. Descubre nuestra colección de collares de oro y plata en el centro histórico de Alcalá de Henares.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://martinezeurodiamant.es/collares.html">
   <meta property="og:image" content="https://martinezeurodiamant.es/imagenes/collares-og.jpg">
 
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Collares con Estilo | Martínez Joyeros">
+  <meta name="twitter:title" content="Collares y Gargantillas en Alcalá de Henares | Martínez Joyeros">
   <meta name="twitter:description" content="Diseños únicos en oro y plata. Visita nuestra joyería en Alcalá de Henares.">
   <meta name="twitter:image" content="https://martinezeurodiamant.es/imagenes/collares-og.jpg">
 
@@ -29,7 +31,32 @@
   <link rel="stylesheet" href="style.css">
 
   <style>
-    /* Mantenemos tus estilos exactos de Pendientes */
+    /* ===== HEADER FIJO ===== */
+    .main-header {
+      background-color: #F6F0E7;
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      box-sizing: border-box;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+      z-index: 1000;
+    }
+    body { padding-top: 70px; }
+
+    .logo a {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #1a1a1a;
+      text-decoration: none;
+      letter-spacing: 0.5px;
+    }
+
+    /* ===== FILTROS ===== */
     .filter-btn {
       background: transparent;
       border: 1px solid #D6B76E;
@@ -42,12 +69,15 @@
       font-weight: 500;
       transition: all 0.3s ease;
       border-radius: 4px;
+      min-height: 44px;
     }
     .filter-btn:hover, .filter-btn.active {
       background-color: #D6B76E;
       color: white;
       box-shadow: 0 4px 10px rgba(214, 183, 110, 0.3);
     }
+
+    /* ===== IMAGEN CON HOVER ===== */
     .bf-img-wrap {
       position: relative;
       overflow: hidden;
@@ -58,52 +88,23 @@
       height: 100%;
       object-fit: cover;
       display: block;
+      transition: transform 0.5s ease;
     }
-    /* --- EFECTO HOVER DE IMÁGENES --- */
+    .img-hover {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      transition: opacity 0.3s ease-in-out;
+    }
+    .producto-card:hover .img-hover { opacity: 1; }
+    .producto-card:hover .img-main { transform: scale(1.05); }
 
-/* 1. Contenedor de la imagen */
-.bf-img-wrap {
-  position: relative;
-  overflow: hidden;
-  aspect-ratio: 1/1; /* Mantiene las fotos cuadradas y alineadas */
-}
-
-/* 2. Imagen principal (la que se ve siempre) */
-.img-main {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  transition: transform 0.5s ease;
-}
-
-/* 3. Imagen hover (oculta por defecto) */
-.img-hover {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  opacity: 0; /* Invisible */
-  transition: opacity 0.3s ease-in-out;
-}
-
-/* 4. LA MAGIA: Al pasar el ratón por la tarjeta, la imagen hover aparece */
-.producto-card:hover .img-hover {
-  opacity: 1;
-}
-
-/* Opcional: Zoom suave en la principal al hacer hover */
-.producto-card:hover .img-main {
-  transform: scale(1.05);
-}
-
-    /* Burbuja de precio moderna */
+    /* ===== BURBUJA PRECIO ===== */
     .price-tag {
       position: absolute;
-      top: 15px;
-      right: 15px;
+      top: 15px; right: 15px;
       background: rgba(255, 255, 255, 0.95);
       color: #1a1a1a;
       padding: 6px 14px;
@@ -117,221 +118,541 @@
       letter-spacing: 0.5px;
     }
 
+    /* ===== TARJETA — MOBILE FIRST ===== */
+    .producto-card {
+      position: relative;
+      background: #fff;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+      border: 1px solid rgba(0,0,0,0.05);
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+    .producto-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 28px rgba(0,0,0,0.10);
+    }
+
+    /* ===== BOTONES — COLUMNA EN MÓVIL, FILA EN ESCRITORIO ===== */
+    .producto-card .actions {
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+      padding: 8px 12px 14px;
+      margin-top: auto;
+    }
+    .producto-card .actions a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      border-radius: 10px;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      font-size: 0.85rem;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      text-align: center;
+    }
+    .producto-card .actions .btn-visit {
+      background: linear-gradient(90deg, #F4E4B0, #D6B76E, #A37F43);
+      color: #2a1f12;
+      border: none;
+      box-shadow: 0 2px 8px rgba(214,183,110,0.2);
+    }
+    .producto-card .actions .btn-visit:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 14px rgba(214,183,110,0.4);
+    }
+    .producto-card .actions .btn {
+      background: #fff;
+      border: 1px solid #d8d0c4;
+      color: #4a433a;
+    }
+    .producto-card .actions .btn:hover { border-color: #C8A462; color: #C8A462; }
+
+    @media (min-width: 500px) {
+      .producto-card .actions { flex-direction: row; }
+      .producto-card .actions a { flex: 1; }
+    }
+
+    /* ===== SEO LOCAL ===== */
+    .seo-local-content {
+      padding: 60px 20px;
+      background-color: #ffffff;
+      border-top: 1px solid #f0f0f0;
+    }
+    .seo-local-content > div {
+      max-width: 900px;
+      margin: 0 auto;
+      line-height: 1.8;
+      color: #444;
+      font-family: 'Montserrat', sans-serif;
+    }
+    .seo-local-content h2 {
+      font-family: 'Playfair Display', serif;
+      color: #1a1a1a;
+      font-size: clamp(1.4rem, 3vw, 2rem);
+      margin-bottom: 25px;
+      text-align: center;
+    }
+    .seo-local-content p { margin-bottom: 20px; }
+
+    /* ===== FAQ ===== */
+    .faq-collares {
+      padding: 40px 20px 60px;
+      background: #F6F0E7;
+      border-top: 1px solid rgba(0,0,0,0.05);
+    }
+    .faq-collares h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.3rem, 3vw, 1.8rem);
+      text-align: center;
+      margin-bottom: 24px;
+      color: #1a1a1a;
+    }
+    .faq-collares details {
+      background: #fff;
+      border-radius: 10px;
+      padding: 14px 18px;
+      margin-bottom: 10px;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+      border: 1px solid rgba(0,0,0,0.05);
+    }
+    .faq-collares summary {
+      font-weight: 600;
+      cursor: pointer;
+      font-size: 0.95rem;
+      color: #1a1a1a;
+      line-height: 1.4;
+      list-style: none;
+      padding-right: 28px;
+      position: relative;
+    }
+    .faq-collares summary::-webkit-details-marker { display: none; }
+    .faq-collares summary::after {
+      content: '+';
+      position: absolute;
+      right: 0; top: 0;
+      color: #C8A462;
+      font-size: 1.3rem;
+      line-height: 1;
+      transition: transform 0.2s;
+    }
+    .faq-collares details[open] summary::after { transform: rotate(45deg); }
+    .faq-collares details p {
+      margin-top: 10px;
+      color: #555;
+      font-size: 0.92rem;
+      line-height: 1.7;
+    }
+
+    /* ===== CTA FINAL ===== */
+    .store-cta {
+      background: linear-gradient(135deg, #1F1E1C 0%, #2c2a28 100%);
+      color: #fff;
+      padding: 4rem 1.5rem;
+      text-align: center;
+      border-top: 4px solid #C8A462;
+    }
+    .store-cta-content { max-width: 700px; margin: 0 auto; }
+    .store-cta h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.6rem, 3vw, 2.4rem);
+      margin-bottom: 1rem;
+      background: linear-gradient(90deg, #F9ECC8, #C8A462);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .store-cta p {
+      color: #dcdcdc;
+      font-size: clamp(0.95rem, 2vw, 1.1rem);
+      line-height: 1.7;
+      margin-bottom: 2rem;
+    }
+    .store-cta p strong { color: #C8A462; }
+    .btn-mapa {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: #C8A462;
+      color: #fff;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      padding: 1rem 2rem;
+      border-radius: 999px;
+      text-decoration: none;
+      font-size: 0.9rem;
+      box-shadow: 0 6px 20px rgba(200,164,98,0.3);
+      transition: all 0.3s ease;
+      min-height: 52px;
+    }
+    .btn-mapa:hover { transform: translateY(-2px); box-shadow: 0 10px 28px rgba(200,164,98,0.5); background: #d4b06e; }
+
+    /* ===== FOOTER ===== */
+    .footer {
+      background: #1f1e1c;
+      color: #aaa;
+      padding: 20px;
+      text-align: center;
+      font-size: 0.85rem;
+      font-family: 'Montserrat', sans-serif;
+    }
+    .footer a { color: #C8A462; text-decoration: none; }
+    .footer a:hover { color: #fff; }
+    .footer .sep { margin: 0 6px; opacity: 0.4; }
+
+    /* ===== WHATSAPP ===== */
+    .whatsapp-float {
+      position: fixed; right: 18px; bottom: 18px; z-index: 9999;
+      width: 56px; height: 56px; border-radius: 50%;
+      background: #25D366;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 10px 22px rgba(0,0,0,0.2);
+      transition: transform 0.2s ease;
+    }
+    .whatsapp-float:hover { transform: translateY(-2px); }
+    .whatsapp-float svg { width: 28px; height: 28px; fill: #fff; }
+
+    /* ===== REDUCE MOTION ===== */
+    @media (prefers-reduced-motion: reduce) {
+      * { transition: none !important; animation: none !important; }
+    }
   </style>
 </head>
 <body>
 
-  <header class="main-header">
-    <div class="logo"><a href="index.html">Martínez Joyeros</a></div>
-    <button class="nav-toggle always-visible" aria-label="Abrir menú"><span></span><span></span><span></span></button>
-    <div class="nav-overlay"></div>
-    <nav class="sidebar-menu">
-      <div class="nav-mobile-header"><span class="nav-mobile-title">Menú</span><button class="nav-close-btn">×</button></div>
-      <ul>
-        <li><a href="index.html">Inicio</a></li>
-        <li><a href="anillos.html">Anillos</a></li>
-        <li><a href="pendientes.html">Pendientes</a></li>
-        <li><a href="collares.html" style="font-weight:bold; color:#C8A462;">Collares</a></li>
-        <li><a href="pulseras.html">Pulseras</a></li>
-        <li><a href="relojes.html">Relojes</a></li>
-        <li style="margin-top: 15px; border-top: 1px solid #f5f5f5;"><a href="index.html#contacto" style="color: #333;">📍 Contacto y Tienda</a></li>
-      </ul>
-    </nav>
-  </header>
-
-  <section class="category-hero bf-category-hero" id="catalogo-bf">
-    <div class="cat-hero-inner" style="text-align: center;">
-      <h1 id="cat-title" class="cat-title" style="text-align: center;">Collares en Alcalá de Henares</h1>
-      
-     <p class="cat-sub" style="text-align: center; width: 100%; display: block; margin-left: auto; margin-right: auto;">
-  Explora nuestra selección de <strong>collares y gargantillas</strong> exclusivos para elevar tu estilo diario.
-</p>
-
-
-      
-      <a href="index.html#categorias" class="cat-cta">
-        &larr; Volver a categorías
-      </a>
+<!-- ===== HEADER ===== -->
+<header class="main-header">
+  <div class="logo"><a href="index.html">Martínez Joyeros</a></div>
+  <button class="nav-toggle always-visible" aria-label="Abrir menú de navegación">
+    <span></span><span></span><span></span>
+  </button>
+  <div class="nav-overlay"></div>
+  <nav class="sidebar-menu">
+    <div class="nav-mobile-header">
+      <span class="nav-mobile-title">Menú</span>
+      <button class="nav-close-btn">&times;</button>
     </div>
+    <ul>
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="anillos.html">Anillos</a></li>
+      <li><a href="pendientes.html">Pendientes</a></li>
+      <li><a href="collares.html" style="font-weight:bold; color:#C8A462;">Collares</a></li>
+      <li><a href="pulseras.html">Pulseras</a></li>
+      <li><a href="relojes.html">Relojes</a></li>
+      <li style="margin-top: 15px; border-top: 1px solid #f5f5f5;">
+        <a href="index.html#contacto" style="color: #333;">📍 Contacto y Tienda</a>
+      </li>
+    </ul>
+  </nav>
+</header>
 
-    <svg class="cat-wave" viewBox="0 0 1440 80" preserveAspectRatio="none"><path d="M1440 23.3c-100.5 13.5-212 31.8-335 39.7-124 7.8-265 2-402-14.7-137-16.7-289-40.3-488-51.8v83.5h1225z" fill="rgba(0,0,0,.04)"></path></svg>
-  </section>
+<!-- ===== HERO ===== -->
+<section class="category-hero bf-category-hero" id="catalogo-bf" aria-labelledby="cat-title">
+  <div class="cat-hero-inner" style="text-align: center;">
+    <h1 id="cat-title" class="cat-title"
+        aria-label="Collares y gargantillas de oro y plata en Alcalá de Henares — colgantes exclusivos en Martínez Joyeros">
+      Collares en Alcalá de Henares
+    </h1>
+    <p class="cat-sub" style="text-align: center; width: 100%; display: block; margin-left: auto; margin-right: auto;">
+      Explora nuestra selección de <strong>collares y gargantillas</strong> exclusivos para elevar tu estilo diario.
+    </p>
+    <a href="index.html#categorias" class="cat-cta">&larr; Volver a categorías</a>
+  </div>
+  <svg class="cat-wave" viewBox="0 0 1440 80" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M1440 23.3c-100.5 13.5-212 31.8-335 39.7-124 7.8-265 2-402-14.7-137-16.7-289-40.3-488-51.8v83.5h1225z" fill="rgba(0,0,0,.04)"></path>
+  </svg>
+</section>
 
-  <section class="catalogo-section">
-    <div class="filter-controls" style="text-align: center; margin-bottom: 30px;">
-      <button class="filter-btn active" onclick="filterProducts('all', this)">Todos</button>
-      <button class="filter-btn" onclick="filterProducts('dorado', this)">Dorado</button>
-      <button class="filter-btn" onclick="filterProducts('plateado', this)">Plateado</button>
-    </div>
+<!-- ===== CATÁLOGO ===== -->
+<section class="catalogo-section">
+  <div class="filter-controls" style="text-align: center; margin-bottom: 30px;">
+    <button class="filter-btn active" onclick="filterProducts('all', this)">Todos</button>
+    <button class="filter-btn" onclick="filterProducts('dorado', this)">Dorado</button>
+    <button class="filter-btn" onclick="filterProducts('plateado', this)">Plateado</button>
+  </div>
 
-    <div class="catalogo-grid">
+  <div class="catalogo-grid">
+
     <article class="producto-card dorado">
-  <div class="bf-img-wrap">
-    <span class="price-tag">66€</span>
-    <img src="imagenes/COLGANTE CADENA FINA DOBLE COR.WEBP" class="img-main" alt="Colgante Cadena Fina Doble Cor Oro en Alcalá de Henares - Martínez Joyeros" loading="lazy">
-    <img src="imagenes/COLGANTE CADENA FINA DOBLE COR HOVER.WEBP" class="img-hover" alt="Detalle Colgante Cadena Fina Doble Cor Oro">
-  </div>
-  <h3 class="producto-nombre">Colgante Doble Cor</h3>
-  <div class="actions">
-    <a class="btn-visit" href="https://wa.me/34678417026?text=Hola%20Mart%C3%ADnez%20Joyeros%2C%20me%20interesa%20el%20Colgante%20Cadena%20Fina%20Doble%20Cor%20en%20Dorado." target="_blank" rel="noopener">Consultar</a>
-    <a class="btn" href="index.html#contacto">Ver en tienda</a>
-  </div>
-</article>
-
-<article class="producto-card dorado">
-  <div class="bf-img-wrap">
-    <span class="price-tag">62€</span>
-    <img src="imagenes/COLGANTE CADENA FINA COR DUO.WEBP" class="img-main" alt="Colgante Cadena Fina Cor Duo Oro en Alcalá de Henares - Martínez Joyeros" loading="lazy">
-    <img src="imagenes/COLGANTE CADENA FINA COR DUO HOVER.WEBP" class="img-hover" alt="Detalle Colgante Cadena Fina Cor Duo Oro">
-  </div>
-  <h3 class="producto-nombre">Colgante Cor Dúo</h3>
-  <div class="actions">
-    <a class="btn-visit" href="https://wa.me/34678417026?text=Hola%20Mart%C3%ADnez%20Joyeros%2C%20me%20interesa%20el%20Colgante%20Cadena%20Fina%20Cor%20D%C3%BAo%20en%20Dorado." target="_blank" rel="noopener">Consultar</a>
-    <a class="btn" href="index.html#contacto">Ver en tienda</a>
-  </div>
-</article>
-
-
-    
-<article class="producto-card plateado">
-  <span class="price-tag">64€</span>
-        <div class="bf-img-wrap"><img src="imagenes/Collar Bonnie tiras con circonitas.JPG" class="img-main" alt="Collar Bonnie Tiras Circonitas"></div>
-        <h3 class="producto-nombre">Collar Bonnie Tiras</h3>
-        <div class="actions">
-          <a class="btn-visit" href="https://wa.me/34678417026?text=Hola%20Mart%C3%ADnez%20Joyeros%2C%20me%20interesa%20el%20Collar%20Bonnie." target="_blank">Consultar</a>
-          <a class="btn" href="index.html#contacto">Ver en tienda</a>
-        </div>
-      </article>
-
-      <article class="producto-card dorado">
-        <span class="price-tag">72€</span>
-        <div class="bf-img-wrap"><img src="imagenes/Colgante oval volumen Navy con Acetato y Resina azul.JPG" class="img-main" alt="Colgante Oval Volumen Navy"></div>
-        <h3 class="producto-nombre">Colgante Oval Navy</h3>
-        <div class="actions">
-          <a class="btn-visit" href="https://wa.me/34678417026?text=Hola%20Mart%C3%ADnez%20Joyeros%2C%20me%20interesa%20el%20Colgante%20Navy." target="_blank">Consultar</a>
-          <a class="btn" href="index.html#contacto">Ver en tienda</a>
-        </div>
-      </article>
-
-      <article class="producto-card plateado">
-        <span class="price-tag">62€</span>
-        <div class="bf-img-wrap"><img src="imagenes/Collar doble gota.JPG" class="img-main" alt="Collar Doble Gota"></div>
-        <h3 class="producto-nombre">Collar Doble Gota</h3>
-        <div class="actions">
-          <a class="btn-visit" href="https://wa.me/34678417026?text=Hola%20Mart%C3%ADnez%20Joyeros%2C%20me%20interesa%20el%20Collar%20Doble%20Gota." target="_blank">Consultar</a>
-          <a class="btn" href="index.html#contacto">Ver en tienda</a>
-        </div>
-      </article>
-
-      <article class="producto-card plateado">
-        <span class="price-tag">44€</span>
-        <div class="bf-img-wrap"><img src="imagenes/Collar Droplet.JPG" class="img-main" alt="Collar Droplet"></div>
-        <h3 class="producto-nombre">Collar Droplet</h3>
-        <div class="actions">
-          <a class="btn-visit" href="https://wa.me/34678417026?text=Hola%20Mart%C3%ADnez%20Joyeros%2C%20me%20interesa%20el%20Collar%20Droplet." target="_blank">Consultar</a>
-          <a class="btn" href="index.html#contacto">Ver en tienda</a>
-        </div>
-      </article>
-
-      <article class="producto-card plateado">
-        <span class="price-tag">88€</span>
-        <div class="bf-img-wrap"><img src="imagenes/Colgante oval Volumen Textura Dual.JPG" class="img-main" alt="Colgante Oval Textura Dual"></div>
-        <h3 class="producto-nombre">Colgante Oval Textura Dual</h3>
-        <div class="actions">
-          <a class="btn-visit" href="https://wa.me/34678417026?text=Hola%20Mart%C3%ADnez%20Joyeros%2C%20me%20interesa%20el%20Colgante%20Dual." target="_blank">Consultar</a>
-          <a class="btn" href="index.html#contacto">Ver en tienda</a>
-        </div>
-      </article>
-
-      <article class="producto-card dorado">
-       <span class="price-tag">68€</span>
-        <div class="bf-img-wrap"><img src="imagenes/Collar Choker Macar hilo con colgante brillo rayado.JPG" class="img-main" alt="Choker Macar Brillo Rayado"></div>
-        <h3 class="producto-nombre">Choker Macar Brillo Rayado</h3>
-        <div class="actions">
-          <a class="btn-visit" href="https://wa.me/34678417026?text=Hola%20Mart%C3%ADnez%20Joyeros%2C%20me%20interesa%20el%20Choker%20Macar." target="_blank">Consultar</a>
-          <a class="btn" href="index.html#contacto">Ver en tienda</a>
-        </div>
-      </article>
-
-      <article class="producto-card dorado">
-        <div class="bf-img-wrap"><img src="imagenes/COLLAR DE MUJER DE ACERO IP MARRON Y DORADO CON CIRCONITAS BLANCAS Y AROS COLGANTES.WEBP" class="img-main" alt="Collar Marrón y Dorado"></div>
-        <h3 class="producto-nombre">Collar Marrón y Dorado</h3>
-        <div class="actions">
-          <a class="btn-visit" href="https://wa.me/34678417026?text=Hola%20Mart%C3%ADnez%20Joyeros%2C%20me%20interesa%20el%20Collar%20Marr%C3%B3n%20Dorado." target="_blank">Consultar</a>
-          <a class="btn" href="index.html#contacto">Ver en tienda</a>
-        </div>
-      </article>
-
-      <article class="producto-card dorado">
-        <div class="bf-img-wrap"><img src="imagenes/COLLAR DE MUJER DE ACERO IP DORADO CON COLGANTE CON CIRCONITAS BLANCAS.WEBP" class="img-main" alt="Collar Dorado Colgante Circonitas"></div>
-        <h3 class="producto-nombre">Collar Dorado con Colgante</h3>
-        <div class="actions">
-          <a class="btn-visit" href="https://wa.me/34678417026?text=Hola%20Mart%C3%ADnez%20Joyeros%2C%20me%20interesa%20el%20Collar%20Dorado%20con%20Colgante." target="_blank">Consultar</a>
-          <a class="btn" href="index.html#contacto">Ver en tienda</a>
-        </div>
-      </article>
-    </div>
-
-    <section class="seo-local-content" style="padding: 60px 20px; background-color: #ffffff; border-top: 1px solid #f0f0f0;">
-      <div style="max-width: 900px; margin: 0 auto; line-height: 1.8; color: #444; font-family: 'Montserrat', sans-serif;">
-        <h2 style="font-family: 'Playfair Display', serif; color: #1a1a1a; font-size: 2rem; margin-bottom: 25px; text-align: center;">Collares y Gargantillas con Historia en Alcalá de Henares</h2>
-        <p style="margin-bottom: 20px;">Encontrar el <strong>collar en Alcalá de Henares</strong> que defina tu estilo es posible en <strong>Martínez Joyeros</strong>. Nuestra colección para este <strong>San Valentín</strong> incluye desde delicadas gargantillas en oro de 18k hasta piezas contemporáneas en plata de ley, diseñadas para ser el centro de todas las miradas.</p>
-        <p style="margin-bottom: 20px;">Nuestra joyería, ubicada cerca de la <strong>Vía Complutense</strong> y a pocos pasos de la <strong>Plaza de Cervantes</strong>, es el lugar ideal para descubrir la calidad de firmas como <strong>Vidal Vidal</strong>. Pasear por el centro histórico y terminar eligiendo una joya exclusiva es una experiencia única que solo nuestra tienda física puede ofrecerte.</p>
-        <p>Si buscas un <strong>detalle para San Valentín</strong> que perdure, visítanos en el corazón de Alcalá. Déjanos ayudarte a encontrar esa pieza especial que simbolice tus momentos más felices. ¡Te esperamos!</p>
+      <div class="bf-img-wrap">
+        <span class="price-tag">66€</span>
+        <img src="imagenes/COLGANTE CADENA FINA DOBLE COR.WEBP" class="img-main" alt="Colgante Cadena Fina Doble Corazón en oro — Martínez Joyeros Alcalá de Henares" loading="lazy">
+        <img src="imagenes/COLGANTE CADENA FINA DOBLE COR HOVER.WEBP" class="img-hover" alt="Detalle Colgante Doble Corazón oro">
       </div>
-    </section>
-  </section>
+      <h3 class="producto-nombre">Colgante Doble Cor</h3>
+      <div class="actions">
+        <a class="btn-visit" href="https://wa.me/34678417026?text=Hola%20Mart%C3%ADnez%20Joyeros%2C%20me%20interesa%20el%20Colgante%20Cadena%20Fina%20Doble%20Cor%20en%20Dorado." target="_blank" rel="noopener">Consultar</a>
+        <a class="btn" href="index.html#contacto">Ver en tienda</a>
+      </div>
+    </article>
 
-  <section class="store-cta">
-    <div class="store-cta-content">
-      <h2>¿Buscas una pieza exclusiva?</h2>
-      <p>Nuestra web es solo una pequeña muestra. Ven a nuestra joyería en <strong>Alcalá de Henares</strong> para recibir asesoramiento de expertos.</p>
-      <a href="https://www.google.com/maps/search/?api=1&query=C.+Marqu%C3%A9s+Alonso+Mart%C3%ADnez,+5,+28805+Alcal%C3%A1+de+Henares,+Madrid" target="_blank" class="btn-mapa">Ver ubicación en Mapa</a>
+    <article class="producto-card dorado">
+      <div class="bf-img-wrap">
+        <span class="price-tag">62€</span>
+        <img src="imagenes/COLGANTE CADENA FINA COR DUO.WEBP" class="img-main" alt="Colgante Cadena Fina Corazón Dúo en oro — Martínez Joyeros Alcalá de Henares" loading="lazy">
+        <img src="imagenes/COLGANTE CADENA FINA COR DUO HOVER.WEBP" class="img-hover" alt="Detalle Colgante Corazón Dúo oro">
+      </div>
+      <h3 class="producto-nombre">Colgante Cor Dúo</h3>
+      <div class="actions">
+        <a class="btn-visit" href="https://wa.me/34678417026?text=Hola%20Mart%C3%ADnez%20Joyeros%2C%20me%20interesa%20el%20Colgante%20Cadena%20Fina%20Cor%20D%C3%BAo%20en%20Dorado." target="_blank" rel="noopener">Consultar</a>
+        <a class="btn" href="index.html#contacto">Ver en tienda</a>
+      </div>
+    </article>
+
+    <article class="producto-card plateado">
+      <div class="bf-img-wrap">
+        <span class="price-tag">64€</span>
+        <img src="imagenes/Collar Bonnie tiras con circonitas.JPG" class="img-main" alt="Collar Bonnie tiras con circonitas en plata — Martínez Joyeros Alcalá de Henares" loading="lazy">
+      </div>
+      <h3 class="producto-nombre">Collar Bonnie Tiras</h3>
+      <div class="actions">
+        <a class="btn-visit" href="https://wa.me/34678417026?text=Hola%20Mart%C3%ADnez%20Joyeros%2C%20me%20interesa%20el%20Collar%20Bonnie." target="_blank" rel="noopener">Consultar</a>
+        <a class="btn" href="index.html#contacto">Ver en tienda</a>
+      </div>
+    </article>
+
+    <article class="producto-card dorado">
+      <div class="bf-img-wrap">
+        <span class="price-tag">72€</span>
+        <img src="imagenes/Colgante oval volumen Navy con Acetato y Resina azul.JPG" class="img-main" alt="Colgante oval volumen Navy con resina azul — joyería Alcalá de Henares" loading="lazy">
+      </div>
+      <h3 class="producto-nombre">Colgante Oval Navy</h3>
+      <div class="actions">
+        <a class="btn-visit" href="https://wa.me/34678417026?text=Hola%20Mart%C3%ADnez%20Joyeros%2C%20me%20interesa%20el%20Colgante%20Navy." target="_blank" rel="noopener">Consultar</a>
+        <a class="btn" href="index.html#contacto">Ver en tienda</a>
+      </div>
+    </article>
+
+    <article class="producto-card plateado">
+      <div class="bf-img-wrap">
+        <span class="price-tag">62€</span>
+        <img src="imagenes/Collar doble gota.JPG" class="img-main" alt="Collar doble gota en plata — Martínez Joyeros Alcalá de Henares" loading="lazy">
+      </div>
+      <h3 class="producto-nombre">Collar Doble Gota</h3>
+      <div class="actions">
+        <a class="btn-visit" href="https://wa.me/34678417026?text=Hola%20Mart%C3%ADnez%20Joyeros%2C%20me%20interesa%20el%20Collar%20Doble%20Gota." target="_blank" rel="noopener">Consultar</a>
+        <a class="btn" href="index.html#contacto">Ver en tienda</a>
+      </div>
+    </article>
+
+    <article class="producto-card plateado">
+      <div class="bf-img-wrap">
+        <span class="price-tag">44€</span>
+        <img src="imagenes/Collar Droplet.JPG" class="img-main" alt="Collar Droplet en plata — Martínez Joyeros Alcalá de Henares" loading="lazy">
+      </div>
+      <h3 class="producto-nombre">Collar Droplet</h3>
+      <div class="actions">
+        <a class="btn-visit" href="https://wa.me/34678417026?text=Hola%20Mart%C3%ADnez%20Joyeros%2C%20me%20interesa%20el%20Collar%20Droplet." target="_blank" rel="noopener">Consultar</a>
+        <a class="btn" href="index.html#contacto">Ver en tienda</a>
+      </div>
+    </article>
+
+    <article class="producto-card plateado">
+      <div class="bf-img-wrap">
+        <span class="price-tag">88€</span>
+        <img src="imagenes/Colgante oval Volumen Textura Dual.JPG" class="img-main" alt="Colgante oval volumen textura dual en plata — joyería Alcalá de Henares" loading="lazy">
+      </div>
+      <h3 class="producto-nombre">Colgante Oval Textura Dual</h3>
+      <div class="actions">
+        <a class="btn-visit" href="https://wa.me/34678417026?text=Hola%20Mart%C3%ADnez%20Joyeros%2C%20me%20interesa%20el%20Colgante%20Dual." target="_blank" rel="noopener">Consultar</a>
+        <a class="btn" href="index.html#contacto">Ver en tienda</a>
+      </div>
+    </article>
+
+    <article class="producto-card dorado">
+      <div class="bf-img-wrap">
+        <span class="price-tag">68€</span>
+        <img src="imagenes/Collar Choker Macar hilo con colgante brillo rayado.JPG" class="img-main" alt="Collar Choker Macar hilo con colgante brillo rayado dorado — Martínez Joyeros" loading="lazy">
+      </div>
+      <h3 class="producto-nombre">Choker Macar Brillo Rayado</h3>
+      <div class="actions">
+        <a class="btn-visit" href="https://wa.me/34678417026?text=Hola%20Mart%C3%ADnez%20Joyeros%2C%20me%20interesa%20el%20Choker%20Macar." target="_blank" rel="noopener">Consultar</a>
+        <a class="btn" href="index.html#contacto">Ver en tienda</a>
+      </div>
+    </article>
+
+    <article class="producto-card dorado">
+      <div class="bf-img-wrap">
+        <span class="price-tag">74€</span>
+        <img src="imagenes/COLLAR DE MUJER DE ACERO IP MARRON Y DORADO CON CIRCONITAS BLANCAS Y AROS COLGANTES.WEBP" class="img-main" alt="Collar de mujer acero IP marrón y dorado con circonitas — Martínez Joyeros Alcalá" loading="lazy">
+      </div>
+      <h3 class="producto-nombre">Collar Marrón y Dorado</h3>
+      <div class="actions">
+        <a class="btn-visit" href="https://wa.me/34678417026?text=Hola%20Mart%C3%ADnez%20Joyeros%2C%20me%20interesa%20el%20Collar%20Marr%C3%B3n%20Dorado." target="_blank" rel="noopener">Consultar</a>
+        <a class="btn" href="index.html#contacto">Ver en tienda</a>
+      </div>
+    </article>
+
+    <article class="producto-card dorado">
+      <div class="bf-img-wrap">
+        <span class="price-tag">66€</span>
+        <img src="imagenes/COLLAR DE MUJER DE ACERO IP DORADO CON COLGANTE CON CIRCONITAS BLANCAS.WEBP" class="img-main" alt="Collar de mujer acero IP dorado con colgante y circonitas blancas — Martínez Joyeros" loading="lazy">
+      </div>
+      <h3 class="producto-nombre">Collar Dorado con Colgante</h3>
+      <div class="actions">
+        <a class="btn-visit" href="https://wa.me/34678417026?text=Hola%20Mart%C3%ADnez%20Joyeros%2C%20me%20interesa%20el%20Collar%20Dorado%20con%20Colgante." target="_blank" rel="noopener">Consultar</a>
+        <a class="btn" href="index.html#contacto">Ver en tienda</a>
+      </div>
+    </article>
+
+  </div>
+
+  <!-- ===== SEO LOCAL ===== -->
+  <section class="seo-local-content">
+    <div>
+      <h2>Collares y Gargantillas con Historia en Alcalá de Henares</h2>
+      <p>Encontrar el <strong>collar en Alcalá de Henares</strong> que defina tu estilo es posible en <strong>Martínez Joyeros</strong>. Nuestra colección incluye desde delicadas gargantillas en oro de 18 quilates hasta piezas contemporáneas en plata de ley, diseñadas para ser el centro de todas las miradas.</p>
+      <p>Nuestra joyería, ubicada cerca de la <strong>Vía Complutense</strong> y a pocos pasos de la <strong>Plaza de Cervantes</strong>, es el lugar ideal para descubrir la calidad de firmas como <strong>Vidal & Vidal</strong>. Pasear por el centro histórico y terminar eligiendo una joya exclusiva es una experiencia única que solo nuestra tienda física puede ofrecerte.</p>
+      <p>Si buscas un detalle especial que perdure, visítanos en el corazón de Alcalá. Déjanos ayudarte a encontrar esa pieza que simbolice tus momentos más felices.</p>
     </div>
   </section>
+</section>
 
-  <footer class="footer">
-    © <span id="year"></span> · Martínez Joyeros | <a href="aviso-legal.html">Aviso legal</a>
-  </footer>
+<!-- ===== FAQ ===== -->
+<section class="faq-collares" aria-labelledby="faq-collares-title">
+  <h2 id="faq-collares-title">Preguntas frecuentes sobre collares en Alcalá de Henares</h2>
 
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-    const navToggle = document.querySelector('.nav-toggle');
-    const sideMenu = document.querySelector('.sidebar-menu');
-    const overlay = document.querySelector('.nav-overlay');
-    function toggleMenu() { sideMenu.classList.toggle('active'); overlay.classList.toggle('active'); }
-    if (navToggle) navToggle.addEventListener('click', toggleMenu);
-    
-    function filterProducts(category, button) {
-      document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
-      button.classList.add('active');
-      document.querySelectorAll('.producto-card').forEach(product => {
-        if (category === 'all' || product.classList.contains(category)) {
-          product.style.display = 'block';
-        } else {
-          product.style.display = 'none';
-        }
-      });
-    }
-  </script>
+  <details>
+    <summary>¿Dónde comprar collares de oro en Alcalá de Henares?</summary>
+    <p>En <strong>Martínez Joyeros</strong>, en la Calle Marqués de Alonso Martínez 5, en el centro histórico de Alcalá de Henares. Ofrecemos collares en oro de 18 quilates, plata de ley, acero IP dorado y diseños exclusivos de <strong>Vidal & Vidal</strong>.</p>
+  </details>
 
+  <details>
+    <summary>¿Qué tipos de collares y gargantillas tenéis en Alcalá de Henares?</summary>
+    <p>Tenemos una amplia selección: <strong>colgantes, gargantillas, chokers, collares de cadena fina y collares con piedras</strong>. Disponibles en acabados dorados y plateados para todos los estilos y ocasiones.</p>
+  </details>
+
+  <details>
+    <summary>¿Podéis reparar o limpiar un collar de oro en Alcalá de Henares?</summary>
+    <p>Sí, disponemos de <strong>taller propio</strong> en Alcalá de Henares donde realizamos reparaciones, limpiezas y ajustes en collares y gargantillas de oro y plata. Los trabajos básicos se realizan en <strong>24-48 horas</strong>.</p>
+  </details>
+
+  <details>
+    <summary>¿Tenéis collares aptos para pieles sensibles?</summary>
+    <p>Sí, gran parte de nuestra colección está fabricada en <strong>plata de ley, oro de 18 quilates o acero IP</strong> — materiales hipoalergénicos aptos para pieles sensibles. Consúltanos en tienda y te asesoraremos según tus necesidades.</p>
+  </details>
+</section>
+
+<!-- ===== CTA FINAL ===== -->
+<section class="store-cta" aria-labelledby="cta-collares-title">
+  <div class="store-cta-content">
+    <h2 id="cta-collares-title">¿Buscas el collar perfecto?</h2>
+    <p>Nuestra web es solo una pequeña muestra de todo lo que tenemos en tienda. Ven a nuestra joyería en <strong>Alcalá de Henares</strong> y recibe asesoramiento personalizado de nuestros expertos.</p>
+    <a href="https://www.google.com/maps/search/?api=1&query=C.+Marqu%C3%A9s+Alonso+Mart%C3%ADnez,+5,+28805+Alcal%C3%A1+de+Henares,+Madrid" target="_blank" rel="noopener" class="btn-mapa">
+      Ver ubicación en Mapa
+    </a>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  © <span id="year"></span> · Martínez Joyeros
+  <span class="sep">|</span>
+  <a href="aviso-legal.html">Aviso legal</a>
+  <span class="sep">·</span>
+  <a href="privacidad.html">Privacidad</a>
+  <span class="sep">·</span>
+  <a href="cookies.html">Cookies</a>
+</footer>
+
+<!-- ===== WHATSAPP ===== -->
+<a class="whatsapp-float" href="https://wa.me/34678417026" target="_blank" rel="noopener"
+   aria-label="Chatear por WhatsApp con Martínez Joyeros">
+  <svg viewBox="0 0 32 32" aria-hidden="true">
+    <path d="M19.11 17.76c-.29-.15-1.7-.84-1.97-.94-.26-.1-.45-.15-.64.15-.19.29-.74.94-.91 1.13-.17.19-.34.22-.63.07-.29-.15-1.22-.45-2.33-1.44-.86-.76-1.44-1.7-1.61-1.99-.17-.29-.02-.45.13-.6.13-.13.29-.34.44-.51.15-.17.19-.29.29-.48.1-.19.05-.36-.02-.51-.07-.15-.64-1.54-.88-2.11-.23-.55-.47-.48-.64-.49l-.55-.01c-.19 0-.5.07-.76.36-.26.29-1 1-1 2.43 0 1.43 1.02 2.81 1.16 3 .15.19 2.01 3.07 4.87 4.31.68.29 1.21.46 1.62.59.68.22 1.3.19 1.79.12.55-.08 1.7-.69 1.94-1.36.24-.67.24-1.24.17-1.36-.07-.12-.26-.2-.55-.35zM16.02 29C9.94 29 5 24.06 5 17.98 5 11.9 9.94 6.96 16.02 6.96c6.08 0 11.02 4.94 11.02 11.02S22.1 29 16.02 29zm0-24C9.39 5 4 10.39 4 17.02S9.39 29.04 16.02 29.04 28.04 23.65 28.04 17.02 22.65 5 16.02 5z"/>
+  </svg>
+</a>
+
+<!-- ===== SCRIPT UNIFICADO ===== -->
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  const navToggle = document.querySelector('.nav-toggle');
+  const navClose  = document.querySelector('.nav-close-btn');
+  const sideMenu  = document.querySelector('.sidebar-menu');
+  const overlay   = document.querySelector('.nav-overlay');
+
+  function toggleMenu() {
+    if (sideMenu) sideMenu.classList.toggle('active');
+    if (overlay)  overlay.classList.toggle('active');
+  }
+
+  if (navToggle) navToggle.addEventListener('click', toggleMenu);
+  if (navClose)  navClose.addEventListener('click', toggleMenu);
+  if (overlay)   overlay.addEventListener('click', toggleMenu);
+
+  function filterProducts(category, button) {
+    document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+    button.classList.add('active');
+    document.querySelectorAll('.producto-card').forEach(product => {
+      product.style.display = (category === 'all' || product.classList.contains(category)) ? 'block' : 'none';
+    });
+  }
+</script>
+
+<!-- ===== JSON-LD ===== -->
 <script type="application/ld+json">
 {
-  "@context":"https://schema.org",
-  "@type":"ItemList",
-  "name":"Colección de Collares y Gargantillas - Martínez Joyeros Alcalá",
-  "description": "Selección exclusiva de collares, gargantillas y colgantes en oro, plata y marcas de diseño en Alcalá de Henares.",
-  "url": "https://martinezeurodiamant.es/collares.html",
-  "itemListElement":[
+  "@context": "https://schema.org",
+  "@graph": [
     {
-      "@type":"ListItem",
-      "position":1,
-      "name":"Collar Bonnie Tiras en Oro"
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://martinezeurodiamant.es/" },
+        { "@type": "ListItem", "position": 2, "name": "Collares", "item": "https://martinezeurodiamant.es/collares.html" }
+      ]
     },
     {
-      "@type":"ListItem",
-      "position":2,
-      "name":"Colgante Oval Volumen Navy Vidal & Vidal"
+      "@type": "ItemList",
+      "name": "Colección de Collares y Gargantillas — Martínez Joyeros Alcalá de Henares",
+      "description": "Selección de collares, gargantillas y colgantes en oro, plata y acero IP en Alcalá de Henares.",
+      "url": "https://martinezeurodiamant.es/collares.html",
+      "numberOfItems": 10,
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1,  "name": "Colgante Doble Corazón Dorado" },
+        { "@type": "ListItem", "position": 2,  "name": "Colgante Corazón Dúo Dorado" },
+        { "@type": "ListItem", "position": 3,  "name": "Collar Bonnie Tiras Plateado" },
+        { "@type": "ListItem", "position": 4,  "name": "Colgante Oval Navy Dorado" },
+        { "@type": "ListItem", "position": 5,  "name": "Collar Doble Gota Plateado" },
+        { "@type": "ListItem", "position": 6,  "name": "Collar Droplet Plateado" },
+        { "@type": "ListItem", "position": 7,  "name": "Colgante Oval Textura Dual Plateado" },
+        { "@type": "ListItem", "position": 8,  "name": "Choker Macar Brillo Rayado Dorado" },
+        { "@type": "ListItem", "position": 9,  "name": "Collar Marrón y Dorado Acero IP" },
+        { "@type": "ListItem", "position": 10, "name": "Collar Dorado con Colgante Circonitas" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Dónde comprar collares de oro en Alcalá de Henares?",
+          "acceptedAnswer": { "@type": "Answer", "text": "En Martínez Joyeros, en la Calle Marqués de Alonso Martínez 5, en el centro histórico de Alcalá de Henares. Ofrecemos collares en oro de 18 quilates, plata de ley, acero IP dorado y diseños exclusivos de Vidal & Vidal." }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Qué tipos de collares y gargantillas tenéis en Alcalá de Henares?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Tenemos colgantes, gargantillas, chokers, collares de cadena fina y collares con piedras. Disponibles en acabados dorados y plateados para todos los estilos y ocasiones." }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Podéis reparar un collar de oro en Alcalá de Henares?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Sí, disponemos de taller propio en Alcalá de Henares donde realizamos reparaciones, limpiezas y ajustes en collares y gargantillas de oro y plata en 24-48 horas." }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Tenéis collares aptos para pieles sensibles?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Sí, gran parte de nuestra colección está fabricada en plata de ley, oro de 18 quilates o acero IP, materiales hipoalergénicos aptos para pieles sensibles." }
+        }
+      ]
     }
   ]
 }

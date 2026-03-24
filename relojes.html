@@ -6,84 +6,103 @@
   <meta name="theme-color" content="#F6F0E7">
 
   <title>Relojería en Alcalá de Henares | Relojes para Hombre y Mujer | Martínez Joyeros</title>
-  
   <meta name="description" content="Encuentra el reloj perfecto en Alcalá de Henares. Distribuidor oficial de Viceroy, Mark Maddox y más. Relojes de moda y precisión con servicio de taller en Martínez Joyeros.">
-  
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://martinezeurodiamant.es/relojes.html">
 
-  <meta property="og:title" content="Relojería Especializada en Alcalá de Henares | Martínez Joyeros">
-  <meta property="og:description" content="Explora nuestra colección de relojes de precisión. Moda y elegancia para hombre y mujer en el centro histórico de Alcalá.">
+  <!-- Preload imagen LCP -->
+  <link rel="preload" as="image" href="imagenes/relojes-og.jpg">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Relojería en Alcalá de Henares | Relojes Viceroy y Mark Maddox | Martínez Joyeros">
+  <meta property="og:description" content="Distribuidor oficial de Viceroy y Mark Maddox en Alcalá de Henares. Relojes para hombre y mujer con servicio de taller.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://martinezeurodiamant.es/relojes.html">
   <meta property="og:image" content="https://martinezeurodiamant.es/imagenes/relojes-og.jpg">
 
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Colección de Relojes | Martínez Joyeros Alcalá">
-  <meta name="twitter:description" content="Estilo y precisión en tu muñeca. Descubre nuestras marcas oficiales en Alcalá de Henares.">
+  <meta name="twitter:title" content="Relojes Viceroy y Mark Maddox en Alcalá de Henares | Martínez Joyeros">
+  <meta name="twitter:description" content="Distribuidor oficial de Viceroy y Mark Maddox. Relojes para hombre y mujer en Alcalá de Henares.">
   <meta name="twitter:image" content="https://martinezeurodiamant.es/imagenes/relojes-og.jpg">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
-  
   <link rel="stylesheet" href="style.css">
 
-
   <style>
-/* Estilos replicados de Pendientes y Pulseras */
-.filter-btn {
-  background: transparent;
-  border: 1px solid #D6B76E;
-  color: #1a1a1a;
-  padding: 10px 25px;
-  margin: 0 5px;
-  cursor: pointer;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 0.9rem;
-  font-weight: 500;
-  transition: all 0.3s ease;
-  border-radius: 4px;
-}
+    /* ===== HEADER FIJO ===== */
+    .main-header {
+      background-color: #F6F0E7;
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      box-sizing: border-box;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+      z-index: 1000;
+    }
+    body { padding-top: 70px; }
 
-.filter-btn:hover, .filter-btn.active {
-  background-color: #D6B76E;
-  color: white;
-  box-shadow: 0 4px 10px rgba(214, 183, 110, 0.3);
-}
+    .logo a {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #1a1a1a;
+      text-decoration: none;
+      letter-spacing: 0.5px;
+    }
 
-.bf-img-wrap {
-  position: relative;
-  overflow: hidden;
-  aspect-ratio: 1/1;
-}
+    /* ===== FILTROS ===== */
+    .filter-btn {
+      background: transparent;
+      border: 1px solid #D6B76E;
+      color: #1a1a1a;
+      padding: 10px 25px;
+      margin: 0 5px;
+      cursor: pointer;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      border-radius: 4px;
+      min-height: 44px;
+    }
+    .filter-btn:hover, .filter-btn.active {
+      background-color: #D6B76E;
+      color: white;
+      box-shadow: 0 4px 10px rgba(214, 183, 110, 0.3);
+    }
 
-.img-hover {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  opacity: 0;
-  transition: opacity 0.3s ease-in-out;
-}
+    /* ===== IMAGEN CON HOVER ===== */
+    .bf-img-wrap {
+      position: relative;
+      overflow: hidden;
+      aspect-ratio: 1/1;
+    }
+    .img-main {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .img-hover {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      transition: opacity 0.3s ease-in-out;
+    }
+    .producto-card:hover .img-hover { opacity: 1; }
 
-.producto-card:hover .img-hover {
-  opacity: 1;
-}
-
-.img-main {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
- /* Burbuja de precio moderna */
+    /* ===== BURBUJA PRECIO ===== */
     .price-tag {
       position: absolute;
-      top: 15px;
-      right: 15px;
+      top: 15px; right: 15px;
       background: rgba(255, 255, 255, 0.95);
       color: #1a1a1a;
       padding: 6px 14px;
@@ -96,279 +115,545 @@
       box-shadow: 0 4px 12px rgba(0,0,0,0.08);
       letter-spacing: 0.5px;
     }
-    </style>
+
+    /* ===== TARJETA — MOBILE FIRST ===== */
+    .producto-card {
+      position: relative;
+      background: #fff;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+      border: 1px solid rgba(0,0,0,0.05);
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+    .producto-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 28px rgba(0,0,0,0.10);
+    }
+
+    /* ===== BOTONES — COLUMNA EN MÓVIL, FILA EN ESCRITORIO ===== */
+    .producto-card .actions {
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+      padding: 8px 12px 14px;
+      margin-top: auto;
+    }
+    .producto-card .actions a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      border-radius: 10px;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      font-size: 0.85rem;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      text-align: center;
+    }
+    .producto-card .actions .btn-visit {
+      background: linear-gradient(90deg, #F4E4B0, #D6B76E, #A37F43);
+      color: #2a1f12;
+      border: none;
+      box-shadow: 0 2px 8px rgba(214,183,110,0.2);
+    }
+    .producto-card .actions .btn-visit:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 14px rgba(214,183,110,0.4);
+    }
+    .producto-card .actions .btn {
+      background: #fff;
+      border: 1px solid #d8d0c4;
+      color: #4a433a;
+    }
+    .producto-card .actions .btn:hover { border-color: #C8A462; color: #C8A462; }
+
+    @media (min-width: 500px) {
+      .producto-card .actions { flex-direction: row; }
+      .producto-card .actions a { flex: 1; }
+    }
+
+    /* ===== SEO LOCAL ===== */
+    .seo-local-content {
+      padding: 60px 20px;
+      background-color: #ffffff;
+      border-top: 1px solid #f0f0f0;
+    }
+    .seo-local-content > div {
+      max-width: 900px;
+      margin: 0 auto;
+      line-height: 1.8;
+      color: #444;
+      font-family: 'Montserrat', sans-serif;
+    }
+    .seo-local-content h2 {
+      font-family: 'Playfair Display', serif;
+      color: #1a1a1a;
+      font-size: clamp(1.4rem, 3vw, 2rem);
+      margin-bottom: 25px;
+      text-align: center;
+    }
+    .seo-local-content p { margin-bottom: 20px; }
+
+    /* ===== FAQ ===== */
+    .faq-relojes {
+      padding: 40px 20px 60px;
+      background: #F6F0E7;
+      border-top: 1px solid rgba(0,0,0,0.05);
+    }
+    .faq-relojes h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.3rem, 3vw, 1.8rem);
+      text-align: center;
+      margin-bottom: 24px;
+      color: #1a1a1a;
+    }
+    .faq-relojes details {
+      background: #fff;
+      border-radius: 10px;
+      padding: 14px 18px;
+      margin-bottom: 10px;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+      border: 1px solid rgba(0,0,0,0.05);
+    }
+    .faq-relojes summary {
+      font-weight: 600;
+      cursor: pointer;
+      font-size: 0.95rem;
+      color: #1a1a1a;
+      line-height: 1.4;
+      list-style: none;
+      padding-right: 28px;
+      position: relative;
+    }
+    .faq-relojes summary::-webkit-details-marker { display: none; }
+    .faq-relojes summary::after {
+      content: '+';
+      position: absolute;
+      right: 0; top: 0;
+      color: #C8A462;
+      font-size: 1.3rem;
+      line-height: 1;
+      transition: transform 0.2s;
+    }
+    .faq-relojes details[open] summary::after { transform: rotate(45deg); }
+    .faq-relojes details p {
+      margin-top: 10px;
+      color: #555;
+      font-size: 0.92rem;
+      line-height: 1.7;
+    }
+
+    /* ===== CTA FINAL ===== */
+    .store-cta {
+      background: linear-gradient(135deg, #1F1E1C 0%, #2c2a28 100%);
+      color: #fff;
+      padding: 4rem 1.5rem;
+      text-align: center;
+      border-top: 4px solid #C8A462;
+    }
+    .store-cta-content { max-width: 700px; margin: 0 auto; }
+    .store-cta h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.6rem, 3vw, 2.4rem);
+      margin-bottom: 1rem;
+      background: linear-gradient(90deg, #F9ECC8, #C8A462);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .store-cta p {
+      color: #dcdcdc;
+      font-size: clamp(0.95rem, 2vw, 1.1rem);
+      line-height: 1.7;
+      margin-bottom: 2rem;
+    }
+    .store-cta p strong { color: #C8A462; }
+    .btn-mapa {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: #C8A462;
+      color: #fff;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      padding: 1rem 2rem;
+      border-radius: 999px;
+      text-decoration: none;
+      font-size: 0.9rem;
+      box-shadow: 0 6px 20px rgba(200,164,98,0.3);
+      transition: all 0.3s ease;
+      min-height: 52px;
+    }
+    .btn-mapa:hover { transform: translateY(-2px); box-shadow: 0 10px 28px rgba(200,164,98,0.5); background: #d4b06e; }
+
+    /* ===== FOOTER ===== */
+    .footer {
+      background: #1f1e1c;
+      color: #aaa;
+      padding: 20px;
+      text-align: center;
+      font-size: 0.85rem;
+      font-family: 'Montserrat', sans-serif;
+    }
+    .footer a { color: #C8A462; text-decoration: none; }
+    .footer a:hover { color: #fff; }
+    .footer .sep { margin: 0 6px; opacity: 0.4; }
+
+    /* ===== WHATSAPP ===== */
+    .whatsapp-float {
+      position: fixed; right: 18px; bottom: 18px; z-index: 9999;
+      width: 56px; height: 56px; border-radius: 50%;
+      background: #25D366;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 10px 22px rgba(0,0,0,0.2);
+      transition: transform 0.2s ease;
+    }
+    .whatsapp-float:hover { transform: translateY(-2px); }
+    .whatsapp-float svg { width: 28px; height: 28px; fill: #fff; }
+
+    /* ===== REDUCE MOTION ===== */
+    @media (prefers-reduced-motion: reduce) {
+      * { transition: none !important; animation: none !important; }
+    }
+  </style>
 </head>
 <body>
 
-  <header class="main-header">
-    <div class="logo">
-      <a href="index.html">Martínez Joyeros</a>
+<!-- ===== HEADER ===== -->
+<header class="main-header">
+  <div class="logo">
+    <a href="index.html">Martínez Joyeros</a>
+  </div>
+  <button class="nav-toggle always-visible" aria-label="Abrir menú de navegación">
+    <span></span><span></span><span></span>
+  </button>
+  <div class="nav-overlay"></div>
+  <nav class="sidebar-menu">
+    <div class="nav-mobile-header">
+      <span class="nav-mobile-title">Menú</span>
+      <button class="nav-close-btn">&times;</button>
     </div>
-    <button class="nav-toggle always-visible" aria-label="Abrir menú">
-      <span></span><span></span><span></span>
-    </button>
-    <div class="nav-overlay"></div>
-    <nav class="sidebar-menu">
-      <div class="nav-mobile-header">
-        <span class="nav-mobile-title">Menú</span>
-        <button class="nav-close-btn">×</button>
+    <ul>
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="anillos.html">Anillos</a></li>
+      <li><a href="pendientes.html">Pendientes</a></li>
+      <li><a href="collares.html">Collares</a></li>
+      <li><a href="pulseras.html">Pulseras</a></li>
+      <li><a href="relojes.html" style="font-weight:bold; color:#C8A462;">Relojes</a></li>
+      <li style="margin-top: 15px; border-top: 1px solid #f5f5f5;">
+        <a href="index.html#contacto" style="color: #333;">📍 Contacto y Tienda</a>
+      </li>
+    </ul>
+  </nav>
+</header>
+
+<!-- ===== HERO ===== -->
+<section class="category-hero bf-category-hero" id="catalogo-bf" aria-labelledby="cat-title">
+  <div class="cat-hero-inner" style="text-align: center;">
+    <h1 id="cat-title" class="cat-title"
+        aria-label="Relojes para hombre y mujer en Alcalá de Henares — Martínez Joyeros">
+      Relojes en Alcalá de Henares
+    </h1>
+    <p class="cat-sub" style="text-align: center; width: 100%; display: block; margin-left: auto; margin-right: auto;">
+      Precisión y estilo en nuestra selección de <strong>relojería para hombre y mujer</strong> en Alcalá de Henares.
+    </p>
+    <a href="index.html#categorias" class="cat-cta">&larr; Volver a categorías</a>
+  </div>
+  <svg class="cat-wave" viewBox="0 0 1440 80" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M1440 23.3c-100.5 13.5-212 31.8-335 39.7-124 7.8-265 2-402-14.7-137-16.7-289-40.3-488-51.8v83.5h1225z" fill="rgba(0,0,0,.04)"></path>
+  </svg>
+</section>
+
+<!-- ===== CATÁLOGO ===== -->
+<section class="catalogo-section">
+  <div class="filter-controls" style="text-align: center; margin-bottom: 30px;">
+    <button class="filter-btn active" onclick="filterProducts('all', this)">Todos</button>
+    <button class="filter-btn" onclick="filterProducts('dorado', this)">Dorado</button>
+    <button class="filter-btn" onclick="filterProducts('plateado', this)">Plateado</button>
+  </div>
+
+  <div class="catalogo-grid">
+
+    <article class="producto-card dorado">
+      <div class="bf-img-wrap">
+        <span class="price-tag">179€</span>
+        <img src="imagenes/Reloj Caja Bitono de Acero Laura Escanes.WEBP" class="img-main" alt="Reloj caja bitono de acero dorado — Martínez Joyeros Alcalá de Henares" loading="lazy">
+        <img src="imagenes/Reloj Caja Bitono de Acero Laura Escanes 2.WEBP" class="img-hover" alt="Detalle reloj caja bitono dorado">
       </div>
-      <ul>
-        <li><a href="index.html">Inicio</a></li>
-        <li><a href="anillos.html">Anillos</a></li>
-        <li><a href="pendientes.html">Pendientes</a></li>
-        <li><a href="collares.html">Collares</a></li>
-        <li><a href="pulseras.html">Pulseras</a></li>
-        <li><a href="relojes.html" style="font-weight:bold; color:#C8A462;">Relojes</a></li>
-        <li style="margin-top: 15px; border-top: 1px solid #f5f5f5;">
-          <a href="index.html#contacto" style="color: #333;">📍 Contacto y Tienda</a>
-        </li>
-      </ul>
-    </nav>
-  </header>
+      <h3 class="producto-nombre">Reloj Caja Bitono</h3>
+      <div class="actions">
+        <a class="btn-visit" href="https://wa.me/34678417026?text=Hola%20Mart%C3%ADnez%20Joyeros%2C%20me%20interesa%20el%20Reloj%20Caja%20Bitono." target="_blank" rel="noopener">Consultar</a>
+        <a class="btn" href="index.html#contacto">Ver en tienda</a>
+      </div>
+    </article>
 
-  <section class="category-hero bf-category-hero" id="catalogo-bf" aria-labelledby="cat-title">
-    <div class="cat-hero-inner" style="text-align: center;">
-      <h1 id="cat-title" class="cat-title" style="text-align: center;">Relojes en Alcalá de Henares</h1>
-      <p class="cat-sub" style="text-align: center; width: 100%; display: block; margin-left: auto; margin-right: auto;">
-  Precisión y estilo en nuestra selección de <strong>relojería para hombre y mujer</strong> en Alcalá.
-</p>
-
-      <a href="index.html#categorias" class="cat-cta">← Volver a categorías</a>
-    </div>
-    <svg class="cat-wave" viewBox="0 0 1440 80" preserveAspectRatio="none" aria-hidden="true" focusable="false">
-      <path d="M1440 23.3c-100.5 13.5-212 31.8-335 39.7-124 7.8-265 2-402-14.7-137-16.7-289-40.3-488-51.8v83.5h1225z" fill="rgba(0,0,0,.04)"></path>
-    </svg>
-  </section>
-
-  <section class="catalogo-section">
-    <div class="filter-controls" style="text-align: center; margin-bottom: 30px;">
-      <button class="filter-btn active" onclick="filterProducts('all', this)">Todos</button>
-      <button class="filter-btn" onclick="filterProducts('dorado', this)">Dorado</button>
-      <button class="filter-btn" onclick="filterProducts('plateado', this)">Plateado</button>
-    </div>
-
-    <div class="catalogo-grid">
-      
-      <article class="producto-card dorado">
-        <div class="bf-img-wrap">
+    <article class="producto-card plateado">
+      <div class="bf-img-wrap">
         <span class="price-tag">179€</span>
-          <img src="imagenes/Reloj Caja Bitono de Acero Laura Escanes.WEBP" class="img-main" alt="Reloj Caja Bitono de Acero en Alcalá de Henares - Martínez Joyeros" loading="lazy">
-          <img src="imagenes/Reloj Caja Bitono de Acero Laura Escanes 2.WEBP" class="img-hover" alt="Reloj Caja Bitono de Acero Detalle">
-        </div>
-        <h3 class="producto-nombre">Reloj Caja Bitono</h3>
-        <div class="actions">
-          <a class="btn-visit" href="https://wa.me/34678417026?text=Hola%20Mart%C3%ADnez%20Joyeros%2C%20me%20interesa%20el%20Reloj%20Caja%20Bitono." target="_blank" rel="noopener">Consultar</a>
-          <a class="btn" href="index.html#contacto">Ver en tienda</a>
-        </div>
-      </article>
+        <img src="imagenes/Reloj Caja de Acero Laura Escanes.WEBP" class="img-main" alt="Reloj caja de acero plateado — Martínez Joyeros Alcalá de Henares" loading="lazy">
+        <img src="imagenes/Reloj Caja de Acero Laura Escanes 2.WEBP" class="img-hover" alt="Detalle reloj caja de acero">
+      </div>
+      <h3 class="producto-nombre">Reloj Caja de Acero</h3>
+      <div class="actions">
+        <a class="btn-visit" href="https://wa.me/34678417026?text=Hola%20Mart%C3%ADnez%20Joyeros%2C%20me%20interesa%20el%20Reloj%20Caja%20de%20Acero." target="_blank" rel="noopener">Consultar</a>
+        <a class="btn" href="index.html#contacto">Ver en tienda</a>
+      </div>
+    </article>
 
-      <article class="producto-card plateado">
-        <div class="bf-img-wrap">
+    <article class="producto-card plateado">
+      <div class="bf-img-wrap">
         <span class="price-tag">179€</span>
-          <img src="imagenes/Reloj Caja de Acero Laura Escanes.WEBP" class="img-main" alt="Reloj Caja de Acero en Martínez Joyeros Alcalá" loading="lazy">
-          <img src="imagenes/Reloj Caja de Acero Laura Escanes 2.WEBP" class="img-hover" alt="Reloj Caja de Acero Detalle">
-        </div>
-        <h3 class="producto-nombre">Reloj Caja de Acero</h3>
-        <div class="actions">
-          <a class="btn-visit" href="https://wa.me/34678417026?text=Hola%20Mart%C3%ADnez%20Joyeros%2C%20me%20interesa%20el%20Reloj%20Caja%20de%20Acero." target="_blank" rel="noopener">Consultar</a>
-          <a class="btn" href="index.html#contacto">Ver en tienda</a>
-        </div>
-      </article>
+        <img src="imagenes/Reloj Caja de Acero Bitono Laura Escanes.WEBP" class="img-main" alt="Reloj caja de acero bitono plateado — Martínez Joyeros Alcalá" loading="lazy">
+        <img src="imagenes/Reloj Caja de Acero Bitono Laura Escanes 3.WEBP" class="img-hover" alt="Detalle reloj caja acero bitono">
+      </div>
+      <h3 class="producto-nombre">Reloj Bitono Acero</h3>
+      <div class="actions">
+        <a class="btn-visit" href="https://wa.me/34678417026?text=Hola%20Mart%C3%ADnez%20Joyeros%2C%20me%20interesa%20el%20Reloj%20Bitono%20Escanes." target="_blank" rel="noopener">Consultar</a>
+        <a class="btn" href="index.html#contacto">Ver en tienda</a>
+      </div>
+    </article>
 
-      <article class="producto-card plateado">
-        <div class="bf-img-wrap">
-        <span class="price-tag">179€</span>
-          <img src="imagenes/Reloj Caja de Acero Bitono Laura Escanes.WEBP" class="img-main" alt="Reloj Caja de Acero Bitono - Martínez Joyeros" loading="lazy">
-          <img src="imagenes/Reloj Caja de Acero Bitono Laura Escanes 3.WEBP" class="img-hover" alt="Reloj Caja Bitono Detalle">
-        </div>
-        <h3 class="producto-nombre">Reloj Bitono Acero</h3>
-        <div class="actions">
-          <a class="btn-visit" href="https://wa.me/34678417026?text=Hola%20Mart%C3%ADnez%20Joyeros%2C%20me%20interesa%20el%20Reloj%20Bitono%20Escanes." target="_blank" rel="noopener">Consultar</a>
-          <a class="btn" href="index.html#contacto">Ver en tienda</a>
-        </div>
-      </article>
-
-      <article class="producto-card plateado">
-        <div class="bf-img-wrap">
+    <article class="producto-card plateado">
+      <div class="bf-img-wrap">
         <span class="price-tag">109€</span>
-          <img src="imagenes/Reloj Caja de Acero Blanco.WEBP" class="img-main" alt="Reloj Caja de Acero Blanco Alcalá" loading="lazy">
-          <img src="imagenes/Reloj Caja de Acero Blanco 2.WEBP" class="img-hover" alt="Reloj Blanco Detalle">
-        </div>
-        <h3 class="producto-nombre">Reloj Acero Blanco</h3>
-        <div class="actions">
-          <a class="btn-visit" href="https://wa.me/34678417026?text=Hola%20Mart%C3%ADnez%20Joyeros%2C%20me%20interesa%20el%20Reloj%20Blanco." target="_blank" rel="noopener">Consultar</a>
-          <a class="btn" href="index.html#contacto">Ver en tienda</a>
-        </div>
-      </article>
-
-      <article class="producto-card plateado">
-        <div class="bf-img-wrap">
-        <span class="price-tag">139€</span>
-          <img src="imagenes/Reloj Caja Bitono de Acero Negro.WEBP" class="img-main" alt="Reloj Caja Bitono Acero Negro Alcalá" loading="lazy">
-          <img src="imagenes/Reloj Caja Bitono de Acero Negro 1.WEBP" class="img-hover" alt="Reloj Negro Detalle">
-        </div>
-        <h3 class="producto-nombre">Reloj Acero Negro</h3>
-        <div class="actions">
-          <a class="btn-visit" href="https://wa.me/34678417026?text=Hola%20Mart%C3%ADnez%20Joyeros%2C%20me%20interesa%20el%20Reloj%20Negro." target="_blank" rel="noopener">Consultar</a>
-          <a class="btn" href="index.html#contacto">Ver en tienda</a>
-        </div>
-      </article>
-      
-      <article class="producto-card plateado">
-  <div class="bf-img-wrap">
-    <span class="price-tag">49€</span>
-
-    <img src="imagenes/Reloj de Hombre Mark Maddox Marais.JPG" 
-         class="img-main" 
-         alt="Reloj de Hombre Mark Maddox Marais en Alcalá de Henares - Martínez Joyeros" 
-         loading="lazy">
-  </div>
-  
-  <h3 class="producto-nombre">Mark Maddox Marais</h3>
-  
-  <div class="actions">
-    <a class="btn-visit" 
-       href="https://wa.me/34678417026?text=Hola%20Mart%C3%ADnez%20Joyeros%2C%20me%20interesa%20el%20reloj%20Mark%20Maddox%20Marais%20de%20hombre." 
-       target="_blank" 
-       rel="noopener">Consultar</a>
-    <a class="btn" href="index.html#contacto">Ver en tienda</a>
-  </div>
-</article>
-<article class="producto-card plateado">
-  <div class="bf-img-wrap">
-    <span class="price-tag">65€</span>
-
-    <img src="imagenes/Reloj Hombre Coral Mark Maddox.JPG" 
-         class="img-main" 
-         alt="Reloj Hombre Coral Mark Maddox en Alcalá de Henares - Martínez Joyeros" 
-         loading="lazy">
-  </div>
-  
-  <h3 class="producto-nombre">Mark Maddox Coral</h3>
-  
-  <div class="actions">
-    <a class="btn-visit" 
-       href="https://wa.me/34678417026?text=Hola%20Mart%C3%ADnez%20Joyeros%2C%20me%20interesa%20el%20reloj%20Mark%20Maddox%20Coral%20de%20hombre." 
-       target="_blank" 
-       rel="noopener">Consultar</a>
-    <a class="btn" href="index.html#contacto">Ver en tienda</a>
-  </div>
-</article>
-
-<article class="producto-card dorado">
-  <div class="bf-img-wrap">
-    <span class="price-tag">65€</span>
-
-    <img src="imagenes/Reloj Alfama Mark Maddox Mujer.JPG" 
-         class="img-main" 
-         alt="Reloj Mark Maddox Alfama de Mujer en Alcalá de Henares - Martínez Joyeros" 
-         loading="lazy">
-  </div>
-  
-  <h3 class="producto-nombre">Mark Maddox Alfama Mujer</h3>
-  
-  <div class="actions">
-    <a class="btn-visit" 
-       href="https://wa.me/34678417026?text=Hola%20Mart%C3%ADnez%20Joyeros%2C%20me%20interesa%20el%20reloj%20Mark%20Maddox%20Alfama%20de%20mujer." 
-       target="_blank" 
-       rel="noopener">Consultar</a>
-    <a class="btn" href="index.html#contacto">Ver en tienda</a>
-  </div>
-</article>
-<article class="producto-card plateado">
-  <div class="bf-img-wrap">
-    <span class="price-tag">65€</span>
-
-    <img src="imagenes/Reloj Alfama 2 Mark Maddox Mujer.JPG" 
-         class="img-main" 
-         alt="Reloj Mark Maddox Alfama 2 de Mujer en Alcalá de Henares - Martínez Joyeros" 
-         loading="lazy">
-  </div>
-  
-  <h3 class="producto-nombre">Mark Maddox Alfama 2 Mujer</h3>
-  
-  <div class="actions">
-    <a class="btn-visit" 
-       href="https://wa.me/34678417026?text=Hola%20Mart%C3%ADnez%20Joyeros%2C%20me%20interesa%20el%20reloj%20Mark%20Maddox%20Alfama%202%20de%20mujer." 
-       target="_blank" 
-       rel="noopener">Consultar</a>
-    <a class="btn" href="index.html#contacto">Ver en tienda</a>
-  </div>
-</article>
-
-
-
-
-      
-
-    </div>
-
-    <section class="seo-local-content" style="padding: 60px 20px; background-color: #ffffff; border-top: 1px solid #f0f0f0;">
-      <div style="max-width: 900px; margin: 0 auto; line-height: 1.8; color: #444; font-family: 'Montserrat', sans-serif;">
-        <h2 style="font-family: 'Playfair Display', serif; color: #1a1a1a; font-size: 2rem; margin-bottom: 25px; text-align: center;">Tu Relojería de Referencia en el Corazón de Alcalá</h2>
-        <p style="margin-bottom: 20px;">En <strong>Martínez Joyeros</strong>, sabemos que un reloj es mucho más que un accesorio; es un símbolo de los momentos que perduran. Nuestra selección de <strong>relojes en Alcalá de Henares</strong> ha sido elegida para ofrecerte el regalo de <strong>San Valentín</strong> perfecto, combinando precisión mecánica con diseños que nunca pasan de moda.</p>
-        <p style="margin-bottom: 20px;">Te invitamos a visitarnos en nuestra tienda física, situada estratégicamente cerca de la <strong>Vía Complutense</strong> y a pocos pasos de la emblemática <strong>Plaza de Cervantes</strong>. Aquí podrás descubrir modelos exclusivos y recibir el asesoramiento de expertos que entienden el valor de la puntualidad y el estilo.</p>
-        <p>No dejes tu regalo al azar; confía en la joyería con más tradición de los alcalaínos. ¡Te esperamos para dar el tiempo a tus momentos más especiales!</p>
+        <img src="imagenes/Reloj Caja de Acero Blanco.WEBP" class="img-main" alt="Reloj caja de acero blanco — joyería Alcalá de Henares" loading="lazy">
+        <img src="imagenes/Reloj Caja de Acero Blanco 2.WEBP" class="img-hover" alt="Detalle reloj acero blanco">
       </div>
-    </section>
-  </section>
+      <h3 class="producto-nombre">Reloj Acero Blanco</h3>
+      <div class="actions">
+        <a class="btn-visit" href="https://wa.me/34678417026?text=Hola%20Mart%C3%ADnez%20Joyeros%2C%20me%20interesa%20el%20Reloj%20Blanco." target="_blank" rel="noopener">Consultar</a>
+        <a class="btn" href="index.html#contacto">Ver en tienda</a>
+      </div>
+    </article>
 
- <section class="store-cta">
-    <div class="store-cta-content">
-      <h2>¿Buscas un modelo específico?</h2>
-      <p>Nuestra web es solo una pequeña muestra. Ven a nuestra joyería en <strong>Alcalá de Henares</strong> para recibir asesoramiento de expertos.</p>
-      <a href="https://www.google.com/maps/search/?api=1&query=C.+Marqu%C3%A9s+Alonso+Mart%C3%ADnez,+5,+28805+Alcal%C3%A1+de+Henares,+Madrid" target="_blank" class="btn-mapa">Ver ubicación en Mapa</a>
+    <article class="producto-card plateado">
+      <div class="bf-img-wrap">
+        <span class="price-tag">139€</span>
+        <img src="imagenes/Reloj Caja Bitono de Acero Negro.WEBP" class="img-main" alt="Reloj caja bitono acero negro — Martínez Joyeros Alcalá de Henares" loading="lazy">
+        <img src="imagenes/Reloj Caja Bitono de Acero Negro 1.WEBP" class="img-hover" alt="Detalle reloj acero negro">
+      </div>
+      <h3 class="producto-nombre">Reloj Acero Negro</h3>
+      <div class="actions">
+        <a class="btn-visit" href="https://wa.me/34678417026?text=Hola%20Mart%C3%ADnez%20Joyeros%2C%20me%20interesa%20el%20Reloj%20Negro." target="_blank" rel="noopener">Consultar</a>
+        <a class="btn" href="index.html#contacto">Ver en tienda</a>
+      </div>
+    </article>
+
+    <article class="producto-card plateado">
+      <div class="bf-img-wrap">
+        <span class="price-tag">49€</span>
+        <img src="imagenes/Reloj de Hombre Mark Maddox Marais.JPG" class="img-main" alt="Reloj hombre Mark Maddox Marais — Martínez Joyeros Alcalá de Henares" loading="lazy">
+      </div>
+      <h3 class="producto-nombre">Mark Maddox Marais</h3>
+      <div class="actions">
+        <a class="btn-visit" href="https://wa.me/34678417026?text=Hola%20Mart%C3%ADnez%20Joyeros%2C%20me%20interesa%20el%20reloj%20Mark%20Maddox%20Marais%20de%20hombre." target="_blank" rel="noopener">Consultar</a>
+        <a class="btn" href="index.html#contacto">Ver en tienda</a>
+      </div>
+    </article>
+
+    <article class="producto-card plateado">
+      <div class="bf-img-wrap">
+        <span class="price-tag">65€</span>
+        <img src="imagenes/Reloj Hombre Coral Mark Maddox.JPG" class="img-main" alt="Reloj hombre Coral Mark Maddox — Martínez Joyeros Alcalá de Henares" loading="lazy">
+      </div>
+      <h3 class="producto-nombre">Mark Maddox Coral</h3>
+      <div class="actions">
+        <a class="btn-visit" href="https://wa.me/34678417026?text=Hola%20Mart%C3%ADnez%20Joyeros%2C%20me%20interesa%20el%20reloj%20Mark%20Maddox%20Coral%20de%20hombre." target="_blank" rel="noopener">Consultar</a>
+        <a class="btn" href="index.html#contacto">Ver en tienda</a>
+      </div>
+    </article>
+
+    <article class="producto-card dorado">
+      <div class="bf-img-wrap">
+        <span class="price-tag">65€</span>
+        <img src="imagenes/Reloj Alfama Mark Maddox Mujer.JPG" class="img-main" alt="Reloj mujer Mark Maddox Alfama — Martínez Joyeros Alcalá de Henares" loading="lazy">
+      </div>
+      <h3 class="producto-nombre">Mark Maddox Alfama Mujer</h3>
+      <div class="actions">
+        <a class="btn-visit" href="https://wa.me/34678417026?text=Hola%20Mart%C3%ADnez%20Joyeros%2C%20me%20interesa%20el%20reloj%20Mark%20Maddox%20Alfama%20de%20mujer." target="_blank" rel="noopener">Consultar</a>
+        <a class="btn" href="index.html#contacto">Ver en tienda</a>
+      </div>
+    </article>
+
+    <article class="producto-card plateado">
+      <div class="bf-img-wrap">
+        <span class="price-tag">65€</span>
+        <img src="imagenes/Reloj Alfama 2 Mark Maddox Mujer.JPG" class="img-main" alt="Reloj mujer Mark Maddox Alfama 2 — Martínez Joyeros Alcalá de Henares" loading="lazy">
+      </div>
+      <h3 class="producto-nombre">Mark Maddox Alfama 2 Mujer</h3>
+      <div class="actions">
+        <a class="btn-visit" href="https://wa.me/34678417026?text=Hola%20Mart%C3%ADnez%20Joyeros%2C%20me%20interesa%20el%20reloj%20Mark%20Maddox%20Alfama%202%20de%20mujer." target="_blank" rel="noopener">Consultar</a>
+        <a class="btn" href="index.html#contacto">Ver en tienda</a>
+      </div>
+    </article>
+
+  </div>
+
+  <!-- ===== SEO LOCAL ===== -->
+  <section class="seo-local-content">
+    <div>
+      <h2>Tu Relojería de Referencia en el Corazón de Alcalá</h2>
+      <p>En <strong>Martínez Joyeros</strong>, sabemos que un reloj es mucho más que un accesorio — es un símbolo de los momentos que perduran. Nuestra selección de <strong>relojes en Alcalá de Henares</strong> combina precisión con diseños que nunca pasan de moda, para hombre y para mujer.</p>
+      <p>Somos distribuidores oficiales de <strong>Viceroy y Mark Maddox</strong> en Alcalá de Henares. Esto significa que encontrarás sus colecciones completas en nuestra tienda, con garantía oficial y servicio técnico de taller propio. Si buscas un modelo concreto de <strong>Viceroy</strong> o <strong>Mark Maddox</strong> que no aparece en la web, visítanos — tenemos mucho más stock en tienda.</p>
+      <p>Te invitamos a pasarte por nuestra tienda física, cerca de la <strong>Vía Complutense</strong> y a pocos pasos de la <strong>Plaza de Cervantes</strong>. Nuestros expertos te asesorarán para encontrar el reloj perfecto adaptado a tu estilo y presupuesto.</p>
     </div>
   </section>
+</section>
 
-  <footer class="footer">
-    © <span id="year"></span> · Martínez Joyeros | <a href="aviso-legal.html">Aviso legal</a>
-  </footer>
+<!-- ===== FAQ ===== -->
+<section class="faq-relojes" aria-labelledby="faq-relojes-title">
+  <h2 id="faq-relojes-title">Preguntas frecuentes sobre relojes en Alcalá de Henares</h2>
 
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-    const navToggle = document.querySelector('.nav-toggle');
-    const sideMenu = document.querySelector('.sidebar-menu');
-    const overlay = document.querySelector('.nav-overlay');
-    function toggleMenu() { sideMenu.classList.toggle('active'); overlay.classList.toggle('active'); }
-    if (navToggle) navToggle.addEventListener('click', toggleMenu);
-    
-    function filterProducts(category, button) {
-      document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
-      button.classList.add('active');
-      document.querySelectorAll('.producto-card').forEach(product => {
-        if (category === 'all' || product.classList.contains(category)) {
-          product.style.display = 'block';
-        } else {
-          product.style.display = 'none';
-        }
-      });
-    }
-  </script>
+  <details>
+    <summary>¿Dónde comprar relojes Viceroy en Alcalá de Henares?</summary>
+    <p>En <strong>Martínez Joyeros</strong>, en la Calle Marqués de Alonso Martínez 5. Somos distribuidores oficiales de <strong>Viceroy</strong> en Alcalá de Henares, con toda la colección disponible en tienda y garantía oficial de la marca.</p>
+  </details>
 
-  <script type="application/ld+json">
+  <details>
+    <summary>¿Sois distribuidores oficiales de Mark Maddox en Alcalá de Henares?</summary>
+    <p>Sí, somos distribuidores oficiales de <strong>Mark Maddox y Viceroy</strong> en Alcalá de Henares. Tenemos sus colecciones completas para hombre y mujer en nuestra tienda de la Calle Marqués de Alonso Martínez, 5.</p>
+  </details>
+
+  <details>
+    <summary>¿Hacéis cambio de correa y pila de reloj en Alcalá de Henares?</summary>
+    <p>Sí, disponemos de <strong>taller propio</strong> donde realizamos cambio de pila, cambio de correa y mantenimiento de relojería. Los trabajos básicos se realizan en el momento o en <strong>24 horas</strong>.</p>
+  </details>
+
+  <details>
+    <summary>¿Tenéis relojes para hombre y mujer en Alcalá de Henares?</summary>
+    <p>Sí, nuestra colección incluye <strong>relojes para hombre y para mujer</strong> de marcas como Viceroy y Mark Maddox, en diferentes estilos — desde relojes clásicos de acero hasta modelos más modernos con diseño bitono.</p>
+  </details>
+
+  <details>
+    <summary>¿Ofrecéis garantía en los relojes que vendéis?</summary>
+    <p>Sí, todos los relojes de marcas oficiales como <strong>Viceroy y Mark Maddox</strong> incluyen garantía oficial del fabricante. Además, como distribuidores autorizados, gestionamos cualquier incidencia o servicio técnico directamente con la marca.</p>
+  </details>
+</section>
+
+<!-- ===== CTA FINAL ===== -->
+<section class="store-cta" aria-labelledby="cta-relojes-title">
+  <div class="store-cta-content">
+    <h2 id="cta-relojes-title">¿Buscas un modelo específico?</h2>
+    <p>Nuestra web es solo una pequeña muestra. Ven a nuestra joyería en <strong>Alcalá de Henares</strong> y descubre las colecciones completas de <strong>Viceroy y Mark Maddox</strong> con asesoramiento de expertos.</p>
+    <a href="https://www.google.com/maps/search/?api=1&query=C.+Marqu%C3%A9s+Alonso+Mart%C3%ADnez,+5,+28805+Alcal%C3%A1+de+Henares,+Madrid"
+       target="_blank" rel="noopener" class="btn-mapa">
+      Ver ubicación en Mapa
+    </a>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  © <span id="year"></span> · Martínez Joyeros
+  <span class="sep">|</span>
+  <a href="aviso-legal.html">Aviso legal</a>
+  <span class="sep">·</span>
+  <a href="privacidad.html">Privacidad</a>
+  <span class="sep">·</span>
+  <a href="cookies.html">Cookies</a>
+</footer>
+
+<!-- ===== WHATSAPP ===== -->
+<a class="whatsapp-float" href="https://wa.me/34678417026" target="_blank" rel="noopener"
+   aria-label="Chatear por WhatsApp con Martínez Joyeros">
+  <svg viewBox="0 0 32 32" aria-hidden="true">
+    <path d="M19.11 17.76c-.29-.15-1.7-.84-1.97-.94-.26-.1-.45-.15-.64.15-.19.29-.74.94-.91 1.13-.17.19-.34.22-.63.07-.29-.15-1.22-.45-2.33-1.44-.86-.76-1.44-1.7-1.61-1.99-.17-.29-.02-.45.13-.6.13-.13.29-.34.44-.51.15-.17.19-.29.29-.48.1-.19.05-.36-.02-.51-.07-.15-.64-1.54-.88-2.11-.23-.55-.47-.48-.64-.49l-.55-.01c-.19 0-.5.07-.76.36-.26.29-1 1-1 2.43 0 1.43 1.02 2.81 1.16 3 .15.19 2.01 3.07 4.87 4.31.68.29 1.21.46 1.62.59.68.22 1.3.19 1.79.12.55-.08 1.7-.69 1.94-1.36.24-.67.24-1.24.17-1.36-.07-.12-.26-.2-.55-.35zM16.02 29C9.94 29 5 24.06 5 17.98 5 11.9 9.94 6.96 16.02 6.96c6.08 0 11.02 4.94 11.02 11.02S22.1 29 16.02 29zm0-24C9.39 5 4 10.39 4 17.02S9.39 29.04 16.02 29.04 28.04 23.65 28.04 17.02 22.65 5 16.02 5z"/>
+  </svg>
+</a>
+
+<!-- ===== SCRIPT UNIFICADO ===== -->
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  const navToggle = document.querySelector('.nav-toggle');
+  const navClose  = document.querySelector('.nav-close-btn');
+  const sideMenu  = document.querySelector('.sidebar-menu');
+  const overlay   = document.querySelector('.nav-overlay');
+
+  function toggleMenu() {
+    if (sideMenu) sideMenu.classList.toggle('active');
+    if (overlay)  overlay.classList.toggle('active');
+  }
+
+  if (navToggle) navToggle.addEventListener('click', toggleMenu);
+  if (navClose)  navClose.addEventListener('click', toggleMenu);
+  if (overlay)   overlay.addEventListener('click', toggleMenu);
+
+  function filterProducts(category, button) {
+    document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+    button.classList.add('active');
+    document.querySelectorAll('.producto-card').forEach(product => {
+      product.style.display = (category === 'all' || product.classList.contains(category)) ? 'block' : 'none';
+    });
+  }
+</script>
+
+<!-- ===== JSON-LD ===== -->
+<script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "ItemList",
-  "name": "Colección de Relojería Hombre y Mujer - Martínez Joyeros Alcalá",
-  "description": "Selección de relojes de precisión y moda en Alcalá de Henares. Distribuidor oficial de marcas como Viceroy y Mark Maddox.",
-  "url": "https://martinezeurodiamant.es/relojes.html",
-  "itemListElement": [
+  "@graph": [
     {
-      "@type": "ListItem",
-      "position": 1,
-      "name": "Reloj Viceroy Colección Air"
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://martinezeurodiamant.es/" },
+        { "@type": "ListItem", "position": 2, "name": "Relojes", "item": "https://martinezeurodiamant.es/relojes.html" }
+      ]
     },
     {
-      "@type": "ListItem",
-      "position": 2,
-      "name": "Reloj Mark Maddox Smartwatch"
+      "@type": "ItemList",
+      "name": "Colección de Relojes — Martínez Joyeros Alcalá de Henares",
+      "description": "Relojes para hombre y mujer en Alcalá de Henares. Distribuidores oficiales de Viceroy y Mark Maddox.",
+      "url": "https://martinezeurodiamant.es/relojes.html",
+      "numberOfItems": 9,
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Reloj Caja Bitono Dorado" },
+        { "@type": "ListItem", "position": 2, "name": "Reloj Caja de Acero Plateado" },
+        { "@type": "ListItem", "position": 3, "name": "Reloj Bitono Acero Plateado" },
+        { "@type": "ListItem", "position": 4, "name": "Reloj Acero Blanco" },
+        { "@type": "ListItem", "position": 5, "name": "Reloj Acero Negro" },
+        { "@type": "ListItem", "position": 6, "name": "Mark Maddox Marais Hombre" },
+        { "@type": "ListItem", "position": 7, "name": "Mark Maddox Coral Hombre" },
+        { "@type": "ListItem", "position": 8, "name": "Mark Maddox Alfama Mujer" },
+        { "@type": "ListItem", "position": 9, "name": "Mark Maddox Alfama 2 Mujer" }
+      ]
     },
     {
-      "@type": "ListItem",
-      "position": 3,
-      "name": "Reloj de Acero Clásico Martínez Joyeros"
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Dónde comprar relojes Viceroy en Alcalá de Henares?",
+          "acceptedAnswer": { "@type": "Answer", "text": "En Martínez Joyeros, en la Calle Marqués de Alonso Martínez 5. Somos distribuidores oficiales de Viceroy en Alcalá de Henares, con toda la colección disponible en tienda y garantía oficial de la marca." }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Sois distribuidores oficiales de Mark Maddox en Alcalá de Henares?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Sí, somos distribuidores oficiales de Mark Maddox y Viceroy en Alcalá de Henares. Tenemos sus colecciones completas para hombre y mujer en nuestra tienda de la Calle Marqués de Alonso Martínez, 5." }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Hacéis cambio de correa y pila de reloj en Alcalá de Henares?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Sí, disponemos de taller propio donde realizamos cambio de pila, cambio de correa y mantenimiento de relojería. Los trabajos básicos se realizan en el momento o en 24 horas." }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Tenéis relojes para hombre y mujer en Alcalá de Henares?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Sí, nuestra colección incluye relojes para hombre y para mujer de marcas como Viceroy y Mark Maddox, en diferentes estilos desde relojes clásicos de acero hasta modelos modernos con diseño bitono." }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Ofrecéis garantía en los relojes que vendéis?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Sí, todos los relojes de Viceroy y Mark Maddox incluyen garantía oficial del fabricante. Como distribuidores autorizados, gestionamos cualquier incidencia o servicio técnico directamente con la marca." }
+        }
+      ]
     }
   ]
 }
