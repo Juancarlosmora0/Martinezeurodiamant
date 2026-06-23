@@ -182,10 +182,8 @@ if (btnHistoria && textoHistoria) {
   });
 }
 
-// Nav toggle para páginas de catálogo (con nuevo header .nav-toggle/.nav-menu)
-// Guard: index.html tiene .hero-video y gestiona su propio nav con script inline
+// Nav toggle (header .nav-toggle/.nav-menu) — común a todas las páginas
 (function() {
-  if (document.querySelector('.hero-video')) return;
   const toggle = document.querySelector('.nav-toggle');
   const menu = document.querySelector('.nav-menu');
   if (!toggle || !menu) return;
@@ -435,4 +433,26 @@ if (btnSeoCollares) {
       }
     });
   });
+})();
+
+// ===== BANNER COOKIES =====
+(function () {
+  const banner = document.getElementById('cookie-banner');
+  const acceptBtn = document.getElementById('cookie-accept-btn');
+  if (!banner) return;
+
+  window.addEventListener('load', function () {
+    if (!localStorage.getItem('cookiesAccepted')) {
+      setTimeout(() => {
+        banner.style.transform = 'translateY(0)';
+      }, 2000);
+    }
+  });
+
+  if (acceptBtn) {
+    acceptBtn.addEventListener('click', function () {
+      localStorage.setItem('cookiesAccepted', 'true');
+      banner.style.transform = 'translateY(100%)';
+    });
+  }
 })();

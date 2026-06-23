@@ -368,6 +368,52 @@
       }
       .editorial-toggle { display: none; }
     }
+
+    /* ===== BANNER COOKIES ===== */
+    .cookie-banner {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background: var(--negro);
+      color: var(--blanco);
+      padding: 15px 20px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+      box-shadow: 0 -4px 20px rgba(0,0,0,0.15);
+      z-index: 999999;
+      transform: translateY(100%);
+      transition: transform 0.5s cubic-bezier(
+        0.25, 0.8, 0.25, 1);
+      font-family: 'Montserrat', sans-serif;
+    }
+    .cookie-texto {
+      margin: 0;
+      font-size: 0.9rem;
+      color: #e0e0e0;
+      max-width: 800px;
+      text-align: center;
+    }
+    .cookie-texto a {
+      color: var(--dorado);
+      text-decoration: underline;
+    }
+    .cookie-btn {
+      background: var(--dorado);
+      color: var(--blanco);
+      border: none;
+      padding: 10px 25px;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 0.85rem;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(200,164,98,0.3);
+      transition: transform 0.2s ease;
+    }
+    .cookie-btn:hover { transform: scale(1.05); }
   </style>
 
   <!-- JSON-LD: SEO Local Avanzado -->
@@ -525,7 +571,7 @@
     class="hero-video"
     autoplay muted loop playsinline
     poster="imagenes/HOVER.WEBP"
-    preload="none">
+    preload="metadata">
     <source src="imagenes/hero-video.mp4" type="video/mp4">
   </video>
   <div class="hero-overlay" aria-hidden="true"></div>
@@ -1019,106 +1065,22 @@
 </button>
 
 <!-- ===== BANNER COOKIES ===== -->
-<div id="cookie-banner" style="
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  background: #1F1E1C;
-  color: #fff;
-  padding: 15px 20px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  gap: 20px;
-  box-shadow: 0 -4px 20px rgba(0,0,0,0.15);
-  z-index: 999999;
-  transform: translateY(100%);
-  transition: transform 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
-  font-family: 'Montserrat', sans-serif;
-">
-  <p style="margin: 0; font-size: 0.9rem; color: #e0e0e0; max-width: 800px; text-align: center;">
-    Usamos cookies para mejorar tu experiencia y analizar el tráfico.
-    Al continuar navegando, aceptas su uso.
-    <a href="cookies.html" aria-label="Más información sobre nuestra política de cookies" style="color: #C8A462; text-decoration: underline;">Más información</a>.
+<div id="cookie-banner" class="cookie-banner">
+  <p class="cookie-texto">
+    Usamos cookies para mejorar tu experiencia
+    y analizar el tráfico. Al continuar navegando,
+    aceptas su uso.
+    <a href="cookies.html"
+       aria-label="Más información sobre nuestra
+       política de cookies">Más información</a>.
   </p>
-  <button onclick="acceptCookies()" style="
-    background: #C8A462;
-    color: #fff;
-    border: none;
-    padding: 10px 25px;
-    border-radius: 50px;
-    font-weight: 700;
-    font-size: 0.85rem;
-    cursor: pointer;
-    box-shadow: 0 4px 10px rgba(200, 164, 98, 0.3);
-    transition: transform 0.2s;
-  " onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+  <button id="cookie-accept-btn"
+          class="cookie-btn">
     ACEPTAR
   </button>
 </div>
 
 <script src="scripts.js" defer></script>
-
-<script>
-  // Año footer
-  document.getElementById('year').textContent = new Date().getFullYear();
-
-  // Menú hamburguesa
-  const navToggle = document.querySelector('.nav-toggle');
-  const navMenu = document.querySelector('.nav-menu');
-  const navLinks = document.querySelectorAll('.nav-menu a');
-  if (navToggle && navMenu) {
-    navToggle.addEventListener('click', () => {
-      navMenu.classList.toggle('active');
-      navToggle.classList.toggle('active');
-      navToggle.setAttribute('aria-expanded', navMenu.classList.contains('active'));
-    });
-    navLinks.forEach(link => {
-      link.addEventListener('click', () => {
-        if (link.classList.contains('nav-dropdown-trigger') && window.innerWidth <= 768) return;
-        navMenu.classList.remove('active');
-        navToggle.classList.remove('active');
-        navToggle.setAttribute('aria-expanded', 'false');
-      });
-    });
-  }
-
-  // Dropdown móvil — acordeón
-  const dropdownTriggers = document.querySelectorAll('.nav-dropdown-trigger');
-  dropdownTriggers.forEach(trigger => {
-    trigger.addEventListener('click', (e) => {
-      if (window.innerWidth <= 768) {
-        e.preventDefault();
-        const parent = trigger.closest('.nav-item-dropdown');
-        parent.classList.toggle('active');
-      }
-    });
-  });
-
-  // Reveal al scroll
-  const reveals = document.querySelectorAll('.reveal');
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('show'); observer.unobserve(e.target); } });
-  }, { threshold: 0.1 });
-  reveals.forEach(el => observer.observe(el));
-
-  // Banner cookies
-  window.addEventListener('load', function() {
-    if (!localStorage.getItem('cookiesAccepted')) {
-      setTimeout(() => {
-        const banner = document.getElementById('cookie-banner');
-        if (banner) banner.style.transform = 'translateY(0)';
-      }, 2000);
-    }
-  });
-  function acceptCookies() {
-    localStorage.setItem('cookiesAccepted', 'true');
-    const banner = document.getElementById('cookie-banner');
-    if (banner) banner.style.transform = 'translateY(100%)';
-  }
-</script>
 
 <div class="contact-modal-overlay" id="contact-modal"
      role="dialog" aria-modal="true"
