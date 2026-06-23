@@ -622,36 +622,6 @@
 <script>
   document.getElementById('year').textContent = new Date().getFullYear();
 
-  const navToggle = document.querySelector('.nav-toggle');
-  const navMenu = document.querySelector('.nav-menu');
-  const navLinks = document.querySelectorAll('.nav-menu a');
-  if (navToggle && navMenu) {
-    navToggle.addEventListener('click', () => {
-      navMenu.classList.toggle('active');
-      navToggle.classList.toggle('active');
-      navToggle.setAttribute('aria-expanded', navMenu.classList.contains('active'));
-    });
-    navLinks.forEach(link => {
-      link.addEventListener('click', () => {
-        if (link.classList.contains('nav-dropdown-trigger') && window.innerWidth <= 768) return;
-        navMenu.classList.remove('active');
-        navToggle.classList.remove('active');
-        navToggle.setAttribute('aria-expanded', 'false');
-      });
-    });
-  }
-
-  const dropdownTriggers = document.querySelectorAll('.nav-dropdown-trigger');
-  dropdownTriggers.forEach(trigger => {
-    trigger.addEventListener('click', (e) => {
-      if (window.innerWidth <= 768) {
-        e.preventDefault();
-        const parent = trigger.closest('.nav-item-dropdown');
-        parent.classList.toggle('active');
-      }
-    });
-  });
-
   window.addEventListener('load', function() {
     if (!localStorage.getItem('cookiesAccepted')) {
       setTimeout(() => {
