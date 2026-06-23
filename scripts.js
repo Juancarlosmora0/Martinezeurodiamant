@@ -157,18 +157,6 @@ document.querySelectorAll('.producto .media').forEach(box=>{
   const done = () => box.classList.add('loaded');
   if (img.complete) done(); else img.addEventListener('load', done, {once:true});
 });
-/* ==== Reveal on scroll ==== */
-(() => {
-  const els = document.querySelectorAll('.reveal');
-  if (!('IntersectionObserver' in window) || !els.length) {
-    els.forEach(el => el.classList.add('in'));
-    return;
-  }
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach(e => { if (e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
-  }, { rootMargin: '0px 0px -10% 0px', threshold: .1 });
-  els.forEach(el => io.observe(el));
-})();
 // Acordeón Historia
 const btnHistoria = document.getElementById('btnHistoria');
 const textoHistoria = document.getElementById('textoHistoria');
@@ -255,26 +243,46 @@ if (btnSeoCollares) {
 
 // ===== LOOKBOOK FLECHAS =====
 (function () {
-  const slider  = document.querySelector('.lookbook-slider');
-  const btnPrev = document.querySelector('.lookbook-arrow--prev');
-  const btnNext = document.querySelector('.lookbook-arrow--next');
+  const slider  = document.querySelector(
+    '.lookbook-slider');
+  const btnPrev = document.querySelector(
+    '.lookbook-arrow--prev');
+  const btnNext = document.querySelector(
+    '.lookbook-arrow--next');
 
   if (!slider || !btnPrev || !btnNext) return;
 
+  let cachedSlideWidth = null;
+
   function getSlideWidth() {
-    const slide = slider.querySelector('.lookbook-slide');
+    if (cachedSlideWidth) return cachedSlideWidth;
+    const slide = slider.querySelector(
+      '.lookbook-slide');
     if (!slide) return slider.offsetWidth;
-    const style = window.getComputedStyle(slider);
-    const gap = parseFloat(style.gap) || 4;
-    return slide.offsetWidth + gap;
+    const gap = parseFloat(
+      window.getComputedStyle(slider).gap
+    ) || 4;
+    cachedSlideWidth = slide.offsetWidth + gap;
+    return cachedSlideWidth;
   }
 
+  // Invalidar caché al redimensionar ventana
+  window.addEventListener('resize', function () {
+    cachedSlideWidth = null;
+  }, { passive: true });
+
   btnNext.addEventListener('click', function () {
-    slider.scrollBy({ left: getSlideWidth(), behavior: 'smooth' });
+    slider.scrollBy({
+      left: getSlideWidth(),
+      behavior: 'smooth'
+    });
   });
 
   btnPrev.addEventListener('click', function () {
-    slider.scrollBy({ left: -getSlideWidth(), behavior: 'smooth' });
+    slider.scrollBy({
+      left: -getSlideWidth(),
+      behavior: 'smooth'
+    });
   });
 })();
 
