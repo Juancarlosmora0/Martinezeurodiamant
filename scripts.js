@@ -98,6 +98,7 @@ if ('IntersectionObserver' in window) {
 document.querySelectorAll('a[href^="#"]').forEach(a => {
   a.addEventListener('click', e => {
     const id = a.getAttribute('href');
+    if (!id || id.length <= 1) return; // href="#" vacío: no es un ancla real
     const el = document.querySelector(id);
     if (!el) return; // Si no hay destino, no hacemos nada
     e.preventDefault();
@@ -168,20 +169,270 @@ document.querySelectorAll('.producto .media').forEach(box=>{
   }, { rootMargin: '0px 0px -10% 0px', threshold: .1 });
   els.forEach(el => io.observe(el));
 })();
-/* ==== Tema Navidad automático + overrides por URL ==== */
-(() => {
-  const now = new Date(); 
-  const y = now.getFullYear();
-  const start = new Date(y, 10, 1); // 1 nov
-  const end   = new Date(y+1, 0, 7, 23, 59, 59); // 7 ene
-  const qs = new URLSearchParams(location.search);
-  const force = qs.get('theme'); // ?theme=xmas / ?theme=off
-  const body = document.body;
+// Acordeón Historia
+const btnHistoria = document.getElementById('btnHistoria');
+const textoHistoria = document.getElementById('textoHistoria');
 
-  const enableXmas = () => { body.classList.add('theme-xmas'); /* opcional nieve: */ body.classList.add('snow'); };
-  const disableXmas = () => { body.classList.remove('theme-xmas','snow'); };
+if (btnHistoria && textoHistoria) {
+  btnHistoria.addEventListener('click', () => {
+    textoHistoria.classList.toggle('abierto');
+    const estaAbierto = textoHistoria.classList.contains('abierto');
+    btnHistoria.setAttribute('aria-expanded', estaAbierto);
+    btnHistoria.innerHTML = estaAbierto ? 'Ocultar historia ↑' : 'Conoce nuestra historia ↓';
+  });
+}
 
-  if (force === 'xmas') enableXmas();
-  else if (force === 'off') disableXmas();
-  else if (now >= start && now <= end) enableXmas();
+// Nav toggle para páginas de catálogo (con nuevo header .nav-toggle/.nav-menu)
+// Guard: index.html tiene .hero-video y gestiona su propio nav con script inline
+(function() {
+  if (document.querySelector('.hero-video')) return;
+  const toggle = document.querySelector('.nav-toggle');
+  const menu = document.querySelector('.nav-menu');
+  if (!toggle || !menu) return;
+  toggle.addEventListener('click', () => {
+    menu.classList.toggle('active');
+    toggle.classList.toggle('active');
+    toggle.setAttribute('aria-expanded', menu.classList.contains('active'));
+  });
+  menu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      if (link.classList.contains('nav-dropdown-trigger') && window.innerWidth <= 768) return;
+      menu.classList.remove('active');
+      toggle.classList.remove('active');
+      toggle.setAttribute('aria-expanded', 'false');
+    });
+  });
+  document.querySelectorAll('.nav-dropdown-trigger').forEach(trigger => {
+    trigger.addEventListener('click', (e) => {
+      if (window.innerWidth <= 768) {
+        e.preventDefault();
+        trigger.closest('.nav-item-dropdown').classList.toggle('active');
+      }
+    });
+  });
+})();
+
+// Filtros de catálogo por botones (.ani-filtro)
+// Acepta llamada directa vía onclick (anillos.html) o via data-filter (pulseras.html, etc.)
+function filterProducts(category, button) {
+  document.querySelectorAll('.ani-filtro').forEach(btn => btn.classList.remove('active'));
+  button.classList.add('active');
+  document.querySelectorAll('.producto-card').forEach(product => {
+    product.style.display = (category === 'all' || product.classList.contains(category)) ? '' : 'none';
+  });
+}
+
+// Inicializar filtros data-filter (sin onclick inline)
+document.querySelectorAll('.ani-filtro[data-filter]').forEach(btn => {
+  btn.addEventListener('click', () => filterProducts(btn.dataset.filter, btn));
+});
+
+// Acordeón SEO categorías
+function toggleSeo(id, btnId) {
+  const content = document.getElementById(id);
+  const btn = document.getElementById(btnId);
+  if (!content || !btn) return;
+
+  const estaAbierto = content.classList.contains('abierto');
+  content.classList.toggle('abierto');
+  btn.setAttribute('aria-expanded', !estaAbierto);
+  btn.innerHTML = estaAbierto ? 'Leer más ↓' : 'Leer menos ↑';
+}
+
+// Inicializar acordeón SEO en cada página
+const btnSeoPendientes = document.getElementById('btnSeoPendientes');
+if (btnSeoPendientes) {
+  btnSeoPendientes.addEventListener('click', () => {
+    toggleSeo('seoCatPendientes', 'btnSeoPendientes');
+  });
+}
+
+// Acordeón SEO Collares
+const btnSeoCollares = document.getElementById('btnSeoCollares');
+if (btnSeoCollares) {
+  btnSeoCollares.addEventListener('click', () => {
+    toggleSeo('seoCatCollares', 'btnSeoCollares');
+  });
+}
+
+// ===== LOOKBOOK FLECHAS =====
+(function () {
+  const slider  = document.querySelector('.lookbook-slider');
+  const btnPrev = document.querySelector('.lookbook-arrow--prev');
+  const btnNext = document.querySelector('.lookbook-arrow--next');
+
+  if (!slider || !btnPrev || !btnNext) return;
+
+  function getSlideWidth() {
+    const slide = slider.querySelector('.lookbook-slide');
+    if (!slide) return slider.offsetWidth;
+    const style = window.getComputedStyle(slider);
+    const gap = parseFloat(style.gap) || 4;
+    return slide.offsetWidth + gap;
+  }
+
+  btnNext.addEventListener('click', function () {
+    slider.scrollBy({ left: getSlideWidth(), behavior: 'smooth' });
+  });
+
+  btnPrev.addEventListener('click', function () {
+    slider.scrollBy({ left: -getSlideWidth(), behavior: 'smooth' });
+  });
+})();
+
+// ===== EDITORIAL VER MÁS =====
+(function () {
+  const btn = document.querySelector('.editorial-toggle');
+  const parrafo = document.getElementById(
+    'editorial-segundo-parrafo'
+  );
+  const label = document.querySelector(
+    '.editorial-toggle-label'
+  );
+
+  if (!btn || !parrafo || !label) return;
+
+  btn.addEventListener('click', function () {
+    const abierto = parrafo.classList.toggle(
+      'editorial-abierto'
+    );
+    btn.setAttribute('aria-expanded', abierto);
+    label.textContent = abierto ? '- Ver menos' : '+ Ver más';
+  });
+})();
+
+// ===== MODAL CONTACTO =====
+(function () {
+  const trigger  = document.getElementById(
+    'contact-float-trigger');
+  const modal    = document.getElementById(
+    'contact-modal');
+  const closeBtn = document.getElementById(
+    'contact-modal-close');
+  const form     = document.getElementById(
+    'contact-modal-form');
+  const feedback = document.getElementById(
+    'contact-feedback');
+  const submitBtn = document.getElementById(
+    'contact-submit-btn');
+  const subjectHeader = document.getElementById(
+    'form-subject-header');
+  const asuntoInput = document.getElementById(
+    'contact-asunto');
+
+  if (!trigger || !modal) return;
+
+  function abrirModal() {
+    modal.classList.add('modal-abierto');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function cerrarModal() {
+    modal.classList.remove('modal-abierto');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
+  trigger.addEventListener('click', abrirModal);
+
+  if (closeBtn) {
+    closeBtn.addEventListener('click', cerrarModal);
+  }
+
+  modal.addEventListener('click', function (e) {
+    if (e.target === modal) cerrarModal();
+  });
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') cerrarModal();
+  });
+
+  if (form) {
+    form.addEventListener('submit', async function (e) {
+      e.preventDefault();
+
+      const nombre = document.getElementById(
+        'contact-nombre').value.trim();
+      const asunto = asuntoInput
+        ? asuntoInput.value.trim() : '';
+      if (subjectHeader) {
+        subjectHeader.value =
+          '[WEB CONSULTA] - ' + asunto +
+          ' (De: ' + nombre + ')';
+      }
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Enviando...';
+      feedback.textContent = '';
+      feedback.className = 'contact-modal-feedback';
+
+      try {
+        const data = new FormData(form);
+        const response = await fetch(
+          'https://api.web3forms.com/submit',
+          {
+            method: 'POST',
+            body: data
+          }
+        );
+        const result = await response.json();
+
+        if (result.success) {
+          feedback.textContent =
+            'Mensaje enviado. Te contactamos pronto.';
+          feedback.classList.add('exito');
+          form.reset();
+          setTimeout(cerrarModal, 2500);
+        } else {
+          throw new Error('Error en el envío');
+        }
+      } catch {
+        feedback.textContent =
+          'Ha ocurrido un error. Inténtalo de nuevo.';
+        feedback.classList.add('error');
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'ENVIAR MENSAJE';
+      }
+    });
+  }
+})();
+
+// ===== TRIGGERS DISEÑO Y JOYERÍA =====
+(function () {
+  const modal      = document.getElementById(
+    'contact-modal');
+  const asuntoInput = document.getElementById(
+    'contact-asunto');
+
+  if (!modal) return;
+
+  document.querySelectorAll(
+    '[data-modal-trigger="true"]'
+  ).forEach(function (el) {
+    el.addEventListener('click', function (e) {
+      e.preventDefault();
+
+      // Autorrellenar asunto si existe el campo
+      const asunto = el.getAttribute('data-asunto');
+      if (asuntoInput && asunto) {
+        asuntoInput.value = asunto;
+      }
+
+      // Abrir modal
+      modal.classList.add('modal-abierto');
+      modal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+
+      // Foco en el primer campo
+      const primerCampo = modal.querySelector(
+        'input:not([type="hidden"])');
+      if (primerCampo) {
+        setTimeout(function () {
+          primerCampo.focus();
+        }, 300);
+      }
+    });
+  });
 })();

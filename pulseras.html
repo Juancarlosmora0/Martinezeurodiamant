@@ -1,29 +1,27 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#F6F0E7">
+  <meta name="theme-color" content="#F5F0E8">
 
-  <title>Pulseras y Brazaletes en Alcalá de Henares | Martínez Joyeros</title>
-  <meta name="description" content="Pulseras y brazaletes de oro y plata en Alcalá de Henares. Diseños exclusivos de Vidal & Vidal, Viceroy, Fidda y Sobrani. Más de 30 años de experiencia. Visítanos en Calle Marqués de Alonso Martínez, 5.">
+  <title>Pulseras y Brazaletes en Alcalá de Henares desde 19,95€ | Martínez Joyeros</title>
+  <meta name="description" content="Colección de pulseras y brazaletes en Alcalá de Henares desde 19,95€. Diseños de Vidal & Vidal y Luxenter. Visítanos en el centro histórico de Alcalá de Henares.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://martinezeurodiamant.es/pulseras.html">
 
-  <!-- Preload imagen LCP -->
-  <link rel="preload" as="image" href="imagenes/pulseras-og.jpg">
+  <link rel="preload" as="image" href="imagenes/pulseras portada.webp" fetchpriority="high">
 
-  <!-- Open Graph -->
   <meta property="og:title" content="Pulseras y Brazaletes en Alcalá de Henares | Martínez Joyeros">
-  <meta property="og:description" content="Pulseras y brazaletes de oro y plata. Distribuidores oficiales de Vidal & Vidal, Viceroy, Fidda y Sobrani en Alcalá de Henares.">
+  <meta property="og:description" content="Brazaletes rígidos, pulseras de eslabones y diseños con acabado PVD. Distribuidores oficiales de Vidal & Vidal, Fidda y Sobrani en Alcalá de Henares.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://martinezeurodiamant.es/pulseras.html">
-  <meta property="og:image" content="https://martinezeurodiamant.es/imagenes/pulseras-og.jpg">
+  <meta property="og:image" content="https://martinezeurodiamant.es/imagenes/pulseras portada.webp">
 
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Pulseras y Brazaletes en Alcalá de Henares | Martínez Joyeros">
-  <meta name="twitter:description" content="Diseños exclusivos en oro y plata. Distribuidores de Vidal & Vidal y Viceroy en Alcalá de Henares.">
-  <meta name="twitter:image" content="https://martinezeurodiamant.es/imagenes/pulseras-og.jpg">
+  <meta name="twitter:description" content="Brazaletes rígidos, pulseras de eslabones y diseños con acabado PVD. Distribuidores en Alcalá de Henares.">
+  <meta name="twitter:image" content="https://martinezeurodiamant.es/imagenes/pulseras portada.webp">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -31,710 +29,1172 @@
   <link rel="stylesheet" href="style.css">
 
   <style>
-    /* ===== HEADER FIJO ===== */
-    .main-header {
-      background-color: #F6F0E7;
-      padding: 15px 20px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%;
-      box-sizing: border-box;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-      z-index: 1000;
-    }
+    /* Compensa el espacio del header fijo */
     body { padding-top: 70px; }
 
-    .logo a {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.5rem;
-      font-weight: 600;
-      color: #1a1a1a;
+    /* ===== BREADCRUMB ===== */
+    .breadcrumb {
+      padding: 1rem 2rem;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.8rem;
+      color: var(--gris);
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .breadcrumb a {
+      color: var(--negro);
       text-decoration: none;
-      letter-spacing: 0.5px;
+      transition: color 0.3s;
+    }
+    .breadcrumb a:hover { color: var(--dorado); }
+    .breadcrumb__sep {
+      margin: 0 0.5rem;
+      color: var(--dorado);
+    }
+    .breadcrumb__actual {
+      color: var(--gris);
+      font-weight: 500;
+    }
+
+    /* ===== HERO ===== */
+    .ani-hero {
+      padding: 5rem 2rem 3rem;
+      text-align: center;
+      background-color: var(--crema);
+    }
+    .ani-hero__titulo {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      color: var(--negro);
+      margin-bottom: 1rem;
+    }
+    .ani-hero__sub {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1rem;
+      color: var(--gris);
+      max-width: 600px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+    .ani-hero__sub::after {
+      content: '';
+      display: block;
+      width: 60%;
+      height: 1px;
+      background-color: var(--dorado);
+      margin: 2rem auto 0;
+      opacity: 0.4;
     }
 
     /* ===== FILTROS ===== */
-    .filter-btn {
-      background: transparent;
-      border: 1px solid #D6B76E;
-      color: #1a1a1a;
-      padding: 10px 25px;
-      margin: 0 5px;
-      cursor: pointer;
-      font-family: 'Montserrat', sans-serif;
-      font-size: 0.9rem;
-      font-weight: 500;
-      transition: all 0.3s ease;
-      border-radius: 4px;
-      min-height: 44px;
+    .ani-filtros {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      padding: 2rem 1rem;
+      flex-wrap: wrap;
     }
-    .filter-btn:hover, .filter-btn.active {
-      background-color: #D6B76E;
-      color: white;
-      box-shadow: 0 4px 10px rgba(214, 183, 110, 0.3);
+    .ani-filtro {
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid transparent;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      color: var(--gris);
+      cursor: pointer;
+      padding: 0.25rem 0;
+      text-transform: uppercase;
+      transition: all 0.3s ease;
+      min-height: 48px;
+    }
+    .ani-filtro:hover,
+    .ani-filtro.active {
+      color: var(--negro);
+      border-bottom-color: var(--dorado);
     }
 
-    /* ===== IMAGEN CON HOVER ===== */
+    /* ===== GRID DE PRODUCTOS ===== */
+    .catalogo-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 3rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem 4rem;
+    }
+    @media (max-width: 768px) {
+      .catalogo-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem 1rem;
+        padding: 0 1rem 3rem;
+      }
+    }
+
+    /* ===== IMAGEN HOVER ===== */
     .bf-img-wrap {
       position: relative;
       overflow: hidden;
       aspect-ratio: 1/1;
     }
+    .img-hover {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      transition: opacity 0.3s ease-in-out;
+    }
+    .producto-card:hover .img-hover { opacity: 1; }
     .img-main {
       width: 100%;
       height: 100%;
       object-fit: cover;
       display: block;
     }
-    .img-hover {
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      object-fit: cover;
-      opacity: 0;
-      transition: opacity 0.3s ease-in-out;
-    }
-    .producto-card:hover .img-hover { opacity: 1; }
 
-    /* ===== BURBUJA PRECIO ===== */
-    .price-tag {
-      position: absolute;
-      top: 15px; right: 15px;
-      background: rgba(255, 255, 255, 0.95);
-      color: #1a1a1a;
-      padding: 6px 14px;
-      border-radius: 30px;
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 600;
-      font-size: 0.85rem;
-      z-index: 5;
-      border: 1px solid #D6B76E;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-      letter-spacing: 0.5px;
-    }
-
-    /* ===== TARJETA — MOBILE FIRST ===== */
+    /* ===== TARJETA INFO ===== */
     .producto-card {
       position: relative;
-      background: #fff;
-      border-radius: 14px;
-      overflow: hidden;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.06);
-      border: 1px solid rgba(0,0,0,0.05);
       display: flex;
       flex-direction: column;
-      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      height: 100%;
     }
-    .producto-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 10px 28px rgba(0,0,0,0.10);
-    }
-
-    /* ===== BOTONES — COLUMNA EN MÓVIL, FILA EN ESCRITORIO ===== */
-    .producto-card .actions {
-      display: flex;
-      flex-direction: column;
-      gap: 7px;
-      padding: 8px 12px 14px;
-      margin-top: auto;
-    }
-    .producto-card .actions a {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 44px;
-      border-radius: 10px;
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 600;
-      font-size: 0.85rem;
-      text-decoration: none;
-      transition: all 0.2s ease;
+    .ani-card-info {
+      padding: 1rem 0 0;
       text-align: center;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
     }
-    .producto-card .actions .btn-visit {
-      background: linear-gradient(90deg, #F4E4B0, #D6B76E, #A37F43);
-      color: #2a1f12;
-      border: none;
-      box-shadow: 0 2px 8px rgba(214,183,110,0.2);
+    .ani-card-nombre {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--negro);
+      margin-bottom: 0.75rem;
     }
-    .producto-card .actions .btn-visit:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 4px 14px rgba(214,183,110,0.4);
-    }
-    .producto-card .actions .btn {
-      background: #fff;
-      border: 1px solid #d8d0c4;
-      color: #4a433a;
-    }
-    .producto-card .actions .btn:hover { border-color: #C8A462; color: #C8A462; }
-
-    @media (min-width: 500px) {
-      .producto-card .actions { flex-direction: row; }
-      .producto-card .actions a { flex: 1; }
-    }
-
     /* ===== SEO LOCAL ===== */
-    .seo-local-content {
-      padding: 60px 20px;
-      background-color: #ffffff;
+    .ani-seo {
+      background-color: var(--blanco);
       border-top: 1px solid #f0f0f0;
+      padding: 4rem 2rem;
     }
-    .seo-local-content > div {
+    .ani-seo__inner {
       max-width: 900px;
       margin: 0 auto;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.95rem;
       line-height: 1.8;
       color: #444;
-      font-family: 'Montserrat', sans-serif;
     }
-    .seo-local-content h2 {
+    .ani-seo__titulo {
       font-family: 'Playfair Display', serif;
-      color: #1a1a1a;
-      font-size: clamp(1.4rem, 3vw, 2rem);
-      margin-bottom: 25px;
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      color: var(--negro);
+      margin-bottom: 1.5rem;
       text-align: center;
     }
-    .seo-local-content p { margin-bottom: 20px; }
+    .ani-seo__inner p {
+      margin-bottom: 1.25rem;
+    }
+
+    /* ===== SEO DETAILS (acordeón nativo HTML5) ===== */
+    .ani-seo-details summary {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--dorado);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      list-style: none;
+      margin-top: 1rem;
+    }
+    .ani-seo-details summary::-webkit-details-marker { display: none; }
+    .ani-seo-details summary::after {
+      content: '＋';
+      font-size: 1rem;
+      transition: transform 0.2s ease;
+    }
+    .ani-seo-details[open] summary::after { transform: rotate(45deg); }
+    .ani-seo-extra { margin-top: 1rem; }
 
     /* ===== FAQ ===== */
-    .faq-pulseras {
-      padding: 40px 20px 60px;
-      background: #F6F0E7;
+    .ani-faq {
+      padding: 4rem 2rem;
+      background-color: var(--crema);
       border-top: 1px solid rgba(0,0,0,0.05);
     }
-    .faq-pulseras h2 {
+    .ani-faq-inner {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .ani-faq h2 {
       font-family: 'Playfair Display', serif;
       font-size: clamp(1.3rem, 3vw, 1.8rem);
       text-align: center;
-      margin-bottom: 24px;
-      color: #1a1a1a;
+      margin-bottom: 2rem;
+      color: var(--negro);
     }
-    .faq-pulseras details {
-      background: #fff;
-      border-radius: 10px;
-      padding: 14px 18px;
-      margin-bottom: 10px;
-      max-width: 800px;
-      margin-left: auto;
-      margin-right: auto;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-      border: 1px solid rgba(0,0,0,0.05);
+    .ani-faq details {
+      background: var(--blanco);
+      border-bottom: 1px solid rgba(0,0,0,0.07);
+      padding: 1rem 0;
     }
-    .faq-pulseras summary {
+    .ani-faq details:first-of-type { border-top: 1px solid rgba(0,0,0,0.07); }
+    .ani-faq summary {
+      font-family: 'Montserrat', sans-serif;
       font-weight: 600;
-      cursor: pointer;
       font-size: 0.95rem;
-      color: #1a1a1a;
-      line-height: 1.4;
+      color: var(--negro);
+      cursor: pointer;
       list-style: none;
-      padding-right: 28px;
+      padding: 0.25rem 2rem 0.25rem 0;
       position: relative;
+      line-height: 1.5;
+      min-height: 48px;
+      display: flex;
+      align-items: center;
     }
-    .faq-pulseras summary::-webkit-details-marker { display: none; }
-    .faq-pulseras summary::after {
+    .ani-faq summary::-webkit-details-marker { display: none; }
+    .ani-faq summary::after {
       content: '+';
       position: absolute;
-      right: 0; top: 0;
-      color: #C8A462;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--dorado);
       font-size: 1.3rem;
       line-height: 1;
       transition: transform 0.2s;
     }
-    .faq-pulseras details[open] summary::after { transform: rotate(45deg); }
-    .faq-pulseras details p {
-      margin-top: 10px;
-      color: #555;
+    .ani-faq details[open] summary::after {
+      transform: translateY(-50%) rotate(45deg);
+    }
+    .ani-faq details p {
+      font-family: 'Montserrat', sans-serif;
       font-size: 0.92rem;
+      color: var(--gris);
       line-height: 1.7;
+      margin-top: 0.75rem;
+      padding-right: 1rem;
     }
 
-    /* ===== CTA FINAL ===== */
+    /* ===== STORE CTA ===== */
     .store-cta {
-      background: linear-gradient(135deg, #1F1E1C 0%, #2c2a28 100%);
-      color: #fff;
+      background-color: var(--negro);
+      color: var(--blanco);
       padding: 4rem 1.5rem;
       text-align: center;
-      border-top: 4px solid #C8A462;
+      border-top: 2px solid var(--dorado);
     }
-    .store-cta-content { max-width: 700px; margin: 0 auto; }
+    .store-cta-content {
+      max-width: 700px;
+      margin: 0 auto;
+    }
     .store-cta h2 {
       font-family: 'Playfair Display', serif;
       font-size: clamp(1.6rem, 3vw, 2.4rem);
       margin-bottom: 1rem;
-      background: linear-gradient(90deg, #F9ECC8, #C8A462);
-      -webkit-background-clip: text;
-      background-clip: text;
-      -webkit-text-fill-color: transparent;
+      color: var(--dorado);
     }
     .store-cta p {
-      color: #dcdcdc;
+      font-family: 'Montserrat', sans-serif;
       font-size: clamp(0.95rem, 2vw, 1.1rem);
       line-height: 1.7;
       margin-bottom: 2rem;
+      color: #dcdcdc;
     }
-    .store-cta p strong { color: #C8A462; }
+    .store-cta p strong { color: var(--dorado); }
     .btn-mapa {
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      background: #C8A462;
-      color: #fff;
+      background-color: var(--dorado);
+      color: var(--blanco);
       font-family: 'Montserrat', sans-serif;
       font-weight: 600;
       padding: 1rem 2rem;
-      border-radius: 999px;
       text-decoration: none;
       font-size: 0.9rem;
-      box-shadow: 0 6px 20px rgba(200,164,98,0.3);
-      transition: all 0.3s ease;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      transition: opacity 0.3s ease;
       min-height: 52px;
     }
-    .btn-mapa:hover { transform: translateY(-2px); box-shadow: 0 10px 28px rgba(200,164,98,0.5); background: #d4b06e; }
-
-    /* ===== FOOTER ===== */
-    .footer {
-      background: #1f1e1c;
-      color: #aaa;
-      padding: 20px;
-      text-align: center;
-      font-size: 0.85rem;
-      font-family: 'Montserrat', sans-serif;
-    }
-    .footer a { color: #C8A462; text-decoration: none; }
-    .footer a:hover { color: #fff; }
-    .footer .sep { margin: 0 6px; opacity: 0.4; }
-
-    /* ===== WHATSAPP ===== */
-    .whatsapp-float {
-      position: fixed; right: 18px; bottom: 18px; z-index: 9999;
-      width: 56px; height: 56px; border-radius: 50%;
-      background: #25D366;
-      display: flex; align-items: center; justify-content: center;
-      box-shadow: 0 10px 22px rgba(0,0,0,0.2);
-      transition: transform 0.2s ease;
-    }
-    .whatsapp-float:hover { transform: translateY(-2px); }
-    .whatsapp-float svg { width: 28px; height: 28px; fill: #fff; }
+    .btn-mapa:hover { opacity: 0.85; }
 
     /* ===== REDUCE MOTION ===== */
     @media (prefers-reduced-motion: reduce) {
       * { transition: none !important; animation: none !important; }
     }
-    /* ===== FORZAR VISIBILIDAD FAQ ===== */
-.faq-pulseras {
-  display: block !important;
-  visibility: visible !important;
-  opacity: 1 !important;
-}
 
-.faq-pulseras details {
-  display: block !important;
-}
+    /* ===== FAQ TARJETAS — Heritage Minimalista ===== */
+    .ani-faq-inner,
+    .faq-collares,
+    .faq-pendientes,
+    .faq-anillos {
+      max-width: 800px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      background: transparent;
+      padding: 48px 20px 64px;
+    }
+    .ani-faq-inner h2,
+    .faq-collares h2,
+    .faq-pendientes h2,
+    .faq-anillos h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.3rem, 3vw, 1.8rem);
+      color: var(--negro);
+      text-align: center;
+      margin-bottom: 8px;
+    }
+    .ani-faq-inner details,
+    .faq-collares details,
+    .faq-pendientes details,
+    .faq-anillos details {
+      background: var(--blanco);
+      border-radius: 8px;
+      padding: 0 20px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+      border: 1px solid rgba(0,0,0,0.05);
+    }
+    .ani-faq-inner details summary,
+    .faq-collares details summary,
+    .faq-pendientes details summary,
+    .faq-anillos details summary {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: var(--negro);
+      padding: 20px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      list-style: none;
+      line-height: 1.4;
+    }
+    .ani-faq-inner details summary::-webkit-details-marker,
+    .faq-collares details summary::-webkit-details-marker,
+    .faq-pendientes details summary::-webkit-details-marker,
+    .faq-anillos details summary::-webkit-details-marker { display: none; }
+    .ani-faq-inner details summary::after,
+    .faq-collares details summary::after,
+    .faq-pendientes details summary::after,
+    .faq-anillos details summary::after {
+      content: '+';
+      color: var(--dorado);
+      font-size: 1.3rem;
+      line-height: 1;
+      flex-shrink: 0;
+      margin-left: 12px;
+      transition: transform 0.2s ease;
+    }
+    .ani-faq-inner details[open] summary::after,
+    .faq-collares details[open] summary::after,
+    .faq-pendientes details[open] summary::after,
+    .faq-anillos details[open] summary::after {
+      transform: rotate(45deg);
+    }
+    .ani-faq-inner details p,
+    .faq-collares details p,
+    .faq-pendientes details p,
+    .faq-anillos details p {
+      padding-bottom: 20px;
+      color: var(--gris);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.92rem;
+      line-height: 1.7;
+      margin-top: 0;
+    }
 
-.faq-pulseras summary {
-  display: list-item !important;
-}
+    /* ===== PRECIO DESDE — HERO ===== */
+    .ani-hero-desde {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--dorado);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-top: 15px;
+      margin-bottom: 0;
+    }
+
+    /* ===== FRASE GANCHO HERO (solo móvil) ===== */
+    .ani-hero-gancho {
+      display: none;
+    }
+    @media (max-width: 767px) {
+      .ani-hero-gancho {
+        display: block;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 0.9rem;
+        font-weight: 400;
+        color: var(--gris);
+        text-align: center;
+        margin-bottom: 8px;
+        line-height: 1.5;
+      }
+      .ani-hero__sub {
+        display: none;
+      }
+    }
   </style>
 </head>
 <body>
 
 <!-- ===== HEADER ===== -->
 <header class="main-header">
+  <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+
   <div class="logo">
     <a href="index.html">Martínez Joyeros</a>
   </div>
-  <button class="nav-toggle always-visible" aria-label="Abrir menú de navegación">
-    <span></span><span></span><span></span>
-  </button>
-  <div class="nav-overlay"></div>
-  <nav class="sidebar-menu">
-    <div class="nav-mobile-header">
-      <span class="nav-mobile-title">Menú</span>
-      <button class="nav-close-btn">&times;</button>
-    </div>
+
+  <nav class="nav-menu" aria-label="Navegación principal">
     <ul>
       <li><a href="index.html">Inicio</a></li>
-      <li><a href="anillos.html">Anillos</a></li>
-      <li><a href="pendientes.html">Pendientes</a></li>
-      <li><a href="collares.html">Collares</a></li>
-      <li><a href="pulseras.html" style="font-weight:bold; color:#C8A462;">Pulseras</a></li>
-      <li><a href="relojes.html">Relojes</a></li>
-      <li style="margin-top: 15px; border-top: 1px solid #f5f5f5;">
-        <a href="index.html#contacto" style="color: #333;">📍 Contacto y Tienda</a>
+      <li><a href="index.html#lookbook-verano">Tendencias</a></li>
+      <li class="nav-item-dropdown">
+        <a href="colecciones.html" class="nav-dropdown-trigger">
+          Colecciones <span class="dropdown-arrow">▾</span>
+        </a>
+        <div class="nav-dropdown">
+          <div class="nav-dropdown-col">
+            <span class="nav-dropdown-heading">Por Categoría</span>
+            <a href="anillos.html">Anillos</a>
+            <a href="pendientes.html">Pendientes</a>
+            <a href="collares.html">Collares</a>
+            <a href="pulseras.html" class="nav-active">Pulseras</a>
+            <a href="relojes.html">Relojes</a>
+          </div>
+        </div>
       </li>
+      <li><a href="diseno-y-joyeria.html">Diseño y Joyería</a></li>
+      <li><a href="index.html#contacto">Contacto</a></li>
     </ul>
   </nav>
 </header>
 
+<!-- ===== BREADCRUMB ===== -->
+<nav class="breadcrumb" aria-label="Ruta de navegación">
+  <a href="index.html">Inicio</a>
+  <span class="breadcrumb__sep">›</span>
+  <a href="colecciones.html">Colecciones</a>
+  <span class="breadcrumb__sep">›</span>
+  <span class="breadcrumb__actual">Pulseras</span>
+</nav>
+
 <!-- ===== HERO ===== -->
-<section class="category-hero bf-category-hero" id="catalogo-bf" aria-labelledby="cat-title">
-  <div class="cat-hero-inner" style="text-align: center;">
-   <h1 id="cat-title" class="cat-title"
-    aria-label="Pulseras y brazaletes de oro y plata en Alcalá de Henares — Martínez Joyeros">
-  Pulseras en Alcalá de Henares
-</h1>
-   <p class="cat-sub" style="text-align: center; width: 100%; display: block; margin-left: auto; margin-right: auto;">
-  Explora nuestra selección de <strong>pulseras y brazaletes</strong> exclusivos para resaltar tu elegancia en cada momento.
-</p>
-<a href="index.html#categorias" class="cat-cta">&larr; Volver a categorías</a>
-  </div>
-  <svg class="cat-wave" viewBox="0 0 1440 80" preserveAspectRatio="none" aria-hidden="true">
-    <path d="M1440 23.3c-100.5 13.5-212 31.8-335 39.7-124 7.8-265 2-402-14.7-137-16.7-289-40.3-488-51.8v83.5h1225z" fill="rgba(0,0,0,.04)"></path>
-  </svg>
+<section class="ani-hero">
+  <h1 class="ani-hero__titulo">Pulseras y Brazaletes</h1>
+  <p class="ani-hero__sub">Catálogo de pulseras en Alcalá de Henares. Brazaletes
+rígidos, mallas articuladas y geometrías de temporada
+con aleaciones biocompatibles. Colecciones oficiales de
+<strong>Vidal&nbsp;&amp;&nbsp;Vidal</strong> y
+<strong>Luxenter</strong>, complementadas con marcas
+adicionales exclusivas en nuestra tienda del centro
+histórico.</p>
+  <p class="ani-hero-gancho">
+    Pulseras y brazaletes exclusivos en Alcalá de Henares.
+  </p>
+  <p class="ani-hero-desde">Desde 19,95€</p>
 </section>
 
 <!-- ===== CATÁLOGO ===== -->
 <section class="catalogo-section">
-  <div class="filter-controls" style="text-align: center; margin-bottom: 30px;">
-    <button class="filter-btn active" onclick="filterProducts('all', this)">Todos</button>
-    <button class="filter-btn" onclick="filterProducts('dorado', this)">Dorado</button>
-    <button class="filter-btn" onclick="filterProducts('plateado', this)">Plateado</button>
+  <div class="ani-filtros">
+    <button class="ani-filtro active" data-filter="all">Todos</button>
+    <button class="ani-filtro" data-filter="dorado">Dorado</button>
+    <button class="ani-filtro" data-filter="plateado">Plateado</button>
   </div>
 
   <div class="catalogo-grid">
 
     <article class="producto-card dorado">
       <div class="bf-img-wrap">
-        <span class="price-tag">86€</span>
+        <img src="imagenes/pulsera lux Agata.webp"
+             class="img-main"
+             alt="Pulsera Cuentas Ágata Luxenter — Martínez Joyeros Alcalá de Henares"
+             loading="lazy">
+        <img src="imagenes/tras lux agata.webp"
+             class="img-hover"
+             alt="Detalle Pulsera Cuentas Ágata Luxenter">
+      </div>
+      <div class="ani-card-info">
+        <h3 class="ani-card-nombre">Pulsera Cuentas Ágata Luxenter</h3>
+        <a class="btn-outline-whatsapp"
+           href="https://wa.me/34678417026?text=Hola%20Mart%C3%ADnez%20Joyeros%2C%20me%20interesa%20la%20Pulsera%20Cuentas%20%C3%81gata%20Luxenter."
+           aria-label="Consultar precio y disponibilidad de Pulsera Cuentas Ágata Luxenter por WhatsApp"
+           target="_blank" rel="noopener">Consultar disponibilidad</a>
+      </div>
+    </article>
+
+    <article class="producto-card dorado">
+      <div class="bf-img-wrap">
+        <img src="imagenes/pulsera lux con cristales.webp"
+             class="img-main"
+             alt="Pulsera Fina con Cristales Luxenter — Martínez Joyeros Alcalá de Henares"
+             loading="lazy">
+        <img src="imagenes/tras lux cristales.webp"
+             class="img-hover"
+             alt="Detalle Pulsera Fina con Cristales Luxenter">
+      </div>
+      <div class="ani-card-info">
+        <h3 class="ani-card-nombre">Pulsera Fina con Cristales Luxenter</h3>
+        <a class="btn-outline-whatsapp"
+           href="https://wa.me/34678417026?text=Hola%20Mart%C3%ADnez%20Joyeros%2C%20me%20interesa%20la%20Pulsera%20Fina%20con%20Cristales%20Luxenter."
+           aria-label="Consultar precio y disponibilidad de Pulsera Fina con Cristales Luxenter por WhatsApp"
+           target="_blank" rel="noopener">Consultar disponibilidad</a>
+      </div>
+    </article>
+
+    <article class="producto-card dorado">
+      <div class="bf-img-wrap">
+        <img src="imagenes/pulsera lux fucsia Aming.webp"
+             class="img-main"
+             alt="Pulsera Fucsia Aming Luxenter — Martínez Joyeros Alcalá de Henares"
+             loading="lazy">
+        <img src="imagenes/tras lux fucsia Aming.webp"
+             class="img-hover"
+             alt="Detalle Pulsera Fucsia Aming Luxenter">
+      </div>
+      <div class="ani-card-info">
+        <h3 class="ani-card-nombre">Pulsera Fucsia Aming Luxenter</h3>
+        <a class="btn-outline-whatsapp"
+           href="https://wa.me/34678417026?text=Hola%20Mart%C3%ADnez%20Joyeros%2C%20me%20interesa%20la%20Pulsera%20Fucsia%20Aming%20Luxenter."
+           aria-label="Consultar precio y disponibilidad de Pulsera Fucsia Aming Luxenter por WhatsApp"
+           target="_blank" rel="noopener">Consultar disponibilidad</a>
+      </div>
+    </article>
+
+    <article class="producto-card dorado">
+      <div class="bf-img-wrap">
+        <img src="imagenes/pulsera lux cristal verde.webp"
+             class="img-main"
+             alt="Pulsera Doble Cristal Verde Luxenter — Martínez Joyeros Alcalá de Henares"
+             loading="lazy">
+        <img src="imagenes/trase lux pulsera cristal verde.webp"
+             class="img-hover"
+             alt="Detalle Pulsera Doble Cristal Verde Luxenter">
+      </div>
+      <div class="ani-card-info">
+        <h3 class="ani-card-nombre">Pulsera Doble Cristal Verde Luxenter</h3>
+        <a class="btn-outline-whatsapp"
+           href="https://wa.me/34678417026?text=Hola%20Mart%C3%ADnez%20Joyeros%2C%20me%20interesa%20la%20Pulsera%20Doble%20Cristal%20Verde%20Luxenter."
+           aria-label="Consultar precio y disponibilidad de Pulsera Doble Cristal Verde Luxenter por WhatsApp"
+           target="_blank" rel="noopener">Consultar disponibilidad</a>
+      </div>
+    </article>
+
+    <article class="producto-card plateado">
+      <div class="bf-img-wrap">
+        <img src="imagenes/pulsera plata cruz lux.webp"
+             class="img-main"
+             alt="Pulsera Detalles Cruz Luxenter — Martínez Joyeros Alcalá de Henares"
+             loading="lazy">
+        <img src="imagenes/trase lux pulsera cruz.webp"
+             class="img-hover"
+             alt="Detalle Pulsera Detalles Cruz Luxenter">
+      </div>
+      <div class="ani-card-info">
+        <h3 class="ani-card-nombre">Pulsera Detalles Cruz Luxenter</h3>
+        <a class="btn-outline-whatsapp"
+           href="https://wa.me/34678417026?text=Hola%20Mart%C3%ADnez%20Joyeros%2C%20me%20interesa%20la%20Pulsera%20Detalles%20Cruz%20Luxenter."
+           aria-label="Consultar precio y disponibilidad de Pulsera Detalles Cruz Luxenter por WhatsApp"
+           target="_blank" rel="noopener">Consultar disponibilidad</a>
+      </div>
+    </article>
+
+    <article class="producto-card plateado">
+      <div class="bf-img-wrap">
+        <img src="imagenes/pulsera lux cuarzo verde.webp"
+             class="img-main"
+             alt="Pulsera Riviere Cuarzo Verde Luxenter — Martínez Joyeros Alcalá de Henares"
+             loading="lazy">
+        <img src="imagenes/trase lux pulsera cuarzo verde.webp"
+             class="img-hover"
+             alt="Detalle Pulsera Riviere Cuarzo Verde Luxenter">
+      </div>
+      <div class="ani-card-info">
+        <h3 class="ani-card-nombre">Pulsera Riviere Cuarzo Verde Luxenter</h3>
+        <a class="btn-outline-whatsapp"
+           href="https://wa.me/34678417026?text=Hola%20Mart%C3%ADnez%20Joyeros%2C%20me%20interesa%20la%20Pulsera%20Riviere%20Cuarzo%20Verde%20Luxenter."
+           aria-label="Consultar precio y disponibilidad de Pulsera Riviere Cuarzo Verde Luxenter por WhatsApp"
+           target="_blank" rel="noopener">Consultar disponibilidad</a>
+      </div>
+    </article>
+
+    <article class="producto-card plateado">
+      <div class="bf-img-wrap">
+        <img src="imagenes/pulsera plata simde lux.webp"
+             class="img-main"
+             alt="Pulsera Fina Simder Azul Luxenter — Martínez Joyeros Alcalá de Henares"
+             loading="lazy">
+        <img src="imagenes/traser puls lux Simder.webp"
+             class="img-hover"
+             alt="Detalle Pulsera Fina Simder Azul Luxenter">
+      </div>
+      <div class="ani-card-info">
+        <h3 class="ani-card-nombre">Pulsera Fina Simder Azul Luxenter</h3>
+        <a class="btn-outline-whatsapp"
+           href="https://wa.me/34678417026?text=Hola%20Mart%C3%ADnez%20Joyeros%2C%20me%20interesa%20la%20Pulsera%20Fina%20Simder%20Azul%20Luxenter."
+           aria-label="Consultar precio y disponibilidad de Pulsera Fina Simder Azul Luxenter por WhatsApp"
+           target="_blank" rel="noopener">Consultar disponibilidad</a>
+      </div>
+    </article>
+
+    <article class="producto-card dorado">
+      <div class="bf-img-wrap">
+        <img src="imagenes/pulsera lux perla.webp"
+             class="img-main"
+             alt="Pulsera Barras y Perlas Luxenter — Martínez Joyeros Alcalá de Henares"
+             loading="lazy">
+        <img src="imagenes/tra lux perlas.webp"
+             class="img-hover"
+             alt="Detalle Pulsera Barras y Perlas Luxenter">
+      </div>
+      <div class="ani-card-info">
+        <h3 class="ani-card-nombre">Pulsera Barras y Perlas Luxenter</h3>
+        <a class="btn-outline-whatsapp"
+           href="https://wa.me/34678417026?text=Hola%20Mart%C3%ADnez%20Joyeros%2C%20me%20interesa%20la%20Pulsera%20Barras%20y%20Perlas%20Luxenter."
+           aria-label="Consultar precio y disponibilidad de Pulsera Barras y Perlas Luxenter por WhatsApp"
+           target="_blank" rel="noopener">Consultar disponibilidad</a>
+      </div>
+    </article>
+
+    <article class="producto-card dorado">
+      <div class="bf-img-wrap">
+        <img src="imagenes/pulsera lux jade rojo.webp"
+             class="img-main"
+             alt="Pulsera Jade Rojo Luxenter — Martínez Joyeros Alcalá de Henares"
+             loading="lazy">
+        <img src="imagenes/traseralux rojo.webp"
+             class="img-hover"
+             alt="Detalle Pulsera Jade Rojo Luxenter">
+      </div>
+      <div class="ani-card-info">
+        <h3 class="ani-card-nombre">Pulsera Jade Rojo Luxenter</h3>
+        <a class="btn-outline-whatsapp"
+           href="https://wa.me/34678417026?text=Hola%20Mart%C3%ADnez%20Joyeros%2C%20me%20interesa%20la%20Pulsera%20Jade%20Rojo%20Luxenter."
+           aria-label="Consultar precio y disponibilidad de Pulsera Jade Rojo Luxenter por WhatsApp"
+           target="_blank" rel="noopener">Consultar disponibilidad</a>
+      </div>
+    </article>
+
+    <article class="producto-card dorado">
+      <div class="bf-img-wrap">
+        <img src="imagenes/pulsera lux naranja.webp"
+             class="img-main"
+             alt="Pulsera Cuentas Naranja Luxenter — Martínez Joyeros Alcalá de Henares"
+             loading="lazy">
+        <img src="imagenes/tras lux naranja.webp"
+             class="img-hover"
+             alt="Detalle Pulsera Cuentas Naranja Luxenter">
+      </div>
+      <div class="ani-card-info">
+        <h3 class="ani-card-nombre">Pulsera Cuentas Naranja Luxenter</h3>
+        <a class="btn-outline-whatsapp"
+           href="https://wa.me/34678417026?text=Hola%20Mart%C3%ADnez%20Joyeros%2C%20me%20interesa%20la%20Pulsera%20Cuentas%20Naranja%20Luxenter."
+           aria-label="Consultar precio y disponibilidad de Pulsera Cuentas Naranja Luxenter por WhatsApp"
+           target="_blank" rel="noopener">Consultar disponibilidad</a>
+      </div>
+    </article>
+
+    <article class="producto-card dorado">
+      <div class="bf-img-wrap">
+        <img src="imagenes/pulsera lux ojo tigre.webp"
+             class="img-main"
+             alt="Pulsera Ojo de Tigre Luxenter — Martínez Joyeros Alcalá de Henares"
+             loading="lazy">
+        <img src="imagenes/tras lux ojo.webp"
+             class="img-hover"
+             alt="Detalle Pulsera Ojo de Tigre Luxenter">
+      </div>
+      <div class="ani-card-info">
+        <h3 class="ani-card-nombre">Pulsera Ojo de Tigre Luxenter</h3>
+        <a class="btn-outline-whatsapp"
+           href="https://wa.me/34678417026?text=Hola%20Mart%C3%ADnez%20Joyeros%2C%20me%20interesa%20la%20Pulsera%20Ojo%20de%20Tigre%20Luxenter."
+           aria-label="Consultar precio y disponibilidad de Pulsera Ojo de Tigre Luxenter por WhatsApp"
+           target="_blank" rel="noopener">Consultar disponibilidad</a>
+      </div>
+    </article>
+
+    <article class="producto-card dorado">
+      <div class="bf-img-wrap">
+        <img src="imagenes/pulsera lux Rosa-Manan.webp"
+             class="img-main"
+             alt="Pulsera Rosa-Manan Luxenter — Martínez Joyeros Alcalá de Henares"
+             loading="lazy">
+      </div>
+      <div class="ani-card-info">
+        <h3 class="ani-card-nombre">Pulsera Rosa-Manan Luxenter</h3>
+        <a class="btn-outline-whatsapp"
+           href="https://wa.me/34678417026?text=Hola%20Mart%C3%ADnez%20Joyeros%2C%20me%20interesa%20la%20Pulsera%20Rosa-Manan%20Luxenter."
+           aria-label="Consultar precio y disponibilidad de Pulsera Rosa-Manan Luxenter por WhatsApp"
+           target="_blank" rel="noopener">Consultar disponibilidad</a>
+      </div>
+    </article>
+
+    <article class="producto-card dorado">
+      <div class="bf-img-wrap">
+        <img src="imagenes/brazalete rigido Horizonte.webp"
+             class="img-main"
+             alt="Brazalete rígido con relieve texturizado Horizonte"
+             loading="lazy">
+        <img src="imagenes/traser brazalete horizonte.webp"
+             class="img-hover"
+             alt="Detalle Brazalete Rígido Horizonte Vidal & Vidal">
+      </div>
+      <div class="ani-card-info">
+        <h3 class="ani-card-nombre">Brazalete Rígido Horizonte Vidal &amp; Vidal</h3>
+        <a class="btn-outline-whatsapp"
+           href="https://wa.me/34678417026?text=Hola%20Mart%C3%ADnez%20Joyeros%2C%20me%20interesa%20el%20Brazalete%20R%C3%ADgido%20Horizonte%20Vidal%20%26%20Vidal."
+           aria-label="Consultar precio y disponibilidad del Brazalete Rígido Horizonte Vidal & Vidal por WhatsApp"
+           target="_blank" rel="noopener">Consultar disponibilidad</a>
+      </div>
+    </article>
+
+    <article class="producto-card plateado">
+      <div class="bf-img-wrap">
+        <img src="imagenes/pulsera Bival.webp"
+             class="img-main"
+             alt="Pulsera de eslabones gruesos en acabado plateado"
+             loading="lazy">
+        <img src="imagenes/rasera eslabones Bival.webp"
+             class="img-hover"
+             alt="Detalle Pulsera Eslabones Geométricos Bival Vidal & Vidal">
+      </div>
+      <div class="ani-card-info">
+        <h3 class="ani-card-nombre">Pulsera Eslabones Geométricos Bival Vidal &amp; Vidal</h3>
+        <a class="btn-outline-whatsapp"
+           href="https://wa.me/34678417026?text=Hola%20Mart%C3%ADnez%20Joyeros%2C%20me%20interesa%20la%20Pulsera%20Eslabones%20Bival%20Vidal%20%26%20Vidal."
+           aria-label="Consultar precio y disponibilidad de la Pulsera Eslabones Geométricos Bival Vidal & Vidal por WhatsApp"
+           target="_blank" rel="noopener">Consultar disponibilidad</a>
+      </div>
+    </article>
+
+    <article class="producto-card dorado">
+      <div class="bf-img-wrap">
+        <img src="imagenes/pulsera eslabones Astrea.webp"
+             class="img-main"
+             alt="Pulsera de eslabón clásico circular en tono dorado"
+             loading="lazy">
+        <img src="imagenes/traser vidal Astrea.webp"
+             class="img-hover"
+             alt="Detalle Pulsera Eslabón Circular Astrea Vidal & Vidal">
+      </div>
+      <div class="ani-card-info">
+        <h3 class="ani-card-nombre">Pulsera Eslabón Circular Astrea Vidal &amp; Vidal</h3>
+        <a class="btn-outline-whatsapp"
+           href="https://wa.me/34678417026?text=Hola%20Mart%C3%ADnez%20Joyeros%2C%20me%20interesa%20la%20Pulsera%20Astr%C3%A9a%20Vidal%20%26%20Vidal."
+           aria-label="Consultar precio y disponibilidad de la Pulsera Eslabón Circular Astrea Vidal & Vidal por WhatsApp"
+           target="_blank" rel="noopener">Consultar disponibilidad</a>
+      </div>
+    </article>
+
+    <article class="producto-card dorado">
+      <div class="bf-img-wrap">
+        <img src="imagenes/pulsera vidal cuadrados reflexes.webp"
+             class="img-main"
+             alt="Pulsera con eslabones cuadrados de superficie orgánica texturizada"
+             loading="lazy">
+        <img src="imagenes/traser vidal pulsera cuadrados.webp"
+             class="img-hover"
+             alt="Detalle Pulsera Cuadrados Texturizados Reflexes Vidal & Vidal">
+      </div>
+      <div class="ani-card-info">
+        <h3 class="ani-card-nombre">Pulsera Cuadrados Texturizados Reflexes Vidal &amp; Vidal</h3>
+        <a class="btn-outline-whatsapp"
+           href="https://wa.me/34678417026?text=Hola%20Mart%C3%ADnez%20Joyeros%2C%20me%20interesa%20la%20Pulsera%20Reflexes%20Cuadrados%20Vidal%20%26%20Vidal."
+           aria-label="Consultar precio y disponibilidad de la Pulsera Cuadrados Texturizados Reflexes Vidal & Vidal por WhatsApp"
+           target="_blank" rel="noopener">Consultar disponibilidad</a>
+      </div>
+    </article>
+
+    <article class="producto-card dorado">
+      <div class="bf-img-wrap">
         <img src="imagenes/BRAZALETE RIGIDO ABIERTO TEXTURAS MAR 2.WEBP" class="img-main" alt="Brazalete Rígido Abierto Texturas Mar 2 dorado — Martínez Joyeros Alcalá de Henares" loading="lazy">
         <img src="imagenes/BRAZALETE RIGIDO ABIERTO TEXTURAS MAR 2 HOVER.WEBP" class="img-hover" alt="Detalle Brazalete Rígido Texturas Mar 2">
       </div>
-      <h3 class="producto-nombre">Brazalete Texturas Mar 2</h3>
-      <div class="actions">
-        <a class="btn-visit" href="https://wa.me/34678417026?text=Hola%20Mart%C3%ADnez%20Joyeros%2C%20me%20interesa%20el%20Brazalete%20R%C3%ADgido%20Abierto%20Texturas%20Mar%202." target="_blank" rel="noopener">Consultar</a>
-        <a class="btn" href="index.html#contacto">Ver en tienda</a>
+      <div class="ani-card-info">
+        <h3 class="ani-card-nombre">Brazalete Texturas Mar 2</h3>
+        <a class="btn-outline-whatsapp"
+           href="https://wa.me/34678417026?text=Hola%20Mart%C3%ADnez%20Joyeros%2C%20me%20interesa%20el%20Brazalete%20R%C3%ADgido%20Abierto%20Texturas%20Mar%202."
+           aria-label="Consultar precio y disponibilidad del Brazalete Texturas Mar 2 por WhatsApp"
+           target="_blank" rel="noopener">Consultar disponibilidad</a>
       </div>
     </article>
 
     <article class="producto-card dorado">
       <div class="bf-img-wrap">
-        <span class="price-tag">52€</span>
         <img src="imagenes/PULSERA ESLABONES UNISE.WEBP" class="img-main" alt="Pulsera Eslabones Unisex dorada — Martínez Joyeros Alcalá de Henares" loading="lazy">
         <img src="imagenes/PULSERA ESLABONES UNISE HOVER.WEBP" class="img-hover" alt="Detalle Pulsera Eslabones Unisex">
       </div>
-      <h3 class="producto-nombre">Pulsera Eslabones Unise</h3>
-      <div class="actions">
-        <a class="btn-visit" href="https://wa.me/34678417026?text=Hola%20Mart%C3%ADnez%20Joyeros%2C%20me%20interesa%20la%20Pulsera%20Eslabones%20Unise." target="_blank" rel="noopener">Consultar</a>
-        <a class="btn" href="index.html#contacto">Ver en tienda</a>
+      <div class="ani-card-info">
+        <h3 class="ani-card-nombre">Pulsera Eslabones Unise</h3>
+        <a class="btn-outline-whatsapp"
+           href="https://wa.me/34678417026?text=Hola%20Mart%C3%ADnez%20Joyeros%2C%20me%20interesa%20la%20Pulsera%20Eslabones%20Unise."
+           aria-label="Consultar precio y disponibilidad de la Pulsera Eslabones Unise por WhatsApp"
+           target="_blank" rel="noopener">Consultar disponibilidad</a>
       </div>
     </article>
 
     <article class="producto-card dorado">
       <div class="bf-img-wrap">
-        <span class="price-tag">72€</span>
         <img src="imagenes/PULSERA DUO ESLABONES BIVAL.WEBP" class="img-main" alt="Pulsera Dúo Eslabones Bival dorada — Martínez Joyeros Alcalá de Henares" loading="lazy">
         <img src="imagenes/PULSERA DUO ESLABONES BIVAL HOVER.WEBP" class="img-hover" alt="Detalle Pulsera Dúo Bival">
       </div>
-      <h3 class="producto-nombre">Pulsera Dúo Bival</h3>
-      <div class="actions">
-        <a class="btn-visit" href="https://wa.me/34678417026?text=Hola%20Mart%C3%ADnez%20Joyeros%2C%20me%20interesa%20la%20Pulsera%20D%C3%BAo%20Eslabones%20Bival." target="_blank" rel="noopener">Consultar</a>
-        <a class="btn" href="index.html#contacto">Ver en tienda</a>
+      <div class="ani-card-info">
+        <h3 class="ani-card-nombre">Pulsera Dúo Bival</h3>
+        <a class="btn-outline-whatsapp"
+           href="https://wa.me/34678417026?text=Hola%20Mart%C3%ADnez%20Joyeros%2C%20me%20interesa%20la%20Pulsera%20D%C3%BAo%20Eslabones%20Bival."
+           aria-label="Consultar precio y disponibilidad de la Pulsera Dúo Bival por WhatsApp"
+           target="_blank" rel="noopener">Consultar disponibilidad</a>
       </div>
     </article>
 
     <article class="producto-card dorado">
       <div class="bf-img-wrap">
-        <span class="price-tag">56€</span>
         <img src="imagenes/PULSERA HARU 2.WEBP" class="img-main" alt="Pulsera Haru 2 dorada — Martínez Joyeros Alcalá de Henares" loading="lazy">
         <img src="imagenes/PULSERA HARU 2 HOVER.WEBP" class="img-hover" alt="Detalle Pulsera Haru 2">
       </div>
-      <h3 class="producto-nombre">Pulsera Haru 2</h3>
-      <div class="actions">
-        <a class="btn-visit" href="https://wa.me/34678417026?text=Hola%20Mart%C3%ADnez%20Joyeros%2C%20me%20interesa%20la%20Pulsera%20Haru%202." target="_blank" rel="noopener">Consultar</a>
-        <a class="btn" href="index.html#contacto">Ver en tienda</a>
+      <div class="ani-card-info">
+        <h3 class="ani-card-nombre">Pulsera Haru 2</h3>
+        <a class="btn-outline-whatsapp"
+           href="https://wa.me/34678417026?text=Hola%20Mart%C3%ADnez%20Joyeros%2C%20me%20interesa%20la%20Pulsera%20Haru%202."
+           aria-label="Consultar precio y disponibilidad de la Pulsera Haru 2 por WhatsApp"
+           target="_blank" rel="noopener">Consultar disponibilidad</a>
       </div>
     </article>
 
     <article class="producto-card dorado">
       <div class="bf-img-wrap">
-        <span class="price-tag">114€</span>
-        <img src="imagenes/BRAZALETE RIGIDO CURVE.WEBP" class="img-main" alt="Brazalete Rígido Curve dorado — joyería Alcalá de Henares" loading="lazy">
+        <img src="imagenes/BRAZALETE RIGIDO CURVE.WEBP" class="img-main" alt="Brazalete Rígido Curve dorado — Martínez Joyeros Alcalá de Henares" loading="lazy">
         <img src="imagenes/BRAZALETE RIGIDO CURVE HOVER.JPG" class="img-hover" alt="Detalle Brazalete Rígido Curve">
       </div>
-      <h3 class="producto-nombre">Brazalete Rígido Curve</h3>
-      <div class="actions">
-        <a class="btn-visit" href="https://wa.me/34678417026?text=Hola%20Mart%C3%ADnez%20Joyeros%2C%20me%20interesa%20el%20Brazalete%20R%C3%ADgido%20Curve%20Dorado." target="_blank" rel="noopener">Consultar</a>
-        <a class="btn" href="index.html#contacto">Ver en tienda</a>
+      <div class="ani-card-info">
+        <h3 class="ani-card-nombre">Brazalete Rígido Curve</h3>
+        <a class="btn-outline-whatsapp"
+           href="https://wa.me/34678417026?text=Hola%20Mart%C3%ADnez%20Joyeros%2C%20me%20interesa%20el%20Brazalete%20R%C3%ADgido%20Curve%20Dorado."
+           aria-label="Consultar precio y disponibilidad del Brazalete Rígido Curve por WhatsApp"
+           target="_blank" rel="noopener">Consultar disponibilidad</a>
       </div>
     </article>
 
     <article class="producto-card plateado">
       <div class="bf-img-wrap">
-        <span class="price-tag">46€</span>
         <img src="imagenes/PULSERA ESLABONES ASTREA.WEBP" class="img-main" alt="Pulsera Eslabones Astrea plateada — Martínez Joyeros Alcalá de Henares" loading="lazy">
         <img src="imagenes/PULSERA ESLABONES ASTREA HOVER.WEBP" class="img-hover" alt="Detalle Pulsera Eslabones Astrea">
       </div>
-      <h3 class="producto-nombre">Pulsera Eslabones Astrea</h3>
-      <div class="actions">
-        <a class="btn-visit" href="https://wa.me/34678417026?text=Hola%20Mart%C3%ADnez%20Joyeros%2C%20me%20interesa%20la%20Pulsera%20Eslabones%20Astrea." target="_blank" rel="noopener">Consultar</a>
-        <a class="btn" href="index.html#contacto">Ver en tienda</a>
+      <div class="ani-card-info">
+        <h3 class="ani-card-nombre">Pulsera Eslabones Astrea</h3>
+        <a class="btn-outline-whatsapp"
+           href="https://wa.me/34678417026?text=Hola%20Mart%C3%ADnez%20Joyeros%2C%20me%20interesa%20la%20Pulsera%20Eslabones%20Astrea."
+           aria-label="Consultar precio y disponibilidad de la Pulsera Eslabones Astrea por WhatsApp"
+           target="_blank" rel="noopener">Consultar disponibilidad</a>
       </div>
     </article>
 
     <article class="producto-card plateado">
       <div class="bf-img-wrap">
-        <span class="price-tag">64€</span>
-        <img src="imagenes/PULSERA ANNIE CHAPADO PLATA DE PRIMERA LEY LISO TIRAS.WEBP" class="img-main" alt="Pulsera Annie chapado plata de primera ley — Martínez Joyeros Alcalá de Henares" loading="lazy">
-        <img src="imagenes/PULSERA ANNIE CHAPADO PLATA DE PRIMERA LEY LISO TIRAS HOVER.WEBP" class="img-hover" alt="Detalle Pulsera Annie Plata">
+        <img src="imagenes/PULSERA ANNIE CHAPADO PLATA DE PRIMERA LEY LISO TIRAS.WEBP" class="img-main" alt="Pulsera Annie acabado satinado plateado — Martínez Joyeros Alcalá de Henares" loading="lazy">
+        <img src="imagenes/PULSERA ANNIE CHAPADO PLATA DE PRIMERA LEY LISO TIRAS HOVER.WEBP" class="img-hover" alt="Detalle Pulsera Annie">
       </div>
-      <h3 class="producto-nombre">Pulsera Annie</h3>
-      <div class="actions">
-        <a class="btn-visit" href="https://wa.me/34678417026?text=Hola%20Mart%C3%ADnez%20Joyeros%2C%20me%20interesa%20la%20Pulsera%20Annie." target="_blank" rel="noopener">Consultar</a>
-        <a class="btn" href="index.html#contacto">Ver en tienda</a>
+      <div class="ani-card-info">
+        <h3 class="ani-card-nombre">Pulsera Annie</h3>
+        <a class="btn-outline-whatsapp"
+           href="https://wa.me/34678417026?text=Hola%20Mart%C3%ADnez%20Joyeros%2C%20me%20interesa%20la%20Pulsera%20Annie."
+           aria-label="Consultar precio y disponibilidad de la Pulsera Annie por WhatsApp"
+           target="_blank" rel="noopener">Consultar disponibilidad</a>
       </div>
     </article>
 
     <article class="producto-card plateado">
       <div class="bf-img-wrap">
-        <span class="price-tag">72€</span>
-        <img src="imagenes/BRAZALETE RIGIDO ABIERTO TEXTURAS MAR.WEBP" class="img-main" alt="Brazalete Rígido Abierto Texturas Mar plateado — Martínez Joyeros Alcalá" loading="lazy">
+        <img src="imagenes/BRAZALETE RIGIDO ABIERTO TEXTURAS MAR.WEBP" class="img-main" alt="Brazalete Rígido Abierto Texturas Mar plateado — Martínez Joyeros Alcalá de Henares" loading="lazy">
         <img src="imagenes/BRAZALETE RIGIDO ABIERTO TEXTURAS MAR HOVER.WEBP" class="img-hover" alt="Detalle Brazalete Rígido Texturas Mar">
       </div>
-      <h3 class="producto-nombre">Brazalete Rígido Texturas Mar</h3>
-      <div class="actions">
-        <a class="btn-visit" href="https://wa.me/34678417026?text=Hola%20Mart%C3%ADnez%20Joyeros%2C%20me%20interesa%20el%20Brazalete%20R%C3%ADgido%20Abierto%20Texturas%20Mar." target="_blank" rel="noopener">Consultar</a>
-        <a class="btn" href="index.html#contacto">Ver en tienda</a>
+      <div class="ani-card-info">
+        <h3 class="ani-card-nombre">Brazalete Rígido Texturas Mar</h3>
+        <a class="btn-outline-whatsapp"
+           href="https://wa.me/34678417026?text=Hola%20Mart%C3%ADnez%20Joyeros%2C%20me%20interesa%20el%20Brazalete%20R%C3%ADgido%20Abierto%20Texturas%20Mar."
+           aria-label="Consultar precio y disponibilidad del Brazalete Rígido Texturas Mar por WhatsApp"
+           target="_blank" rel="noopener">Consultar disponibilidad</a>
       </div>
     </article>
 
     <article class="producto-card plateado">
       <div class="bf-img-wrap">
-        <span class="price-tag">76€</span>
-        <img src="imagenes/BRAZALETE ESPIRAL LISO WAVES .WEBP" class="img-main" alt="Brazalete Espiral Liso Waves plateado — joyería Alcalá de Henares" loading="lazy">
+        <img src="imagenes/BRAZALETE ESPIRAL LISO WAVES .WEBP" class="img-main" alt="Brazalete Espiral Liso Waves plateado — Martínez Joyeros Alcalá de Henares" loading="lazy">
         <img src="imagenes/BRAZALETE ESPIRAL LISO WAVES HOVER.WEBP" class="img-hover" alt="Detalle Brazalete Espiral Waves">
       </div>
-      <h3 class="producto-nombre">Brazalete Espiral Waves</h3>
-      <div class="actions">
-        <a class="btn-visit" href="https://wa.me/34678417026?text=Hola%20Mart%C3%ADnez%20Joyeros%2C%20me%20interesa%20el%20Brazalete%20Espiral%20Waves." target="_blank" rel="noopener">Consultar</a>
-        <a class="btn" href="index.html#contacto">Ver en tienda</a>
+      <div class="ani-card-info">
+        <h3 class="ani-card-nombre">Brazalete Espiral Waves</h3>
+        <a class="btn-outline-whatsapp"
+           href="https://wa.me/34678417026?text=Hola%20Mart%C3%ADnez%20Joyeros%2C%20me%20interesa%20el%20Brazalete%20Espiral%20Waves."
+           aria-label="Consultar precio y disponibilidad del Brazalete Espiral Waves por WhatsApp"
+           target="_blank" rel="noopener">Consultar disponibilidad</a>
       </div>
     </article>
 
     <article class="producto-card dorado">
       <div class="bf-img-wrap">
-        <span class="price-tag">56€</span>
         <img src="imagenes/PULSERA OLA RIGIDA CRUZADA.WEBP" class="img-main" alt="Pulsera Ola Rígida Cruzada dorada — Martínez Joyeros Alcalá de Henares" loading="lazy">
         <img src="imagenes/PULSERA OLA RIGIDA CRUZADA HOVER.WEBP" class="img-hover" alt="Detalle Pulsera Ola Cruzada">
       </div>
-      <h3 class="producto-nombre">Pulsera Ola Cruzada</h3>
-      <div class="actions">
-        <a class="btn-visit" href="https://wa.me/34678417026?text=Hola%20Mart%C3%ADnez%20Joyeros%2C%20me%20interesa%20la%20Pulsera%20Ola%20Cruzada%20Dorada." target="_blank" rel="noopener">Consultar</a>
-        <a class="btn" href="index.html#contacto">Ver en tienda</a>
+      <div class="ani-card-info">
+        <h3 class="ani-card-nombre">Pulsera Ola Cruzada</h3>
+        <a class="btn-outline-whatsapp"
+           href="https://wa.me/34678417026?text=Hola%20Mart%C3%ADnez%20Joyeros%2C%20me%20interesa%20la%20Pulsera%20Ola%20Cruzada%20Dorada."
+           aria-label="Consultar precio y disponibilidad de la Pulsera Ola Cruzada por WhatsApp"
+           target="_blank" rel="noopener">Consultar disponibilidad</a>
       </div>
     </article>
 
     <article class="producto-card dorado">
       <div class="bf-img-wrap">
-        <span class="price-tag">84€</span>
         <img src="imagenes/BRAZALETE RIGIDO ESPIRAL WAVES.WEBP" class="img-main" alt="Brazalete Rígido Espiral Waves dorado — Martínez Joyeros Alcalá de Henares" loading="lazy">
         <img src="imagenes/BRAZALETE RIGIDO ESPIRAL WAVES HOVER.WEBP" class="img-hover" alt="Detalle Brazalete Rígido Espiral Waves">
       </div>
-      <h3 class="producto-nombre">Brazalete Rígido Waves</h3>
-      <div class="actions">
-        <a class="btn-visit" href="https://wa.me/34678417026?text=Hola%20Mart%C3%ADnez%20Joyeros%2C%20me%20interesa%20el%20Brazalete%20R%C3%ADgido%20Waves." target="_blank" rel="noopener">Consultar</a>
-        <a class="btn" href="index.html#contacto">Ver en tienda</a>
+      <div class="ani-card-info">
+        <h3 class="ani-card-nombre">Brazalete Rígido Waves</h3>
+        <a class="btn-outline-whatsapp"
+           href="https://wa.me/34678417026?text=Hola%20Mart%C3%ADnez%20Joyeros%2C%20me%20interesa%20el%20Brazalete%20R%C3%ADgido%20Waves."
+           aria-label="Consultar precio y disponibilidad del Brazalete Rígido Waves por WhatsApp"
+           target="_blank" rel="noopener">Consultar disponibilidad</a>
       </div>
     </article>
 
     <article class="producto-card dorado">
       <div class="bf-img-wrap">
-        <span class="price-tag">52€</span>
         <img src="imagenes/PULSERA ESLABONES RELIEF.WEBP" class="img-main" alt="Pulsera Eslabones Relief dorada — Martínez Joyeros Alcalá de Henares" loading="lazy">
         <img src="imagenes/PULSERA ESLABONES RELIEF HOVER.WEBP" class="img-hover" alt="Detalle Pulsera Eslabones Relief">
       </div>
-      <h3 class="producto-nombre">Pulsera Eslabones Relief</h3>
-      <div class="actions">
-        <a class="btn-visit" href="https://wa.me/34678417026?text=Hola%20Mart%C3%ADnez%20Joyeros%2C%20me%20interesa%20la%20Pulsera%20Eslabones%20Relief." target="_blank" rel="noopener">Consultar</a>
-        <a class="btn" href="index.html#contacto">Ver en tienda</a>
+      <div class="ani-card-info">
+        <h3 class="ani-card-nombre">Pulsera Eslabones Relief</h3>
+        <a class="btn-outline-whatsapp"
+           href="https://wa.me/34678417026?text=Hola%20Mart%C3%ADnez%20Joyeros%2C%20me%20interesa%20la%20Pulsera%20Eslabones%20Relief."
+           aria-label="Consultar precio y disponibilidad de la Pulsera Eslabones Relief por WhatsApp"
+           target="_blank" rel="noopener">Consultar disponibilidad</a>
       </div>
     </article>
 
     <article class="producto-card dorado">
       <div class="bf-img-wrap">
-        <span class="price-tag">96€</span>
-        <img src="imagenes/Brazalete oro rigido Nexo con doble textura.JPG" class="img-main" alt="Brazalete Nexo oro rígido con doble textura — Martínez Joyeros Alcalá de Henares" loading="lazy">
+        <img src="imagenes/Brazalete oro rigido Nexo con doble textura.JPG" class="img-main" alt="Brazalete rígido Nexo con doble textura — Martínez Joyeros Alcalá de Henares" loading="lazy">
       </div>
-      <h3 class="producto-nombre">Brazalete Nexo</h3>
-      <div class="actions">
-        <a class="btn-visit" href="https://wa.me/34678417026?text=Hola%20Mart%C3%ADnez%20Joyeros%2C%20me%20interesa%20el%20Brazalete%20Nexo%20Dorado." target="_blank" rel="noopener">Consultar</a>
-        <a class="btn" href="index.html#contacto">Ver en tienda</a>
+      <div class="ani-card-info">
+        <h3 class="ani-card-nombre">Brazalete Nexo</h3>
+        <a class="btn-outline-whatsapp"
+           href="https://wa.me/34678417026?text=Hola%20Mart%C3%ADnez%20Joyeros%2C%20me%20interesa%20el%20Brazalete%20Nexo%20Dorado."
+           aria-label="Consultar precio y disponibilidad del Brazalete Nexo por WhatsApp"
+           target="_blank" rel="noopener">Consultar disponibilidad</a>
       </div>
     </article>
 
     <article class="producto-card dorado">
       <div class="bf-img-wrap">
-        <span class="price-tag">62€</span>
-        <img src="imagenes/Pulsera eslabones Caramel con Acetato y Resina marron.JPG" class="img-main" alt="Pulsera Caramel eslabones con acetato y resina marrón — joyería Alcalá de Henares" loading="lazy">
+        <img src="imagenes/Pulsera eslabones Caramel con Acetato y Resina marron.JPG" class="img-main" alt="Pulsera Caramel eslabones con acetato y resina marrón — Martínez Joyeros Alcalá de Henares" loading="lazy">
       </div>
-      <h3 class="producto-nombre">Pulsera Caramel Eslabones</h3>
-      <div class="actions">
-        <a class="btn-visit" href="https://wa.me/34678417026?text=Hola%20Mart%C3%ADnez%20Joyeros%2C%20me%20interesa%20la%20Pulsera%20Caramel." target="_blank" rel="noopener">Consultar</a>
-        <a class="btn" href="index.html#contacto">Ver en tienda</a>
+      <div class="ani-card-info">
+        <h3 class="ani-card-nombre">Pulsera Caramel Eslabones</h3>
+        <a class="btn-outline-whatsapp"
+           href="https://wa.me/34678417026?text=Hola%20Mart%C3%ADnez%20Joyeros%2C%20me%20interesa%20la%20Pulsera%20Caramel."
+           aria-label="Consultar precio y disponibilidad de la Pulsera Caramel Eslabones por WhatsApp"
+           target="_blank" rel="noopener">Consultar disponibilidad</a>
       </div>
     </article>
 
     <article class="producto-card plateado">
       <div class="bf-img-wrap">
-        <span class="price-tag">54€</span>
         <img src="imagenes/Pulsera Haru.JPG" class="img-main" alt="Pulsera Haru plateada — Martínez Joyeros Alcalá de Henares" loading="lazy">
       </div>
-      <h3 class="producto-nombre">Pulsera Haru</h3>
-      <div class="actions">
-        <a class="btn-visit" href="https://wa.me/34678417026?text=Hola%20Mart%C3%ADnez%20Joyeros%2C%20me%20interesa%20la%20Pulsera%20Haru." target="_blank" rel="noopener">Consultar</a>
-        <a class="btn" href="index.html#contacto">Ver en tienda</a>
+      <div class="ani-card-info">
+        <h3 class="ani-card-nombre">Pulsera Haru</h3>
+        <a class="btn-outline-whatsapp"
+           href="https://wa.me/34678417026?text=Hola%20Mart%C3%ADnez%20Joyeros%2C%20me%20interesa%20la%20Pulsera%20Haru."
+           aria-label="Consultar precio y disponibilidad de la Pulsera Haru por WhatsApp"
+           target="_blank" rel="noopener">Consultar disponibilidad</a>
       </div>
     </article>
 
     <article class="producto-card dorado">
       <div class="bf-img-wrap">
-        <span class="price-tag">78€</span>
-        <img src="imagenes/Pulsera oro Rigida Tiras.JPG" class="img-main" alt="Pulsera Rígida Tiras en oro — joyería Alcalá de Henares" loading="lazy">
+        <img src="imagenes/Pulsera oro Rigida Tiras.JPG" class="img-main" alt="Pulsera Rígida Tiras con acabado dorado — Martínez Joyeros Alcalá de Henares" loading="lazy">
       </div>
-      <h3 class="producto-nombre">Pulsera Rígida Tiras Oro</h3>
-      <div class="actions">
-        <a class="btn-visit" href="https://wa.me/34678417026?text=Hola%20Mart%C3%ADnez%20Joyeros%2C%20me%20interesa%20la%20Pulsera%20R%C3%ADgida%20Tiras%20Oro." target="_blank" rel="noopener">Consultar</a>
-        <a class="btn" href="index.html#contacto">Ver en tienda</a>
-      </div>
-    </article>
-
-    <article class="producto-card dorado">
-      <div class="bf-img-wrap">
-        <span class="price-tag">58€</span>
-        <img src="imagenes/Pulsera Aqua con Piedras Naturales.JPG" class="img-main" alt="Pulsera Aqua con piedras naturales dorada — Martínez Joyeros Alcalá" loading="lazy">
-      </div>
-      <h3 class="producto-nombre">Pulsera Aqua Piedras</h3>
-      <div class="actions">
-        <a class="btn-visit" href="https://wa.me/34678417026?text=Hola%20Mart%C3%ADnez%20Joyeros%2C%20me%20interesa%20la%20Pulsera%20Aqua." target="_blank" rel="noopener">Consultar</a>
-        <a class="btn" href="index.html#contacto">Ver en tienda</a>
+      <div class="ani-card-info">
+        <h3 class="ani-card-nombre">Pulsera Rígida Tiras</h3>
+        <a class="btn-outline-whatsapp"
+           href="https://wa.me/34678417026?text=Hola%20Mart%C3%ADnez%20Joyeros%2C%20me%20interesa%20la%20Pulsera%20R%C3%ADgida%20Tiras%20Oro."
+           aria-label="Consultar precio y disponibilidad de la Pulsera Rígida Tiras por WhatsApp"
+           target="_blank" rel="noopener">Consultar disponibilidad</a>
       </div>
     </article>
 
     <article class="producto-card dorado">
       <div class="bf-img-wrap">
-        <span class="price-tag">48€</span>
-        <img src="imagenes/PULSERA DE MUJER DE ACERO IP DORADO Y PIEL VERDE CON CIRCONITAS VERDES.WEBP" class="img-main" alt="Pulsera acero IP dorado con piel verde y circonitas — Martínez Joyeros Alcalá" loading="lazy">
+        <img src="imagenes/Pulsera Aqua con Piedras Naturales.JPG" class="img-main" alt="Pulsera Aqua con piedras naturales dorada — Martínez Joyeros Alcalá de Henares" loading="lazy">
       </div>
-      <h3 class="producto-nombre">Pulsera Piel Verde</h3>
-      <div class="actions">
-        <a class="btn-visit" href="https://wa.me/34678417026?text=Hola%20Mart%C3%ADnez%20Joyeros%2C%20me%20interesa%20la%20Pulsera%20Piel%20Verde." target="_blank" rel="noopener">Consultar</a>
-        <a class="btn" href="index.html#contacto">Ver en tienda</a>
+      <div class="ani-card-info">
+        <h3 class="ani-card-nombre">Pulsera Aqua</h3>
+        <a class="btn-outline-whatsapp"
+           href="https://wa.me/34678417026?text=Hola%20Mart%C3%ADnez%20Joyeros%2C%20me%20interesa%20la%20Pulsera%20Aqua."
+           aria-label="Consultar precio y disponibilidad de la Pulsera Aqua por WhatsApp"
+           target="_blank" rel="noopener">Consultar disponibilidad</a>
       </div>
     </article>
 
     <article class="producto-card dorado">
       <div class="bf-img-wrap">
-        <span class="price-tag">52€</span>
-        <img src="imagenes/PULSERA DE MUJER RIGIDA EN TRES TONOS DE ACERO ,IP ROSA E IP DORADO.WEBP" class="img-main" alt="Pulsera rígida tres tonos acero IP rosa y dorado — joyería Alcalá de Henares" loading="lazy">
+        <img src="imagenes/PULSERA DE MUJER DE ACERO IP DORADO Y PIEL VERDE CON CIRCONITAS VERDES.WEBP" class="img-main" alt="Pulsera acero IP dorado con piel verde y circonitas — Martínez Joyeros Alcalá de Henares" loading="lazy">
       </div>
-      <h3 class="producto-nombre">Pulsera Rígida Tres Tonos</h3>
-      <div class="actions">
-        <a class="btn-visit" href="https://wa.me/34678417026?text=Hola%20Mart%C3%ADnez%20Joyeros%2C%20me%20interesa%20la%20Pulsera%20R%C3%ADgida%20Tres%20Tonos." target="_blank" rel="noopener">Consultar</a>
-        <a class="btn" href="index.html#contacto">Ver en tienda</a>
+      <div class="ani-card-info">
+        <h3 class="ani-card-nombre">Pulsera Piel Verde</h3>
+        <a class="btn-outline-whatsapp"
+           href="https://wa.me/34678417026?text=Hola%20Mart%C3%ADnez%20Joyeros%2C%20me%20interesa%20la%20Pulsera%20Piel%20Verde."
+           aria-label="Consultar precio y disponibilidad de la Pulsera Piel Verde por WhatsApp"
+           target="_blank" rel="noopener">Consultar disponibilidad</a>
       </div>
     </article>
+
+    <!-- NUEVOS PRODUCTOS: insertar siempre AQUÍ ARRIBA,
+         antes de los productos existentes -->
 
   </div>
 
   <!-- ===== SEO LOCAL ===== -->
-  <section class="seo-local-content">
-    <div>
-      <h2>Brazaletes y Pulseras Exclusivas en Alcalá de Henares</h2>
-      <p>En <strong>Martínez Joyeros</strong>, nuestra colección de <strong>pulseras en Alcalá de Henares</strong> está diseñada para quienes buscan un detalle especial que perdure. Desde brazaletes rígidos con texturas dobles hasta pulseras de eslabones con resinas naturales, cada pieza refleja la elegancia de nuestra ubicación en el centro histórico.</p>
-      <p>Te invitamos a visitarnos en nuestra tienda física, situada cerca de la <strong>Vía Complutense</strong> y a pocos pasos de la <strong>Plaza de Cervantes</strong>. Aquí podrás descubrir colecciones completas de <strong>Vidal & Vidal, Viceroy, Fidda y Sobrani</strong> — marcas de las que somos distribuidores oficiales en Alcalá de Henares — junto a nuestras propias joyas artesanales en oro y plata.</p>
-      <p>Nuestra web muestra solo una parte de lo que tenemos. Si buscas una pulsera de <strong>Viceroy</strong>, un brazalete de <strong>Vidal & Vidal</strong> o una pieza de <strong>Fidda o Sobrani</strong>, ven a la tienda y te asesoramos sin compromiso.</p>
+  <section class="ani-seo" aria-label="Información sobre pulseras en Alcalá de Henares">
+    <div class="ani-seo__inner">
+      <h2 class="ani-seo__titulo">Pulseras y Combinaciones de Tendencia en Alcalá de Henares</h2>
+      <p>Las pulseras permiten jugar con geometrías y materiales. En Martínez Joyeros defendemos el arte de combinar diferentes texturas: desde elegantes brazaletes rígidos con acabado PVD hasta piezas con resinas naturales y cierres mosquetón de doble seguridad.</p>
+      <details class="ani-seo-details">
+        <summary>Leer más</summary>
+        <div class="ani-seo-extra">
+          <p>En nuestra tienda física, situada en el centro histórico de Alcalá de Henares muy cerca de la Vía Complutense y la Plaza de Cervantes, ponemos a tu disposición colecciones que se adaptan a tu ritmo de vida. Nuestro asesoramiento familiar te ayudará a encontrar la medida idónea y el cierre más seguro para cada muñeca.</p>
+          <p>Trabajamos con firmas como <strong>Vidal&nbsp;&amp;&nbsp;Vidal</strong>, <strong>Fidda</strong> y <strong>Sobrani</strong>, cuyos acabados en baño PVD dorado y satinado plateado garantizan durabilidad en el uso diario. Ven sin cita a la Calle Marqués de Alonso Martínez, 5 y te asesoramos sin compromiso.</p>
+        </div>
+      </details>
     </div>
   </section>
 </section>
 
 <!-- ===== FAQ ===== -->
-<section class="faq-pulseras" aria-labelledby="faq-pulseras-title">
-  <h2 id="faq-pulseras-title">Preguntas frecuentes sobre pulseras en Alcalá de Henares</h2>
+<section class="ani-faq" aria-labelledby="faq-pulseras-title">
+  <div class="ani-faq-inner">
+    <h2 id="faq-pulseras-title">Preguntas frecuentes sobre pulseras</h2>
 
-  <details>
-    <summary>¿Dónde comprar pulseras de oro en Alcalá de Henares?</summary>
-    <p>En <strong>Martínez Joyeros</strong>, en la Calle Marqués de Alonso Martínez 5, en el centro histórico de Alcalá de Henares. Ofrecemos pulseras en oro de 18 quilates, plata de ley, acero IP y diseños exclusivos de <strong>Vidal & Vidal</strong>.</p>
-  </details>
+    <details>
+      <summary>¿Dónde ver pulseras y brazaletes en Alcalá de Henares?</summary>
+      <p>En <strong>Martínez Joyeros</strong>, Calle Marqués de Alonso Martínez 5, en el centro histórico. Nuestro muestrario incluye brazaletes rígidos, pulseras de eslabones con cierre mosquetón y diseños con acabado PVD de firmas como <strong>Vidal&nbsp;&amp;&nbsp;Vidal</strong> y <strong>Fidda</strong>.</p>
+    </details>
 
-  <details>
-    <summary>¿Sois distribuidores oficiales de Vidal & Vidal y Viceroy en Alcalá de Henares?</summary>
-    <p>Sí, somos distribuidores oficiales de <strong>Vidal & Vidal, Viceroy, Fidda y Sobrani</strong> en Alcalá de Henares. Puedes encontrar sus colecciones completas — incluyendo pulseras y brazaletes — en nuestra tienda de la Calle Marqués de Alonso Martínez, 5.</p>
-  </details>
+    <details>
+      <summary>¿Qué marcas de pulseras tenéis en tienda?</summary>
+      <p>Somos distribuidores oficiales de <strong>Vidal&nbsp;&amp;&nbsp;Vidal</strong>, <strong>Fidda</strong>, <strong>Sobrani</strong> y <strong>Luxenter</strong> en Alcalá de Henares. Puedes ver sus colecciones completas de pulseras y brazaletes en nuestra tienda de la Calle Marqués de Alonso Martínez, 5.</p>
+    </details>
 
-  <details>
-    <summary>¿Qué tipos de pulseras y brazaletes tenéis en Alcalá de Henares?</summary>
-    <p>Tenemos <strong>pulseras de eslabones, brazaletes rígidos, pulseras de cadena fina, brazaletes con texturas y pulseras con piedras naturales</strong>. Disponibles en acabados dorados y plateados para todos los estilos.</p>
-  </details>
+    <details>
+      <summary>¿Qué tipos de pulseras y brazaletes tenéis?</summary>
+      <p>Encontrarás <strong>brazaletes rígidos abiertos</strong>, pulseras de eslabones con acabado satinado y pulido especular, diseños con resinas naturales y combinaciones de eslabones calibrados en varios tonos. Todos disponibles en acabado dorado y plateado.</p>
+    </details>
 
-  <details>
-    <summary>¿Podéis reparar una pulsera de oro en Alcalá de Henares?</summary>
-    <p>Sí, disponemos de <strong>taller propio</strong> en Alcalá de Henares donde realizamos reparaciones, limpiezas y ajustes en pulseras y brazaletes de oro y plata. Los trabajos básicos se realizan en <strong>24-48 horas</strong>.</p>
-  </details>
+    <details>
+      <summary>¿Podéis ajustar el tamaño de una pulsera?</summary>
+      <p>Sí, disponemos de <strong>taller propio</strong> en Alcalá de Henares. Realizamos ajustes de medida, cambios de cierre y limpiezas de mantenimiento. Los trabajos habituales se completan en <strong>24–48 horas</strong>.</p>
+    </details>
 
-  <details>
-    <summary>¿Tenéis pulseras aptas para pieles sensibles?</summary>
-    <p>Sí, gran parte de nuestra colección está fabricada en <strong>plata de ley, oro de 18 quilates o acero IP</strong> — materiales hipoalergénicos aptos para pieles sensibles. Consúltanos en tienda y te asesoraremos según tus necesidades.</p>
-  </details>
+    <details>
+      <summary>¿Tenéis pulseras aptas para pieles sensibles?</summary>
+      <p>Sí. Gran parte de nuestra colección está fabricada en <strong>acero 316L con baño PVD</strong>, un acabado hipoalergénico que minimiza las reacciones cutáneas y mantiene el color en el uso diario. Consúltanos en tienda y te indicamos qué modelos son los más adecuados para tu piel.</p>
+    </details>
+  </div>
 </section>
 
-<!-- ===== CTA FINAL ===== -->
+<!-- ===== STORE CTA ===== -->
 <section class="store-cta" aria-labelledby="cta-pulseras-title">
   <div class="store-cta-content">
     <h2 id="cta-pulseras-title">¿Buscas la pulsera perfecta?</h2>
-    <p>Nuestra web es solo una pequeña muestra de todo lo que tenemos en tienda. Ven a nuestra joyería en <strong>Alcalá de Henares</strong> y descubre las colecciones completas de <strong>Vidal & Vidal, Viceroy, Fidda y Sobrani</strong>.</p>
+    <p>Nuestra web es solo una pequeña muestra. Ven a nuestra joyería en <strong>Alcalá de Henares</strong> y descubre las colecciones completas de <strong>Vidal &amp; Vidal</strong>, <strong>Fidda</strong> y <strong>Sobrani</strong>.</p>
     <a href="https://www.google.com/maps/search/?api=1&query=C.+Marqu%C3%A9s+Alonso+Mart%C3%ADnez,+5,+28805+Alcal%C3%A1+de+Henares,+Madrid"
        target="_blank" rel="noopener" class="btn-mapa">
-      Ver ubicación en Mapa
+      Ver ubicación en mapa
     </a>
   </div>
 </section>
 
 <!-- ===== FOOTER ===== -->
-<footer class="footer">
-  © <span id="year"></span> · Martínez Joyeros
-  <span class="sep">|</span>
-  <a href="aviso-legal.html">Aviso legal</a>
-  <span class="sep">·</span>
-  <a href="privacidad.html">Privacidad</a>
-  <span class="sep">·</span>
-  <a href="cookies.html">Cookies</a>
+<footer class="site-footer">
+  <div class="footer-grid">
+    <div class="footer-col">
+      <h3>Legal</h3>
+      <ul>
+        <li><a href="aviso-legal.html">Aviso legal</a></li>
+        <li><a href="privacidad.html">Privacidad</a></li>
+        <li><a href="cookies.html">Cookies</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h3>Secciones</h3>
+      <ul>
+        <li><a href="index.html#tendencias">Tendencias</a></li>
+        <li><a href="colecciones.html">Colecciones</a></li>
+        <li><a href="diseno-y-joyeria.html">Diseño y Joyería</a></li>
+        <li><a href="index.html#nosotros">Nosotros</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h3>Redes</h3>
+      <ul>
+        <li><a href="https://www.instagram.com/martinezeurodiamant/" target="_blank" rel="noopener noreferrer">@martinezeurodiamant</a></li>
+        <li><a href="https://www.google.com/maps/search/?api=1&query=C.+Marqu%C3%A9s+Alonso+Mart%C3%ADnez,+5,+28805+Alcal%C3%A1+de+Henares,+Madrid"
+           target="_blank"
+           rel="noopener noreferrer">Google Maps</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h3>Contacto</h3>
+      <ul>
+        <li><a href="tel:+34678417026">+34 678 417 026</a></li>
+        <li><a href="mailto:martinezeurodiamant@gmail.com">martinezeurodiamant@gmail.com</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span id="year"></span> · Martínez Joyeros · Alcalá de Henares
+  </div>
 </footer>
 
-<!-- ===== WHATSAPP ===== -->
-<a class="whatsapp-float" href="https://wa.me/34678417026" target="_blank" rel="noopener"
-   aria-label="Chatear por WhatsApp con Martínez Joyeros">
-  <svg viewBox="0 0 32 32" aria-hidden="true">
-    <path d="M19.11 17.76c-.29-.15-1.7-.84-1.97-.94-.26-.1-.45-.15-.64.15-.19.29-.74.94-.91 1.13-.17.19-.34.22-.63.07-.29-.15-1.22-.45-2.33-1.44-.86-.76-1.44-1.7-1.61-1.99-.17-.29-.02-.45.13-.6.13-.13.29-.34.44-.51.15-.17.19-.29.29-.48.1-.19.05-.36-.02-.51-.07-.15-.64-1.54-.88-2.11-.23-.55-.47-.48-.64-.49l-.55-.01c-.19 0-.5.07-.76.36-.26.29-1 1-1 2.43 0 1.43 1.02 2.81 1.16 3 .15.19 2.01 3.07 4.87 4.31.68.29 1.21.46 1.62.59.68.22 1.3.19 1.79.12.55-.08 1.7-.69 1.94-1.36.24-.67.24-1.24.17-1.36-.07-.12-.26-.2-.55-.35zM16.02 29C9.94 29 5 24.06 5 17.98 5 11.9 9.94 6.96 16.02 6.96c6.08 0 11.02 4.94 11.02 11.02S22.1 29 16.02 29zm0-24C9.39 5 4 10.39 4 17.02S9.39 29.04 16.02 29.04 28.04 23.65 28.04 17.02 22.65 5 16.02 5z"/>
+<!-- ===== WHATSAPP FLOTANTE ===== -->
+<button class="contact-float-btn"
+        aria-label="Abrir formulario de contacto"
+        id="contact-float-trigger">
+  <svg viewBox="0 0 24 24" fill="none"
+       stroke="currentColor" stroke-width="1.5"
+       aria-hidden="true">
+    <path stroke-linecap="round" stroke-linejoin="round"
+      d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0
+      01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0
+      01-2 2h-5l-3 3v-3z"/>
   </svg>
-</a>
+</button>
 
-<!-- ===== SCRIPT UNIFICADO ===== -->
-<script>
-  document.getElementById('year').textContent = new Date().getFullYear();
-
-  const navToggle = document.querySelector('.nav-toggle');
-  const navClose  = document.querySelector('.nav-close-btn');
-  const sideMenu  = document.querySelector('.sidebar-menu');
-  const overlay   = document.querySelector('.nav-overlay');
-
-  function toggleMenu() {
-    if (sideMenu) sideMenu.classList.toggle('active');
-    if (overlay)  overlay.classList.toggle('active');
-  }
-
-  if (navToggle) navToggle.addEventListener('click', toggleMenu);
-  if (navClose)  navClose.addEventListener('click', toggleMenu);
-  if (overlay)   overlay.addEventListener('click', toggleMenu);
-
-  function filterProducts(category, button) {
-    document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
-    button.classList.add('active');
-    document.querySelectorAll('.producto-card').forEach(product => {
-      product.style.display = (category === 'all' || product.classList.contains(category)) ? 'block' : 'none';
-    });
-  }
-</script>
+<script src="scripts.js" defer></script>
 
 <!-- ===== JSON-LD ===== -->
 <script type="application/ld+json">
@@ -742,37 +1202,75 @@
   "@context": "https://schema.org",
   "@graph": [
     {
+      "@type": "JewelryStore",
+      "@id": "https://martinezeurodiamant.es/#store",
+      "name": "Martínez Joyeros",
+      "url": "https://martinezeurodiamant.es",
+      "telephone": "+34678417026",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Calle Marqués de Alonso Martínez, 5",
+        "addressLocality": "Alcalá de Henares",
+        "addressRegion": "Madrid",
+        "postalCode": "28805",
+        "addressCountry": "ES"
+      }
+    },
+    {
       "@type": "BreadcrumbList",
       "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://martinezeurodiamant.es/" },
-        { "@type": "ListItem", "position": 2, "name": "Pulseras", "item": "https://martinezeurodiamant.es/pulseras.html" }
+        { "@type": "ListItem", "position": 1, "name": "Inicio",      "item": "https://martinezeurodiamant.es/" },
+        { "@type": "ListItem", "position": 2, "name": "Colecciones", "item": "https://martinezeurodiamant.es/colecciones.html" },
+        { "@type": "ListItem", "position": 3, "name": "Pulseras",    "item": "https://martinezeurodiamant.es/pulseras.html" }
       ]
     },
     {
-      "@type": "ItemList",
-      "name": "Colección de Pulseras y Brazaletes — Martínez Joyeros Alcalá de Henares",
-      "description": "Pulseras y brazaletes de oro, plata y acero IP en Alcalá de Henares. Distribuidores de Vidal & Vidal, Viceroy, Fidda y Sobrani.",
+      "@type": "CollectionPage",
+      "name": "Pulseras y Brazaletes — Martínez Joyeros",
       "url": "https://martinezeurodiamant.es/pulseras.html",
-      "numberOfItems": 18,
+      "description": "Muestrario de pulseras y brazaletes en Alcalá de Henares. Diseños con acabado PVD de Vidal & Vidal, Fidda y Sobrani.",
+      "provider": { "@id": "https://martinezeurodiamant.es/#store" }
+    },
+    {
+      "@type": "ItemList",
+      "name": "Colección de Pulseras y Brazaletes",
+      "url": "https://martinezeurodiamant.es/pulseras.html",
+      "numberOfItems": 34,
       "itemListElement": [
-        { "@type": "ListItem", "position": 1,  "name": "Brazalete Texturas Mar 2 Dorado" },
-        { "@type": "ListItem", "position": 2,  "name": "Pulsera Eslabones Unisex Dorada" },
-        { "@type": "ListItem", "position": 3,  "name": "Pulsera Dúo Bival Dorada" },
-        { "@type": "ListItem", "position": 4,  "name": "Pulsera Haru 2 Dorada" },
-        { "@type": "ListItem", "position": 5,  "name": "Brazalete Rígido Curve Dorado" },
-        { "@type": "ListItem", "position": 6,  "name": "Pulsera Eslabones Astrea Plateada" },
-        { "@type": "ListItem", "position": 7,  "name": "Pulsera Annie Plata de Ley" },
-        { "@type": "ListItem", "position": 8,  "name": "Brazalete Rígido Texturas Mar Plateado" },
-        { "@type": "ListItem", "position": 9,  "name": "Brazalete Espiral Waves Plateado" },
-        { "@type": "ListItem", "position": 10, "name": "Pulsera Ola Cruzada Dorada" },
-        { "@type": "ListItem", "position": 11, "name": "Brazalete Rígido Waves Dorado" },
-        { "@type": "ListItem", "position": 12, "name": "Pulsera Eslabones Relief Dorada" },
-        { "@type": "ListItem", "position": 13, "name": "Brazalete Nexo Oro" },
-        { "@type": "ListItem", "position": 14, "name": "Pulsera Caramel Eslabones" },
-        { "@type": "ListItem", "position": 15, "name": "Pulsera Haru Plateada" },
-        { "@type": "ListItem", "position": 16, "name": "Pulsera Rígida Tiras Oro" },
-        { "@type": "ListItem", "position": 17, "name": "Pulsera Aqua con Piedras Naturales" },
-        { "@type": "ListItem", "position": 18, "name": "Pulsera Rígida Tres Tonos Acero IP" }
+        { "@type": "ListItem", "position": 1,  "item": { "@type": "Product", "name": "Brazalete Texturas Mar 2" } },
+        { "@type": "ListItem", "position": 2,  "item": { "@type": "Product", "name": "Pulsera Eslabones Unise" } },
+        { "@type": "ListItem", "position": 3,  "item": { "@type": "Product", "name": "Pulsera Dúo Bival" } },
+        { "@type": "ListItem", "position": 4,  "item": { "@type": "Product", "name": "Pulsera Haru 2" } },
+        { "@type": "ListItem", "position": 5,  "item": { "@type": "Product", "name": "Brazalete Rígido Curve" } },
+        { "@type": "ListItem", "position": 6,  "item": { "@type": "Product", "name": "Pulsera Eslabones Astrea" } },
+        { "@type": "ListItem", "position": 7,  "item": { "@type": "Product", "name": "Pulsera Annie" } },
+        { "@type": "ListItem", "position": 8,  "item": { "@type": "Product", "name": "Brazalete Rígido Texturas Mar" } },
+        { "@type": "ListItem", "position": 9,  "item": { "@type": "Product", "name": "Brazalete Espiral Waves" } },
+        { "@type": "ListItem", "position": 10, "item": { "@type": "Product", "name": "Pulsera Ola Cruzada" } },
+        { "@type": "ListItem", "position": 11, "item": { "@type": "Product", "name": "Brazalete Rígido Waves" } },
+        { "@type": "ListItem", "position": 12, "item": { "@type": "Product", "name": "Pulsera Eslabones Relief" } },
+        { "@type": "ListItem", "position": 13, "item": { "@type": "Product", "name": "Brazalete Nexo" } },
+        { "@type": "ListItem", "position": 14, "item": { "@type": "Product", "name": "Pulsera Caramel Eslabones" } },
+        { "@type": "ListItem", "position": 15, "item": { "@type": "Product", "name": "Pulsera Haru" } },
+        { "@type": "ListItem", "position": 16, "item": { "@type": "Product", "name": "Pulsera Rígida Tiras" } },
+        { "@type": "ListItem", "position": 17, "item": { "@type": "Product", "name": "Pulsera Aqua" } },
+        { "@type": "ListItem", "position": 18, "item": { "@type": "Product", "name": "Pulsera Piel Verde" } },
+        { "@type": "ListItem", "position": 19, "item": { "@type": "Product", "name": "Pulsera Cuentas Ágata Luxenter" } },
+        { "@type": "ListItem", "position": 20, "item": { "@type": "Product", "name": "Pulsera Fina con Cristales Luxenter" } },
+        { "@type": "ListItem", "position": 21, "item": { "@type": "Product", "name": "Pulsera Fucsia Aming Luxenter" } },
+        { "@type": "ListItem", "position": 22, "item": { "@type": "Product", "name": "Pulsera Doble Cristal Verde Luxenter" } },
+        { "@type": "ListItem", "position": 23, "item": { "@type": "Product", "name": "Pulsera Detalles Cruz Luxenter" } },
+        { "@type": "ListItem", "position": 24, "item": { "@type": "Product", "name": "Pulsera Riviere Cuarzo Verde Luxenter" } },
+        { "@type": "ListItem", "position": 25, "item": { "@type": "Product", "name": "Pulsera Fina Simder Azul Luxenter" } },
+        { "@type": "ListItem", "position": 26, "item": { "@type": "Product", "name": "Pulsera Barras y Perlas Luxenter" } },
+        { "@type": "ListItem", "position": 27, "item": { "@type": "Product", "name": "Pulsera Jade Rojo Luxenter" } },
+        { "@type": "ListItem", "position": 28, "item": { "@type": "Product", "name": "Pulsera Cuentas Naranja Luxenter" } },
+        { "@type": "ListItem", "position": 29, "item": { "@type": "Product", "name": "Pulsera Ojo de Tigre Luxenter" } },
+        { "@type": "ListItem", "position": 30, "item": { "@type": "Product", "name": "Pulsera Rosa-Manan Luxenter" } },
+        { "@type": "ListItem", "position": 31, "item": { "@type": "Product", "name": "Brazalete Rígido Horizonte Vidal & Vidal" } },
+        { "@type": "ListItem", "position": 32, "item": { "@type": "Product", "name": "Pulsera Eslabones Geométricos Bival Vidal & Vidal" } },
+        { "@type": "ListItem", "position": 33, "item": { "@type": "Product", "name": "Pulsera Eslabón Circular Astrea Vidal & Vidal" } },
+        { "@type": "ListItem", "position": 34, "item": { "@type": "Product", "name": "Pulsera Cuadrados Texturizados Reflexes Vidal & Vidal" } }
       ]
     },
     {
@@ -780,34 +1278,119 @@
       "mainEntity": [
         {
           "@type": "Question",
-          "name": "¿Dónde comprar pulseras de oro en Alcalá de Henares?",
-          "acceptedAnswer": { "@type": "Answer", "text": "En Martínez Joyeros, en la Calle Marqués de Alonso Martínez 5, en el centro histórico de Alcalá de Henares. Ofrecemos pulseras en oro de 18 quilates, plata de ley, acero IP y diseños exclusivos de Vidal & Vidal." }
+          "name": "¿Dónde ver pulseras y brazaletes en Alcalá de Henares?",
+          "acceptedAnswer": { "@type": "Answer", "text": "En Martínez Joyeros, Calle Marqués de Alonso Martínez 5. Nuestro muestrario incluye brazaletes rígidos, pulseras de eslabones con cierre mosquetón y diseños con acabado PVD de Vidal & Vidal y Fidda." }
         },
         {
           "@type": "Question",
-          "name": "¿Sois distribuidores oficiales de Vidal & Vidal y Viceroy en Alcalá de Henares?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Sí, somos distribuidores oficiales de Vidal & Vidal, Viceroy, Fidda y Sobrani en Alcalá de Henares. Puedes encontrar sus colecciones completas en nuestra tienda de la Calle Marqués de Alonso Martínez, 5." }
+          "name": "¿Qué marcas de pulseras tenéis en tienda?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Somos distribuidores oficiales de Vidal & Vidal, Fidda, Sobrani y Luxenter en Alcalá de Henares." }
         },
         {
           "@type": "Question",
-          "name": "¿Qué tipos de pulseras y brazaletes tenéis en Alcalá de Henares?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Tenemos pulseras de eslabones, brazaletes rígidos, pulseras de cadena fina, brazaletes con texturas y pulseras con piedras naturales. Disponibles en acabados dorados y plateados." }
+          "name": "¿Qué tipos de pulseras y brazaletes tenéis?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Brazaletes rígidos abiertos, pulseras de eslabones con acabado satinado y pulido especular, diseños con resinas naturales y combinaciones de eslabones calibrados en varios tonos. Disponibles en acabado dorado y plateado." }
         },
         {
           "@type": "Question",
-          "name": "¿Podéis reparar una pulsera de oro en Alcalá de Henares?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Sí, disponemos de taller propio en Alcalá de Henares donde realizamos reparaciones, limpiezas y ajustes en pulseras y brazaletes de oro y plata en 24-48 horas." }
+          "name": "¿Podéis ajustar el tamaño de una pulsera?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Sí, disponemos de taller propio en Alcalá de Henares. Realizamos ajustes de medida, cambios de cierre y limpiezas. Los trabajos habituales se completan en 24-48 horas." }
         },
         {
           "@type": "Question",
           "name": "¿Tenéis pulseras aptas para pieles sensibles?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Sí, gran parte de nuestra colección está fabricada en plata de ley, oro de 18 quilates o acero IP, materiales hipoalergénicos aptos para pieles sensibles." }
+          "acceptedAnswer": { "@type": "Answer", "text": "Sí. Gran parte de nuestra colección está fabricada en acero 316L con baño PVD, un acabado hipoalergénico que minimiza reacciones cutáneas y mantiene el color en el uso diario." }
         }
       ]
     }
   ]
 }
 </script>
+
+<div class="contact-modal-overlay" id="contact-modal"
+     role="dialog" aria-modal="true"
+     aria-labelledby="contact-modal-title"
+     aria-hidden="true">
+  <div class="contact-modal-box">
+
+    <button class="contact-modal-close"
+            aria-label="Cerrar formulario de contacto"
+            id="contact-modal-close">
+      &times;
+    </button>
+
+    <h2 class="contact-modal-title"
+        id="contact-modal-title">
+      Escríbenos
+    </h2>
+    <p class="contact-modal-sub">
+      Te respondemos en menos de 24 horas.
+    </p>
+
+    <form class="contact-modal-form"
+          id="contact-modal-form"
+          novalidate>
+
+      <input type="hidden"
+             name="access_key"
+             value="f42d9962-3387-44ac-8fb1-32aa6a1bd181">
+      <input type="hidden"
+             name="subject"
+             id="form-subject-header">
+      <input type="hidden"
+             name="from_name"
+             value="Web Martínez Joyeros">
+
+      <div class="contact-field">
+        <label for="contact-nombre">Nombre</label>
+        <input type="text" id="contact-nombre"
+               name="name"
+               placeholder="Tu nombre"
+               required
+               autocomplete="name">
+      </div>
+
+      <div class="contact-field">
+        <label for="contact-asunto">Asunto</label>
+        <input type="text" id="contact-asunto"
+               name="asunto"
+               placeholder="¿Sobre qué nos escribes?"
+               required>
+      </div>
+
+      <div class="contact-field">
+        <label for="contact-email">Email</label>
+        <input type="email" id="contact-email"
+               name="email"
+               placeholder="tu@email.com"
+               required
+               autocomplete="email">
+      </div>
+
+      <div class="contact-field">
+        <label for="contact-mensaje">
+          ¿En qué podemos ayudarte?
+        </label>
+        <textarea id="contact-mensaje"
+                  name="message"
+                  rows="4"
+                  placeholder="Cuéntanos qué necesitas..."
+                  required></textarea>
+      </div>
+
+      <button type="submit"
+              class="contact-modal-submit"
+              id="contact-submit-btn">
+        ENVIAR MENSAJE
+      </button>
+
+      <p class="contact-modal-feedback"
+         id="contact-feedback"
+         aria-live="polite"></p>
+
+    </form>
+  </div>
+</div>
 
 </body>
 </html>

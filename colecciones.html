@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#F5F0E8">
+
+  <title>Colecciones de Joyería | Martínez Joyeros — Alcalá de Henares</title>
+  <meta name="description" content="Explora todas las colecciones de Martínez Joyeros en Alcalá de Henares: anillos, pendientes, collares, pulseras y relojes. Joyería y bisutería de diseño.">
+  <link rel="canonical" href="https://martinezeurodiamant.es/colecciones.html">
+
+  <!-- Social / Open Graph -->
+  <meta property="og:title" content="Colecciones de Joyería | Martínez Joyeros — Alcalá de Henares">
+  <meta property="og:description" content="Explora todas las colecciones de Martínez Joyeros en Alcalá de Henares: anillos, pendientes, collares, pulseras y relojes.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://martinezeurodiamant.es/colecciones.html">
+  <meta property="og:image" content="https://martinezeurodiamant.es/imagenes/HOVER.WEBP">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Colecciones de Joyería | Martínez Joyeros — Alcalá de Henares">
+  <meta name="twitter:description" content="Explora todas las colecciones de Martínez Joyeros en Alcalá de Henares: anillos, pendientes, collares, pulseras y relojes.">
+  <meta name="twitter:image" content="https://martinezeurodiamant.es/imagenes/HOVER.WEBP">
+
+  <!-- Favicon -->
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+  <!-- Tipografías -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    /* ===== HERO ===== */
+    .col-hero {
+      padding: 6rem 2rem;
+      text-align: center;
+      background-color: var(--crema);
+    }
+    .col-hero__titulo {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      color: var(--negro);
+      margin-bottom: 1rem;
+    }
+    .col-hero__sub {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1rem;
+      color: var(--gris);
+      letter-spacing: 0.05em;
+    }
+    .col-hero__sub::after {
+      content: '';
+      display: block;
+      width: 60%;
+      height: 1px;
+      background-color: var(--dorado);
+      margin: 2rem auto 0;
+      opacity: 0.4;
+    }
+
+    /* ===== GRID DE CATEGORÍAS ===== */
+    .col-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      padding: 1.5rem;
+      background-color: var(--crema);
+    }
+    .col-card {
+      position: relative;
+      display: block;
+      overflow: hidden;
+      min-height: 280px;
+      text-decoration: none;
+    }
+    .col-card__img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+    .col-card:hover .col-card__img {
+      transform: scale(1.05);
+    }
+    .col-card__overlay {
+      position: absolute;
+      inset: 0;
+      background-color: rgba(0, 0, 0, 0.2);
+    }
+    .col-card__titulo {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.4rem, 3vw, 2rem);
+      font-weight: 600;
+      color: var(--blanco);
+      letter-spacing: 0.08em;
+      z-index: 2;
+      text-align: center;
+    }
+
+    /* ===== MÓVIL: 2 columnas simétricas, quinta tarjeta a ancho completo ===== */
+    @media (max-width: 768px) {
+      .col-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+      .col-card:last-child {
+        grid-column: span 2;
+        height: 250px;
+      }
+    }
+
+    /* ===== DESKTOP: fila 1 dos columnas 50/50, fila 2 tres columnas 33/33/33 ===== */
+    @media (min-width: 768px) {
+      .col-grid {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-rows: 55vh 45vh;
+        padding: 2rem;
+        gap: 2rem;
+      }
+      .col-card:nth-child(1) { grid-column: 1 / 3; grid-row: 1; }
+      .col-card:nth-child(2) { grid-column: 3 / 5; grid-row: 1; }
+      .col-card:nth-child(3) { grid-column: 1 / 2; grid-row: 2; }
+      .col-card:nth-child(4) { grid-column: 2 / 3; grid-row: 2; }
+      .col-card:nth-child(5) { grid-column: 3 / 5; grid-row: 2; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<header class="main-header">
+  <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+
+  <div class="logo">
+    <a href="index.html">Martínez Joyeros</a>
+  </div>
+
+  <nav class="nav-menu" aria-label="Navegación principal">
+    <ul>
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="index.html#lookbook-verano">Tendencias</a></li>
+      <li class="nav-item-dropdown">
+        <a href="colecciones.html" class="nav-dropdown-trigger nav-active">
+          Colecciones <span class="dropdown-arrow">▾</span>
+        </a>
+        <div class="nav-dropdown">
+          <div class="nav-dropdown-col">
+            <span class="nav-dropdown-heading">Por Categoría</span>
+            <a href="anillos.html">Anillos</a>
+            <a href="pendientes.html">Pendientes</a>
+            <a href="collares.html">Collares</a>
+            <a href="pulseras.html">Pulseras</a>
+            <a href="relojes.html">Relojes</a>
+          </div>
+        </div>
+      </li>
+      <li><a href="diseno-y-joyeria.html">Diseño y Joyería</a></li>
+      <li><a href="index.html#contacto">Contacto</a></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- ===== HERO ===== -->
+<section class="col-hero">
+  <h1 class="col-hero__titulo">Colecciones</h1>
+  <p class="col-hero__sub">Catálogo completo de alta joyería y bisutería de diseño en Alcalá de Henares. Explora nuestras colecciones de anillos, collares, relojes y pulseras, incluyendo firmas oficiales como Luxenter y Vidal &amp; Vidal.</p>
+</section>
+
+<!-- ===== GRID DE CATEGORÍAS ===== -->
+<section class="col-grid">
+  <a href="anillos.html" class="col-card">
+    <img src="imagenes/anillo portada.webp"
+         alt="Colección de anillos en Martínez Joyeros Alcalá de Henares"
+         class="col-card__img"
+         loading="lazy">
+    <div class="col-card__overlay"></div>
+    <span class="col-card__titulo">Anillos</span>
+  </a>
+  <a href="pendientes.html" class="col-card">
+    <img src="imagenes/pendientes portada.webp"
+         alt="Colección de pendientes en Martínez Joyeros Alcalá de Henares"
+         class="col-card__img"
+         loading="lazy">
+    <div class="col-card__overlay"></div>
+    <span class="col-card__titulo">Pendientes</span>
+  </a>
+  <a href="collares.html" class="col-card">
+    <img src="imagenes/collares portada.webp"
+         alt="Colección de collares en Martínez Joyeros Alcalá de Henares"
+         class="col-card__img"
+         loading="lazy">
+    <div class="col-card__overlay"></div>
+    <span class="col-card__titulo">Collares</span>
+  </a>
+  <a href="pulseras.html" class="col-card">
+    <img src="imagenes/pulseras portada.webp"
+         alt="Colección de pulseras en Martínez Joyeros Alcalá de Henares"
+         class="col-card__img"
+         loading="lazy">
+    <div class="col-card__overlay"></div>
+    <span class="col-card__titulo">Pulseras</span>
+  </a>
+  <a href="relojes.html" class="col-card">
+    <img src="imagenes/relojes portada.webp"
+         alt="Colección de relojes en Martínez Joyeros Alcalá de Henares"
+         class="col-card__img"
+         loading="lazy">
+    <div class="col-card__overlay"></div>
+    <span class="col-card__titulo">Relojes</span>
+  </a>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="site-footer">
+  <div class="footer-grid">
+    <div class="footer-col">
+      <h3>Legal</h3>
+      <ul>
+        <li><a href="aviso-legal.html">Aviso legal</a></li>
+        <li><a href="privacidad.html">Privacidad</a></li>
+        <li><a href="cookies.html">Cookies</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h3>Secciones</h3>
+      <ul>
+        <li><a href="index.html#tendencias">Tendencias</a></li>
+        <li><a href="colecciones.html">Colecciones</a></li>
+        <li><a href="diseno-y-joyeria.html">Diseño y Joyería</a></li>
+        <li><a href="index.html#nosotros">Nosotros</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h3>Redes</h3>
+      <ul>
+        <li><a href="https://www.instagram.com/martinezeurodiamant/" target="_blank" rel="noopener noreferrer">@martinezeurodiamant</a></li>
+        <li><a href="https://www.google.com/maps/search/?api=1&query=C.+Marqu%C3%A9s+Alonso+Mart%C3%ADnez,+5,+28805+Alcal%C3%A1+de+Henares,+Madrid"
+           target="_blank"
+           rel="noopener noreferrer">Google Maps</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h3>Contacto</h3>
+      <ul>
+        <li><a href="tel:+34678417026">+34 678 417 026</a></li>
+        <li><a href="mailto:martinezeurodiamant@gmail.com">martinezeurodiamant@gmail.com</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span id="year"></span> · Martínez Joyeros · Alcalá de Henares
+  </div>
+</footer>
+
+<!-- ===== WHATSAPP FLOTANTE ===== -->
+<button class="contact-float-btn"
+        aria-label="Abrir formulario de contacto"
+        id="contact-float-trigger">
+  <svg viewBox="0 0 24 24" fill="none"
+       stroke="currentColor" stroke-width="1.5"
+       aria-hidden="true">
+    <path stroke-linecap="round" stroke-linejoin="round"
+      d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0
+      01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0
+      01-2 2h-5l-3 3v-3z"/>
+  </svg>
+</button>
+
+<!-- ===== BANNER COOKIES ===== -->
+<div id="cookie-banner" style="
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: #1F1E1C;
+  color: #fff;
+  padding: 15px 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  box-shadow: 0 -4px 20px rgba(0,0,0,0.15);
+  z-index: 999999;
+  transform: translateY(100%);
+  transition: transform 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+  font-family: 'Montserrat', sans-serif;
+">
+  <p style="margin: 0; font-size: 0.9rem; color: #e0e0e0; max-width: 800px; text-align: center;">
+    Usamos cookies para mejorar tu experiencia y analizar el tráfico.
+    Al continuar navegando, aceptas su uso.
+    <a href="cookies.html" aria-label="Más información sobre nuestra política de cookies" style="color: #C8A462; text-decoration: underline;">Más información</a>.
+  </p>
+  <button onclick="acceptCookies()" style="
+    background: #C8A462;
+    color: #fff;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 0.85rem;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(200, 164, 98, 0.3);
+    transition: transform 0.2s;
+  " onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+    ACEPTAR
+  </button>
+</div>
+
+<script src="scripts.js" defer></script>
+
+<script>
+  // Año footer
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Menú hamburguesa
+  const navToggle = document.querySelector('.nav-toggle');
+  const navMenu = document.querySelector('.nav-menu');
+  const navLinks = document.querySelectorAll('.nav-menu a');
+  if (navToggle && navMenu) {
+    navToggle.addEventListener('click', () => {
+      navMenu.classList.toggle('active');
+      navToggle.classList.toggle('active');
+      navToggle.setAttribute('aria-expanded', navMenu.classList.contains('active'));
+    });
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        if (link.classList.contains('nav-dropdown-trigger') && window.innerWidth <= 768) return;
+        navMenu.classList.remove('active');
+        navToggle.classList.remove('active');
+        navToggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+  }
+
+  // Dropdown móvil — acordeón
+  const dropdownTriggers = document.querySelectorAll('.nav-dropdown-trigger');
+  dropdownTriggers.forEach(trigger => {
+    trigger.addEventListener('click', (e) => {
+      if (window.innerWidth <= 768) {
+        e.preventDefault();
+        const parent = trigger.closest('.nav-item-dropdown');
+        parent.classList.toggle('active');
+      }
+    });
+  });
+
+  // Banner cookies
+  window.addEventListener('load', function() {
+    if (!localStorage.getItem('cookiesAccepted')) {
+      setTimeout(() => {
+        const banner = document.getElementById('cookie-banner');
+        if (banner) banner.style.transform = 'translateY(0)';
+      }, 2000);
+    }
+  });
+  function acceptCookies() {
+    localStorage.setItem('cookiesAccepted', 'true');
+    const banner = document.getElementById('cookie-banner');
+    if (banner) banner.style.transform = 'translateY(100%)';
+  }
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "JewelryStore",
+      "@id": "https://martinezeurodiamant.es/#store",
+      "name": "Martínez Joyeros",
+      "url": "https://martinezeurodiamant.es",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Alcalá de Henares",
+        "addressRegion": "Madrid",
+        "addressCountry": "ES"
+      }
+    },
+    {
+      "@type": "CollectionPage",
+      "@id": "https://martinezeurodiamant.es/colecciones.html",
+      "url": "https://martinezeurodiamant.es/colecciones.html",
+      "name": "Colecciones de Joyería | Martínez Joyeros Alcalá de Henares",
+      "description": "Catálogo completo de anillos, pendientes, collares, pulseras y relojes de Martínez Joyeros.",
+      "publisher": {"@id": "https://martinezeurodiamant.es/#store"},
+      "mainEntity": {
+        "@type": "ItemList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "url": "https://martinezeurodiamant.es/anillos.html",
+            "name": "Colección de Anillos y Sortijas"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "url": "https://martinezeurodiamant.es/pendientes.html",
+            "name": "Colección de Pendientes"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "url": "https://martinezeurodiamant.es/collares.html",
+            "name": "Colección de Collares y Gargantillas"
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
+            "url": "https://martinezeurodiamant.es/pulseras.html",
+            "name": "Colección de Pulseras y Brazaletes"
+          },
+          {
+            "@type": "ListItem",
+            "position": 5,
+            "url": "https://martinezeurodiamant.es/relojes.html",
+            "name": "Colección de Relojería"
+          }
+        ]
+      }
+    }
+  ]
+}
+</script>
+
+<div class="contact-modal-overlay" id="contact-modal"
+     role="dialog" aria-modal="true"
+     aria-labelledby="contact-modal-title"
+     aria-hidden="true">
+  <div class="contact-modal-box">
+
+    <button class="contact-modal-close"
+            aria-label="Cerrar formulario de contacto"
+            id="contact-modal-close">
+      &times;
+    </button>
+
+    <h2 class="contact-modal-title"
+        id="contact-modal-title">
+      Escríbenos
+    </h2>
+    <p class="contact-modal-sub">
+      Te respondemos en menos de 24 horas.
+    </p>
+
+    <form class="contact-modal-form"
+          id="contact-modal-form"
+          novalidate>
+
+      <input type="hidden"
+             name="access_key"
+             value="f42d9962-3387-44ac-8fb1-32aa6a1bd181">
+      <input type="hidden"
+             name="subject"
+             id="form-subject-header">
+      <input type="hidden"
+             name="from_name"
+             value="Web Martínez Joyeros">
+
+      <div class="contact-field">
+        <label for="contact-nombre">Nombre</label>
+        <input type="text" id="contact-nombre"
+               name="name"
+               placeholder="Tu nombre"
+               required
+               autocomplete="name">
+      </div>
+
+      <div class="contact-field">
+        <label for="contact-asunto">Asunto</label>
+        <input type="text" id="contact-asunto"
+               name="asunto"
+               placeholder="¿Sobre qué nos escribes?"
+               required>
+      </div>
+
+      <div class="contact-field">
+        <label for="contact-email">Email</label>
+        <input type="email" id="contact-email"
+               name="email"
+               placeholder="tu@email.com"
+               required
+               autocomplete="email">
+      </div>
+
+      <div class="contact-field">
+        <label for="contact-mensaje">
+          ¿En qué podemos ayudarte?
+        </label>
+        <textarea id="contact-mensaje"
+                  name="message"
+                  rows="4"
+                  placeholder="Cuéntanos qué necesitas..."
+                  required></textarea>
+      </div>
+
+      <button type="submit"
+              class="contact-modal-submit"
+              id="contact-submit-btn">
+        ENVIAR MENSAJE
+      </button>
+
+      <p class="contact-modal-feedback"
+         id="contact-feedback"
+         aria-live="polite"></p>
+
+    </form>
+  </div>
+</div>
+
+</body>
+</html>

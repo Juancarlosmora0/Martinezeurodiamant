@@ -5,10 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#F6F0E7">
 
-  <title>Pendientes en Alcalá de Henares | Martínez Joyeros</title>
-  
-  <meta name="description" content="Descubre la mejor colección de pendientes en Alcalá de Henares. Diseños exclusivos en oro de 18k, plata de ley y marcas oficiales como Vidal & Vidal en Martínez Joyeros.">
-  
+  <title>Pendientes y Criollas en Alcalá de Henares desde 19,95€ | Martínez Joyeros</title>
+
+  <meta name="description" content="Colección de pendientes y criollas en Alcalá de Henares desde 19,95€. Diseños de Vidal & Vidal y Luxenter. Visítanos en el centro histórico.">
+
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://martinezeurodiamant.es/pendientes.html">
 
@@ -20,45 +20,23 @@
 
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Colección de Pendientes | Martínez Joyeros Alcalá">
-  <meta name="twitter:description" content="Encuentra el detalle perfecto. Pendientes de oro, plata y bisutería de autor en Alcalá de Henares.">
+  <meta name="twitter:description" content="Encuentra el detalle perfecto. Pendientes y bisutería de autor con acabados inalterables en Alcalá de Henares.">
   <meta name="twitter:image" content="https://martinezeurodiamant.es/imagenes/pendientes-og.jpg">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
-  
-  <link rel="stylesheet" href="style.css">
- 
- <!-- ESTILOS DEL MENÚ HAMBURGUESA INTEGRADOS -->
-  <style>
-/* Estilos para los botones de filtro (Igual que en Anillos) */
-.filter-btn {
-  background: transparent;
-  border: 1px solid #D6B76E;
-  color: #1a1a1a;
-  padding: 10px 25px;
-  margin: 0 5px;
-  cursor: pointer;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 0.9rem;
-  font-weight: 500;
-  transition: all 0.3s ease;
-  border-radius: 4px;
-}
 
-.filter-btn:hover, .filter-btn.active {
-  background-color: #D6B76E;
-  color: white;
-  box-shadow: 0 4px 10px rgba(214, 183, 110, 0.3);
-}
-/* Contenedor de imagen con hover */
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+/* Imagen con hover */
 .bf-img-wrap {
   position: relative;
   overflow: hidden;
-  aspect-ratio: 1/1; /* Mantiene las fotos cuadradas y uniformes */
+  aspect-ratio: 1/1;
+  background-color: var(--crema);
 }
-
-/* La imagen hover está oculta por defecto */
 .img-hover {
   position: absolute;
   top: 0;
@@ -69,370 +47,1482 @@
   opacity: 0;
   transition: opacity 0.3s ease-in-out;
 }
-
-/* Al pasar el ratón, mostramos la imagen hover */
 .producto-card:hover .img-hover {
   opacity: 1;
 }
-
-/* Aseguramos que la imagen principal se vea bien */
 .img-main {
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
 }
-  /* Burbuja de precio moderna */
-    .price-tag {
-      position: absolute;
-      top: 15px;
-      right: 15px;
-      background: rgba(255, 255, 255, 0.95);
-      color: #1a1a1a;
-      padding: 6px 14px;
-      border-radius: 30px;
+
+/* Hero */
+.ani-hero {
+  padding: 5rem 2rem 3rem;
+  text-align: center;
+  background-color: var(--crema);
+}
+.ani-hero__titulo {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  color: var(--negro);
+  margin-bottom: 1rem;
+}
+.ani-hero__sub {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1rem;
+  color: var(--gris);
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+.ani-hero__sub::after {
+  content: '';
+  display: block;
+  width: 60%;
+  height: 1px;
+  background-color: var(--dorado);
+  margin: 2rem auto 0;
+  opacity: 0.4;
+}
+
+/* Filtros */
+.ani-filtros {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  padding: 2rem 1rem;
+  flex-wrap: wrap;
+}
+.ani-filtro {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid transparent;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  color: var(--gris);
+  cursor: pointer;
+  padding: 0.25rem 0;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+}
+.ani-filtro:hover,
+.ani-filtro.active {
+  color: var(--negro);
+  border-bottom-color: var(--dorado);
+}
+
+/* Grid catálogo */
+.catalogo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 3rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem 4rem;
+}
+@media (max-width: 768px) {
+  .catalogo-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem 1rem;
+    padding: 0 1rem 3rem;
+  }
+}
+
+/* Tarjeta */
+.ani-card-info {
+  padding: 1rem 0 0;
+  text-align: center;
+}
+.ani-card-nombre {
+  font-family: 'Playfair Display', serif;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--negro);
+  margin-bottom: 0.5rem;
+}
+.producto-precio {
+  display: block;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: var(--dorado);
+  margin: 5px 0 0;
+  text-align: center;
+}
+/* Breadcrumb */
+.breadcrumb {
+  padding: 1rem 2rem;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.8rem;
+  color: var(--gris);
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.breadcrumb a {
+  color: var(--negro);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+.breadcrumb a:hover { color: var(--dorado); }
+.breadcrumb__sep {
+  margin: 0 0.5rem;
+  color: var(--dorado);
+}
+.breadcrumb__actual {
+  color: var(--gris);
+  font-weight: 500;
+}
+
+/* SEO local */
+.ani-seo {
+  background-color: var(--blanco);
+  border-top: 1px solid #f0f0f0;
+  padding: 4rem 2rem;
+}
+.ani-seo__inner {
+  max-width: 900px;
+  margin: 0 auto;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.95rem;
+  line-height: 1.8;
+  color: #444;
+}
+.ani-seo__titulo {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  color: var(--negro);
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+.ani-seo__inner p { margin-bottom: 1.25rem; }
+
+/* Tarjetas — Flexbox alineación botón */
+.producto-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.ani-card-info {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+/* Acordeón SEO */
+.seo-texto-completo {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease, opacity 0.5s ease;
+  opacity: 0;
+}
+.seo-texto-completo.abierto {
+  max-height: 1000px;
+  opacity: 1;
+  margin-bottom: 1.25rem;
+}
+.seo-lista {
+  list-style-type: disc;
+  margin-left: 1.5rem;
+  margin-bottom: 1.25rem;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.95rem;
+  color: #444;
+  line-height: 1.8;
+  text-align: left;
+}
+
+    /* ===== FAQ TARJETAS — Heritage Minimalista ===== */
+    .ani-faq-inner,
+    .faq-collares,
+    .faq-pendientes,
+    .faq-anillos {
+      max-width: 800px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      background: transparent;
+      padding: 48px 20px 64px;
+    }
+    .ani-faq-inner h2,
+    .faq-collares h2,
+    .faq-pendientes h2,
+    .faq-anillos h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.3rem, 3vw, 1.8rem);
+      color: var(--negro);
+      text-align: center;
+      margin-bottom: 8px;
+    }
+    .ani-faq-inner details,
+    .faq-collares details,
+    .faq-pendientes details,
+    .faq-anillos details {
+      background: var(--blanco);
+      border-radius: 8px;
+      padding: 0 20px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+      border: 1px solid rgba(0,0,0,0.05);
+    }
+    .ani-faq-inner details summary,
+    .faq-collares details summary,
+    .faq-pendientes details summary,
+    .faq-anillos details summary {
       font-family: 'Montserrat', sans-serif;
       font-weight: 600;
-      font-size: 0.85rem;
-      z-index: 5;
-      border: 1px solid #D6B76E;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-      letter-spacing: 0.5px;
+      font-size: 0.95rem;
+      color: var(--negro);
+      padding: 20px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      list-style: none;
+      line-height: 1.4;
+    }
+    .ani-faq-inner details summary::-webkit-details-marker,
+    .faq-collares details summary::-webkit-details-marker,
+    .faq-pendientes details summary::-webkit-details-marker,
+    .faq-anillos details summary::-webkit-details-marker { display: none; }
+    .ani-faq-inner details summary::after,
+    .faq-collares details summary::after,
+    .faq-pendientes details summary::after,
+    .faq-anillos details summary::after {
+      content: '+';
+      color: var(--dorado);
+      font-size: 1.3rem;
+      line-height: 1;
+      flex-shrink: 0;
+      margin-left: 12px;
+      transition: transform 0.2s ease;
+    }
+    .ani-faq-inner details[open] summary::after,
+    .faq-collares details[open] summary::after,
+    .faq-pendientes details[open] summary::after,
+    .faq-anillos details[open] summary::after {
+      transform: rotate(45deg);
+    }
+    .ani-faq-inner details p,
+    .faq-collares details p,
+    .faq-pendientes details p,
+    .faq-anillos details p {
+      padding-bottom: 20px;
+      color: var(--gris);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.92rem;
+      line-height: 1.7;
+      margin-top: 0;
     }
 
+    /* ===== ACORDEÓN SEO (details nativo) ===== */
+    .ani-seo-details summary {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--dorado);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      list-style: none;
+      margin-top: 1rem;
+    }
+    .ani-seo-details summary::-webkit-details-marker { display: none; }
+    .ani-seo-details summary::after {
+      content: '＋';
+      font-size: 1rem;
+      transition: transform 0.2s ease;
+    }
+    .ani-seo-details[open] summary::after { transform: rotate(45deg); }
+    .ani-seo-extra { margin-top: 1rem; }
 
+    /* ===== SEO INNER — guión simple ===== */
+    .ani-seo-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.95rem;
+      line-height: 1.8;
+      color: #444;
+    }
+    .ani-seo-inner h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      color: var(--negro);
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+    .ani-seo-inner p { margin-bottom: 1.25rem; }
 
+    /* ===== PRECIO DESDE — HERO ===== */
+    .ani-hero-desde {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--dorado);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-top: 15px;
+      margin-bottom: 0;
+    }
 
-    </style>
-    </head>
+    /* ===== FRASE GANCHO HERO (solo móvil) ===== */
+    .ani-hero-gancho {
+      display: none;
+    }
+    @media (max-width: 767px) {
+      .ani-hero-gancho {
+        display: block;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 0.9rem;
+        font-weight: 400;
+        color: var(--gris);
+        text-align: center;
+        margin-bottom: 8px;
+        line-height: 1.5;
+      }
+      .ani-hero__sub {
+        display: none;
+      }
+    }
+  </style>
+</head>
 <body>
 
-  <!-- HEADER FIJO (Estructura correcta Sidebar) -->
-  <header class="main-header">
-    <div class="logo">
-      <a href="index.html">Martínez Joyeros</a>
-    </div>
-    
-    <!-- Botón Hamburguesa -->
-    <button class="nav-toggle always-visible" aria-label="Abrir menú">
-      <span></span><span></span><span></span>
-    </button>
-  
-    <!-- Fondo oscuro -->
-    <div class="nav-overlay"></div>
-  
-    <!-- MENÚ LATERAL -->
-    <nav class="sidebar-menu">
-      <div class="nav-mobile-header">
-        <span class="nav-mobile-title">Menú</span>
-        <button class="nav-close-btn">&times;</button>
-      </div>
-  
-      <ul>
-        <li><a href="index.html">Inicio</a></li>
-        <li><a href="anillos.html">Anillos</a></li>
-        <!-- Pendientes marcado en dorado -->
-        <li><a href="pendientes.html" style="font-weight:bold; color:#C8A462;">Pendientes</a></li>
-        <li><a href="collares.html">Collares</a></li>
-        <li><a href="pulseras.html">Pulseras</a></li>
-        <li><a href="relojes.html">Relojes</a></li>
-        
-        <li style="margin-top: 15px; border-top: 1px solid #f5f5f5;">
-          <a href="index.html#contacto" style="color: #333;">📍 Contacto y Tienda</a>
-        </li>
-      </ul>
-    </nav>
-  </header>
+<!-- ===== HEADER ===== -->
+<header class="main-header">
+  <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
 
-  <!-- HERO BLACK FRIDAY (Pendientes) -->
-  <section class="category-hero bf-category-hero" id="catalogo-bf" aria-labelledby="cat-title">
-    <div class="cat-hero-inner" style="text-align: center;">
-      <h1 id="cat-title" class="cat-title" style="text-align: center;">Pendientes en Alcalá de Henares</h1>
-      
-      <p class="cat-sub" style="text-align: center; width: 100%; display: block; margin-left: auto; margin-right: auto;">
-  Descubre nuestra selección de <strong>pendientes y aros</strong> diseñados para brillar en cada momento especial.
-</p>
+  <div class="logo">
+    <a href="index.html">Martínez Joyeros</a>
+  </div>
 
-      
-      <a href="index.html#categorias" class="cat-cta">
-        &larr; Volver a categorías
-      </a>
-    </div>
-    
-    <svg class="cat-wave" viewBox="0 0 1440 80" preserveAspectRatio="none" aria-hidden="true" focusable="false">
-      <path d="M1440 23.3c-100.5 13.5-212 31.8-335 39.7-124 7.8-265 2-402-14.7-137-16.7-289-40.3-488-51.8v83.5h1225z" fill="rgba(0,0,0,.04)"></path>
-    </svg>
-  </section>
+  <nav class="nav-menu" aria-label="Navegación principal">
+    <ul>
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="index.html#lookbook-verano">Tendencias</a></li>
+      <li class="nav-item-dropdown">
+        <a href="colecciones.html" class="nav-dropdown-trigger">
+          Colecciones <span class="dropdown-arrow">▾</span>
+        </a>
+        <div class="nav-dropdown">
+          <div class="nav-dropdown-col">
+            <span class="nav-dropdown-heading">Por Categoría</span>
+            <a href="anillos.html">Anillos</a>
+            <a href="pendientes.html">Pendientes</a>
+            <a href="collares.html">Collares</a>
+            <a href="pulseras.html">Pulseras</a>
+            <a href="relojes.html">Relojes</a>
+          </div>
+        </div>
+      </li>
+      <li><a href="diseno-y-joyeria.html">Diseño y Joyería</a></li>
+      <li><a href="index.html#contacto">Contacto</a></li>
+    </ul>
+  </nav>
+</header>
 
+<!-- ===== BREADCRUMB ===== -->
+<nav class="breadcrumb" aria-label="Ruta de navegación">
+  <a href="index.html">Inicio</a>
+  <span class="breadcrumb__sep">›</span>
+  <a href="colecciones.html">Colecciones</a>
+  <span class="breadcrumb__sep">›</span>
+  <span class="breadcrumb__actual">Pendientes</span>
+</nav>
 
-  <!-- CATÁLOGO DE PENDIENTES -->
+<!-- ===== HERO ===== -->
+<section class="ani-hero">
+  <h1 class="ani-hero__titulo">Pendientes y Criollas</h1>
+  <p class="ani-hero__sub">Catálogo de pendientes y criollas en Alcalá de Henares.
+Diseños de precisión con sistemas de sujeción ergonómicos
+y tratamientos hipoalergénicos de las firmas de referencia
+<strong>Vidal&nbsp;&amp;&nbsp;Vidal</strong> y
+<strong>Luxenter</strong>. Descubre nuestro muestrario
+completo visitando nuestra tienda física.</p>
+  <p class="ani-hero-gancho">
+    Pendientes y criollas de tendencia en Alcalá de Henares.
+  </p>
+  <p class="ani-hero-desde">Desde 19,95€</p>
+</section>
+
+<!-- ===== CATÁLOGO ===== -->
 <section class="catalogo-section">
-  <div class="filter-controls" style="text-align: center; margin-bottom: 30px;">
-    <button class="filter-btn active" onclick="filterProducts('all', this)">Todos</button>
-    <button class="filter-btn" onclick="filterProducts('dorado', this)">Dorado</button>
-    <button class="filter-btn" onclick="filterProducts('plateado', this)">Plateado</button>
+
+  <div class="ani-filtros">
+    <button class="ani-filtro active" onclick="filterProducts('all', this)">Todos</button>
+    <button class="ani-filtro" onclick="filterProducts('dorado', this)">Dorado</button>
+    <button class="ani-filtro" onclick="filterProducts('plateado', this)">Plateado</button>
   </div>
 
   <div class="catalogo-grid">
-  <article class="producto-card dorado">
-  <span class="price-tag">46€</span>
-  <div class="bf-img-wrap">
-    <img src="imagenes/PENDIENTES DE ARO LISO CORE.WEBP" class="img-main" alt="Pendientes de Aro Liso Core Oro en Alcalá de Henares - Martínez Joyeros" loading="lazy">
-    <img src="imagenes/PENDIENTES DE ARO LISO CORE HOVER.WEBP" class="img-hover" alt="Detalle Pendientes Aro Liso Core Oro">
-  </div>
-  <h3 class="producto-nombre">Pendientes Corazón</h3>
-  <div class="actions">
-    <a class="btn-visit" href="https://wa.me/34678417026?text=Hola%20Mart%C3%ADnez%20Joyeros%2C%20me%20interesan%20los%20Pendientes%20Corazón%20Dorado." target="_blank" rel="noopener">Consultar</a>
-    <a class="btn" href="index.html#contacto">Ver en tienda</a>
-  </div>
-</article>
 
-
-  
-  <article class="producto-card plateado">
-  <div class="bf-img-wrap">
-  <span class="price-tag">44€</span>
-    <img src="imagenes/PENDIENTES SEMILUNA 2 TRIPLE VUX.WEBP" class="img-main" alt="Pendientes Semiluna 2 Plata de Ley - Martínez Joyeros Alcalá" loading="lazy">
-    <img src="imagenes/PENDIENTES SEMILUNA 2 TRIPLE VUX HOVER.WEBP" class="img-hover" alt="Detalle Pendientes Semiluna 2 Plata">
-  </div>
-  <h3 class="producto-nombre">Pendientes Semiluna Plateado</h3>
-  <div class="actions">
-    <a class="btn-visit" href="https://wa.me/34678417026?text=Hola%20Mart%C3%ADnez%20Joyeros%2C%20me%20interesan%20los%20Pendientes%20Semiluna%202%20en%20Plateado." target="_blank" rel="noopener">Consultar</a>
-    <a class="btn" href="index.html#contacto">Ver en tienda</a>
-  </div>
-</article>
-
-<article class="producto-card dorado">
-  <div class="bf-img-wrap">
-  <span class="price-tag">48€</span>
-    <img src="imagenes/PENDIENTES SEMILUNA TRIPLE VUX.WEBP" class="img-main" alt="Pendientes Semiluna Triple Vux Oro - Martínez Joyeros Alcalá" loading="lazy">
-    <img src="imagenes/PENDIENTES SEMILUNA TRIPLE VUX HOVER.WEBP" class="img-hover" alt="Detalle Pendientes Semiluna Oro">
-  </div>
-  <h3 class="producto-nombre">Pendientes Semiluna Dorado</h3>
-  <div class="actions">
-    <a class="btn-visit" href="https://wa.me/34678417026?text=Hola%20Mart%C3%ADnez%20Joyeros%2C%20me%20interesan%20los%20Pendientes%20Semiluna%20en%20Dorado." target="_blank" rel="noopener">Consultar</a>
-    <a class="btn" href="index.html#contacto">Ver en tienda</a>
-  </div>
-</article>
-
-<article class="producto-card Dorado">
-  <div class="bf-img-wrap">
-  <span class="price-tag">35€</span>
-    <img src="imagenes/PENDIENTES DE MUJER DE ACERO IP DORADO VOLUMEN.WEBP" class="img-main" alt="Pendientes Volumen Acero IP Dorado - Joyería Alcalá de Henares" loading="lazy">
-    <img src="imagenes/PENDIENTES DE MUJER DE ACERO IP DORADO VOLUMEN HOVER.WEBP" class="img-hover" alt="Detalle Pendientes Volumen Oro">
-  </div>
-  <h3 class="producto-nombre">Pendientes Volumen</h3>
-  <div class="actions">
-    <a class="btn-visit" href="https://wa.me/34678417026?text=Hola%20Mart%C3%ADnez%20Joyeros%2C%20me%20interesan%20los%20Pendientes%20Volumen%20en%20Dorado." target="_blank" rel="noopener">Consultar</a>
-    <a class="btn" href="index.html#contacto">Ver en tienda</a>
-  </div>
-</article>
-
-<article class="producto-card Dorado">
-  <div class="bf-img-wrap">
-  <span class="price-tag">39€</span>
-    <img src="imagenes/PENDIENTES DE MUJER DE ACERO IP DORADO CALABROTES.WEBP" class="img-main" alt="Pendientes Calabrotes Oro Especial San Valentín - Martínez Joyeros" loading="lazy">
-    <img src="imagenes/PENDIENTES DE MUJER DE ACERO IP DORADO CALABROTES HOVER.WEBP" class="img-hover" alt="Detalle Pendientes Calabrotes">
-  </div>
-  <h3 class="producto-nombre">Pendientes Calabrotes</h3>
-  <div class="actions">
-    <a class="btn-visit" href="https://wa.me/34678417026?text=Hola%20Mart%C3%ADnez%20Joyeros%2C%20me%20interesan%20los%20Pendientes%20Calabrotes." target="_blank" rel="noopener">Consultar</a>
-    <a class="btn" href="index.html#contacto">Ver en tienda</a>
-  </div>
-</article>
-
-<article class="producto-card dorado">
-  <div class="bf-img-wrap">
-  <span class="price-tag">39€</span>
-    <img src="imagenes/PENDIENTES DE MUJER DE ACERO IP DORADO ARO ABIERTO RECTANGULAR.WEBP" class="img-main" alt="Pendientes Aros Abiertos Rectangulares Oro Alcalá" loading="lazy">
-    <img src="imagenes/PENDIENTES DE MUJER DE ACERO IP DORADO ARO ABIERTO RECTANGULAR HOVER.WEBP" class="img-hover" alt="Detalle Pendientes Angular Oro">
-  </div>
-  <h3 class="producto-nombre">Pendientes Aro Angular</h3>
-  <div class="actions">
-    <a class="btn-visit" href="https://wa.me/34678417026?text=Hola%20Mart%C3%ADnez%20Joyeros%2C%20me%20interesan%20los%20Pendientes%20Angular%20en%20Dorado." target="_blank" rel="noopener">Consultar</a>
-    <a class="btn" href="index.html#contacto">Ver en tienda</a>
-  </div>
-</article>
-
-<article class="producto-card dorado">
-  <div class="bf-img-wrap">
-  <span class="price-tag">48€</span>
-    <img src="imagenes/PENDIENTES DE ARO JANA.WEBP" class="img-main" alt="Pendientes Aro Jana Oro - Martínez Joyeros Alcalá de Henares" loading="lazy">
-    <img src="imagenes/PENDIENTES DE ARO JANA HOVER.WEBP" class="img-hover" alt="Detalle Pendientes Aro Jana">
-  </div>
-  <h3 class="producto-nombre">Pendientes Aro Jana</h3>
-  <div class="actions">
-    <a class="btn-visit" href="https://wa.me/34678417026?text=Hola%20Mart%C3%ADnez%20Joyeros%2C%20me%20interesan%20los%20Pendientes%20Aro%20Jana." target="_blank" rel="noopener">Consultar</a>
-    <a class="btn" href="index.html#contacto">Ver en tienda</a>
-  </div>
-</article>
-
-
-    <article class="producto-card plateado">
-    <span class="price-tag">44€</span>
-      <img src="imagenes/Pendientes hojas textura Curve Duo.JPG" alt="Pendientes Hojas Textura Curve Dúo Plata en Alcalá de Henares - Martínez Joyeros" loading="lazy">
-      <h3 class="producto-nombre">Pendientes Hojas Textura</h3>
-      <div class="actions">
-        <a class="btn-visit" href="https://wa.me/34678417026?text=Hola%20Mart%C3%ADnez%20Joyeros%2C%20me%20interesan%20los%20Pendientes%20Hojas%20Curve%20D%C3%BAo%20en%20Plateado." target="_blank" rel="noopener">Consultar</a>
-        <a class="btn" href="index.html#contacto">Ver en tienda</a>
+    <article class="producto-card dorado">
+      <div class="bf-img-wrap">
+        <img src="imagenes/pendien lux Belin.webp"
+             class="img-main"
+             alt="Pendientes Belin Luxenter — Martínez Joyeros Alcalá de Henares"
+             loading="lazy">
+        <img src="imagenes/tras lux pendient Belin.webp"
+             class="img-hover"
+             alt="Detalle Pendientes Belin Luxenter">
       </div>
-    </article>
-
-    <article class="producto-card plateado">
-    <span class="price-tag">42€</span>
-      <img src="imagenes/Pendientes de aro doble Anna.JPG" alt="Pendientes de Aro Doble Anna Oro - Regalo San Valentín Alcalá" loading="lazy">
-      <h3 class="producto-nombre">Pendientes Aro Anna</h3>
-      <div class="actions">
-        <a class="btn-visit" href="https://wa.me/34678417026?text=Hola%20Mart%C3%ADnez%20Joyeros%2C%20me%20interesa%20el%20Aro%20Doble%20Anna%20en%20Dorado." target="_blank" rel="noopener">Consultar</a>
-        <a class="btn" href="index.html#contacto">Ver en tienda</a>
+      <div class="ani-card-info">
+        <h3 class="ani-card-nombre">Pendientes Belin Luxenter</h3>
+        <a class="btn-outline-whatsapp"
+           href="https://wa.me/34678417026?text=Hola%20Mart%C3%ADnez%20Joyeros%2C%20me%20interesan%20los%20Pendientes%20Belin%20Luxenter."
+           aria-label="Consultar precio y disponibilidad de Pendientes Belin Luxenter por WhatsApp"
+           target="_blank"
+           rel="noopener">Consultar disponibilidad</a>
       </div>
     </article>
 
     <article class="producto-card dorado">
-    <span class="price-tag">60€</span>
-      <img src="imagenes/Pendientes semiluna Navy con Acetato y Resina azul.JPG" alt="Pendientes Semiluna Navy Resina Azul y Oro - Martínez Joyeros" loading="lazy">
-      <h3 class="producto-nombre">Pendientes Semiluna Navy</h3>
-      <div class="actions">
-        <a class="btn-visit" href="https://wa.me/34678417026?text=Hola%20Mart%C3%ADnez%20Joyeros%2C%20me%20interesa%20la%20Semiluna%20Navy." target="_blank" rel="noopener">Consultar</a>
-        <a class="btn" href="index.html#contacto">Ver en tienda</a>
+      <div class="bf-img-wrap">
+        <img src="imagenes/pend lux Towio.webp"
+             class="img-main"
+             alt="Pendientes Towio Luxenter — Martínez Joyeros Alcalá de Henares"
+             loading="lazy">
+        <img src="imagenes/tras lux towio.webp"
+             class="img-hover"
+             alt="Detalle Pendientes Towio Luxenter">
+      </div>
+      <div class="ani-card-info">
+        <h3 class="ani-card-nombre">Pendientes Towio Luxenter</h3>
+        <a class="btn-outline-whatsapp"
+           href="https://wa.me/34678417026?text=Hola%20Mart%C3%ADnez%20Joyeros%2C%20me%20interesan%20los%20Pendientes%20Towio%20Luxenter."
+           aria-label="Consultar precio y disponibilidad de Pendientes Towio Luxenter por WhatsApp"
+           target="_blank"
+           rel="noopener">Consultar disponibilidad</a>
+      </div>
+    </article>
+
+    <article class="producto-card plateado">
+      <div class="bf-img-wrap">
+        <img src="imagenes/pendt lux verde paraiba.webp"
+             class="img-main"
+             alt="Pendientes Verde Paraiba Luxenter — Martínez Joyeros Alcalá de Henares"
+             loading="lazy">
+        <img src="imagenes/tras lux verde paraiba.webp"
+             class="img-hover"
+             alt="Detalle Pendientes Verde Paraiba Luxenter">
+      </div>
+      <div class="ani-card-info">
+        <h3 class="ani-card-nombre">Pendientes Verde Paraiba Luxenter</h3>
+        <a class="btn-outline-whatsapp"
+           href="https://wa.me/34678417026?text=Hola%20Mart%C3%ADnez%20Joyeros%2C%20me%20interesan%20los%20Pendientes%20Verde%20Paraiba%20Luxenter."
+           aria-label="Consultar precio y disponibilidad de Pendientes Verde Paraiba Luxenter por WhatsApp"
+           target="_blank"
+           rel="noopener">Consultar disponibilidad</a>
+      </div>
+    </article>
+
+    <article class="producto-card plateado">
+      <div class="bf-img-wrap">
+        <img src="imagenes/pendientes multicolor Negal.webp"
+             class="img-main"
+             alt="Pendientes Negal Multicolor Luxenter — Martínez Joyeros Alcalá de Henares"
+             loading="lazy">
+        <img src="imagenes/traser lux ptes Negal.webp"
+             class="img-hover"
+             alt="Detalle Pendientes Negal Multicolor Luxenter">
+      </div>
+      <div class="ani-card-info">
+        <h3 class="ani-card-nombre">Pendientes Negal Multicolor Luxenter</h3>
+        <a class="btn-outline-whatsapp"
+           href="https://wa.me/34678417026?text=Hola%20Mart%C3%ADnez%20Joyeros%2C%20me%20interesan%20los%20Pendientes%20Negal%20Multicolor%20Luxenter."
+           aria-label="Consultar precio y disponibilidad de Pendientes Negal Multicolor Luxenter por WhatsApp"
+           target="_blank"
+           rel="noopener">Consultar disponibilidad</a>
+      </div>
+    </article>
+
+    <article class="producto-card plateado">
+      <div class="bf-img-wrap">
+        <img src="imagenes/pendientes lux multicolor.webp"
+             class="img-main"
+             alt="Pendientes Aro de Color Luxenter — Martínez Joyeros Alcalá de Henares"
+             loading="lazy">
+        <img src="imagenes/trasera lux pendien multicolor.webp"
+             class="img-hover"
+             alt="Detalle Pendientes Aro de Color Luxenter">
+      </div>
+      <div class="ani-card-info">
+        <h3 class="ani-card-nombre">Pendientes Aro de Color Luxenter</h3>
+        <a class="btn-outline-whatsapp"
+           href="https://wa.me/34678417026?text=Hola%20Mart%C3%ADnez%20Joyeros%2C%20me%20interesan%20los%20Pendientes%20Aro%20de%20Color%20Luxenter."
+           aria-label="Consultar precio y disponibilidad de Pendientes Aro de Color Luxenter por WhatsApp"
+           target="_blank"
+           rel="noopener">Consultar disponibilidad</a>
       </div>
     </article>
 
     <article class="producto-card dorado">
-    <span class="price-tag">46€</span>
-      <img src="imagenes/Pendientes de aro triple ovalados Remi.JPG" alt="Pendientes Aro Triple Ovalado Remi Oro - Joyería Alcalá" loading="lazy">
-      <h3 class="producto-nombre">Pendientes Aro Remi</h3>
-      <div class="actions">
-        <a class="btn-visit" href="https://wa.me/34678417026?text=Hola%20Mart%C3%ADnez%20Joyeros%2C%20me%20interesa%20el%20Aro%20Remi." target="_blank" rel="noopener">Consultar</a>
-        <a class="btn" href="index.html#contacto">Ver en tienda</a>
+      <div class="bf-img-wrap">
+        <img src="imagenes/pendient lux Avihe.webp"
+             class="img-main"
+             alt="Pendientes Esferas Avihe Luxenter — Martínez Joyeros Alcalá de Henares"
+             loading="lazy">
+        <img src="imagenes/trasera pend lux Avihe.webp"
+             class="img-hover"
+             alt="Detalle Pendientes Esferas Avihe Luxenter">
+      </div>
+      <div class="ani-card-info">
+        <h3 class="ani-card-nombre">Pendientes Esferas Avihe Luxenter</h3>
+        <a class="btn-outline-whatsapp"
+           href="https://wa.me/34678417026?text=Hola%20Mart%C3%ADnez%20Joyeros%2C%20me%20interesan%20los%20Pendientes%20Esferas%20Avihe%20Luxenter."
+           aria-label="Consultar precio y disponibilidad de Pendientes Esferas Avihe Luxenter por WhatsApp"
+           target="_blank"
+           rel="noopener">Consultar disponibilidad</a>
+      </div>
+    </article>
+
+    <article class="producto-card dorado">
+      <div class="bf-img-wrap">
+        <img src="imagenes/pendientes roqueta.webp"
+             class="img-main"
+             alt="Pendientes de aro orgánicos texturizados"
+             loading="lazy">
+        <img src="imagenes/pendient trasera roqueta.webp"
+             class="img-hover"
+             alt="Detalle Pendientes Roqueta Organics Vidal & Vidal">
+      </div>
+      <div class="ani-card-info">
+        <h3 class="ani-card-nombre">Pendientes Roqueta Organics Vidal &amp; Vidal</h3>
+        <a class="btn-outline-whatsapp"
+           href="https://wa.me/34678417026?text=Hola%20Mart%C3%ADnez%20Joyeros%2C%20me%20interesan%20los%20Pendientes%20Roqueta%20Vidal%20%26%20Vidal."
+           aria-label="Consultar precio y disponibilidad de Pendientes Roqueta Organics Vidal & Vidal por WhatsApp"
+           target="_blank"
+           rel="noopener">Consultar disponibilidad</a>
+      </div>
+    </article>
+
+    <article class="producto-card dorado">
+      <div class="bf-img-wrap">
+        <img src="imagenes/aros entrelazados elodie.webp"
+             class="img-main"
+             alt="Mini aros con diseño entrelazado en tono dorado"
+             loading="lazy">
+        <img src="imagenes/trase aros elodi.webp"
+             class="img-hover"
+             alt="Detalle Pendientes Mini Aros Elodie Vidal & Vidal">
+      </div>
+      <div class="ani-card-info">
+        <h3 class="ani-card-nombre">Pendientes Mini Aros Elodie Vidal &amp; Vidal</h3>
+        <a class="btn-outline-whatsapp"
+           href="https://wa.me/34678417026?text=Hola%20Mart%C3%ADnez%20Joyeros%2C%20me%20interesan%20los%20Pendientes%20Elodie%20Vidal%20%26%20Vidal."
+           aria-label="Consultar precio y disponibilidad de Pendientes Mini Aros Elodie Vidal & Vidal por WhatsApp"
+           target="_blank"
+           rel="noopener">Consultar disponibilidad</a>
       </div>
     </article>
 
     <article class="producto-card plateado">
-    <span class="price-tag">60€</span>
-      <img src="imagenes/Pendientes aros entrelazados textura Dual.JPG" alt="Aros Entrelazados Textura Dual Plata - Martínez Joyeros Alcalá" loading="lazy">
-      <h3 class="producto-nombre">Pendientes Aros Entrelazados</h3>
-      <div class="actions">
-        <a class="btn-visit" href="https://wa.me/34678417026?text=Hola%20Mart%C3%ADnez%20Joyeros%2C%20me%20interesan%20los%20Aros%20Entrelazados%20en%20Plateado." target="_blank" rel="noopener">Consultar</a>
-        <a class="btn" href="index.html#contacto">Ver en tienda</a>
+      <div class="bf-img-wrap">
+        <img src="imagenes/corelux circonitas.webp"
+             class="img-main"
+             alt="Aros pequeños en acabado plateado con charm de corazón colgante"
+             loading="lazy">
+        <img src="imagenes/tras vidal pente circonitas.webp"
+             class="img-hover"
+             alt="Detalle Pendientes Corazón Corelux Pavé Vidal & Vidal">
+      </div>
+      <div class="ani-card-info">
+        <h3 class="ani-card-nombre">Pendientes Corazón Corelux Pavé Vidal &amp; Vidal</h3>
+        <a class="btn-outline-whatsapp"
+           href="https://wa.me/34678417026?text=Hola%20Mart%C3%ADnez%20Joyeros%2C%20me%20interesan%20los%20Pendientes%20Corelux%20Vidal%20%26%20Vidal."
+           aria-label="Consultar precio y disponibilidad de Pendientes Corazón Corelux Pavé Vidal & Vidal por WhatsApp"
+           target="_blank"
+           rel="noopener">Consultar disponibilidad</a>
+      </div>
+    </article>
+
+    <article class="producto-card dorado">
+      <div class="bf-img-wrap">
+        <img src="imagenes/pendi vidal dobles Reflexes.webp"
+             class="img-main"
+             alt="Pendientes largos articulados con placas texturizadas"
+             loading="lazy">
+        <img src="imagenes/traser vidal doble Reflexes.webp"
+             class="img-hover"
+             alt="Detalle Pendientes Largos Dobles Reflexes Vidal & Vidal">
+      </div>
+      <div class="ani-card-info">
+        <h3 class="ani-card-nombre">Pendientes Largos Dobles Reflexes Vidal &amp; Vidal</h3>
+        <a class="btn-outline-whatsapp"
+           href="https://wa.me/34678417026?text=Hola%20Mart%C3%ADnez%20Joyeros%2C%20me%20interesan%20los%20Pendientes%20Reflexes%20Dobles%20Vidal%20%26%20Vidal."
+           aria-label="Consultar precio y disponibilidad de Pendientes Largos Dobles Reflexes Vidal & Vidal por WhatsApp"
+           target="_blank"
+           rel="noopener">Consultar disponibilidad</a>
+      </div>
+    </article>
+
+    <article class="producto-card dorado">
+      <div class="bf-img-wrap">
+        <img src="imagenes/pendient vidal largos gota.webp"
+             class="img-main"
+             alt="Pendientes de caída fina rematados en forma de gota pulida"
+             loading="lazy">
+        <img src="imagenes/trase vidal gota largos.webp"
+             class="img-hover"
+             alt="Detalle Pendientes Finos Largos Gota Vidal & Vidal">
+      </div>
+      <div class="ani-card-info">
+        <h3 class="ani-card-nombre">Pendientes Finos Largos Gota Vidal &amp; Vidal</h3>
+        <a class="btn-outline-whatsapp"
+           href="https://wa.me/34678417026?text=Hola%20Mart%C3%ADnez%20Joyeros%2C%20me%20interesan%20los%20Pendientes%20Gota%20Vidal%20%26%20Vidal."
+           aria-label="Consultar precio y disponibilidad de Pendientes Finos Largos Gota Vidal & Vidal por WhatsApp"
+           target="_blank"
+           rel="noopener">Consultar disponibilidad</a>
+      </div>
+    </article>
+
+    <article class="producto-card dorado">
+      <div class="bf-img-wrap">
+        <img src="imagenes/pendientes geometricos vidal.webp"
+             class="img-main"
+             alt="Pendientes con placas geométricas colgantes texturizadas"
+             loading="lazy">
+        <img src="imagenes/traser pendie geometricos.webp"
+             class="img-hover"
+             alt="Detalle Pendientes Geométricos Horizonte Vidal & Vidal">
+      </div>
+      <div class="ani-card-info">
+        <h3 class="ani-card-nombre">Pendientes Geométricos Horizonte Vidal &amp; Vidal</h3>
+        <a class="btn-outline-whatsapp"
+           href="https://wa.me/34678417026?text=Hola%20Mart%C3%ADnez%20Joyeros%2C%20me%20interesan%20los%20Pendientes%20Geom%C3%A9tricos%20Horizonte%20Vidal%20%26%20Vidal."
+           aria-label="Consultar precio y disponibilidad de Pendientes Geométricos Horizonte Vidal & Vidal por WhatsApp"
+           target="_blank"
+           rel="noopener">Consultar disponibilidad</a>
+      </div>
+    </article>
+
+    <article class="producto-card dorado">
+      <div class="bf-img-wrap">
+        <img src="imagenes/pendientes multicolor circonitas aro.webp"
+             class="img-main"
+             alt="Aros pequeños en tono dorado con hilera de cristales de colores"
+             loading="lazy">
+        <img src="imagenes/tras pend multicolor circonita.webp"
+             class="img-hover"
+             alt="Detalle Mini Aros Multicolor Eternity Vidal & Vidal">
+      </div>
+      <div class="ani-card-info">
+        <h3 class="ani-card-nombre">Mini Aros Multicolor Eternity Vidal &amp; Vidal</h3>
+        <a class="btn-outline-whatsapp"
+           href="https://wa.me/34678417026?text=Hola%20Mart%C3%ADnez%20Joyeros%2C%20me%20interesan%20los%20Mini%20Aros%20Eternity%20Vidal%20%26%20Vidal."
+           aria-label="Consultar precio y disponibilidad de Mini Aros Multicolor Eternity Vidal & Vidal por WhatsApp"
+           target="_blank"
+           rel="noopener">Consultar disponibilidad</a>
       </div>
     </article>
 
     <article class="producto-card plateado">
-    <span class="price-tag">52€</span>
-      <img src="imagenes/Pendientes semiluna textura Curve.JPG" alt="Pendientes Semiluna Textura Curve Plata - Especial San Valentín" loading="lazy">
-      <h3 class="producto-nombre">Pendientes Semiluna Textura Curve</h3>
-      <div class="actions">
-        <a class="btn-visit" href="https://wa.me/34678417026?text=Hola%20Mart%C3%ADnez%20Joyeros%2C%20me%20interesan%20los%20Pendientes%20Semiluna%20Curve%20en%20Plateado." target="_blank" rel="noopener">Consultar</a>
-        <a class="btn" href="index.html#contacto">Ver en tienda</a>
+      <div class="bf-img-wrap">
+        <img src="imagenes/pendientes ovales vidal Flow.webp"
+             class="img-main"
+             alt="Pendientes de doble óvalo en acabado plateado con pavé de cristales"
+             loading="lazy">
+        <img src="imagenes/trase vidal ovalado.webp"
+             class="img-hover"
+             alt="Detalle Pendientes Ovales Dobles Flow Vidal & Vidal">
+      </div>
+      <div class="ani-card-info">
+        <h3 class="ani-card-nombre">Pendientes Ovales Dobles Flow Vidal &amp; Vidal</h3>
+        <a class="btn-outline-whatsapp"
+           href="https://wa.me/34678417026?text=Hola%20Mart%C3%ADnez%20Joyeros%2C%20me%20interesan%20los%20Pendientes%20Ovales%20Flow%20Vidal%20%26%20Vidal."
+           aria-label="Consultar precio y disponibilidad de Pendientes Ovales Dobles Flow Vidal & Vidal por WhatsApp"
+           target="_blank"
+           rel="noopener">Consultar disponibilidad</a>
       </div>
     </article>
 
+    <article class="producto-card plateado">
+      <div class="bf-img-wrap">
+        <img src="imagenes/pendientes pili vidal.webp"
+             class="img-main"
+             alt="Pendientes de eslabón con detalles lacados en negro y cristales"
+             loading="lazy">
+        <img src="imagenes/traser pendie pili.webp"
+             class="img-hover"
+             alt="Detalle Pendientes Eslabón Lacado Pili Vidal & Vidal">
+      </div>
+      <div class="ani-card-info">
+        <h3 class="ani-card-nombre">Pendientes Eslabón Lacado Pili Vidal &amp; Vidal</h3>
+        <a class="btn-outline-whatsapp"
+           href="https://wa.me/34678417026?text=Hola%20Mart%C3%ADnez%20Joyeros%2C%20me%20interesan%20los%20Pendientes%20Pili%20Vidal%20%26%20Vidal."
+           aria-label="Consultar precio y disponibilidad de Pendientes Eslabón Lacado Pili Vidal & Vidal por WhatsApp"
+           target="_blank"
+           rel="noopener">Consultar disponibilidad</a>
+      </div>
+    </article>
+
+    <article class="producto-card dorado">
+      <div class="bf-img-wrap">
+        <img src="imagenes/pendientes semi luna vidal.webp"
+             class="img-main"
+             alt="Pendientes con silueta de media luna en tono dorado pulido"
+             loading="lazy">
+        <img src="imagenes/traser pte media luna.webp"
+             class="img-hover"
+             alt="Detalle Pendientes Semi Luna Orgánica Vidal & Vidal">
+      </div>
+      <div class="ani-card-info">
+        <h3 class="ani-card-nombre">Pendientes Semi Luna Orgánica Vidal &amp; Vidal</h3>
+        <a class="btn-outline-whatsapp"
+           href="https://wa.me/34678417026?text=Hola%20Mart%C3%ADnez%20Joyeros%2C%20me%20interesan%20los%20Pendientes%20Semi%20Luna%20Vidal%20%26%20Vidal."
+           aria-label="Consultar precio y disponibilidad de Pendientes Semi Luna Orgánica Vidal & Vidal por WhatsApp"
+           target="_blank"
+           rel="noopener">Consultar disponibilidad</a>
+      </div>
+    </article>
+
+    <article class="producto-card plateado">
+      <div class="bf-img-wrap">
+        <img src="imagenes/pendientes vidal largos Reflexes.webp"
+             class="img-main"
+             alt="Pendientes con caída de placas cuadradas texturizadas en tono Plateado"
+             loading="lazy">
+        <img src="imagenes/traser vidal pend Reflexes.webp"
+             class="img-hover"
+             alt="Detalle Pendientes Largos Cuadrados Reflexes Silver Vidal & Vidal">
+      </div>
+      <div class="ani-card-info">
+        <h3 class="ani-card-nombre">Pendientes Largos Cuadrados Reflexes Silver Vidal &amp; Vidal</h3>
+        <a class="btn-outline-whatsapp"
+           href="https://wa.me/34678417026?text=Hola%20Mart%C3%ADnez%20Joyeros%2C%20me%20interesan%20los%20Pendientes%20Reflexes%20Silver%20Vidal%20%26%20Vidal."
+           aria-label="Consultar precio y disponibilidad de Pendientes Largos Cuadrados Reflexes Silver Vidal & Vidal por WhatsApp"
+           target="_blank"
+           rel="noopener">Consultar disponibilidad</a>
+      </div>
+    </article>
+
+    <article class="producto-card plateado">
+      <div class="bf-img-wrap">
+        <img src="imagenes/pendientes vidal Nereida.webp"
+             class="img-main"
+             alt="Pendientes con forma de gota calada en acabado plateado"
+             loading="lazy">
+        <img src="imagenes/traser vidal Nereida.webp"
+             class="img-hover"
+             alt="Detalle Pendientes Calados Gota Nereida Vidal & Vidal">
+      </div>
+      <div class="ani-card-info">
+        <h3 class="ani-card-nombre">Pendientes Calados Gota Nereida Vidal &amp; Vidal</h3>
+        <a class="btn-outline-whatsapp"
+           href="https://wa.me/34678417026?text=Hola%20Mart%C3%ADnez%20Joyeros%2C%20me%20interesan%20los%20Pendientes%20Nereida%20Vidal%20%26%20Vidal."
+           aria-label="Consultar precio y disponibilidad de Pendientes Calados Gota Nereida Vidal & Vidal por WhatsApp"
+           target="_blank"
+           rel="noopener">Consultar disponibilidad</a>
+      </div>
+    </article>
+
+    <article class="producto-card plateado">
+      <div class="bf-img-wrap">
+        <img src="imagenes/pendientes vidal Reflexes.webp"
+             class="img-main"
+             alt="Pendientes de aro media caña con superficie orgánica texturizada"
+             loading="lazy">
+        <img src="imagenes/traser vidal Reflexes.webp"
+             class="img-hover"
+             alt="Detalle Pendientes Media Caña Reflexes Vidal & Vidal">
+      </div>
+      <div class="ani-card-info">
+        <h3 class="ani-card-nombre">Pendientes Media Caña Reflexes Vidal &amp; Vidal</h3>
+        <a class="btn-outline-whatsapp"
+           href="https://wa.me/34678417026?text=Hola%20Mart%C3%ADnez%20Joyeros%2C%20me%20interesan%20los%20Pendientes%20Media%20Ca%C3%B1a%20Reflexes%20Vidal%20%26%20Vidal."
+           aria-label="Consultar precio y disponibilidad de Pendientes Media Caña Reflexes Vidal & Vidal por WhatsApp"
+           target="_blank"
+           rel="noopener">Consultar disponibilidad</a>
+      </div>
+    </article>
+
+    <article class="producto-card plateado">
+      <div class="bf-img-wrap">
+        <img src="imagenes/pendit vidal liso core.webp"
+             class="img-main"
+             alt="Aros pulidos en acabado plateado con motivo de corazón colgante liso"
+             loading="lazy">
+        <img src="imagenes/trase pendt liso core.webp"
+             class="img-hover"
+             alt="Detalle Pendientes Aros Corazón Liso Vidal & Vidal">
+      </div>
+      <div class="ani-card-info">
+        <h3 class="ani-card-nombre">Pendientes Aros Corazón Liso Vidal &amp; Vidal</h3>
+        <a class="btn-outline-whatsapp"
+           href="https://wa.me/34678417026?text=Hola%20Mart%C3%ADnez%20Joyeros%2C%20me%20interesan%20los%20Pendientes%20Coraz%C3%B3n%20Liso%20Vidal%20%26%20Vidal."
+           aria-label="Consultar precio y disponibilidad de Pendientes Aros Corazón Liso Vidal & Vidal por WhatsApp"
+           target="_blank"
+           rel="noopener">Consultar disponibilidad</a>
+      </div>
+    </article>
+
+    <article class="producto-card plateado">
+      <div class="bf-img-wrap">
+        <img src="imagenes/pendit vidal semi luna horizonte.webp"
+             class="img-main"
+             alt="Pendientes de aro con grabado texturizado de rayos Horizonte"
+             loading="lazy">
+        <img src="imagenes/tras semi luna horizonte.webp"
+             class="img-hover"
+             alt="Detalle Pendientes Aros Sol Horizonte Vidal & Vidal">
+      </div>
+      <div class="ani-card-info">
+        <h3 class="ani-card-nombre">Pendientes Aros Sol Horizonte Vidal &amp; Vidal</h3>
+        <a class="btn-outline-whatsapp"
+           href="https://wa.me/34678417026?text=Hola%20Mart%C3%ADnez%20Joyeros%2C%20me%20interesan%20los%20Pendientes%20Sol%20Horizonte%20Vidal%20%26%20Vidal."
+           aria-label="Consultar precio y disponibilidad de Pendientes Aros Sol Horizonte Vidal & Vidal por WhatsApp"
+           target="_blank"
+           rel="noopener">Consultar disponibilidad</a>
+      </div>
+    </article>
+
+    <article class="producto-card plateado">
+      <div class="bf-img-wrap">
+        <img src="imagenes/pendt aro articuladocirconitas.webp"
+             class="img-main"
+             alt="Aros pequeños en acabado plateado con cristales engastados"
+             loading="lazy">
+        <img src="imagenes/trase aro articulado circonitas.webp"
+             class="img-hover"
+             alt="Detalle Mini Aros Articulados Eternity Silver Vidal & Vidal">
+      </div>
+      <div class="ani-card-info">
+        <h3 class="ani-card-nombre">Mini Aros Articulados Eternity Silver Vidal &amp; Vidal</h3>
+        <a class="btn-outline-whatsapp"
+           href="https://wa.me/34678417026?text=Hola%20Mart%C3%ADnez%20Joyeros%2C%20me%20interesan%20los%20Mini%20Aros%20Eternity%20Silver%20Vidal%20%26%20Vidal."
+           aria-label="Consultar precio y disponibilidad de Mini Aros Articulados Eternity Silver Vidal & Vidal por WhatsApp"
+           target="_blank"
+           rel="noopener">Consultar disponibilidad</a>
+      </div>
+    </article>
+
+    <article class="producto-card dorado">
+      <div class="bf-img-wrap">
+        <img src="imagenes/pendt aros piedras multicolor.webp"
+             class="img-main"
+             alt="Pendientes de aro medianos en tono dorado revestidos de cristales de colores"
+             loading="lazy">
+        <img src="imagenes/traser pend aros multicolor.webp"
+             class="img-hover"
+             alt="Detalle Aros Medianos Multicolor Rainbow Vidal & Vidal">
+      </div>
+      <div class="ani-card-info">
+        <h3 class="ani-card-nombre">Aros Medianos Multicolor Rainbow Vidal &amp; Vidal</h3>
+        <a class="btn-outline-whatsapp"
+           href="https://wa.me/34678417026?text=Hola%20Mart%C3%ADnez%20Joyeros%2C%20me%20interesan%20los%20Aros%20Rainbow%20Vidal%20%26%20Vidal."
+           aria-label="Consultar precio y disponibilidad de Aros Medianos Multicolor Rainbow Vidal & Vidal por WhatsApp"
+           target="_blank"
+           rel="noopener">Consultar disponibilidad</a>
+      </div>
+    </article>
+
+    <article class="producto-card dorado">
+      <div class="bf-img-wrap">
+        <img src="imagenes/pendt aros volumen.webp"
+             class="img-main"
+             alt="Pendientes de aro con relieve irregular texturizado y volumen"
+             loading="lazy">
+        <img src="imagenes/traser aros volumen.webp"
+             class="img-hover"
+             alt="Detalle Pendientes Aros Rugosos Volumen Vidal & Vidal">
+      </div>
+      <div class="ani-card-info">
+        <h3 class="ani-card-nombre">Pendientes Aros Rugosos Volumen Vidal &amp; Vidal</h3>
+        <a class="btn-outline-whatsapp"
+           href="https://wa.me/34678417026?text=Hola%20Mart%C3%ADnez%20Joyeros%2C%20me%20interesan%20los%20Pendientes%20Aros%20Volumen%20Vidal%20%26%20Vidal."
+           aria-label="Consultar precio y disponibilidad de Pendientes Aros Rugosos Volumen Vidal & Vidal por WhatsApp"
+           target="_blank"
+           rel="noopener">Consultar disponibilidad</a>
+      </div>
+    </article>
+
+    <article class="producto-card dorado">
+      <div class="bf-img-wrap">
+        <img src="imagenes/PENDIENTES DE ARO LISO CORE.WEBP" class="img-main" alt="Pendientes de Aro Liso Core Dorado en Alcalá de Henares - Martínez Joyeros" loading="lazy">
+        <img src="imagenes/PENDIENTES DE ARO LISO CORE HOVER.WEBP" class="img-hover" alt="Detalle Pendientes Aro Liso Core Dorado">
+      </div>
+      <div class="ani-card-info">
+        <h3 class="ani-card-nombre">Pendientes Corazón</h3>
+        <a class="btn-outline-whatsapp"
+           href="https://wa.me/34678417026?text=Hola%20Mart%C3%ADnez%20Joyeros%2C%20me%20interesan%20los%20Pendientes%20Corazón%20Dorado."
+           aria-label="Consultar precio y disponibilidad de Pendientes Corazón Dorado por WhatsApp"
+           target="_blank"
+           rel="noopener">Consultar disponibilidad</a>
+      </div>
+    </article>
+
+    <article class="producto-card plateado">
+      <div class="bf-img-wrap">
+        <img src="imagenes/PENDIENTES SEMILUNA 2 TRIPLE VUX.WEBP" class="img-main" alt="Pendientes Semiluna 2 Plateado - Martínez Joyeros Alcalá" loading="lazy">
+        <img src="imagenes/PENDIENTES SEMILUNA 2 TRIPLE VUX HOVER.WEBP" class="img-hover" alt="Detalle Pendientes Semiluna 2 Plateado">
+      </div>
+      <div class="ani-card-info">
+        <h3 class="ani-card-nombre">Pendientes Semiluna Plateado</h3>
+        <a class="btn-outline-whatsapp"
+           href="https://wa.me/34678417026?text=Hola%20Mart%C3%ADnez%20Joyeros%2C%20me%20interesan%20los%20Pendientes%20Semiluna%202%20en%20Plateado."
+           aria-label="Consultar precio y disponibilidad de Pendientes Semiluna Plateado por WhatsApp"
+           target="_blank"
+           rel="noopener">Consultar disponibilidad</a>
+      </div>
+    </article>
+
+    <article class="producto-card dorado">
+      <div class="bf-img-wrap">
+        <img src="imagenes/PENDIENTES SEMILUNA TRIPLE VUX.WEBP" class="img-main" alt="Pendientes Semiluna Triple Vux Dorado - Martínez Joyeros Alcalá" loading="lazy">
+        <img src="imagenes/PENDIENTES SEMILUNA TRIPLE VUX HOVER.WEBP" class="img-hover" alt="Detalle Pendientes Semiluna Dorado">
+      </div>
+      <div class="ani-card-info">
+        <h3 class="ani-card-nombre">Pendientes Semiluna Dorado</h3>
+        <a class="btn-outline-whatsapp"
+           href="https://wa.me/34678417026?text=Hola%20Mart%C3%ADnez%20Joyeros%2C%20me%20interesan%20los%20Pendientes%20Semiluna%20en%20Dorado."
+           aria-label="Consultar precio y disponibilidad de Pendientes Semiluna Dorado por WhatsApp"
+           target="_blank"
+           rel="noopener">Consultar disponibilidad</a>
+      </div>
+    </article>
+
+    <article class="producto-card dorado">
+      <div class="bf-img-wrap">
+        <img src="imagenes/PENDIENTES DE MUJER DE ACERO IP DORADO VOLUMEN.WEBP" class="img-main" alt="Pendientes Volumen Acero IP Dorado - Joyería Alcalá de Henares" loading="lazy">
+        <img src="imagenes/PENDIENTES DE MUJER DE ACERO IP DORADO VOLUMEN HOVER.WEBP" class="img-hover" alt="Detalle Pendientes Volumen Dorado">
+      </div>
+      <div class="ani-card-info">
+        <h3 class="ani-card-nombre">Pendientes Volumen</h3>
+        <a class="btn-outline-whatsapp"
+           href="https://wa.me/34678417026?text=Hola%20Mart%C3%ADnez%20Joyeros%2C%20me%20interesan%20los%20Pendientes%20Volumen%20en%20Dorado."
+           aria-label="Consultar precio y disponibilidad de Pendientes Volumen Dorado por WhatsApp"
+           target="_blank"
+           rel="noopener">Consultar disponibilidad</a>
+      </div>
+    </article>
+
+    <article class="producto-card dorado">
+      <div class="bf-img-wrap">
+        <img src="imagenes/PENDIENTES DE MUJER DE ACERO IP DORADO CALABROTES.WEBP" class="img-main" alt="Pendientes Calabrotes Dorado Especial San Valentín - Martínez Joyeros" loading="lazy">
+        <img src="imagenes/PENDIENTES DE MUJER DE ACERO IP DORADO CALABROTES HOVER.WEBP" class="img-hover" alt="Detalle Pendientes Calabrotes">
+      </div>
+      <div class="ani-card-info">
+        <h3 class="ani-card-nombre">Pendientes Calabrotes</h3>
+        <a class="btn-outline-whatsapp"
+           href="https://wa.me/34678417026?text=Hola%20Mart%C3%ADnez%20Joyeros%2C%20me%20interesan%20los%20Pendientes%20Calabrotes."
+           aria-label="Consultar precio y disponibilidad de Pendientes Calabrotes Dorado por WhatsApp"
+           target="_blank"
+           rel="noopener">Consultar disponibilidad</a>
+      </div>
+    </article>
+
+    <article class="producto-card dorado">
+      <div class="bf-img-wrap">
+        <img src="imagenes/PENDIENTES DE MUJER DE ACERO IP DORADO ARO ABIERTO RECTANGULAR.WEBP" class="img-main" alt="Pendientes Aros Abiertos Rectangulares Dorado Alcalá" loading="lazy">
+        <img src="imagenes/PENDIENTES DE MUJER DE ACERO IP DORADO ARO ABIERTO RECTANGULAR HOVER.WEBP" class="img-hover" alt="Detalle Pendientes Angular Dorado">
+      </div>
+      <div class="ani-card-info">
+        <h3 class="ani-card-nombre">Pendientes Aro Angular</h3>
+        <a class="btn-outline-whatsapp"
+           href="https://wa.me/34678417026?text=Hola%20Mart%C3%ADnez%20Joyeros%2C%20me%20interesan%20los%20Pendientes%20Angular%20en%20Dorado."
+           aria-label="Consultar precio y disponibilidad de Pendientes Aro Angular Dorado por WhatsApp"
+           target="_blank"
+           rel="noopener">Consultar disponibilidad</a>
+      </div>
+    </article>
+
+    <article class="producto-card dorado">
+      <div class="bf-img-wrap">
+        <img src="imagenes/PENDIENTES DE ARO JANA.WEBP" class="img-main" alt="Pendientes Aro Jana Dorado - Martínez Joyeros Alcalá de Henares" loading="lazy">
+        <img src="imagenes/PENDIENTES DE ARO JANA HOVER.WEBP" class="img-hover" alt="Detalle Pendientes Aro Jana">
+      </div>
+      <div class="ani-card-info">
+        <h3 class="ani-card-nombre">Pendientes Aro Jana</h3>
+        <a class="btn-outline-whatsapp"
+           href="https://wa.me/34678417026?text=Hola%20Mart%C3%ADnez%20Joyeros%2C%20me%20interesan%20los%20Pendientes%20Aro%20Jana."
+           aria-label="Consultar precio y disponibilidad de Pendientes Aro Jana Dorado por WhatsApp"
+           target="_blank"
+           rel="noopener">Consultar disponibilidad</a>
+      </div>
+    </article>
+
+    <article class="producto-card plateado">
+      <div class="bf-img-wrap">
+        <img src="imagenes/Pendientes hojas textura Curve Duo.JPG" class="img-main" alt="Pendientes Hojas Textura Curve Dúo Plateado en Alcalá de Henares - Martínez Joyeros" loading="lazy">
+      </div>
+      <div class="ani-card-info">
+        <h3 class="ani-card-nombre">Pendientes Hojas Textura</h3>
+        <a class="btn-outline-whatsapp"
+           href="https://wa.me/34678417026?text=Hola%20Mart%C3%ADnez%20Joyeros%2C%20me%20interesan%20los%20Pendientes%20Hojas%20Curve%20D%C3%BAo%20en%20Plateado."
+           aria-label="Consultar precio y disponibilidad de Pendientes Hojas Textura Plateado por WhatsApp"
+           target="_blank"
+           rel="noopener">Consultar disponibilidad</a>
+      </div>
+    </article>
+
+    <article class="producto-card plateado">
+      <div class="bf-img-wrap">
+        <img src="imagenes/Pendientes de aro doble Anna.JPG" class="img-main" alt="Pendientes de Aro Doble Anna Dorado - Regalo San Valentín Alcalá" loading="lazy">
+      </div>
+      <div class="ani-card-info">
+        <h3 class="ani-card-nombre">Pendientes Aro Anna</h3>
+        <a class="btn-outline-whatsapp"
+           href="https://wa.me/34678417026?text=Hola%20Mart%C3%ADnez%20Joyeros%2C%20me%20interesa%20el%20Aro%20Doble%20Anna%20en%20Dorado."
+           aria-label="Consultar precio y disponibilidad de Pendientes Aro Anna Plateado por WhatsApp"
+           target="_blank"
+           rel="noopener">Consultar disponibilidad</a>
+      </div>
+    </article>
+
+    <article class="producto-card dorado">
+      <div class="bf-img-wrap">
+        <img src="imagenes/Pendientes semiluna Navy con Acetato y Resina azul.JPG" class="img-main" alt="Pendientes Semiluna Navy Resina Azul y Dorado - Martínez Joyeros" loading="lazy">
+      </div>
+      <div class="ani-card-info">
+        <h3 class="ani-card-nombre">Pendientes Semiluna Navy</h3>
+        <a class="btn-outline-whatsapp"
+           href="https://wa.me/34678417026?text=Hola%20Mart%C3%ADnez%20Joyeros%2C%20me%20interesa%20la%20Semiluna%20Navy."
+           aria-label="Consultar precio y disponibilidad de Pendientes Semiluna Navy Dorado por WhatsApp"
+           target="_blank"
+           rel="noopener">Consultar disponibilidad</a>
+      </div>
+    </article>
+
+    <article class="producto-card dorado">
+      <div class="bf-img-wrap">
+        <img src="imagenes/Pendientes de aro triple ovalados Remi.JPG" class="img-main" alt="Pendientes Aro Triple Ovalado Remi Dorado - Joyería Alcalá" loading="lazy">
+      </div>
+      <div class="ani-card-info">
+        <h3 class="ani-card-nombre">Pendientes Aro Remi</h3>
+        <a class="btn-outline-whatsapp"
+           href="https://wa.me/34678417026?text=Hola%20Mart%C3%ADnez%20Joyeros%2C%20me%20interesa%20el%20Aro%20Remi."
+           aria-label="Consultar precio y disponibilidad de Pendientes Aro Remi Dorado por WhatsApp"
+           target="_blank"
+           rel="noopener">Consultar disponibilidad</a>
+      </div>
+    </article>
+
+    <article class="producto-card plateado">
+      <div class="bf-img-wrap">
+        <img src="imagenes/Pendientes aros entrelazados textura Dual.JPG" class="img-main" alt="Aros Entrelazados Textura Dual Plateado - Martínez Joyeros Alcalá" loading="lazy">
+      </div>
+      <div class="ani-card-info">
+        <h3 class="ani-card-nombre">Pendientes Aros Entrelazados</h3>
+        <a class="btn-outline-whatsapp"
+           href="https://wa.me/34678417026?text=Hola%20Mart%C3%ADnez%20Joyeros%2C%20me%20interesan%20los%20Aros%20Entrelazados%20en%20Plateado."
+           aria-label="Consultar precio y disponibilidad de Pendientes Aros Entrelazados Plateado por WhatsApp"
+           target="_blank"
+           rel="noopener">Consultar disponibilidad</a>
+      </div>
+    </article>
+
+    <article class="producto-card plateado">
+      <div class="bf-img-wrap">
+        <img src="imagenes/Pendientes semiluna textura Curve.JPG" class="img-main" alt="Pendientes Semiluna Textura Curve Plateado - Especial San Valentín" loading="lazy">
+      </div>
+      <div class="ani-card-info">
+        <h3 class="ani-card-nombre">Pendientes Semiluna Textura Curve</h3>
+        <a class="btn-outline-whatsapp"
+           href="https://wa.me/34678417026?text=Hola%20Mart%C3%ADnez%20Joyeros%2C%20me%20interesan%20los%20Pendientes%20Semiluna%20Curve%20en%20Plateado."
+           aria-label="Consultar precio y disponibilidad de Pendientes Semiluna Textura Curve Plateado por WhatsApp"
+           target="_blank"
+           rel="noopener">Consultar disponibilidad</a>
+      </div>
+    </article>
+
+  <!-- NUEVOS PRODUCTOS: insertar siempre AQUÍ ARRIBA,
+       antes de los productos existentes -->
+
   </div>
-  <section class="seo-local-content" style="padding: 60px 20px; background-color: #ffffff; border-top: 1px solid #f0f0f0;">
-  <div style="max-width: 900px; margin: 0 auto; line-height: 1.8; color: #444; font-family: 'Montserrat', sans-serif;">
-    
-    <h2 style="font-family: 'Playfair Display', serif; color: #1a1a1a; font-size: 2rem; margin-bottom: 25px; text-align: center;">
-      Tu Joyería de Confianza en el Corazón de Alcalá
-    </h2>
 
-    <p style="margin-bottom: 20px;">
-      Nuestra <strong>joyería en el centro histórico de Alcalá de Henares</strong> es mucho más que un punto de venta; es un espacio donde la tradición y la exclusividad se encuentran. Si buscas el <strong>regalo de San Valentín</strong> perfecto, nuestra colección de pendientes ha sido seleccionada cuidadosamente para reflejar la elegancia de nuestra ciudad Patrimonio de la Humanidad. Desde diseños clásicos en oro de 18k hasta las tendencias más modernas de <strong>Vidal Vidal</strong>, cada pieza cuenta una historia de amor y dedicación.
-    </p>
+  <!-- ===== FAQ ===== -->
+  <section class="ani-faq" aria-labelledby="faq-pendientes-title">
+    <div class="ani-faq-inner">
+      <h2 id="faq-pendientes-title">Preguntas frecuentes sobre
+      pendientes y criollas</h2>
 
-    <p style="margin-bottom: 20px;">
-      En <strong>Martínez Joyeros</strong>, entendemos que elegir unos pendientes es una decisión personal. Por eso, te invitamos a salir del mundo digital y visitarnos en nuestra tienda física, situada estratégicamente cerca de la <strong>Vía Complutense</strong> y a pocos pasos de la emblemática <strong>Plaza de Cervantes</strong>. Aquí podrás ver de cerca el brillo de la plata de ley y la calidez del oro, recibiendo un asesoramiento personalizado que solo una joyería con raíces en Alcalá puede ofrecerte.
-    </p>
+      <details>
+        <summary>¿Qué tipos de cierres técnicos utilizáis en
+        la colección?</summary>
+        <p>Priorizamos la ergonomía y seguridad en el lóbulo
+        empleando sistemas de sujeción avanzados: cierres de
+        presión calibrados, sistemas omega, monturas catalanas
+        y tuercas de seguridad con acabados hipoalergénicos.</p>
+      </details>
 
-    <p>
-      Sabemos que la búsqueda de <strong>pendientes en Alcalá de Henares</strong> puede ser abrumadora, especialmente en fechas tan señaladas. Por ello, hemos optimizado nuestro catálogo para que encuentres rápidamente lo que buscas, ya sea un detalle sutil para el día a día o una joya imponente para una cena romántica. No dejes tu elección al azar; confía en los expertos locales que conocen el gusto y la distinción de los alcalaínos. ¡Te esperamos para dar brillo a tus momentos más especiales!
-    </p>
+      <details>
+        <summary>¿Disponéis de diseños ligeros con texturas en
+        tonos dorados o plateados?</summary>
+        <p>Sí, nuestro catálogo incluye pendientes de botón
+        minimalistas, aros con pulido artesanal y criollas
+        texturizadas, desarrollados para maximizar la ligereza
+        manteniendo la integridad del diseño y el brillo
+        inalterable.</p>
+      </details>
 
-  </div>
-</section>
+      <details>
+        <summary>¿Dónde ver pendientes y criollas de tendencia
+        en Alcalá de Henares?</summary>
+        <p>Te invitamos a visitar nuestro escaparate en la
+        <strong>Calle Marqués de Alonso Martínez, 5</strong>,
+        donde podrás examinar de primera mano las geometrías
+        y volúmenes de las colecciones de temporada bajo
+        asesoramiento experto.</p>
+      </details>
 
-</section>
-
-
-    <!-- CTA FINAL: VISITA A TIENDA -->
-  <section class="store-cta">
-    <div class="store-cta-content">
-      <h2>¿Buscas una pieza exclusiva?</h2>
-      <p>
-        Nuestra web es solo una pequeña muestra. 
-        Ven a nuestra joyería en <strong>Alcalá de Henares</strong> para descubrir colecciones únicas y recibir asesoramiento de expertos.
-      </p>
-       <a href="https://www.google.com/maps/search/?api=1&query=C.+Marqu%C3%A9s+Alonso+Mart%C3%ADnez,+5,+28805+Alcal%C3%A1+de+Henares,+Madrid" target="_blank" class="btn-mapa">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-      Ver ubicación en Mapa
-    </a>
+      <details>
+        <summary>¿Las piezas en tonos dorados o plateados
+        pueden irritar la piel?</summary>
+        <p>Es una pregunta muy habitual. Trabajamos
+        exclusivamente con firmas de reconocida calidad cuyas
+        colecciones están pensadas para el uso cotidiano.
+        En nuestra tienda te indicamos qué modelos incluyen
+        documentación de su fabricante sobre biocompatibilidad
+        y cumplimiento de la normativa europea REACH. Para
+        pieles especialmente sensibles, te recomendamos
+        consultarnos antes de la compra para orientarte hacia
+        las piezas más adecuadas para ti.</p>
+      </details>
     </div>
   </section>
 
-  <footer class="footer">
-    © <span id="year"></span> · Martínez Joyeros
-    <span class="sep">|</span>
-    <a href="aviso-legal.html">Aviso legal</a>
-    <span class="sep">·</span>
-    <a href="privacidad.html">Privacidad</a>
-    <span class="sep">·</span>
-    <a href="cookies.html">Cookies</a>
-  </footer>
+  <section class="ani-seo" aria-label="Información sobre
+  pendientes en Alcalá de Henares">
+    <div class="ani-seo-inner">
+      <h2>Especialistas en Pendientes y Orfebrería en
+      Alcalá de Henares</h2>
+      <p>En <strong>Martínez Joyeros</strong> desarrollamos
+      y seleccionamos piezas basándonos en la precisión
+      técnica y la estética contemporánea. Nuestro catálogo
+      abarca desde pendientes de botón con engastes de
+      precisión hasta criollas de gran volumen con acabados
+      pulidos o facetados, siempre garantizando la máxima
+      resistencia estructural.</p>
+      <details class="ani-seo-details">
+        <summary>Leer más</summary>
+        <div class="ani-seo-extra">
+          <p>Nuestra tienda, situada en el centro histórico
+          a escasos metros de la
+          <strong>Plaza de Cervantes</strong>, cuenta con una
+          selección estructurada en sistemas de sujeción
+          seguros, tratamientos hipoalergénicos y diseños
+          versátiles en tonos dorados, rosados y plateados.</p>
+          <p>Si buscas <strong>pendientes en Alcalá de
+          Henares</strong> con garantía de durabilidad y un
+          ajuste perfecto, nuestra familia de joyeros con
+          más de 30 años de oficio te guiará en la elección
+          del formato y cierre más adecuado para ti.</p>
+        </div>
+      </details>
+    </div>
+  </section>
 
-  <script>
-    // Actualiza el año automáticamente
-    document.getElementById('year').textContent = new Date().getFullYear();
-    
-    // Lógica del Menú Lateral
-    const navToggle = document.querySelector('.nav-toggle');
-    const navClose = document.querySelector('.nav-close-btn');
-    const sideMenu = document.querySelector('.sidebar-menu');
-    const overlay = document.querySelector('.nav-overlay');
-  
-    function toggleMenu() {
-      if(sideMenu) sideMenu.classList.toggle('active');
-      if(overlay) overlay.classList.toggle('active');
-    }
-  
-    if (navToggle) navToggle.addEventListener('click', toggleMenu);
-    if (navClose) navClose.addEventListener('click', toggleMenu);
-    if (overlay) overlay.addEventListener('click', toggleMenu);
-    
-    // Lógica de Filtros Oro/Plata
-    function filterProducts(category, button) {
-      const buttons = document.querySelectorAll('.filter-btn');
-      buttons.forEach(btn => btn.classList.remove('active'));
-      button.classList.add('active');
+</section>
 
-      const products = document.querySelectorAll('.producto-card');
-      products.forEach(product => {
-        if (category === 'all' || product.classList.contains(category)) {
-          product.style.display = 'block';
-        } else {
-          product.style.display = 'none';
-        }
-      });
+<!-- ===== FOOTER ===== -->
+<footer class="site-footer">
+  <div class="footer-grid">
+    <div class="footer-col">
+      <h3>Legal</h3>
+      <ul>
+        <li><a href="aviso-legal.html">Aviso legal</a></li>
+        <li><a href="privacidad.html">Privacidad</a></li>
+        <li><a href="cookies.html">Cookies</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h3>Secciones</h3>
+      <ul>
+        <li><a href="index.html#tendencias">Tendencias</a></li>
+        <li><a href="index.html#colecciones">Colecciones</a></li>
+        <li><a href="index.html#alta-joyeria">Alta Joyería</a></li>
+        <li><a href="index.html#nosotros">Nosotros</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h3>Redes</h3>
+      <ul>
+        <li><a href="https://www.instagram.com/martinezeurodiamant/" target="_blank" rel="noopener noreferrer">@martinezeurodiamant</a></li>
+        <li><a href="https://www.google.com/maps/search/?api=1&query=C.+Marqu%C3%A9s+Alonso+Mart%C3%ADnez,+5,+28805+Alcal%C3%A1+de+Henares,+Madrid"
+           target="_blank"
+           rel="noopener noreferrer">Google Maps</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h3>Contacto</h3>
+      <ul>
+        <li><a href="tel:+34678417026">+34 678 417 026</a></li>
+        <li><a href="mailto:martinezeurodiamant@gmail.com">martinezeurodiamant@gmail.com</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span id="year"></span> · Martínez Joyeros · Alcalá de Henares
+  </div>
+</footer>
+
+<!-- ===== WHATSAPP FLOTANTE ===== -->
+<button class="contact-float-btn"
+        aria-label="Abrir formulario de contacto"
+        id="contact-float-trigger">
+  <svg viewBox="0 0 24 24" fill="none"
+       stroke="currentColor" stroke-width="1.5"
+       aria-hidden="true">
+    <path stroke-linecap="round" stroke-linejoin="round"
+      d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0
+      01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0
+      01-2 2h-5l-3 3v-3z"/>
+  </svg>
+</button>
+
+<!-- ===== BANNER COOKIES ===== -->
+<div id="cookie-banner" style="
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: #1F1E1C;
+  color: #fff;
+  padding: 15px 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  box-shadow: 0 -4px 20px rgba(0,0,0,0.15);
+  z-index: 999999;
+  transform: translateY(100%);
+  transition: transform 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+  font-family: 'Montserrat', sans-serif;
+">
+  <p style="margin: 0; font-size: 0.9rem; color: #e0e0e0; max-width: 800px; text-align: center;">
+    Usamos cookies para mejorar tu experiencia y analizar el tráfico.
+    Al continuar navegando, aceptas su uso.
+    <a href="cookies.html" aria-label="Más información sobre nuestra política de cookies" style="color: #C8A462; text-decoration: underline;">Más información</a>.
+  </p>
+  <button onclick="acceptCookies()" style="
+    background: #C8A462;
+    color: #fff;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 0.85rem;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(200, 164, 98, 0.3);
+    transition: transform 0.2s;
+  " onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+    ACEPTAR
+  </button>
+</div>
+
+<script src="scripts.js" defer></script>
+
+<script>
+  window.addEventListener('load', function() {
+    if (!localStorage.getItem('cookiesAccepted')) {
+      setTimeout(() => {
+        const banner = document.getElementById('cookie-banner');
+        if (banner) banner.style.transform = 'translateY(0)';
+      }, 2000);
     }
+  });
+  function acceptCookies() {
+    localStorage.setItem('cookiesAccepted', 'true');
+    const banner = document.getElementById('cookie-banner');
+    if (banner) banner.style.transform = 'translateY(100%)';
+  }
 </script>
 
 <script type="application/ld+json">
 {
-  "@context":"https://schema.org",
-  "@type":"ItemList",
-  "name":"Colección de Pendientes y Aros - Martínez Joyeros Alcalá",
-  "description": "Selección exclusiva de pendientes de oro, plata y marcas de diseño como Vidal & Vidal en Alcalá de Henares.",
-  "url": "https://martinezeurodiamant.es/pendientes.html",
-  "itemListElement":[
-    {"@type":"ListItem","position":1,"name":"Pendientes de Aro Liso Core en Oro"},
-    {"@type":"ListItem","position":2,"name":"Pendientes Semiluna Plateados"},
-    {"@type":"ListItem","position":3,"name":"Pendientes de Aro Jana Oro 18k"},
-    {"@type":"ListItem","position":4,"name":"Pendientes de Aro Doble Anna"},
-    {"@type":"ListItem","position":5,"name":"Pendientes Semiluna Navy Vidal & Vidal"},
-    {"@type":"ListItem","position":6,"name":"Pendientes de Aro Triple Remi"}
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "JewelryStore",
+      "@id": "https://martinezeurodiamant.es/#store",
+      "name": "Martínez Joyeros",
+      "url": "https://martinezeurodiamant.es",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Alcalá de Henares",
+        "addressRegion": "Madrid",
+        "addressCountry": "ES"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://martinezeurodiamant.es/" },
+        { "@type": "ListItem", "position": 2, "name": "Colecciones", "item": "https://martinezeurodiamant.es/colecciones.html" },
+        { "@type": "ListItem", "position": 3, "name": "Pendientes", "item": "https://martinezeurodiamant.es/pendientes.html" }
+      ]
+    },
+    {
+      "@type": "ItemList",
+      "name": "Colección de Pendientes y Criollas - Martínez Joyeros Alcalá",
+      "description": "Catálogo de pendientes y aros de diseño en Alcalá de Henares.",
+      "url": "https://martinezeurodiamant.es/pendientes.html",
+      "numberOfItems": 37,
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "item": { "@type": "Product", "name": "Pendientes Corazón Dorado" } },
+        { "@type": "ListItem", "position": 2, "item": { "@type": "Product", "name": "Pendientes Semiluna Plateado" } },
+        { "@type": "ListItem", "position": 3, "item": { "@type": "Product", "name": "Pendientes Semiluna Dorado" } },
+        { "@type": "ListItem", "position": 4, "item": { "@type": "Product", "name": "Pendientes Volumen Dorado" } },
+        { "@type": "ListItem", "position": 5, "item": { "@type": "Product", "name": "Pendientes Calabrotes Dorado" } },
+        { "@type": "ListItem", "position": 6, "item": { "@type": "Product", "name": "Pendientes Aro Angular Dorado" } },
+        { "@type": "ListItem", "position": 7, "item": { "@type": "Product", "name": "Pendientes Aro Jana Dorado" } },
+        { "@type": "ListItem", "position": 8, "item": { "@type": "Product", "name": "Pendientes Hojas Textura Plateado" } },
+        { "@type": "ListItem", "position": 9, "item": { "@type": "Product", "name": "Pendientes Aro Anna Plateado" } },
+        { "@type": "ListItem", "position": 10, "item": { "@type": "Product", "name": "Pendientes Semiluna Navy Dorado" } },
+        { "@type": "ListItem", "position": 11, "item": { "@type": "Product", "name": "Pendientes Aro Remi Dorado" } },
+        { "@type": "ListItem", "position": 12, "item": { "@type": "Product", "name": "Pendientes Aros Entrelazados Plateado" } },
+        { "@type": "ListItem", "position": 13, "item": { "@type": "Product", "name": "Pendientes Semiluna Textura Curve Plateado" } },
+        { "@type": "ListItem", "position": 14, "item": { "@type": "Product", "name": "Pendientes Belin Luxenter" } },
+        { "@type": "ListItem", "position": 15, "item": { "@type": "Product", "name": "Pendientes Towio Luxenter" } },
+        { "@type": "ListItem", "position": 16, "item": { "@type": "Product", "name": "Pendientes Verde Paraiba Luxenter" } },
+        { "@type": "ListItem", "position": 17, "item": { "@type": "Product", "name": "Pendientes Negal Multicolor Luxenter" } },
+        { "@type": "ListItem", "position": 18, "item": { "@type": "Product", "name": "Pendientes Aro de Color Luxenter" } },
+        { "@type": "ListItem", "position": 19, "item": { "@type": "Product", "name": "Pendientes Esferas Avihe Luxenter" } },
+        { "@type": "ListItem", "position": 20, "item": { "@type": "Product", "name": "Pendientes Roqueta Organics Vidal & Vidal" } },
+        { "@type": "ListItem", "position": 21, "item": { "@type": "Product", "name": "Pendientes Mini Aros Elodie Vidal & Vidal" } },
+        { "@type": "ListItem", "position": 22, "item": { "@type": "Product", "name": "Pendientes Corazón Corelux Pavé Vidal & Vidal" } },
+        { "@type": "ListItem", "position": 23, "item": { "@type": "Product", "name": "Pendientes Largos Dobles Reflexes Vidal & Vidal" } },
+        { "@type": "ListItem", "position": 24, "item": { "@type": "Product", "name": "Pendientes Finos Largos Gota Vidal & Vidal" } },
+        { "@type": "ListItem", "position": 25, "item": { "@type": "Product", "name": "Pendientes Geométricos Horizonte Vidal & Vidal" } },
+        { "@type": "ListItem", "position": 26, "item": { "@type": "Product", "name": "Mini Aros Multicolor Eternity Vidal & Vidal" } },
+        { "@type": "ListItem", "position": 27, "item": { "@type": "Product", "name": "Pendientes Ovales Dobles Flow Vidal & Vidal" } },
+        { "@type": "ListItem", "position": 28, "item": { "@type": "Product", "name": "Pendientes Eslabón Lacado Pili Vidal & Vidal" } },
+        { "@type": "ListItem", "position": 29, "item": { "@type": "Product", "name": "Pendientes Semi Luna Orgánica Vidal & Vidal" } },
+        { "@type": "ListItem", "position": 30, "item": { "@type": "Product", "name": "Pendientes Largos Cuadrados Reflexes Silver Vidal & Vidal" } },
+        { "@type": "ListItem", "position": 31, "item": { "@type": "Product", "name": "Pendientes Calados Gota Nereida Vidal & Vidal" } },
+        { "@type": "ListItem", "position": 32, "item": { "@type": "Product", "name": "Pendientes Media Caña Reflexes Vidal & Vidal" } },
+        { "@type": "ListItem", "position": 33, "item": { "@type": "Product", "name": "Pendientes Aros Corazón Liso Vidal & Vidal" } },
+        { "@type": "ListItem", "position": 34, "item": { "@type": "Product", "name": "Pendientes Aros Sol Horizonte Vidal & Vidal" } },
+        { "@type": "ListItem", "position": 35, "item": { "@type": "Product", "name": "Mini Aros Articulados Eternity Silver Vidal & Vidal" } },
+        { "@type": "ListItem", "position": 36, "item": { "@type": "Product", "name": "Aros Medianos Multicolor Rainbow Vidal & Vidal" } },
+        { "@type": "ListItem", "position": 37, "item": { "@type": "Product", "name": "Pendientes Aros Rugosos Volumen Vidal & Vidal" } }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Qué tipos de cierres técnicos utilizáis en la colección?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Priorizamos la ergonomía y seguridad en el lóbulo empleando sistemas de sujeción avanzados: cierres de presión calibrados, sistemas omega, monturas catalanas y tuercas de seguridad con acabados hipoalergénicos." }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Disponéis de diseños ligeros con texturas en tonos dorados o plateados?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Sí, nuestro catálogo incluye pendientes de botón minimalistas, aros con pulido artesanal y criollas texturizadas, desarrollados para maximizar la ligereza manteniendo la integridad del diseño y el brillo inalterable." }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Dónde ver pendientes y criollas de tendencia en Alcalá de Henares?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Te invitamos a visitar nuestro escaparate en la Calle Marqués de Alonso Martínez, 5, donde podrás examinar de primera mano las geometrías y volúmenes de las colecciones de temporada bajo asesoramiento experto." }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Las piezas en tonos dorados o plateados pueden irritar la piel?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Es una pregunta muy habitual. Trabajamos exclusivamente con firmas de reconocida calidad cuyas colecciones están pensadas para el uso cotidiano. En nuestra tienda te indicamos qué modelos incluyen documentación de su fabricante sobre biocompatibilidad y cumplimiento de la normativa europea REACH. Para pieles especialmente sensibles, te recomendamos consultarnos antes de la compra para orientarte hacia las piezas más adecuadas para ti." }
+        }
+      ]
+    }
   ]
 }
 </script>
 
+<div class="contact-modal-overlay" id="contact-modal"
+     role="dialog" aria-modal="true"
+     aria-labelledby="contact-modal-title"
+     aria-hidden="true">
+  <div class="contact-modal-box">
+
+    <button class="contact-modal-close"
+            aria-label="Cerrar formulario de contacto"
+            id="contact-modal-close">
+      &times;
+    </button>
+
+    <h2 class="contact-modal-title"
+        id="contact-modal-title">
+      Escríbenos
+    </h2>
+    <p class="contact-modal-sub">
+      Te respondemos en menos de 24 horas.
+    </p>
+
+    <form class="contact-modal-form"
+          id="contact-modal-form"
+          novalidate>
+
+      <input type="hidden"
+             name="access_key"
+             value="f42d9962-3387-44ac-8fb1-32aa6a1bd181">
+      <input type="hidden"
+             name="subject"
+             id="form-subject-header">
+      <input type="hidden"
+             name="from_name"
+             value="Web Martínez Joyeros">
+
+      <div class="contact-field">
+        <label for="contact-nombre">Nombre</label>
+        <input type="text" id="contact-nombre"
+               name="name"
+               placeholder="Tu nombre"
+               required
+               autocomplete="name">
+      </div>
+
+      <div class="contact-field">
+        <label for="contact-asunto">Asunto</label>
+        <input type="text" id="contact-asunto"
+               name="asunto"
+               placeholder="¿Sobre qué nos escribes?"
+               required>
+      </div>
+
+      <div class="contact-field">
+        <label for="contact-email">Email</label>
+        <input type="email" id="contact-email"
+               name="email"
+               placeholder="tu@email.com"
+               required
+               autocomplete="email">
+      </div>
+
+      <div class="contact-field">
+        <label for="contact-mensaje">
+          ¿En qué podemos ayudarte?
+        </label>
+        <textarea id="contact-mensaje"
+                  name="message"
+                  rows="4"
+                  placeholder="Cuéntanos qué necesitas..."
+                  required></textarea>
+      </div>
+
+      <button type="submit"
+              class="contact-modal-submit"
+              id="contact-submit-btn">
+        ENVIAR MENSAJE
+      </button>
+
+      <p class="contact-modal-feedback"
+         id="contact-feedback"
+         aria-live="polite"></p>
+
+    </form>
+  </div>
+</div>
 
 </body>
 </html>

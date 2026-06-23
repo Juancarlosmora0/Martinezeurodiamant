@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#F5F0E8">
+  <title>Tendencias Verano 2025 | Martínez Joyeros Alcalá de Henares</title>
+  <meta name="description" content="Descubre la Edición Verano de Martínez Joyeros. Piezas clave de Luxenter y Vidal & Vidal seleccionadas para la temporada. Joyería en Alcalá de Henares.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://martinezeurodiamant.es/tendencias.html">
+  <meta property="og:title" content="Edición Verano · Tendencias | Martínez Joyeros">
+  <meta property="og:description" content="La luz de la temporada en piezas clave para el día a día. Lookbook editorial de verano en Alcalá de Henares.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://martinezeurodiamant.es/tendencias.html">
+  <meta property="og:image" content="https://martinezeurodiamant.es/imagenes/lux-trasera.webp">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Edición Verano · Tendencias | Martínez Joyeros">
+  <meta name="twitter:description" content="La luz de la temporada en piezas clave para el día a día.">
+  <meta name="twitter:image" content="https://martinezeurodiamant.es/imagenes/lux-trasera.webp">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+.tendencias-eyebrow {
+  display: block;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--dorado);
+  margin-bottom: 10px;
+}
+
+/* ---- BLOQUES EDITORIALES ---- */
+.tendencias-bloque {
+  padding: clamp(3rem, 6vw, 5rem) clamp(1rem, 4vw, 2.5rem);
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.tendencias-bloque__header {
+  margin-bottom: clamp(1.5rem, 3vw, 2.5rem);
+}
+.tendencias-bloque__eyebrow {
+  display: block;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--dorado);
+  margin-bottom: 8px;
+}
+.tendencias-bloque__title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
+  font-weight: 600;
+  color: var(--negro);
+  margin: 0 0 8px;
+}
+.tendencias-bloque__sub {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.92rem;
+  color: #7a7672;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ---- GRID ESENCIA MARINA ---- */
+.marina-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+@media (min-width: 768px) {
+  .marina-grid {
+    grid-template-columns: 1.4fr 1fr;
+    gap: 24px;
+    align-items: start;
+  }
+}
+.marina-grid__hero img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  display: block;
+}
+.marina-grid__productos {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  align-content: start;
+  padding: 0;
+}
+
+/* ---- CARDS DE PRODUCTO ---- */
+.tendencias-card {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  border-bottom: none;
+  padding-bottom: 0;
+}
+.tendencias-card img,
+.tendencias-card__placeholder {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
+.tendencias-card img {
+  display: block;
+}
+.tendencias-card__info {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.tendencias-card__info h3 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--negro);
+  margin: 0;
+}
+.tendencias-price {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 300;
+  color: #999;
+  letter-spacing: 0.04em;
+}
+.tendencias-cta {
+  display: inline-block;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--negro);
+  text-decoration: none;
+  border: 1px solid var(--dorado);
+  padding: 8px 16px;
+  width: fit-content;
+  transition: background 0.25s ease, color 0.25s ease;
+  margin-top: 4px;
+}
+.tendencias-cta:hover {
+  background: var(--dorado);
+  color: var(--blanco);
+}
+.tendencias-card__placeholder {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  background: #ece8e2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.tendencias-card__placeholder span {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.65rem;
+  color: #aaa;
+  letter-spacing: 0.08em;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .marina-grid__productos {
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+}
+.layering-grid__productos .tendencias-card {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+/* ---- SEPARADOR EDITORIAL ---- */
+.tendencias-separador {
+  text-align: center;
+  padding: clamp(2rem, 4vw, 3rem) 20px;
+  border-top: 1px solid var(--borde);
+  border-bottom: 1px solid var(--borde);
+  background: var(--crema);
+}
+.tendencias-separador span {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+  font-weight: 500;
+  color: var(--negro);
+  letter-spacing: 0.04em;
+}
+
+/* ---- GRID LAYERING ---- */
+.layering-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
+}
+@media (min-width: 768px) {
+  .layering-grid {
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+  }
+}
+.layering-grid__foto {
+  position: relative;
+}
+.layering-grid__foto img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  display: block;
+}
+.layering-grid__caption {
+  padding: 16px 0 0;
+}
+.layering-grid__caption p {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1rem, 1.8vw, 1.3rem);
+  font-style: italic;
+  color: var(--gris);
+  line-height: 1.6;
+  margin: 6px 0 0;
+}
+.layering-grid__productos {
+  padding: clamp(1.5rem, 3vw, 2.5rem);
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+/* ---- CTA FINAL ---- */
+.tendencias-cta-final {
+  background: var(--negro);
+  padding: clamp(3rem, 6vw, 5rem) clamp(1rem, 4vw, 2.5rem);
+  text-align: center;
+  border-top: 2px solid var(--dorado);
+}
+.tendencias-cta-final__inner {
+  max-width: 600px;
+  margin: 0 auto;
+}
+.tendencias-cta-final h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  color: var(--crema);
+  margin: 8px 0 12px;
+}
+.tendencias-cta-final p {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.92rem;
+  color: rgba(255,255,255,0.65);
+  line-height: 1.7;
+  margin-bottom: 2rem;
+}
+.tendencias-cta-final__btns {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+}
+@media (min-width: 480px) {
+  .tendencias-cta-final__btns {
+    flex-direction: row;
+    justify-content: center;
+  }
+}
+.btn-tendencias-primary {
+  background: var(--dorado);
+  color: var(--blanco);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 14px 28px;
+  text-decoration: none;
+  min-height: 48px;
+  display: inline-flex;
+  align-items: center;
+  transition: background 0.3s ease;
+}
+.btn-tendencias-primary:hover {
+  background: #b8923d;
+}
+.btn-tendencias-secondary {
+  display: inline-flex;
+  align-items: center;
+  min-height: 48px;
+  padding: 14px 28px;
+  border: 1px solid rgba(255,255,255,0.3);
+  color: rgba(255,255,255,0.8);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: border-color 0.3s ease, color 0.3s ease;
+}
+.btn-tendencias-secondary:hover {
+  border-color: var(--dorado);
+  color: var(--dorado);
+}
+
+/* ---- HOVER PULSERAS ---- */
+.layering-card__img-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+}
+.layering-card__img-wrap .img-main,
+.layering-card__img-wrap .img-hover {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.layering-card__img-wrap .img-hover {
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+.layering-card:hover .img-hover {
+  opacity: 1;
+}
+  </style>
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<header class="main-header">
+  <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+
+  <div class="logo">
+    <a href="index.html">Martínez Joyeros</a>
+  </div>
+
+  <nav class="nav-menu" aria-label="Navegación principal">
+    <ul>
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="index.html#lookbook-verano" class="nav-active">Tendencias</a></li>
+      <li class="nav-item-dropdown">
+        <a href="colecciones.html" class="nav-dropdown-trigger">
+          Colecciones <span class="dropdown-arrow">▾</span>
+        </a>
+        <div class="nav-dropdown">
+          <div class="nav-dropdown-col">
+            <span class="nav-dropdown-heading">Por Categoría</span>
+            <a href="anillos.html">Anillos</a>
+            <a href="pendientes.html">Pendientes</a>
+            <a href="collares.html">Collares</a>
+            <a href="pulseras.html">Pulseras</a>
+            <a href="relojes.html">Relojes</a>
+          </div>
+        </div>
+      </li>
+      <li><a href="diseno-y-joyeria.html">Diseño y Joyería</a></li>
+      <li><a href="index.html#contacto">Contacto</a></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- ===== HERO SPLIT ===== -->
+<section class="tendencias-hero-split">
+  <div class="tendencias-hero-split__texto">
+    <div class="tendencias-hero-split__inner">
+      <span class="tendencias-eyebrow">Edición Verano</span>
+      <h1 class="tendencias-hero-split__title">La luz de la temporada<br>en piezas clave.</h1>
+      <p class="tendencias-hero-split__sub">Descubre la selección de verano 2026 en nuestra joyería de Alcalá de Henares. Distribuidores oficiales de Luxenter y Vidal & Vidal en Alcalá.</p>
+      <a href="#esencia-marina" class="tendencias-hero-split__cta">Descubrir →</a>
+    </div>
+  </div>
+  <div class="tendencias-hero-split__imagen">
+    <img
+      src="imagenes/lux-trasera.webp"
+      alt="Edición Verano Martínez Joyeros — joyas Luxenter en Alcalá de Henares"
+      loading="eager"
+      fetchpriority="high">
+  </div>
+</section>
+
+<!-- ===== BLOQUE ESENCIA MARINA ===== -->
+<section class="tendencias-bloque" id="esencia-marina">
+  <div class="tendencias-bloque__header">
+    <span class="tendencias-bloque__eyebrow">Shop the Look</span>
+    <h2 class="tendencias-bloque__title">Esencia Marina</h2>
+    <p class="tendencias-bloque__sub">Charms de Luxenter inspirados en el mar. Diseños de caracola y estrella disponibles para combinar y personalizar en nuestra tienda de Alcalá de Henares.</p>
+  </div>
+
+  <div class="marina-grid">
+    <div class="marina-grid__hero">
+      <img
+        src="imagenes/charms2.webp"
+        alt="Collar con charms caracola y estrella dorados — Luxenter Martínez Joyeros"
+        loading="lazy">
+    </div>
+    <div class="marina-grid__productos">
+      <article class="tendencias-card">
+        <img
+          src="imagenes/charms1.webp"
+          alt="Charms marinos dorados caracola y estrella — Luxenter"
+          loading="lazy">
+        <div class="tendencias-card__info">
+          <h3>Charms Esencia Marina</h3>
+          <span class="tendencias-price">Desde 35€</span>
+          <a href="https://wa.me/34678417026?text=Hola%20Mart%C3%ADnez%20Joyeros%2C%20me%20interesan%20los%20Charms%20Esencia%20Marina." class="tendencias-cta" aria-label="Consultar disponibilidad de los Charms Esencia Marina por WhatsApp" target="_blank" rel="noopener">Consultar</a>
+        </div>
+      </article>
+      <article class="tendencias-card">
+        <img
+          src="imagenes/charms2.webp"
+          alt="Collar montado con charms marina dorados — Luxenter Alcalá"
+          loading="lazy">
+        <div class="tendencias-card__info">
+          <h3>Collar Charms Montado</h3>
+          <span class="tendencias-price">89€</span>
+          <a href="https://wa.me/34678417026?text=Hola%20Mart%C3%ADnez%20Joyeros%2C%20me%20interesa%20el%20Collar%20Charms%20Marina%20montado." class="tendencias-cta" aria-label="Consultar disponibilidad del Collar Charms Montado por WhatsApp" target="_blank" rel="noopener">Consultar</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SEPARADOR EDITORIAL ===== -->
+<div class="tendencias-separador">
+  <span>El Arte de Combinar</span>
+</div>
+
+<!-- ===== BLOQUE LAYERING ===== -->
+<section class="tendencias-bloque" id="arte-combinar">
+  <div class="layering-maestro">
+
+    <div class="layering-col-foto">
+      <img
+        src="imagenes/lux-trasera%20aventurina.webp"
+        alt="Layering de pulseras de piedras naturales — Luxenter Martínez Joyeros Alcalá"
+        loading="lazy">
+    </div>
+
+    <div class="layering-col-contenido">
+      <div class="layering-intro">
+        <span class="tendencias-bloque__eyebrow">Tendencia de temporada</span>
+        <h2 class="tendencias-bloque__title">El Arte de Combinar</h2>
+        <p class="tendencias-bloque__sub">Apila, combina, expresa.<br>No hay una sola manera correcta.</p>
+        <ul class="tendencias-nugget-list">
+          <li><strong>Pulsera Rubí:</strong> Abalorios en tono rubí con detalle central dorado.</li>
+          <li><strong>Cuarzo Rosa:</strong> Piedra natural en tono rosado, diseño delicado y versátil.</li>
+          <li><strong>Aguamarina:</strong> Piedra semipreciosa en azul celeste, perfecta para el verano.</li>
+        </ul>
+      </div>
+
+      <div class="layering-productos-grid">
+
+        <article class="layering-card">
+          <div class="layering-card__img-wrap">
+            <img src="imagenes/lux-pulsera%20roja.webp" class="img-main" alt="Pulsera Piedras Rojas Luxenter — Martínez Joyeros Alcalá" loading="lazy">
+            <img src="imagenes/lux-pulsera%20roja%20hover.webp" class="img-hover" alt="Detalle Pulsera Piedras Rojas" loading="lazy">
+          </div>
+          <h3 class="layering-card__nombre">Pulsera Rubí</h3>
+          <a href="https://wa.me/34678417026?text=Hola%20Mart%C3%ADnez%20Joyeros%2C%20me%20interesa%20la%20Pulsera%20Rub%C3%AD%20de%20piedras%20naturales." class="layering-card__cta" aria-label="Consultar disponibilidad de la Pulsera Rubí por WhatsApp" target="_blank" rel="noopener">Ver detalle →</a>
+        </article>
+
+        <article class="layering-card">
+          <div class="layering-card__img-wrap">
+            <img src="imagenes/lux-pulsera%20rosa.webp" class="img-main" alt="Pulsera Cuarzo Rosa Luxenter — Martínez Joyeros Alcalá" loading="lazy">
+            <img src="imagenes/lux-pulsera%20rosa%20hover.webp" class="img-hover" alt="Detalle Pulsera Cuarzo Rosa" loading="lazy">
+          </div>
+          <h3 class="layering-card__nombre">Pulsera Cuarzo Rosa</h3>
+          <a href="https://wa.me/34678417026?text=Hola%20Mart%C3%ADnez%20Joyeros%2C%20me%20interesa%20la%20Pulsera%20de%20Cuarzo%20Rosa." class="layering-card__cta" aria-label="Consultar disponibilidad de la Pulsera Cuarzo Rosa por WhatsApp" target="_blank" rel="noopener">Ver detalle →</a>
+        </article>
+
+        <article class="layering-card">
+          <div class="layering-card__img-wrap">
+            <img src="imagenes/lux-pulsera%20azul.webp" class="img-main" alt="Pulsera Aguamarina Luxenter — Martínez Joyeros Alcalá" loading="lazy">
+            <img src="imagenes/lux-pulsera%20azul%20hover.webp" class="img-hover" alt="Detalle Pulsera Aguamarina" loading="lazy">
+          </div>
+          <h3 class="layering-card__nombre">Pulsera Aguamarina</h3>
+          <a href="https://wa.me/34678417026?text=Hola%20Mart%C3%ADnez%20Joyeros%2C%20me%20interesa%20la%20Pulsera%20de%20Aguamarina." class="layering-card__cta" aria-label="Consultar disponibilidad de la Pulsera Aguamarina por WhatsApp" target="_blank" rel="noopener">Ver detalle →</a>
+        </article>
+
+        <!-- PLACEHOLDER 4 -->
+        <article class="layering-card">
+          <div class="layering-card__img layering-card__placeholder">
+            <span>Próximamente</span>
+          </div>
+          <h3 class="layering-card__nombre">Pulsera Piedras 4</h3>
+          <a href="https://wa.me/34678417026?text=Hola%20Mart%C3%ADnez%20Joyeros%2C%20me%20interesan%20las%20pulseras%20de%20piedras%20naturales." class="layering-card__cta" target="_blank" rel="noopener">Ver detalle →</a>
+        </article>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===== CTA FINAL ===== -->
+<section class="tendencias-cta-final">
+  <div class="tendencias-cta-final__inner">
+    <span class="tendencias-bloque__eyebrow">Ver todo el catálogo</span>
+    <h2>¿Buscas algo más?</h2>
+    <p>Explora todas nuestras marcas y categorías en Colecciones, o visítanos en Alcalá de Henares.</p>
+    <div class="tendencias-cta-final__btns">
+      <a href="colecciones.html" class="btn-tendencias-primary">Ver Colecciones</a>
+      <a href="https://wa.me/34678417026?text=Hola%20Mart%C3%ADnez%20Joyeros%2C%20me%20gustar%C3%ADa%20recibir%20asesoramiento%20personalizado." class="btn-tendencias-secondary" target="_blank" rel="noopener">WhatsApp directo</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="site-footer">
+  <div class="footer-grid">
+    <div class="footer-col">
+      <h3>Legal</h3>
+      <ul>
+        <li><a href="aviso-legal.html">Aviso legal</a></li>
+        <li><a href="privacidad.html">Privacidad</a></li>
+        <li><a href="cookies.html">Cookies</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h3>Secciones</h3>
+      <ul>
+        <li><a href="tendencias.html">Tendencias</a></li>
+        <li><a href="colecciones.html">Colecciones</a></li>
+        <li><a href="diseno-y-joyeria.html">Diseño y Joyería</a></li>
+        <li><a href="index.html#nosotros">Nosotros</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h3>Redes</h3>
+      <ul>
+        <li><a href="https://www.instagram.com/martinezeurodiamant/" target="_blank" rel="noopener noreferrer">@martinezeurodiamant</a></li>
+        <li><a href="https://www.google.com/maps/search/?api=1&query=C.+Marqu%C3%A9s+Alonso+Mart%C3%ADnez,+5,+28805+Alcal%C3%A1+de+Henares,+Madrid"
+           target="_blank"
+           rel="noopener noreferrer">Google Maps</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h3>Contacto</h3>
+      <ul>
+        <li><a href="tel:+34678417026">+34 678 417 026</a></li>
+        <li><a href="mailto:martinezeurodiamant@gmail.com">martinezeurodiamant@gmail.com</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span id="year"></span> · Martínez Joyeros · Alcalá de Henares
+  </div>
+</footer>
+
+<!-- ===== WHATSAPP FLOTANTE ===== -->
+<button class="contact-float-btn"
+        aria-label="Abrir formulario de contacto"
+        id="contact-float-trigger">
+  <svg viewBox="0 0 24 24" fill="none"
+       stroke="currentColor" stroke-width="1.5"
+       aria-hidden="true">
+    <path stroke-linecap="round" stroke-linejoin="round"
+      d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0
+      01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0
+      01-2 2h-5l-3 3v-3z"/>
+  </svg>
+</button>
+
+<!-- ===== BANNER COOKIES ===== -->
+<div id="cookie-banner" style="
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: #1F1E1C;
+  color: #fff;
+  padding: 15px 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  box-shadow: 0 -4px 20px rgba(0,0,0,0.15);
+  z-index: 999999;
+  transform: translateY(100%);
+  transition: transform 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+  font-family: 'Montserrat', sans-serif;
+">
+  <p style="margin: 0; font-size: 0.9rem; color: #e0e0e0; max-width: 800px; text-align: center;">
+    Usamos cookies para mejorar tu experiencia y analizar el tráfico.
+    Al continuar navegando, aceptas su uso.
+    <a href="cookies.html" aria-label="Más información sobre nuestra política de cookies" style="color: #C8A462; text-decoration: underline;">Más información</a>.
+  </p>
+  <button onclick="acceptCookies()" style="
+    background: #C8A462;
+    color: #fff;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 0.85rem;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(200, 164, 98, 0.3);
+    transition: transform 0.2s;
+  " onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+    ACEPTAR
+  </button>
+</div>
+
+<script src="scripts.js" defer></script>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  const navToggle = document.querySelector('.nav-toggle');
+  const navMenu = document.querySelector('.nav-menu');
+  const navLinks = document.querySelectorAll('.nav-menu a');
+  if (navToggle && navMenu) {
+    navToggle.addEventListener('click', () => {
+      navMenu.classList.toggle('active');
+      navToggle.classList.toggle('active');
+      navToggle.setAttribute('aria-expanded', navMenu.classList.contains('active'));
+    });
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        if (link.classList.contains('nav-dropdown-trigger') && window.innerWidth <= 768) return;
+        navMenu.classList.remove('active');
+        navToggle.classList.remove('active');
+        navToggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+  }
+
+  const dropdownTriggers = document.querySelectorAll('.nav-dropdown-trigger');
+  dropdownTriggers.forEach(trigger => {
+    trigger.addEventListener('click', (e) => {
+      if (window.innerWidth <= 768) {
+        e.preventDefault();
+        const parent = trigger.closest('.nav-item-dropdown');
+        parent.classList.toggle('active');
+      }
+    });
+  });
+
+  window.addEventListener('load', function() {
+    if (!localStorage.getItem('cookiesAccepted')) {
+      setTimeout(() => {
+        const banner = document.getElementById('cookie-banner');
+        if (banner) banner.style.transform = 'translateY(0)';
+      }, 2000);
+    }
+  });
+  function acceptCookies() {
+    localStorage.setItem('cookiesAccepted', 'true');
+    const banner = document.getElementById('cookie-banner');
+    if (banner) banner.style.transform = 'translateY(100%)';
+  }
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "JewelryStore",
+      "@id": "https://martinezeurodiamant.es/#store",
+      "name": "Martínez Joyeros",
+      "url": "https://martinezeurodiamant.es",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Alcalá de Henares",
+        "addressRegion": "Madrid",
+        "addressCountry": "ES"
+      }
+    },
+    {
+      "@type": "CollectionPage",
+      "@id": "https://martinezeurodiamant.es/tendencias.html",
+      "url": "https://martinezeurodiamant.es/tendencias.html",
+      "name": "Tendencias Verano 2026 | Martínez Joyeros Alcalá de Henares",
+      "description": "Lookbook editorial de verano 2026 con piezas de diseño de Luxenter y Vidal & Vidal. Distribuidores oficiales en Alcalá de Henares.",
+      "publisher": {"@id": "https://martinezeurodiamant.es/#store"},
+      "mainEntity": {
+        "@type": "ItemList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+              "@type": "Product",
+              "name": "Charms Esencia Marina Luxenter",
+              "brand": {"@type": "Brand", "name": "Luxenter"},
+              "offers": {
+                "@type": "Offer",
+                "priceCurrency": "EUR",
+                "price": "35.00",
+                "availability": "https://schema.org/InStock",
+                "seller": {"@id": "https://martinezeurodiamant.es/#store"}
+              }
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "item": {
+              "@type": "Product",
+              "name": "Collar Charms Montado Luxenter",
+              "brand": {"@type": "Brand", "name": "Luxenter"},
+              "offers": {
+                "@type": "Offer",
+                "priceCurrency": "EUR",
+                "price": "89.00",
+                "availability": "https://schema.org/InStock",
+                "seller": {"@id": "https://martinezeurodiamant.es/#store"}
+              }
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "item": {
+              "@type": "Product",
+              "name": "Pulsera Rubí Luxenter",
+              "brand": {"@type": "Brand", "name": "Luxenter"},
+              "offers": {
+                "@type": "Offer",
+                "priceCurrency": "EUR",
+                "availability": "https://schema.org/InStock",
+                "seller": {"@id": "https://martinezeurodiamant.es/#store"}
+              }
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
+            "item": {
+              "@type": "Product",
+              "name": "Pulsera Cuarzo Rosa Luxenter",
+              "brand": {"@type": "Brand", "name": "Luxenter"},
+              "offers": {
+                "@type": "Offer",
+                "priceCurrency": "EUR",
+                "availability": "https://schema.org/InStock",
+                "seller": {"@id": "https://martinezeurodiamant.es/#store"}
+              }
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 5,
+            "item": {
+              "@type": "Product",
+              "name": "Pulsera Aguamarina Luxenter",
+              "brand": {"@type": "Brand", "name": "Luxenter"},
+              "offers": {
+                "@type": "Offer",
+                "priceCurrency": "EUR",
+                "availability": "https://schema.org/InStock",
+                "seller": {"@id": "https://martinezeurodiamant.es/#store"}
+              }
+            }
+          }
+        ]
+      }
+    }
+  ]
+}
+</script>
+
+<div class="contact-modal-overlay" id="contact-modal"
+     role="dialog" aria-modal="true"
+     aria-labelledby="contact-modal-title"
+     aria-hidden="true">
+  <div class="contact-modal-box">
+
+    <button class="contact-modal-close"
+            aria-label="Cerrar formulario de contacto"
+            id="contact-modal-close">
+      &times;
+    </button>
+
+    <h2 class="contact-modal-title"
+        id="contact-modal-title">
+      Escríbenos
+    </h2>
+    <p class="contact-modal-sub">
+      Te respondemos en menos de 24 horas.
+    </p>
+
+    <form class="contact-modal-form"
+          id="contact-modal-form"
+          novalidate>
+
+      <input type="hidden"
+             name="access_key"
+             value="f42d9962-3387-44ac-8fb1-32aa6a1bd181">
+      <input type="hidden"
+             name="subject"
+             id="form-subject-header">
+      <input type="hidden"
+             name="from_name"
+             value="Web Martínez Joyeros">
+
+      <div class="contact-field">
+        <label for="contact-nombre">Nombre</label>
+        <input type="text" id="contact-nombre"
+               name="name"
+               placeholder="Tu nombre"
+               required
+               autocomplete="name">
+      </div>
+
+      <div class="contact-field">
+        <label for="contact-asunto">Asunto</label>
+        <input type="text" id="contact-asunto"
+               name="asunto"
+               placeholder="¿Sobre qué nos escribes?"
+               required>
+      </div>
+
+      <div class="contact-field">
+        <label for="contact-email">Email</label>
+        <input type="email" id="contact-email"
+               name="email"
+               placeholder="tu@email.com"
+               required
+               autocomplete="email">
+      </div>
+
+      <div class="contact-field">
+        <label for="contact-mensaje">
+          ¿En qué podemos ayudarte?
+        </label>
+        <textarea id="contact-mensaje"
+                  name="message"
+                  rows="4"
+                  placeholder="Cuéntanos qué necesitas..."
+                  required></textarea>
+      </div>
+
+      <button type="submit"
+              class="contact-modal-submit"
+              id="contact-submit-btn">
+        ENVIAR MENSAJE
+      </button>
+
+      <p class="contact-modal-feedback"
+         id="contact-feedback"
+         aria-live="polite"></p>
+
+    </form>
+  </div>
+</div>
+
+</body>
+</html>
