@@ -320,7 +320,7 @@
       font-size: 0.72rem;
       font-style: italic;
       color: var(--gris);
-      opacity: 0.6;
+      opacity: 1;
       margin-top: 10px;
       letter-spacing: 0.05em;
     }
@@ -354,9 +354,11 @@
       cursor: pointer;
       font-family: 'Montserrat', sans-serif;
       font-size: 0.8rem;
-      font-weight: 400;
-      color: var(--dorado);
+      font-weight: 500;
+      color: var(--negro);
       letter-spacing: 0.05em;
+      text-decoration: underline;
+      text-underline-offset: 3px;
       transition: opacity 0.2s ease;
     }
     .editorial-toggle:hover { opacity: 0.7; }
@@ -565,6 +567,8 @@
   </nav>
 </header>
 
+<main id="contenido-principal">
+
 <!-- ===== HERO ===== -->
 <section class="hero" id="inicio">
   <video
@@ -646,7 +650,6 @@
            aria-label="Lookbook de tendencias de temporada">
 
         <a href="collares.html" class="lookbook-slide"
-           role="listitem"
            aria-label="Ver colección de collares">
           <img src="imagenes/trase vidal collar cascada.webp"
                alt="Colgante cascada geométrico Vidal &amp; Vidal"
@@ -654,7 +657,6 @@
         </a>
 
         <a href="collares.html" class="lookbook-slide"
-           role="listitem"
            aria-label="Ver colección de collares">
           <img src="imagenes/traser vidal luna imbertida.webp"
                alt="Collar doble luna invertida Vidal &amp; Vidal"
@@ -662,7 +664,6 @@
         </a>
 
         <a href="collares.html" class="lookbook-slide"
-           role="listitem"
            aria-label="Ver colección de collares">
           <img src="imagenes/tras lux collar lacado negro.webp"
                alt="Gargantilla lacado negro Luxenter"
@@ -670,7 +671,6 @@
         </a>
 
         <a href="pulseras.html" class="lookbook-slide"
-           role="listitem"
            aria-label="Ver colección de pulseras">
           <img src="imagenes/tras lux ojo.webp"
                alt="Pulsera ojo de tigre Luxenter"
@@ -678,7 +678,6 @@
         </a>
 
         <a href="pulseras.html" class="lookbook-slide"
-           role="listitem"
            aria-label="Ver colección de pulseras">
           <img src="imagenes/traseralux rojo.webp"
                alt="Pulsera jade rojo Luxenter"
@@ -686,7 +685,6 @@
         </a>
 
         <a href="pulseras.html" class="lookbook-slide"
-           role="listitem"
            aria-label="Ver colección de pulseras">
           <img src="imagenes/traser puls lux Simder.webp"
                alt="Pulsera Simder azul Luxenter"
@@ -694,7 +692,6 @@
         </a>
 
         <a href="pulseras.html" class="lookbook-slide"
-           role="listitem"
            aria-label="Ver colección de pulseras">
           <img src="imagenes/traser vidal Reflexes.webp"
                alt="Pulsera Reflexes Silver Vidal &amp; Vidal"
@@ -702,7 +699,6 @@
         </a>
 
         <a href="pendientes.html" class="lookbook-slide"
-           role="listitem"
            aria-label="Ver colección de pendientes">
           <img src="imagenes/traser aros entrelazados.webp"
                alt="Collar aros entrelazados Vidal &amp; Vidal"
@@ -710,7 +706,6 @@
         </a>
 
         <a href="pendientes.html" class="lookbook-slide"
-           role="listitem"
            aria-label="Ver colección de pendientes">
           <img src="imagenes/traser vidal pend Reflexes.webp"
                alt="Pendientes Reflexes Silver Vidal &amp; Vidal"
@@ -718,7 +713,6 @@
         </a>
 
         <a href="anillos.html" class="lookbook-slide"
-           role="listitem"
            aria-label="Ver colección de anillos">
           <img src="imagenes/trase anillo ancho drop.webp"
                alt="Anillo Ancho Drop Vidal &amp; Vidal"
@@ -1008,6 +1002,8 @@
   </div>
 </section>
 
+</main>
+
 <!-- ===== FOOTER ===== -->
 <footer class="site-footer">
   <div class="footer-grid">
@@ -1072,7 +1068,7 @@
     aceptas su uso.
     <a href="cookies.html"
        aria-label="Más información sobre nuestra
-       política de cookies">Más información</a>.
+       política de cookies">Más información sobre las cookies</a>.
   </p>
   <button id="cookie-accept-btn"
           class="cookie-btn">
