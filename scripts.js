@@ -330,12 +330,14 @@ if (btnSeoCollares) {
 
   function abrirModal() {
     modal.classList.add('modal-abierto');
+    modal.style.pointerEvents = 'auto';
     modal.setAttribute('aria-hidden', 'false');
     document.body.style.overflow = 'hidden';
   }
 
   function cerrarModal() {
     modal.classList.remove('modal-abierto');
+    modal.style.pointerEvents = 'none';
     modal.setAttribute('aria-hidden', 'true');
     document.body.style.overflow = '';
   }
@@ -428,6 +430,7 @@ if (btnSeoCollares) {
 
       // Abrir modal
       modal.classList.add('modal-abierto');
+      modal.style.pointerEvents = 'auto';
       modal.setAttribute('aria-hidden', 'false');
       document.body.style.overflow = 'hidden';
 
