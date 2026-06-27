@@ -467,3 +467,28 @@ if (btnSeoCollares) {
     });
   }
 })();
+
+// ===== IDEAS DE REGALO =====
+(function () {
+  if (!document.querySelector('.reveal-fade-up, .reveal-slide-right, .reveal-slide-left')) return;
+
+  const targets = document.querySelectorAll(
+    '.reveal-fade-up, .reveal-slide-right, .reveal-slide-left'
+  );
+
+  const observer = new IntersectionObserver(
+    function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in');
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.15 }
+  );
+
+  targets.forEach(function (el) {
+    observer.observe(el);
+  });
+})();

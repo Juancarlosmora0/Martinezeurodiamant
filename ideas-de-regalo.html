@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#F6F0E7">
+
+  <title>Ideas de Regalo en Joyería | Detalles Perfectos en Alcalá de Henares</title>
+  <meta name="description" content="Descubre nuestras ideas de regalo en Alcalá de Henares. Desde detalles de tendencia por menos de 30€ hasta joyas inolvidables. Te asesoramos para que aciertes siempre.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://martinezeurodiamant.es/ideas-de-regalo.html">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Ideas de Regalo en Joyería | Martínez Joyeros Alcalá de Henares">
+  <meta property="og:description" content="Descubre nuestras ideas de regalo en Alcalá de Henares. Desde detalles de tendencia por menos de 30€ hasta joyas inolvidables. Te asesoramos para que aciertes siempre.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://martinezeurodiamant.es/ideas-de-regalo.html">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Ideas de Regalo en Joyería | Martínez Joyeros Alcalá de Henares">
+  <meta name="twitter:description" content="Descubre nuestras ideas de regalo en Alcalá de Henares. Desde detalles de tendencia por menos de 30€ hasta joyas inolvidables. Te asesoramos para que aciertes siempre.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Montserrat:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Montserrat:wght@400;500;600&display=swap" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Montserrat:wght@400;500;600&display=swap"></noscript>
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    /* Compensa header fijo */
+    body { padding-top: 70px; }
+
+    /* ===== EFECTOS SCROLL ===== */
+    .reveal-fade-up {
+      opacity: 0;
+      transform: translateY(32px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal-slide-right {
+      opacity: 0;
+      transform: translateX(-48px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal-slide-left {
+      opacity: 0;
+      transform: translateX(48px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal-fade-up.in,
+    .reveal-slide-right.in,
+    .reveal-slide-left.in {
+      opacity: 1;
+      transform: translate(0);
+    }
+
+    /* ===== BREADCRUMB ===== */
+    .breadcrumb {
+      padding: 1rem 2rem;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.8rem;
+      color: var(--gris);
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .breadcrumb a {
+      color: var(--negro);
+      text-decoration: none;
+    }
+
+    /* ===== HERO ===== */
+    .regalo-hero {
+      position: relative;
+      height: 80vh;
+      min-height: 500px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .regalo-hero-media {
+      position: absolute;
+      inset: 0;
+    }
+    .regalo-hero-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+    }
+    .regalo-hero-overlay {
+      position: absolute;
+      inset: 0;
+      background-color: var(--negro);
+      opacity: 0.38;
+    }
+    .regalo-hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      padding: 2rem 1.5rem;
+      max-width: 720px;
+    }
+    .regalo-hero-titulo {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 5vw, 3rem);
+      color: var(--blanco);
+      margin-bottom: 1.25rem;
+      line-height: 1.2;
+    }
+    .regalo-hero-sub {
+      font-family: 'Montserrat', sans-serif;
+      font-size: clamp(0.95rem, 2vw, 1.1rem);
+      color: var(--crema);
+      line-height: 1.75;
+      opacity: 0.92;
+    }
+
+    /* ===== EDITORIAL ===== */
+    .regalo-editorial {
+      background-color: var(--blanco);
+      padding: 5rem 0;
+    }
+    .regalo-editorial-titulo {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.6rem, 3.5vw, 2rem);
+      color: var(--negro);
+      text-align: center;
+      padding: 0 1.5rem;
+      margin-bottom: 4rem;
+    }
+    .regalo-bloque {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 480px;
+      border-top: 1px solid var(--crema);
+    }
+    .regalo-bloque--inverso {
+      direction: rtl;
+    }
+    .regalo-bloque--inverso > * {
+      direction: ltr;
+    }
+    .regalo-bloque-media {
+      overflow: hidden;
+    }
+    .regalo-bloque-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.6s ease;
+    }
+    .regalo-bloque:hover .regalo-bloque-img {
+      transform: scale(1.03);
+    }
+    .regalo-bloque-texto {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 3rem 4rem;
+      background-color: var(--blanco);
+    }
+    .regalo-bloque-etiqueta {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--dorado);
+      margin-bottom: 1rem;
+      display: block;
+    }
+    .regalo-bloque-titulo {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.4rem, 2.5vw, 1.8rem);
+      color: var(--negro);
+      margin-bottom: 1.25rem;
+      line-height: 1.3;
+    }
+    .regalo-bloque-copy {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.95rem;
+      color: var(--gris);
+      line-height: 1.75;
+    }
+
+    /* ===== BANNER ASESORÍA ===== */
+    .regalo-asesoria {
+      position: relative;
+      min-height: 480px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .regalo-asesoria-bg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+    }
+    .regalo-asesoria-overlay {
+      position: absolute;
+      inset: 0;
+      background-color: var(--negro);
+      opacity: 0.62;
+    }
+    .regalo-asesoria-inner {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      padding: 4rem 1.5rem;
+      max-width: 680px;
+    }
+    .regalo-asesoria-titulo {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 4vw, 2.4rem);
+      color: var(--blanco);
+      margin-bottom: 1.5rem;
+      line-height: 1.25;
+    }
+    .regalo-asesoria-texto {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.05rem;
+      color: var(--crema);
+      line-height: 1.75;
+      margin-bottom: 2.5rem;
+      opacity: 0.9;
+    }
+    .regalo-asesoria-cta {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      font-size: 0.85rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--crema);
+      border: 1px solid var(--dorado);
+      padding: 1rem 2.5rem;
+      display: inline-block;
+    }
+
+    /* ===== PACKAGING ===== */
+    .regalo-packaging {
+      background-color: var(--crema);
+      padding: 5rem 0;
+    }
+    .regalo-packaging-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      max-width: 1200px;
+      margin: 0 auto;
+      align-items: center;
+      gap: 4rem;
+      padding: 0 2rem;
+    }
+    .regalo-packaging-texto {
+      padding: 2rem 0;
+    }
+    .regalo-packaging-titulo {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.6rem, 3vw, 2rem);
+      color: var(--negro);
+      margin-bottom: 1.5rem;
+      line-height: 1.3;
+    }
+    .regalo-packaging-copy {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.95rem;
+      color: var(--gris);
+      line-height: 1.75;
+    }
+    .regalo-packaging-media {
+      overflow: hidden;
+    }
+    .regalo-packaging-img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+    }
+
+    /* ===== FAQ ===== */
+    .ani-faq {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 5rem 1.5rem;
+    }
+    .ani-faq-titulo {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.5rem, 3vw, 1.8rem);
+      color: var(--negro);
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+
+    /* ===== MOBILE FIRST ===== */
+    @media (max-width: 767px) {
+      .regalo-hero {
+        height: 60vh;
+      }
+      .regalo-bloque {
+        grid-template-columns: 1fr;
+        min-height: auto;
+      }
+      .regalo-bloque--inverso {
+        direction: ltr;
+      }
+      .regalo-bloque-media {
+        height: 280px;
+      }
+      .regalo-bloque-texto {
+        padding: 2rem 1.5rem;
+      }
+      .regalo-packaging-inner {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        padding: 0 1.5rem;
+      }
+      .regalo-packaging-media {
+        order: -1;
+      }
+      .regalo-asesoria-inner {
+        padding: 3rem 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<header class="main-header">
+  <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+
+  <div class="logo">
+    <a href="index.html">Martínez Joyeros</a>
+  </div>
+
+  <nav class="nav-menu" aria-label="Navegación principal">
+    <ul>
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="index.html#lookbook-verano">Tendencias</a></li>
+      <li class="nav-item-dropdown">
+        <a href="colecciones.html" class="nav-dropdown-trigger">
+          Colecciones <span class="dropdown-arrow">▾</span>
+        </a>
+        <div class="nav-dropdown">
+          <div class="nav-dropdown-col">
+            <span class="nav-dropdown-heading">Por Categoría</span>
+            <a href="anillos.html">Anillos</a>
+            <a href="pendientes.html">Pendientes</a>
+            <a href="collares.html">Collares</a>
+            <a href="pulseras.html">Pulseras</a>
+            <a href="relojes.html">Relojes</a>
+          </div>
+        </div>
+      </li>
+      <li><a href="diseno-y-joyeria.html">Diseño y Joyería</a></li>
+      <li><a href="ideas-de-regalo.html">Ideas de Regalo</a></li>
+      <li><a href="index.html#contacto">Contacto</a></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- ===== BREADCRUMB ===== -->
+<nav class="breadcrumb" aria-label="Ruta de navegación">
+  <a href="index.html">Inicio</a> › Ideas de Regalo
+</nav>
+
+<!-- ===== HERO ===== -->
+<section class="regalo-hero">
+  <div class="regalo-hero-media">
+    <img src="imagenes/foto regalo 1.webp"
+         alt="Mujer con collar, pendientes y pulsera de diseño — ideas de regalo en Martínez Joyeros Alcalá de Henares"
+         class="regalo-hero-img"
+         width="1200" height="800"
+         loading="eager"
+         fetchpriority="high">
+    <div class="regalo-hero-overlay"></div>
+  </div>
+  <div class="regalo-hero-content reveal-fade-up">
+    <h1 class="regalo-hero-titulo">El detalle perfecto, a su medida</h1>
+    <p class="regalo-hero-sub">
+      Celebra a quienes más quieres con regalos que hablan por ti.
+      Seleccionamos las mejores colecciones de joyería y relojería
+      en Alcalá de Henares para que demostrar lo que verdaderamente
+      importa sea más fácil que nunca.
+    </p>
+  </div>
+</section>
+
+<!-- ===== TRES MOMENTOS EDITORIALES ===== -->
+<section class="regalo-editorial">
+  <h2 class="regalo-editorial-titulo reveal-fade-up">
+    Encuentra la joya ideal según tu presupuesto
+  </h2>
+
+  <!-- Bloque 1: imagen izquierda, texto derecha -->
+  <div class="regalo-bloque reveal-slide-right">
+    <div class="regalo-bloque-media">
+      <img src="imagenes/foto regalo 2.webp"
+           alt="Pendientes y pulsera en tono dorado — detalles de regalo por menos de 30 euros en Martínez Joyeros"
+           class="regalo-bloque-img"
+           width="800" height="600"
+           loading="lazy">
+    </div>
+    <div class="regalo-bloque-texto">
+      <span class="regalo-bloque-etiqueta">Desde 19,95€</span>
+      <h3 class="regalo-bloque-titulo">Detalles por menos de 30€</h3>
+      <p class="regalo-bloque-copy">
+        Pequeños tesoros perfectos para el día a día, amigas invisibles
+        o un detalle espontáneo. Descubre opciones llenas de estilo que
+        demuestran que el buen gusto no entiende de precios mínimos.
+      </p>
+    </div>
+  </div>
+
+  <!-- Bloque 2: imagen derecha, texto izquierda -->
+  <div class="regalo-bloque regalo-bloque--inverso reveal-slide-left">
+    <div class="regalo-bloque-media">
+      <img src="imagenes/foto regalo 3.webp"
+           alt="Mujer sonriente con pulsera de diseño — colecciones Luxenter y Vidal Vidal para regalo en Alcalá de Henares"
+           class="regalo-bloque-img"
+           width="800" height="600"
+           loading="lazy">
+    </div>
+    <div class="regalo-bloque-texto">
+      <span class="regalo-bloque-etiqueta">30€ – 60€</span>
+      <h3 class="regalo-bloque-titulo">Nuestras Firmas Top</h3>
+      <p class="regalo-bloque-copy">
+        El rango estrella para cumpleaños y aniversarios. Colecciones
+        de tendencia de firmas como Luxenter o Vidal &amp; Vidal que
+        combinan diseño contemporáneo con acabados de alta calidad.
+      </p>
+    </div>
+  </div>
+
+  <!-- Bloque 3: imagen izquierda, texto derecha -->
+  <div class="regalo-bloque reveal-slide-right">
+    <div class="regalo-bloque-media">
+      <img src="imagenes/foto regalo 4.webp"
+           alt="Anillos delicados sobre superficie blanca — joyas atemporales para ocasiones especiales en Martínez Joyeros"
+           class="regalo-bloque-img"
+           width="800" height="600"
+           loading="lazy">
+    </div>
+    <div class="regalo-bloque-texto">
+      <span class="regalo-bloque-etiqueta">Momentos especiales</span>
+      <h3 class="regalo-bloque-titulo">Joyas Inolvidables</h3>
+      <p class="regalo-bloque-copy">
+        Para esos momentos que marcan un antes y un después. Piezas
+        atemporales, relojería de firmas como Viceroy y acabados
+        pensados para perdurar toda la vida.
+      </p>
+    </div>
+  </div>
+
+</section>
+
+<!-- ===== ASESORÍA ===== -->
+<section class="regalo-asesoria">
+  <img src="imagenes/foto regalo 6.webp"
+       alt="Pulsera artesanal con textura floral — asesoramiento personalizado en Martínez Joyeros Alcalá de Henares"
+       class="regalo-asesoria-bg"
+       width="1200" height="600"
+       loading="lazy">
+  <div class="regalo-asesoria-overlay"></div>
+  <div class="regalo-asesoria-inner reveal-fade-up">
+    <h2 class="regalo-asesoria-titulo">¿Sientes que no sabes qué regalar?</h2>
+    <p class="regalo-asesoria-texto">
+      No te preocupes, es nuestra especialidad. Visítanos en nuestra tienda
+      y en solo 3 preguntas sobre el estilo de tu persona favorita,
+      te presentaremos la pieza perfecta.
+    </p>
+    <div class="regalo-asesoria-cta">
+      Asesoramiento sin compromiso · Calle Marqués de Alonso Martínez, 5
+    </div>
+  </div>
+</section>
+
+<!-- ===== PACKAGING ===== -->
+<section class="regalo-packaging reveal-fade-up">
+  <div class="regalo-packaging-inner">
+    <div class="regalo-packaging-texto">
+      <h2 class="regalo-packaging-titulo">Preparado para emocionar</h2>
+      <p class="regalo-packaging-copy">
+        La experiencia de recibir un regalo empieza antes de abrirlo.
+        Cuidamos cada detalle con nuestro empaquetado premium gratuito,
+        dejando tu joya lista para entregar. Además, todas nuestras
+        piezas incluyen una guía de cuidados para que brillen
+        como el primer día.
+      </p>
+    </div>
+    <div class="regalo-packaging-media">
+      <img src="imagenes/foto regalo 5.webp"
+           alt="Colgante circular con piedra central — empaquetado premium gratuito en Martínez Joyeros"
+           class="regalo-packaging-img"
+           width="900" height="600"
+           loading="lazy">
+    </div>
+  </div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section class="ani-faq">
+  <h2 class="ani-faq-titulo">Preguntas frecuentes sobre regalos</h2>
+
+  <details>
+    <summary>¿Podéis ayudarme a elegir el regalo perfecto?</summary>
+    <p>Por supuesto. En nuestra tienda de Alcalá de Henares te asesoramos
+    personalmente. Con solo contarnos el estilo y los gustos de la persona
+    homenajeada, te presentaremos las opciones que mejor encajan.
+    Sin compromiso.</p>
+  </details>
+
+  <details>
+    <summary>¿Hacéis envoltura de regalo?</summary>
+    <p>Sí, todas nuestras piezas se entregan con empaquetado premium
+    completamente gratuito, listas para regalar desde el primer momento.</p>
+  </details>
+
+  <details>
+    <summary>¿Qué presupuesto necesito para un buen regalo?</summary>
+    <p>Tenemos opciones desde 19,95€. Desde pequeños detalles de tendencia
+    hasta piezas atemporales para ocasiones especiales, siempre encontrarás
+    algo que encaje con tu presupuesto y que sorprenda de verdad.</p>
+  </details>
+
+  <details>
+    <summary>¿Puedo hacer un pedido por WhatsApp?</summary>
+    <p>Sí. Puedes consultarnos directamente por WhatsApp en el
+    678 41 70 26 y te atendemos con la misma dedicación que en tienda.</p>
+  </details>
+
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="site-footer">
+  <div class="footer-grid">
+    <div class="footer-col">
+      <h3>Legal</h3>
+      <ul>
+        <li><a href="aviso-legal.html">Aviso legal</a></li>
+        <li><a href="privacidad.html">Privacidad</a></li>
+        <li><a href="cookies.html">Cookies</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h3>Secciones</h3>
+      <ul>
+        <li><a href="index.html#tendencias">Tendencias</a></li>
+        <li><a href="colecciones.html">Colecciones</a></li>
+        <li><a href="diseno-y-joyeria.html">Diseño y Joyería</a></li>
+        <li><a href="index.html#nosotros">Nosotros</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h3>Redes</h3>
+      <ul>
+        <li><a href="https://www.instagram.com/martinezeurodiamant/" target="_blank" rel="noopener noreferrer">@martinezeurodiamant</a></li>
+        <li><a href="https://www.google.com/maps/search/?api=1&query=C.+Marqu%C3%A9s+Alonso+Mart%C3%ADnez,+5,+28805+Alcal%C3%A1+de+Henares,+Madrid"
+           target="_blank"
+           rel="noopener noreferrer">Google Maps</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h3>Contacto</h3>
+      <ul>
+        <li><a href="tel:+34678417026">+34 678 417 026</a></li>
+        <li><a href="mailto:martinezeurodiamant@gmail.com">martinezeurodiamant@gmail.com</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span id="year"></span> · Martínez Joyeros · Alcalá de Henares
+  </div>
+</footer>
+
+<!-- ===== WHATSAPP FLOTANTE ===== -->
+<button class="contact-float-btn"
+        aria-label="Abrir formulario de contacto"
+        id="contact-float-trigger">
+  <svg viewBox="0 0 24 24" fill="none"
+       stroke="currentColor" stroke-width="1.5"
+       aria-hidden="true">
+    <path stroke-linecap="round" stroke-linejoin="round"
+      d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0
+      01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0
+      01-2 2h-5l-3 3v-3z"/>
+  </svg>
+</button>
+
+<div class="contact-modal-overlay" id="contact-modal"
+     role="dialog" aria-modal="true"
+     aria-labelledby="contact-modal-title"
+     aria-hidden="true">
+  <div class="contact-modal-box">
+
+    <button class="contact-modal-close"
+            aria-label="Cerrar formulario de contacto"
+            id="contact-modal-close">
+      &times;
+    </button>
+
+    <h2 class="contact-modal-title"
+        id="contact-modal-title">
+      Escríbenos
+    </h2>
+    <p class="contact-modal-sub">
+      Te respondemos en menos de 24 horas.
+    </p>
+
+    <form class="contact-modal-form"
+          id="contact-modal-form"
+          novalidate>
+
+      <input type="hidden"
+             name="access_key"
+             value="f42d9962-3387-44ac-8fb1-32aa6a1bd181">
+      <input type="hidden"
+             name="subject"
+             id="form-subject-header">
+      <input type="hidden"
+             name="from_name"
+             value="Web Martínez Joyeros">
+
+      <div class="contact-field">
+        <label for="contact-nombre">Nombre</label>
+        <input type="text" id="contact-nombre"
+               name="name"
+               placeholder="Tu nombre"
+               required
+               autocomplete="name">
+      </div>
+
+      <div class="contact-field">
+        <label for="contact-asunto">Asunto</label>
+        <input type="text" id="contact-asunto"
+               name="asunto"
+               placeholder="¿Sobre qué nos escribes?"
+               required>
+      </div>
+
+      <div class="contact-field">
+        <label for="contact-email">Email</label>
+        <input type="email" id="contact-email"
+               name="email"
+               placeholder="tu@email.com"
+               required
+               autocomplete="email">
+      </div>
+
+      <div class="contact-field">
+        <label for="contact-mensaje">
+          ¿En qué podemos ayudarte?
+        </label>
+        <textarea id="contact-mensaje"
+                  name="message"
+                  rows="4"
+                  placeholder="Cuéntanos qué necesitas..."
+                  required></textarea>
+      </div>
+
+      <button type="submit"
+              class="contact-modal-submit"
+              id="contact-submit-btn">
+        ENVIAR MENSAJE
+      </button>
+
+      <p class="contact-modal-feedback"
+         id="contact-feedback"
+         aria-live="polite"></p>
+
+    </form>
+  </div>
+</div>
+
+<script src="scripts.js" defer></script>
+
+<!-- ===== JSON-LD ===== -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "JewelryStore",
+      "@id": "https://martinezeurodiamant.es/#store",
+      "name": "Martínez Joyeros",
+      "url": "https://martinezeurodiamant.es",
+      "telephone": "+34678417026",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Calle Marqués de Alonso Martínez, 5",
+        "addressLocality": "Alcalá de Henares",
+        "postalCode": "28805",
+        "addressCountry": "ES"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Inicio",
+          "item": "https://martinezeurodiamant.es/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Ideas de Regalo",
+          "item": "https://martinezeurodiamant.es/ideas-de-regalo.html"
+        }
+      ]
+    },
+    {
+      "@type": "WebPage",
+      "name": "Ideas de Regalo en Joyería | Martínez Joyeros",
+      "url": "https://martinezeurodiamant.es/ideas-de-regalo.html",
+      "description": "Descubre nuestras ideas de regalo en Alcalá de Henares. Desde detalles de tendencia por menos de 30€ hasta joyas inolvidables. Te asesoramos para que aciertes siempre.",
+      "isPartOf": { "@id": "https://martinezeurodiamant.es/#store" }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Podéis ayudarme a elegir el regalo perfecto?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Por supuesto. En nuestra tienda de Alcalá de Henares te asesoramos personalmente. Con solo contarnos el estilo y los gustos de la persona homenajeada, te presentaremos las opciones que mejor encajan. Sin compromiso."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Hacéis envoltura de regalo?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sí, todas nuestras piezas se entregan con empaquetado premium completamente gratuito, listas para regalar desde el primer momento."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Qué presupuesto necesito para un buen regalo?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Tenemos opciones desde 19,95€. Desde pequeños detalles de tendencia hasta piezas atemporales para ocasiones especiales, siempre encontrarás algo que encaje con tu presupuesto y que sorprenda de verdad."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Puedo hacer un pedido por WhatsApp?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sí. Puedes consultarnos directamente por WhatsApp en el 678 41 70 26 y te atendemos con la misma dedicación que en tienda."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+
+</body>
+</html>
