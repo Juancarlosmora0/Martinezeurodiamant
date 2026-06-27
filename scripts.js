@@ -468,27 +468,32 @@ if (btnSeoCollares) {
   }
 })();
 
-// ===== IDEAS DE REGALO =====
+// ===== IDEAS DE REGALO — SCROLL REVEAL =====
 (function () {
-  if (!document.querySelector('.reveal-fade-up, .reveal-slide-right, .reveal-slide-left')) return;
-
-  const targets = document.querySelectorAll(
+  var targets = document.querySelectorAll(
     '.reveal-fade-up, .reveal-slide-right, .reveal-slide-left'
   );
+  if (!targets.length) return;
 
-  const observer = new IntersectionObserver(
-    function (entries) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('in');
-          observer.unobserve(entry.target);
-        }
-      });
-    },
-    { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
-  );
+  function activate(el) {
+    el.classList.add('in');
+  }
 
-  targets.forEach(function (el) {
-    observer.observe(el);
-  });
+  if ('IntersectionObserver' in window) {
+    var observer = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            activate(entry.target);
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0, rootMargin: '0px 0px 0px 0px' }
+    );
+    targets.forEach(function (el) { observer.observe(el); });
+  } else {
+    // Fallback: activar todo inmediatamente si no hay soporte
+    targets.forEach(activate);
+  }
 })();

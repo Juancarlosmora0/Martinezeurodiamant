@@ -31,27 +31,38 @@
     /* Compensa header fijo */
     body { padding-top: 70px; }
 
-    /* ===== EFECTOS SCROLL ===== */
+    /* ===== EFECTOS SCROLL — CSS PURO ===== */
     .reveal-fade-up {
       opacity: 0;
-      transform: translateY(32px);
-      transition: opacity 0.7s ease, transform 0.7s ease;
+      animation: revealFadeUp 0.7s ease forwards;
+      animation-play-state: paused;
     }
     .reveal-slide-right {
       opacity: 0;
-      transform: translateX(-48px);
-      transition: opacity 0.7s ease, transform 0.7s ease;
+      animation: revealSlideRight 0.7s ease forwards;
+      animation-play-state: paused;
     }
     .reveal-slide-left {
       opacity: 0;
-      transform: translateX(48px);
-      transition: opacity 0.7s ease, transform 0.7s ease;
+      animation: revealSlideLeft 0.7s ease forwards;
+      animation-play-state: paused;
     }
     .reveal-fade-up.in,
     .reveal-slide-right.in,
     .reveal-slide-left.in {
-      opacity: 1;
-      transform: translate(0);
+      animation-play-state: running;
+    }
+    @keyframes revealFadeUp {
+      from { opacity: 0; transform: translateY(32px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes revealSlideRight {
+      from { opacity: 0; transform: translateX(-48px); }
+      to   { opacity: 1; transform: translateX(0); }
+    }
+    @keyframes revealSlideLeft {
+      from { opacity: 0; transform: translateX(48px); }
+      to   { opacity: 1; transform: translateX(0); }
     }
 
     /* ===== BREADCRUMB ===== */
@@ -166,9 +177,6 @@
     .regalo-bloque:hover .regalo-bloque-img {
       transform: scale(1.03);
     }
-    .regalo-bloque:nth-child(2) { transition-delay: 0.1s; }
-    .regalo-bloque:nth-child(3) { transition-delay: 0.2s; }
-    .regalo-bloque:nth-child(4) { transition-delay: 0.1s; }
     .regalo-bloque-texto {
       display: flex;
       flex-direction: column;
