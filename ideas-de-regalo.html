@@ -31,37 +31,35 @@
     /* Compensa header fijo */
     body { padding-top: 70px; }
 
-    /* ===== EFECTOS SCROLL — CSS PURO ===== */
-    .reveal-fade-up {
-      opacity: 0;
-      animation: revealFadeUp 0.7s ease forwards;
-      animation-play-state: paused;
+    /* ===== ANIMACIONES SCROLL — CSS DIRECTO ===== */
+    .regalo-editorial-titulo {
+      animation: fadeUp 0.7s ease 0.1s both;
     }
-    .reveal-slide-right {
-      opacity: 0;
-      animation: revealSlideRight 0.7s ease forwards;
-      animation-play-state: paused;
+    .regalo-bloque:nth-child(2) {
+      animation: slideRight 0.7s ease 0.1s both;
     }
-    .reveal-slide-left {
-      opacity: 0;
-      animation: revealSlideLeft 0.7s ease forwards;
-      animation-play-state: paused;
+    .regalo-bloque:nth-child(3) {
+      animation: slideLeft 0.7s ease 0.2s both;
     }
-    .reveal-fade-up.in,
-    .reveal-slide-right.in,
-    .reveal-slide-left.in {
-      animation-play-state: running;
+    .regalo-bloque:nth-child(4) {
+      animation: slideRight 0.7s ease 0.3s both;
     }
-    @keyframes revealFadeUp {
-      from { opacity: 0; transform: translateY(32px); }
+    .regalo-asesoria-inner {
+      animation: fadeUp 0.7s ease 0.2s both;
+    }
+    .regalo-packaging {
+      animation: fadeUp 0.7s ease 0.1s both;
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(28px); }
       to   { opacity: 1; transform: translateY(0); }
     }
-    @keyframes revealSlideRight {
-      from { opacity: 0; transform: translateX(-48px); }
+    @keyframes slideRight {
+      from { opacity: 0; transform: translateX(-40px); }
       to   { opacity: 1; transform: translateX(0); }
     }
-    @keyframes revealSlideLeft {
-      from { opacity: 0; transform: translateX(48px); }
+    @keyframes slideLeft {
+      from { opacity: 0; transform: translateX(40px); }
       to   { opacity: 1; transform: translateX(0); }
     }
 
@@ -421,12 +419,12 @@
 
 <!-- ===== TRES MOMENTOS EDITORIALES ===== -->
 <section class="regalo-editorial">
-  <h2 class="regalo-editorial-titulo reveal-fade-up">
+  <h2 class="regalo-editorial-titulo">
     Encuentra la joya ideal según tu presupuesto
   </h2>
 
   <!-- Bloque 1: imagen izquierda, texto derecha -->
-  <div class="regalo-bloque reveal-slide-right">
+  <div class="regalo-bloque">
     <div class="regalo-bloque-media">
       <img src="imagenes/foto regalo 2.webp"
            alt="Pendientes y pulsera en tono dorado — detalles de regalo por menos de 30 euros en Martínez Joyeros"
@@ -446,7 +444,7 @@
   </div>
 
   <!-- Bloque 2: imagen derecha, texto izquierda -->
-  <div class="regalo-bloque regalo-bloque--inverso reveal-slide-left">
+  <div class="regalo-bloque regalo-bloque--inverso">
     <div class="regalo-bloque-media">
       <img src="imagenes/foto regalo 3.webp"
            alt="Mujer sonriente con pulsera de diseño — colecciones Luxenter y Vidal Vidal para regalo en Alcalá de Henares"
@@ -466,7 +464,7 @@
   </div>
 
   <!-- Bloque 3: imagen izquierda, texto derecha -->
-  <div class="regalo-bloque reveal-slide-right">
+  <div class="regalo-bloque">
     <div class="regalo-bloque-media">
       <img src="imagenes/foto regalo 4.webp"
            alt="Anillos delicados sobre superficie blanca — joyas atemporales para ocasiones especiales en Martínez Joyeros"
@@ -495,7 +493,7 @@
        width="1200" height="600"
        loading="lazy">
   <div class="regalo-asesoria-overlay"></div>
-  <div class="regalo-asesoria-inner reveal-fade-up">
+  <div class="regalo-asesoria-inner">
     <h2 class="regalo-asesoria-titulo">¿Sientes que no sabes qué regalar?</h2>
     <p class="regalo-asesoria-texto">
       No te preocupes, es nuestra especialidad. Visítanos en nuestra tienda
@@ -509,7 +507,7 @@
 </section>
 
 <!-- ===== PACKAGING ===== -->
-<section class="regalo-packaging reveal-fade-up">
+<section class="regalo-packaging">
   <div class="regalo-packaging-inner">
     <div class="regalo-packaging-texto">
       <h2 class="regalo-packaging-titulo">Preparado para emocionar</h2>

@@ -467,33 +467,3 @@ if (btnSeoCollares) {
     });
   }
 })();
-
-// ===== IDEAS DE REGALO — SCROLL REVEAL =====
-(function () {
-  var targets = document.querySelectorAll(
-    '.reveal-fade-up, .reveal-slide-right, .reveal-slide-left'
-  );
-  if (!targets.length) return;
-
-  function activate(el) {
-    el.classList.add('in');
-  }
-
-  if ('IntersectionObserver' in window) {
-    var observer = new IntersectionObserver(
-      function (entries) {
-        entries.forEach(function (entry) {
-          if (entry.isIntersecting) {
-            activate(entry.target);
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0, rootMargin: '0px 0px 0px 0px' }
-    );
-    targets.forEach(function (el) { observer.observe(el); });
-  } else {
-    // Fallback: activar todo inmediatamente si no hay soporte
-    targets.forEach(activate);
-  }
-})();
