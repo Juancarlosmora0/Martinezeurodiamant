@@ -101,6 +101,17 @@
       text-align: center;
       padding: 2rem 1.5rem;
       max-width: 720px;
+      animation: heroFadeUp 0.9s ease forwards;
+    }
+    @keyframes heroFadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(24px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
     .regalo-hero-titulo {
       font-family: 'Playfair Display', serif;
@@ -155,6 +166,9 @@
     .regalo-bloque:hover .regalo-bloque-img {
       transform: scale(1.03);
     }
+    .regalo-bloque:nth-child(2) { transition-delay: 0.1s; }
+    .regalo-bloque:nth-child(3) { transition-delay: 0.2s; }
+    .regalo-bloque:nth-child(4) { transition-delay: 0.1s; }
     .regalo-bloque-texto {
       display: flex;
       flex-direction: column;
@@ -386,7 +400,7 @@
          fetchpriority="high">
     <div class="regalo-hero-overlay"></div>
   </div>
-  <div class="regalo-hero-content reveal-fade-up">
+  <div class="regalo-hero-content">
     <h1 class="regalo-hero-titulo">El detalle perfecto, a su medida</h1>
     <p class="regalo-hero-sub">
       Celebra a quienes más quieres con regalos que hablan por ti.
