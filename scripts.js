@@ -467,3 +467,59 @@ if (btnSeoCollares) {
     });
   }
 })();
+
+// ===== SORTEO FERIAS 2026 =====
+(function () {
+  const btn = document.getElementById('ferias-btn');
+  if (!btn) return;
+
+  btn.addEventListener('click', function () {
+    const email = document.getElementById('ferias-email').value.trim();
+    const checkLegal = document.getElementById('ferias-check-legal').checked;
+    const checkMkt = document.getElementById('ferias-check-marketing').checked;
+    const msg = document.getElementById('ferias-msg');
+
+    if (!email || !checkLegal) {
+      msg.className = 'ferias-msg error';
+      msg.textContent = 'Por favor, completa todos los campos obligatorios.';
+      return;
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      msg.className = 'ferias-msg error';
+      msg.textContent = 'Por favor, introduce un email válido.';
+      return;
+    }
+
+    btn.disabled = true;
+    btn.textContent = 'Enviando...';
+    msg.className = 'ferias-msg';
+    msg.style.display = 'none';
+
+    fetch('/api/ferias', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        email: email,
+        aceptaMarketing: checkMkt
+      })
+    })
+      .then(function (res) {
+        return res.json().then(function (data) {
+          if (res.ok) return data;
+          throw new Error(data.error || 'Error al registrar');
+        });
+      })
+      .then(function () {
+        window.location.href = 'ferias-gracias.html';
+      })
+      .catch(function (err) {
+        btn.disabled = false;
+        btn.textContent = 'PARTICIPAR';
+        msg.className = 'ferias-msg error';
+        msg.textContent = 'Ha ocurrido un error. Por favor, inténtalo de nuevo.';
+        console.error('Ferias error:', err);
+      });
+  });
+})();
