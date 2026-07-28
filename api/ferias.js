@@ -4,10 +4,10 @@ module.exports = async function handler(req, res) {
     return res.status(405).json({ error: 'Método no permitido' });
   }
 
-  const { nombre, email, aceptaMarketing } = req.body || {};
+  const { email, aceptaMarketing } = req.body || {};
 
-  if (!nombre || !email || typeof nombre !== 'string' || typeof email !== 'string') {
-    return res.status(400).json({ error: 'Nombre y email son obligatorios' });
+  if (!email || typeof email !== 'string') {
+    return res.status(400).json({ error: 'Email es obligatorio' });
   }
 
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -30,7 +30,6 @@ module.exports = async function handler(req, res) {
       body: JSON.stringify({
         email: email,
         attributes: {
-          FIRSTNAME: nombre,
           SORTEO_FERIAS: true,
           ACEPTA_MARKETING: !!aceptaMarketing
         },
