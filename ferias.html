@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#F6F0E7">
+
+  <title>Sorteo Ferias Alcalá 2026 | A&E Martínez Joyeros</title>
+  <meta name="description" content="Participa en el sorteo de Ferias de A&E Martínez Joyeros. Gana una joya a tu elección valorada en hasta 60€. Solo necesitas dejar tu nombre y email. Alcalá de Henares.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://martinezeurodiamant.es/ferias.html">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Sorteo Ferias Alcalá 2026 | A&E Martínez Joyeros">
+  <meta property="og:description" content="Participa en el sorteo de Ferias de A&E Martínez Joyeros. Gana una joya a tu elección valorada en hasta 60€. Solo necesitas dejar tu nombre y email. Alcalá de Henares.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://martinezeurodiamant.es/ferias.html">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Sorteo Ferias Alcalá 2026 | A&E Martínez Joyeros">
+  <meta name="twitter:description" content="Participa en el sorteo de Ferias de A&E Martínez Joyeros. Gana una joya a tu elección valorada en hasta 60€.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Montserrat:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Montserrat:wght@400;500;600&display=swap" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Montserrat:wght@400;500;600&display=swap"></noscript>
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    body { padding-top: 70px; }
+
+    /* ===== HERO ===== */
+    .ferias-hero {
+      position: relative;
+      height: 100svh;
+      min-height: 600px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .ferias-hero-media {
+      position: absolute;
+      inset: 0;
+    }
+    .ferias-hero-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+    }
+    .ferias-hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(31, 30, 28, 0.15) 0%,
+        rgba(31, 30, 28, 0.50) 50%,
+        rgba(31, 30, 28, 0.80) 100%
+      );
+    }
+    .ferias-hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      padding: 2rem 1.5rem;
+      max-width: 680px;
+      width: 100%;
+      animation: heroEntrada 0.9s ease 0.1s both;
+    }
+    .ferias-etiqueta {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--dorado);
+      display: inline-block;
+      border: 1px solid var(--dorado);
+      padding: 0.35rem 0.9rem;
+      margin-bottom: 1.5rem;
+      opacity: 0.9;
+    }
+    .ferias-titulo {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.6rem, 8vw, 4.8rem);
+      color: var(--blanco);
+      line-height: 1.1;
+      margin-bottom: 1.25rem;
+      font-weight: 600;
+    }
+    .ferias-subtitulo {
+      font-family: 'Montserrat', sans-serif;
+      font-size: clamp(0.85rem, 2vw, 0.98rem);
+      color: var(--crema);
+      line-height: 1.8;
+      opacity: 0.85;
+      max-width: 440px;
+      margin: 0 auto;
+    }
+
+    /* ===== FORMULARIO ===== */
+    .ferias-form-section {
+      background-color: var(--crema);
+      padding: 4rem 1.5rem;
+    }
+    .ferias-form-inner {
+      max-width: 520px;
+      margin: 0 auto;
+    }
+    .ferias-form-titulo {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.4rem, 3vw, 1.75rem);
+      color: var(--negro);
+      text-align: center;
+      margin-bottom: 2.5rem;
+      font-weight: 500;
+    }
+    .ferias-form-wrap {
+      background-color: var(--blanco);
+      padding: 2.5rem 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      animation: formEntrada 0.7s ease 0.2s both;
+    }
+    .ferias-campo {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      border-bottom: 1px solid var(--gris);
+      padding-bottom: 0.5rem;
+      transition: border-color 0.2s ease;
+    }
+    .ferias-campo:focus-within {
+      border-bottom-color: var(--dorado);
+    }
+    .ferias-campo label {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 700;
+      color: var(--dorado);
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      margin-bottom: 0.4rem;
+    }
+    .ferias-campo input {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1rem;
+      color: var(--negro);
+      border: none;
+      outline: none;
+      background: transparent;
+      padding: 0.25rem 0;
+      min-height: 44px;
+      width: 100%;
+    }
+    .ferias-campo input::placeholder {
+      color: var(--gris);
+      opacity: 0.6;
+      font-size: 0.9rem;
+    }
+    .ferias-checks {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .ferias-check-label {
+      display: grid;
+      grid-template-columns: 18px 1fr;
+      gap: 0.75rem;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.78rem;
+      color: var(--gris);
+      line-height: 1.55;
+      cursor: pointer;
+      align-items: start;
+    }
+    .ferias-check-label input[type="checkbox"] {
+      margin-top: 2px;
+      accent-color: var(--dorado);
+      width: 16px;
+      height: 16px;
+      flex-shrink: 0;
+    }
+    .ferias-check-label a {
+      color: var(--negro);
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+    .ferias-cta {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--negro);
+      background-color: var(--dorado);
+      border: none;
+      padding: 1.1rem 2rem;
+      cursor: pointer;
+      width: 100%;
+      min-height: 56px;
+      transition: opacity 0.25s ease;
+    }
+    .ferias-cta:hover {
+      opacity: 0.85;
+    }
+    .ferias-cta:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+    .ferias-legal-note {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.72rem;
+      color: var(--gris);
+      text-align: center;
+      line-height: 1.6;
+      opacity: 0.8;
+    }
+    .ferias-msg {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.85rem;
+      text-align: center;
+      padding: 0.75rem;
+      display: none;
+    }
+    .ferias-msg.exito {
+      color: #2d6a4f;
+      background-color: #d8f3dc;
+      display: block;
+    }
+    .ferias-msg.error {
+      color: #9b2226;
+      background-color: #fde8e8;
+      display: block;
+    }
+
+    /* ===== TRUST BADGES ===== */
+    .ferias-trust {
+      background-color: var(--blanco);
+      padding: 4rem 1.5rem;
+      border-top: 1px solid var(--crema);
+    }
+    .ferias-trust-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      text-align: center;
+    }
+    .ferias-trust-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .ferias-trust-icon {
+      width: 28px;
+      height: 28px;
+      color: var(--dorado);
+      flex-shrink: 0;
+    }
+    .ferias-trust-item span:last-child {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.78rem;
+      color: var(--gris);
+      line-height: 1.5;
+    }
+
+    /* ===== FOTO SECUNDARIA ===== */
+    .ferias-foto {
+      line-height: 0;
+    }
+    .ferias-foto-img {
+      width: 100%;
+      height: 60vh;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+    }
+
+    /* ===== ANIMACIONES ===== */
+    @keyframes heroEntrada {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes formEntrada {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ===== MOBILE ===== */
+    @media (max-width: 767px) {
+      .ferias-trust-inner {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+      }
+      .ferias-form-wrap {
+        padding: 2rem 1.25rem;
+      }
+      .ferias-foto-img {
+        height: 45vh;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<header class="main-header">
+  <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+
+  <div class="logo">
+    <a href="index.html">A&E Martínez Joyeros</a>
+  </div>
+
+  <nav class="nav-menu" aria-label="Navegación principal">
+    <ul>
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="index.html#lookbook-verano">Tendencias</a></li>
+      <li class="nav-item-dropdown">
+        <a href="colecciones.html" class="nav-dropdown-trigger">
+          Colecciones <span class="dropdown-arrow">▾</span>
+        </a>
+        <div class="nav-dropdown">
+          <div class="nav-dropdown-col">
+            <span class="nav-dropdown-heading">Por Categoría</span>
+            <a href="anillos.html">Anillos</a>
+            <a href="pendientes.html">Pendientes</a>
+            <a href="collares.html">Collares</a>
+            <a href="pulseras.html">Pulseras</a>
+            <a href="relojes.html">Relojes</a>
+          </div>
+        </div>
+      </li>
+      <li><a href="diseno-y-joyeria.html">Diseño y Joyería</a></li>
+      <li><a href="ideas-de-regalo.html">Ideas de Regalo</a></li>
+      <li><a href="index.html#contacto">Contacto</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+
+  <!-- HERO -->
+  <section class="ferias-hero">
+    <div class="ferias-hero-media">
+      <img src="imagenes/foto-ferias-2026.webp"
+           alt="A&E Martínez Joyeros — Sorteo Ferias Alcalá 2026"
+           class="ferias-hero-img"
+           width="1200" height="1600"
+           loading="eager"
+           fetchpriority="high">
+      <div class="ferias-hero-overlay"></div>
+    </div>
+    <div class="ferias-hero-content">
+      <span class="ferias-etiqueta">Solo durante las Ferias 2026</span>
+      <h1 class="ferias-titulo">Gana la joya que tú elijas.</h1>
+      <p class="ferias-subtitulo">
+        Valorado en hasta 60€. Participa en menos de 10 segundos
+        y llévate el brillo que más encaje contigo.
+      </p>
+    </div>
+  </section>
+
+  <!-- FORMULARIO -->
+  <section class="ferias-form-section">
+    <div class="ferias-form-inner">
+      <h2 class="ferias-form-titulo">Participa en el sorteo</h2>
+
+      <div class="ferias-form-wrap">
+        <div class="ferias-campo">
+          <label for="ferias-email">Tu mejor email</label>
+          <input type="email" id="ferias-email"
+                 name="email" placeholder="tucorreo@email.com"
+                 autocomplete="email" required>
+        </div>
+
+        <div class="ferias-checks">
+          <label class="ferias-check-label">
+            <input type="checkbox" id="ferias-check-legal" required>
+            <span>He leído y acepto las
+              <a href="bases-sorteo-ferias.html" target="_blank">
+                Bases del Sorteo
+              </a> y la
+              <a href="privacidad.html" target="_blank">
+                Política de Privacidad
+              </a>
+            </span>
+          </label>
+          <label class="ferias-check-label">
+            <input type="checkbox" id="ferias-check-marketing">
+            <span>Quiero recibir novedades y ofertas de
+              A&E Martínez Joyeros (opcional)</span>
+          </label>
+        </div>
+
+        <button type="button" id="ferias-btn"
+                class="ferias-cta">
+          PARTICIPAR
+        </button>
+
+        <p class="ferias-legal-note">
+          El sorteo se celebra el 1 de septiembre de 2026.
+          Un único ganador elegirá su pieza favorita en tienda.
+        </p>
+
+        <div id="ferias-msg" class="ferias-msg"
+             aria-live="polite"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUST -->
+  <section class="ferias-trust">
+    <div class="ferias-trust-inner">
+      <div class="ferias-trust-item">
+        <svg class="ferias-trust-icon" viewBox="0 0 24 24"
+             fill="none" stroke="currentColor"
+             stroke-width="1.5" stroke-linecap="round"
+             stroke-linejoin="round" aria-hidden="true">
+          <path d="M12 21c-4.418 0-8-3.582-8-8
+                   0-4.418 3.582-8 8-8s8 3.582 8 8c0 4.418-3.582 8-8 8z"/>
+          <path d="M12 9v4l2.5 2.5"/>
+        </svg>
+        <span>Joyería física en Alcalá de Henares</span>
+      </div>
+      <div class="ferias-trust-item">
+        <svg class="ferias-trust-icon" viewBox="0 0 24 24"
+             fill="none" stroke="currentColor"
+             stroke-width="1.5" stroke-linecap="round"
+             stroke-linejoin="round" aria-hidden="true">
+          <path d="M20 12V22H4V12"/>
+          <path d="M22 7H2v5h20V7z"/>
+          <path d="M12 22V7"/>
+          <path d="M12 7H7.5a2.5 2.5 0 010-5C11 2 12 7 12 7z"/>
+          <path d="M12 7h4.5a2.5 2.5 0 000-5C13 2 12 7 12 7z"/>
+        </svg>
+        <span>Premio real de hasta 60€</span>
+      </div>
+      <div class="ferias-trust-item">
+        <svg class="ferias-trust-icon" viewBox="0 0 24 24"
+             fill="none" stroke="currentColor"
+             stroke-width="1.5" stroke-linecap="round"
+             stroke-linejoin="round" aria-hidden="true">
+          <path d="M12 2L15.09 8.26L22 9.27L17
+                   14.14L18.18 21.02L12 17.77L5.82
+                   21.02L7 14.14L2 9.27L8.91 8.26L12 2z"/>
+        </svg>
+        <span>Más de 30 años de historia familiar</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOTO CAMPAÑA -->
+  <section class="ferias-foto">
+    <img src="imagenes/foto-ferias-2026.webp"
+         alt="A&E Martínez Joyeros — Sorteo Ferias Alcalá 2026"
+         class="ferias-foto-img"
+         width="1200" height="800"
+         loading="lazy">
+  </section>
+
+</main>
+
+<!-- ===== FOOTER ===== -->
+<footer class="site-footer">
+  <div class="footer-grid">
+    <div class="footer-col">
+      <h3>Legal</h3>
+      <ul>
+        <li><a href="aviso-legal.html">Aviso legal</a></li>
+        <li><a href="privacidad.html">Privacidad</a></li>
+        <li><a href="cookies.html">Cookies</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h3>Secciones</h3>
+      <ul>
+        <li><a href="index.html#tendencias">Tendencias</a></li>
+        <li><a href="colecciones.html">Colecciones</a></li>
+        <li><a href="diseno-y-joyeria.html">Diseño y Joyería</a></li>
+        <li><a href="index.html#nosotros">Nosotros</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h3>Redes</h3>
+      <ul>
+        <li><a href="https://www.instagram.com/aemartinezjoyeros/" target="_blank" rel="noopener noreferrer">@aemartinezjoyeros</a></li>
+        <li><a href="https://www.google.com/maps/search/?api=1&query=C.+Marqu%C3%A9s+Alonso+Mart%C3%ADnez,+5,+28805+Alcal%C3%A1+de+Henares,+Madrid"
+           target="_blank"
+           rel="noopener noreferrer">Google Maps</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h3>Contacto</h3>
+      <ul>
+        <li><a href="tel:+34678417026">+34 678 417 026</a></li>
+        <li><a href="mailto:martinezeurodiamant@gmail.com">martinezeurodiamant@gmail.com</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span id="year"></span> · A&E Martínez Joyeros · Alcalá de Henares
+  </div>
+</footer>
+
+<script src="scripts.js" defer></script>
+
+</body>
+</html>
