@@ -523,3 +523,51 @@ if (btnSeoCollares) {
       });
   });
 })();
+
+// ===== VÍDEO FERIAS — BOTÓN PLAY =====
+(function () {
+  var video = document.getElementById('ferias-video');
+  var playBtn = document.getElementById('ferias-play-btn');
+  if (!video || !playBtn) return;
+
+  playBtn.addEventListener('click', function () {
+    video.muted = false;
+    video.controls = true;
+    video.play();
+    playBtn.classList.add('oculto');
+  });
+
+  video.addEventListener('pause', function () {
+    playBtn.classList.remove('oculto');
+  });
+
+  video.addEventListener('ended', function () {
+    playBtn.classList.remove('oculto');
+  });
+})();
+
+// ===== FAQ ACORDEÓN FERIAS =====
+(function () {
+  var items = document.querySelectorAll('.ferias-faq-item');
+  if (!items.length) return;
+
+  items.forEach(function (item) {
+    var btn = item.querySelector('.ferias-faq-pregunta');
+    if (!btn) return;
+
+    btn.addEventListener('click', function () {
+      var abierto = item.classList.contains('abierto');
+
+      items.forEach(function (i) {
+        i.classList.remove('abierto');
+        i.querySelector('.ferias-faq-pregunta')
+          .setAttribute('aria-expanded', 'false');
+      });
+
+      if (!abierto) {
+        item.classList.add('abierto');
+        btn.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+})();

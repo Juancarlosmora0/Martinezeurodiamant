@@ -30,46 +30,66 @@
   <style>
     body { padding-top: 70px; }
 
-    /* ===== HERO ===== */
-    .ferias-hero {
-      position: relative;
-      height: 100svh;
-      min-height: 600px;
-      overflow: hidden;
+    /* ===== HERO SPLIT ===== */
+    .ferias-hero-split {
+      display: grid;
+      grid-template-columns: 1fr;
+      min-height: calc(100svh - 70px);
+      background-color: var(--crema);
+    }
+    .ferias-split-texto {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 3rem 1.5rem 2rem;
+      gap: 1.5rem;
+    }
+    .ferias-split-video {
+      background-color: var(--negro);
       display: flex;
       align-items: center;
       justify-content: center;
-    }
-    .ferias-hero-media {
-      position: absolute;
-      inset: 0;
-    }
-    .ferias-hero-img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center top;
-      display: block;
-    }
-    .ferias-hero-overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(
-        to bottom,
-        rgba(31, 30, 28, 0.15) 0%,
-        rgba(31, 30, 28, 0.50) 50%,
-        rgba(31, 30, 28, 0.80) 100%
-      );
-    }
-    .ferias-hero-content {
-      position: relative;
-      z-index: 2;
-      text-align: center;
+      min-height: 300px;
       padding: 2rem 1.5rem;
-      max-width: 680px;
-      width: 100%;
-      animation: heroEntrada 0.9s ease 0.1s both;
     }
+    .ferias-video-wrap {
+      position: relative;
+      width: 100%;
+      max-width: 480px;
+    }
+    .ferias-video {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+    }
+    .ferias-play-btn {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 64px;
+      height: 64px;
+      background-color: rgba(245, 240, 232, 0.85);
+      color: var(--negro);
+      border: none;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: opacity 0.25s ease, transform 0.25s ease;
+    }
+    .ferias-play-btn:hover {
+      opacity: 0.9;
+      transform: translate(-50%, -50%) scale(1.08);
+    }
+    .ferias-play-btn.oculto {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    /* ===== TIPOGRAFÍA HERO ===== */
     .ferias-etiqueta {
       font-family: 'Montserrat', sans-serif;
       font-size: 0.65rem;
@@ -80,51 +100,30 @@
       display: inline-block;
       border: 1px solid var(--dorado);
       padding: 0.35rem 0.9rem;
-      margin-bottom: 1.5rem;
-      opacity: 0.9;
     }
     .ferias-titulo {
       font-family: 'Playfair Display', serif;
-      font-size: clamp(2.6rem, 8vw, 4.8rem);
-      color: var(--blanco);
-      line-height: 1.1;
-      margin-bottom: 1.25rem;
+      font-size: clamp(2.2rem, 7vw, 3.5rem);
+      color: var(--negro);
+      line-height: 1.15;
       font-weight: 600;
+      margin: 0;
     }
     .ferias-subtitulo {
       font-family: 'Montserrat', sans-serif;
-      font-size: clamp(0.85rem, 2vw, 0.98rem);
-      color: var(--crema);
-      line-height: 1.8;
-      opacity: 0.85;
-      max-width: 440px;
-      margin: 0 auto;
+      font-size: clamp(0.88rem, 2vw, 1rem);
+      color: var(--gris);
+      line-height: 1.75;
+      margin: 0;
     }
 
     /* ===== FORMULARIO ===== */
-    .ferias-form-section {
-      background-color: var(--crema);
-      padding: 4rem 1.5rem;
-    }
-    .ferias-form-inner {
-      max-width: 520px;
-      margin: 0 auto;
-    }
-    .ferias-form-titulo {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(1.4rem, 3vw, 1.75rem);
-      color: var(--negro);
-      text-align: center;
-      margin-bottom: 2.5rem;
-      font-weight: 500;
-    }
     .ferias-form-wrap {
-      background-color: var(--blanco);
-      padding: 2.5rem 2rem;
       display: flex;
       flex-direction: column;
-      gap: 1.5rem;
-      animation: formEntrada 0.7s ease 0.2s both;
+      gap: 1.25rem;
+      background-color: var(--blanco);
+      padding: 2rem 1.5rem;
     }
     .ferias-campo {
       display: flex;
@@ -271,16 +270,82 @@
       line-height: 1.5;
     }
 
-    /* ===== FOTO SECUNDARIA ===== */
-    .ferias-foto {
-      line-height: 0;
+    /* ===== FAQ ACORDEÓN ===== */
+    .ferias-faq {
+      background-color: var(--crema);
+      padding: 5rem 1.5rem;
     }
-    .ferias-foto-img {
+    .ferias-faq-inner {
+      max-width: 720px;
+      margin: 0 auto;
+    }
+    .ferias-faq-titulo {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.4rem, 3vw, 1.8rem);
+      color: var(--negro);
+      text-align: center;
+      margin-bottom: 3rem;
+      line-height: 1.3;
+      font-weight: 500;
+    }
+    .ferias-faq-lista {
+      display: flex;
+      flex-direction: column;
+    }
+    .ferias-faq-item {
+      border-top: 1px solid rgba(31, 30, 28, 0.12);
+    }
+    .ferias-faq-item:last-child {
+      border-bottom: 1px solid rgba(31, 30, 28, 0.12);
+    }
+    .ferias-faq-pregunta {
       width: 100%;
-      height: 60vh;
-      object-fit: cover;
-      object-position: center;
-      display: block;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      padding: 1.25rem 0;
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-family: 'Montserrat', sans-serif;
+      font-size: clamp(0.88rem, 2vw, 0.95rem);
+      font-weight: 600;
+      color: var(--negro);
+      text-align: left;
+      transition: color 0.2s ease;
+    }
+    .ferias-faq-pregunta:hover {
+      color: var(--dorado);
+    }
+    .ferias-faq-icono {
+      font-size: 1.25rem;
+      font-weight: 300;
+      color: var(--dorado);
+      transition: transform 0.3s ease;
+      flex-shrink: 0;
+      line-height: 1;
+    }
+    .ferias-faq-item.abierto .ferias-faq-icono {
+      transform: rotate(45deg);
+    }
+    .ferias-faq-respuesta {
+      display: grid;
+      grid-template-rows: 0fr;
+      transition: grid-template-rows 0.35s ease;
+      overflow: hidden;
+    }
+    .ferias-faq-item.abierto .ferias-faq-respuesta {
+      grid-template-rows: 1fr;
+    }
+    .ferias-faq-respuesta p {
+      min-height: 0;
+      padding-bottom: 1.25rem;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.88rem;
+      color: var(--gris);
+      line-height: 1.75;
+      margin: 0;
     }
 
     /* ===== ANIMACIONES ===== */
@@ -288,9 +353,25 @@
       from { opacity: 0; transform: translateY(20px); }
       to   { opacity: 1; transform: translateY(0); }
     }
-    @keyframes formEntrada {
-      from { opacity: 0; transform: translateY(16px); }
-      to   { opacity: 1; transform: translateY(0); }
+    .ferias-split-texto {
+      animation: heroEntrada 0.8s ease 0.1s both;
+    }
+    .ferias-split-video {
+      animation: heroEntrada 0.8s ease 0.3s both;
+    }
+
+    /* ===== DESKTOP ===== */
+    @media (min-width: 768px) {
+      .ferias-hero-split {
+        grid-template-columns: 1fr 1fr;
+        min-height: calc(100vh - 70px);
+      }
+      .ferias-split-texto {
+        padding: 4rem 3rem 4rem 4rem;
+      }
+      .ferias-split-video {
+        padding: 3rem;
+      }
     }
 
     /* ===== MOBILE ===== */
@@ -300,10 +381,7 @@
         gap: 2.5rem;
       }
       .ferias-form-wrap {
-        padding: 2rem 1.25rem;
-      }
-      .ferias-foto-img {
-        height: 45vh;
+        padding: 1.5rem 1.25rem;
       }
     }
   </style>
@@ -350,31 +428,18 @@
 
 <main>
 
-  <!-- HERO -->
-  <section class="ferias-hero">
-    <div class="ferias-hero-media">
-      <img src="imagenes/foto-ferias-2026.webp"
-           alt="A&E Martínez Joyeros — Sorteo Ferias Alcalá 2026"
-           class="ferias-hero-img"
-           width="1200" height="1600"
-           loading="eager"
-           fetchpriority="high">
-      <div class="ferias-hero-overlay"></div>
-    </div>
-    <div class="ferias-hero-content">
+  <!-- SECCIÓN 1: HERO -->
+  <section class="ferias-hero-split">
+    <!-- Columna izquierda: texto + formulario -->
+    <div class="ferias-split-texto">
       <span class="ferias-etiqueta">Solo durante las Ferias 2026</span>
       <h1 class="ferias-titulo">Gana la joya que tú elijas.</h1>
       <p class="ferias-subtitulo">
-        Valorado en hasta 60€. Participa en menos de 10 segundos
-        y llévate el brillo que más encaje contigo.
+        Ana y Esther os desean unas felices Ferias.
+        Participa en menos de 10 segundos y llévate
+        la pieza que más te enamore, valorada en hasta 60€
+        para recoger en nuestra tienda.
       </p>
-    </div>
-  </section>
-
-  <!-- FORMULARIO -->
-  <section class="ferias-form-section">
-    <div class="ferias-form-inner">
-      <h2 class="ferias-form-titulo">Participa en el sorteo</h2>
 
       <div class="ferias-form-wrap">
         <div class="ferias-campo">
@@ -383,17 +448,14 @@
                  name="email" placeholder="tucorreo@email.com"
                  autocomplete="email" required>
         </div>
-
         <div class="ferias-checks">
           <label class="ferias-check-label">
             <input type="checkbox" id="ferias-check-legal" required>
             <span>He leído y acepto las
               <a href="bases-sorteo-ferias.html" target="_blank">
-                Bases del Sorteo
-              </a> y la
+                Bases del Sorteo</a> y la
               <a href="privacidad.html" target="_blank">
-                Política de Privacidad
-              </a>
+                Política de Privacidad</a>
             </span>
           </label>
           <label class="ferias-check-label">
@@ -402,24 +464,42 @@
               A&E Martínez Joyeros (opcional)</span>
           </label>
         </div>
-
-        <button type="button" id="ferias-btn"
-                class="ferias-cta">
+        <button type="button" id="ferias-btn" class="ferias-cta">
           PARTICIPAR
         </button>
-
         <p class="ferias-legal-note">
           El sorteo se celebra el 1 de septiembre de 2026.
           Un único ganador elegirá su pieza favorita en tienda.
         </p>
+        <div id="ferias-msg" class="ferias-msg" aria-live="polite"></div>
+      </div>
+    </div>
 
-        <div id="ferias-msg" class="ferias-msg"
-             aria-live="polite"></div>
+    <!-- Columna derecha: vídeo -->
+    <div class="ferias-split-video">
+      <div class="ferias-video-wrap">
+        <video id="ferias-video"
+               class="ferias-video"
+               poster="imagenes/foto-ferias-2026.webp"
+               preload="metadata"
+               muted
+               playsinline>
+          <source src="imagenes/Video Explicativo Sorteo.mp4"
+                  type="video/mp4">
+        </video>
+        <button class="ferias-play-btn"
+                id="ferias-play-btn"
+                aria-label="Reproducir vídeo explicativo del sorteo">
+          <svg viewBox="0 0 24 24" fill="currentColor"
+               aria-hidden="true" width="32" height="32">
+            <path d="M8 5v14l11-7z"/>
+          </svg>
+        </button>
       </div>
     </div>
   </section>
 
-  <!-- TRUST -->
+  <!-- SECCIÓN 2: TRUST BADGES -->
   <section class="ferias-trust">
     <div class="ferias-trust-inner">
       <div class="ferias-trust-item">
@@ -460,13 +540,91 @@
     </div>
   </section>
 
-  <!-- FOTO CAMPAÑA -->
-  <section class="ferias-foto">
-    <img src="imagenes/foto-ferias-2026.webp"
-         alt="A&E Martínez Joyeros — Sorteo Ferias Alcalá 2026"
-         class="ferias-foto-img"
-         width="1200" height="800"
-         loading="lazy">
+  <!-- SECCIÓN 3: FAQ ACORDEÓN -->
+  <section class="ferias-faq">
+    <div class="ferias-faq-inner">
+      <h2 class="ferias-faq-titulo">
+        Todo lo que necesitas saber, con total transparencia
+      </h2>
+
+      <div class="ferias-faq-lista">
+
+        <div class="ferias-faq-item">
+          <button class="ferias-faq-pregunta"
+                  aria-expanded="false">
+            <span>¿Dónde y cuándo se realiza el sorteo?</span>
+            <span class="ferias-faq-icono" aria-hidden="true">+</span>
+          </button>
+          <div class="ferias-faq-respuesta">
+            <p>Puedes participar durante toda la semana de Ferias,
+            del 17 al 30 de agosto de 2026. Guardaremos todos los
+            correos de forma segura y el sorteo se realizará
+            mediante un sistema de selección aleatoria digital
+            el 1 de septiembre.</p>
+          </div>
+        </div>
+
+        <div class="ferias-faq-item">
+          <button class="ferias-faq-pregunta"
+                  aria-expanded="false">
+            <span>¿Cómo y cuándo sabré si he ganado?</span>
+            <span class="ferias-faq-icono" aria-hidden="true">+</span>
+          </button>
+          <div class="ferias-faq-respuesta">
+            <p>El 1 de septiembre anunciaremos a la persona
+            ganadora en nuestro perfil oficial de Instagram
+            (@aemartinezjoyeros). ¡Asegúrate de seguirnos
+            para que te llegue la notificación si es tu
+            nombre el que sale!</p>
+          </div>
+        </div>
+
+        <div class="ferias-faq-item">
+          <button class="ferias-faq-pregunta"
+                  aria-expanded="false">
+            <span>¿Qué probabilidades tengo?</span>
+            <span class="ferias-faq-icono" aria-hidden="true">+</span>
+          </button>
+          <div class="ferias-faq-respuesta">
+            <p>Al ser un sorteo exclusivo para las ferias locales,
+            ¡tus probabilidades son altísimas! Cuantos menos
+            participantes, más opciones tienes. El sorteo se
+            realiza entre todos los correos registrados
+            en esta página.</p>
+          </div>
+        </div>
+
+        <div class="ferias-faq-item">
+          <button class="ferias-faq-pregunta"
+                  aria-expanded="false">
+            <span>¿Dónde se recoge el premio?</span>
+            <span class="ferias-faq-icono" aria-hidden="true">+</span>
+          </button>
+          <div class="ferias-faq-respuesta">
+            <p>En nuestra casa. Te esperamos en A&E Martínez
+            Joyeros (C/ Marqués de Alonso Martínez, 5, Alcalá
+            de Henares) para que elijas la pieza que más te
+            enamore de la tienda, valorada en hasta 60€.</p>
+          </div>
+        </div>
+
+        <div class="ferias-faq-item">
+          <button class="ferias-faq-pregunta"
+                  aria-expanded="false">
+            <span>¿Hay letra pequeña con mi correo electrónico?</span>
+            <span class="ferias-faq-icono" aria-hidden="true">+</span>
+          </button>
+          <div class="ferias-faq-respuesta">
+            <p>Ninguna. Solo te pedimos el email para poder
+            meterte en la urna virtual. No somos amigas del
+            spam, solo te escribiremos si nos das permiso
+            expreso para enviarte ventajas exclusivas
+            de la tienda.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
   </section>
 
 </main>
