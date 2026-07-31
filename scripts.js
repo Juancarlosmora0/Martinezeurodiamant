@@ -525,7 +525,7 @@ if (btnSeoCollares) {
 })();
 
 // ===== FAQ ACORDEÓN FERIAS =====
-(function () {
+document.addEventListener('DOMContentLoaded', function () {
   var items = document.querySelectorAll('.ferias-faq-item');
   if (!items.length) return;
 
@@ -548,4 +548,4 @@ if (btnSeoCollares) {
       }
     });
   });
-})();
+});
