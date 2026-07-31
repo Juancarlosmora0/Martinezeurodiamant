@@ -524,33 +524,6 @@ if (btnSeoCollares) {
   });
 })();
 
-// ===== VÍDEO FERIAS — BOTÓN PLAY =====
-document.addEventListener('DOMContentLoaded', function () {
-  var video = document.getElementById('ferias-video');
-  var playBtn = document.getElementById('ferias-play-btn');
-  if (!video || !playBtn) return;
-
-  playBtn.addEventListener('click', function () {
-    var source = video.querySelector('source');
-    if (source) {
-      video.src = source.src;
-    }
-    video.muted = false;
-    video.controls = true;
-    video.load();
-    video.play();
-    playBtn.classList.add('oculto');
-  });
-
-  video.addEventListener('pause', function () {
-    playBtn.classList.remove('oculto');
-  });
-
-  video.addEventListener('ended', function () {
-    playBtn.classList.remove('oculto');
-  });
-});
-
 // ===== FAQ ACORDEÓN FERIAS =====
 (function () {
   var items = document.querySelectorAll('.ferias-faq-item');
