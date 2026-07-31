@@ -418,6 +418,40 @@
       transition: transform 0.2s ease;
     }
     .cookie-btn:hover { transform: scale(1.05); }
+
+    /* ===== ANNOUNCEMENT BAR FERIAS ===== */
+    .ferias-bar {
+      background-color: var(--dorado);
+      padding: 0.6rem 1.5rem;
+      text-align: center;
+      width: 100%;
+    }
+    .ferias-bar-link {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.3px;
+      color: var(--negro);
+      text-decoration: none;
+      display: block;
+      line-height: 1.5;
+    }
+    .ferias-bar-link:hover {
+      opacity: 0.85;
+    }
+    .ferias-bar-cta {
+      font-weight: 700;
+    }
+    .ferias-bar-mobile {
+      display: inline;
+    }
+    .ferias-bar-desktop {
+      display: none;
+    }
+    @media (min-width: 768px) {
+      .ferias-bar-mobile { display: none; }
+      .ferias-bar-desktop { display: inline; }
+    }
   </style>
 
   <!-- JSON-LD: SEO Local Avanzado -->
@@ -531,6 +565,23 @@
 
 </head>
 <body>
+
+<!-- SORTEO FERIAS 2026 — eliminar el 1 de septiembre -->
+<div class="ferias-bar">
+  <a href="ferias.html" class="ferias-bar-link">
+    <span class="ferias-bar-mobile">
+      ✨ Sorteo Ferias: Gana tu joya.
+      <strong class="ferias-bar-cta">Participar →</strong>
+    </span>
+    <span class="ferias-bar-desktop">
+      ✨ Celebramos las Ferias: Participa en nuestro sorteo
+      y gana la joya que elijas (hasta 60€).
+      Tienes hasta el 30 de agosto.
+      <strong class="ferias-bar-cta">Participar ahora →</strong>
+    </span>
+  </a>
+</div>
+<!-- FIN SORTEO FERIAS 2026 -->
 
 <!-- ===== HEADER ===== -->
 <header class="main-header">
