@@ -160,6 +160,64 @@
         padding: 1.5rem 1.25rem;
       }
     }
+
+    /* ===== FOMO INSTAGRAM ===== */
+    .tarjeta-fomo {
+      background-color: var(--blanco);
+      border: 1px solid var(--dorado);
+      padding: 2.2rem 1.5rem;
+      margin: 1.875rem auto;
+      max-width: 420px;
+      width: 90%;
+      text-align: center;
+      border-radius: 2px;
+    }
+    .alerta-fomo {
+      color: var(--negro);
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      font-size: 0.85rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 1.25rem;
+      border-bottom: 1px solid var(--dorado);
+      padding-bottom: 0.9rem;
+      display: block;
+    }
+    .gracias-ig-texto {
+      font-family: 'Montserrat', sans-serif;
+      color: var(--negro);
+      font-size: 0.95rem;
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+    }
+    .gracias-btn-ig {
+      width: 100%;
+      display: block;
+      box-sizing: border-box;
+    }
+    .tarjeta-fomo a[href*="instagram"] {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.625rem;
+      width: 100%;
+      box-sizing: border-box;
+      padding: 0.9rem 1.25rem;
+      background-color: var(--negro);
+      color: var(--blanco);
+      text-decoration: none;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      font-size: 0.85rem;
+      letter-spacing: 0.08em;
+      border-radius: 2px;
+      transition: opacity 0.25s ease;
+      margin-bottom: 0.9rem;
+    }
+    .tarjeta-fomo a[href*="instagram"]:hover {
+      opacity: 0.85;
+    }
   </style>
 </head>
 <body>
@@ -227,12 +285,12 @@
       </p>
 
       <!-- Bloque conversión Instagram -->
-      <div class="gracias-ig-bloque">
+      <div class="gracias-ig-bloque tarjeta-fomo">
+        <p class="alerta-fomo">UN ÚLTIMO PASO</p>
         <p class="gracias-ig-texto">
-          El anuncio oficial de la persona ganadora se hará
-          en exclusiva a través de nuestro perfil de Instagram.
-          Síguenos ahora para asegurarte de recibir la
-          notificación si resultas premiada.
+          El ganador se anunciará <strong>exclusivamente</strong>
+          en Instagram Stories. Si no lo reclamas en 48h,
+          pasará al siguiente participante.
         </p>
 
         <a href="https://www.instagram.com/aemartinezjoyeros/"
