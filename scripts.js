@@ -525,7 +525,7 @@ if (btnSeoCollares) {
 })();
 
 // ===== VÍDEO FERIAS — BOTÓN PLAY =====
-(function () {
+document.addEventListener('DOMContentLoaded', function () {
   var video = document.getElementById('ferias-video');
   var playBtn = document.getElementById('ferias-play-btn');
   if (!video || !playBtn) return;
@@ -544,7 +544,7 @@ if (btnSeoCollares) {
   video.addEventListener('ended', function () {
     playBtn.classList.remove('oculto');
   });
-})();
+});
 
 // ===== FAQ ACORDEÓN FERIAS =====
 (function () {
