@@ -531,8 +531,13 @@ document.addEventListener('DOMContentLoaded', function () {
   if (!video || !playBtn) return;
 
   playBtn.addEventListener('click', function () {
+    var source = video.querySelector('source');
+    if (source) {
+      video.src = source.src;
+    }
     video.muted = false;
     video.controls = true;
+    video.load();
     video.play();
     playBtn.classList.add('oculto');
   });
