@@ -4,7 +4,7 @@ module.exports = async function handler(req, res) {
     return res.status(405).json({ error: 'Método no permitido' });
   }
 
-  const { email, aceptaMarketing } = req.body || {};
+  const { email, instagram, aceptaMarketing } = req.body || {};
 
   if (!email || typeof email !== 'string') {
     return res.status(400).json({ error: 'Email es obligatorio' });
@@ -31,7 +31,8 @@ module.exports = async function handler(req, res) {
         email: email,
         attributes: {
           SORTEO_FERIAS: true,
-          ACEPTA_MARKETING: !!aceptaMarketing
+          ACEPTA_MARKETING: !!aceptaMarketing,
+          INSTAGRAM: instagram ? instagram.trim().replace(/^@/, '') : ''
         },
         listIds: [3],
         updateEnabled: true
