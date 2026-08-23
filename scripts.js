@@ -478,11 +478,11 @@ if (btnSeoCollares) {
     const instagram = document.getElementById('ferias-instagram')
       ? document.getElementById('ferias-instagram').value.trim()
       : '';
-    const checkLegal = document.getElementById('ferias-check-legal').checked;
-    const checkMkt = document.getElementById('ferias-check-marketing').checked;
+    const checkLegal = document.getElementById('ferias-check-legal');
+    const checkMkt = document.getElementById('ferias-check-marketing');
     const msg = document.getElementById('ferias-msg');
 
-    if (!email || !checkLegal) {
+    if (!email || !checkLegal.checked) {
       msg.className = 'ferias-msg error';
       msg.textContent = 'Por favor, completa todos los campos obligatorios.';
       return;
@@ -506,7 +506,7 @@ if (btnSeoCollares) {
       body: JSON.stringify({
         email: email,
         instagram: instagram,
-        aceptaMarketing: checkMkt
+        aceptaMarketing: !!checkMkt.checked
       })
     })
       .then(function (res) {
