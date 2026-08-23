@@ -291,15 +291,12 @@
     .ferias-faq-lista {
       display: flex;
       flex-direction: column;
-      gap: 0;
     }
     .ferias-faq-item {
-      background-color: var(--blanco);
-      border: none;
-      border-bottom: 1px solid var(--crema);
+      border-top: 1px solid rgba(200, 164, 98, 0.25);
     }
-    .ferias-faq-item:first-child {
-      border-top: none;
+    .ferias-faq-item:last-child {
+      border-bottom: 1px solid rgba(200, 164, 98, 0.25);
     }
     .ferias-faq-pregunta {
       width: 100%;
@@ -307,8 +304,8 @@
       justify-content: space-between;
       align-items: center;
       gap: 1rem;
-      padding: 1.5rem 1.75rem;
-      background: var(--blanco);
+      padding: 1.4rem 0;
+      background: transparent;
       border: none;
       cursor: pointer;
       font-family: 'Montserrat', sans-serif;
@@ -329,6 +326,7 @@
       flex-shrink: 0;
       line-height: 1;
       display: inline-block;
+      opacity: 0.7;
     }
     .ferias-faq-item.abierto .ferias-faq-icono {
       transform: rotate(45deg);
@@ -338,14 +336,13 @@
       grid-template-rows: 0fr;
       transition: grid-template-rows 0.35s ease;
       overflow: hidden;
-      background-color: var(--blanco);
     }
     .ferias-faq-item.abierto .ferias-faq-respuesta {
       grid-template-rows: 1fr;
     }
     .ferias-faq-respuesta p {
       min-height: 0;
-      padding: 0 1.75rem 1.5rem;
+      padding-bottom: 1.4rem;
       font-family: 'Montserrat', sans-serif;
       font-size: 0.88rem;
       color: var(--gris);
@@ -453,6 +450,13 @@
                  name="email" placeholder="tucorreo@email.com"
                  autocomplete="email" required>
         </div>
+        <div class="ferias-campo">
+          <label for="ferias-instagram">Tu usuario de Instagram</label>
+          <input type="text" id="ferias-instagram"
+                 name="instagram" placeholder="@tuusuario"
+                 autocomplete="off"
+                 maxlength="50">
+        </div>
         <div class="ferias-checks">
           <label class="ferias-check-label">
             <input type="checkbox" id="ferias-check-legal" required>
@@ -474,7 +478,8 @@
         </button>
         <p class="ferias-legal-note">
           El sorteo se celebra el 1 de septiembre de 2026.
-          Un único ganador elegirá su pieza favorita en tienda.
+          Indica tu usuario de Instagram para obtener
+          una participación adicional.
         </p>
         <div id="ferias-msg" class="ferias-msg" aria-live="polite"></div>
       </div>

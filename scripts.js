@@ -475,6 +475,9 @@ if (btnSeoCollares) {
 
   btn.addEventListener('click', function () {
     const email = document.getElementById('ferias-email').value.trim();
+    const instagram = document.getElementById('ferias-instagram')
+      ? document.getElementById('ferias-instagram').value.trim()
+      : '';
     const checkLegal = document.getElementById('ferias-check-legal').checked;
     const checkMkt = document.getElementById('ferias-check-marketing').checked;
     const msg = document.getElementById('ferias-msg');
@@ -502,6 +505,7 @@ if (btnSeoCollares) {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         email: email,
+        instagram: instagram,
         aceptaMarketing: checkMkt
       })
     })
