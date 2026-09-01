@@ -117,6 +117,17 @@ ul {
   letter-spacing: 0.02em;
 }
 
+.logo-img {
+  height: 40px;
+  width: auto;
+  display: block;
+}
+@media (max-width: 768px) {
+  .logo-img {
+    height: 32px;
+  }
+}
+
 
 /* Mobile nav dropdown */
 .nav-menu {

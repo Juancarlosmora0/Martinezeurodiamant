@@ -27,7 +27,8 @@
 
   <!-- Favicon -->
   <link rel="icon" href="/favicon.ico" sizes="any">
-  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/favicon-32x32.png" type="image/png" sizes="32x32">
+  <link rel="icon" href="/favicon-16x16.png" type="image/png" sizes="16x16">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
   <!-- Tipografías -->
@@ -56,6 +57,18 @@
       color: var(--blanco);
       margin-bottom: 1.25rem;
       text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+    }
+    .hero-logo-img {
+      width: 100%;
+      max-width: 600px;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+    }
+    @media (max-width: 768px) {
+      .hero-logo-img {
+        max-width: 320px;
+      }
     }
     .hero-subtitle {
       font-family: 'Montserrat', sans-serif;
@@ -430,7 +443,7 @@
       "@id": "https://martinezeurodiamant.es/#organization",
       "name": "A&E Martínez Joyeros",
       "url": "https://martinezeurodiamant.es/",
-      "logo": "https://martinezeurodiamant.es/imagenes/logo.png",
+      "logo": "https://martinezeurodiamant.es/imagenes/branding/logo-ae-martinez-joyeros.png",
       "image": "https://martinezeurodiamant.es/imagenes/HOVER.WEBP",
       "description": "Expertos en joyería, relojería y alianzas de boda en Alcalá de Henares. Distribuidor oficial de Vidal & Vidal, Viceroy y Mark Maddox. Más de 30 años de tradición familiar en el centro histórico.",
       "telephone": "+34678417026",
@@ -541,7 +554,9 @@
   </button>
 
   <div class="logo">
-    <a href="index.html">A&E Martínez Joyeros</a>
+    <a href="index.html" aria-label="A&E Martínez Joyeros - Inicio">
+      <img src="imagenes/branding/logo-ae-martinez-joyeros.svg" alt="A&E Martínez Joyeros" class="logo-img">
+    </a>
   </div>
 
   <nav class="nav-menu" aria-label="Navegación principal">
@@ -583,7 +598,9 @@
   </video>
   <div class="hero-overlay" aria-hidden="true"></div>
   <div class="hero-content-wrapper">
-    <h1 class="hero-title">A&E Martínez Joyeros</h1>
+    <h1 class="hero-title">
+      <img src="imagenes/branding/logo-ae-martinez-joyeros-blanco.svg" alt="A&E Martínez Joyeros" class="hero-logo-img">
+    </h1>
     <p class="hero-subtitle">
       Joyería familiar en Alcalá de Henares con más de 30 años de historia. Encuentra desde regalos de tendencia hasta alianzas y diseño a medida, con el trato cercano de siempre.
     </p>
