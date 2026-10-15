@@ -45,7 +45,6 @@ Silos: #tendencias (Luxenter) · #colecciones (Vidal & Vidal) · #alta-joyeria (
 - Hacer commit de seguridad antes de cada cambio importante
 - No publicar a producción (rama main) sin aprobación explícita
 - Producción: rama main (Vercel despliega main automáticamente). Cada tarea se hace en una rama propia creada desde main (ej. fase-1a-factual) y se revisa en su Preview de Vercel antes de fusionar. La rama eurodiamant está obsoleta (foto del 23-jun-2026, contenida en main): no usar.
-```
 
 ## Regla de marca: taller
 - Permitido: "taller en tienda" / "nuestro taller en tienda" para lo que se hace en el mostrador: grabado, pulido, limpieza por ultrasonidos, cambio de pilas, ajuste de eslabones, mantenimiento básico de relojes y medición de talla.
