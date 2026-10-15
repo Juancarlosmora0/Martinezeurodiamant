@@ -47,7 +47,7 @@ Silos: #tendencias (Luxenter) · #colecciones (Vidal & Vidal) · #alta-joyeria (
 - Producción: rama main (Vercel despliega main automáticamente). Cada tarea se hace en una rama propia creada desde main (ej. fase-1a-factual) y se revisa en su Preview de Vercel antes de fusionar. La rama eurodiamant está obsoleta (foto del 23-jun-2026, contenida en main): no usar.
 
 ## Regla de marca: taller
-- Permitido: "taller en tienda" / "nuestro taller en tienda" para lo que se hace en el mostrador: grabado, pulido, limpieza por ultrasonidos, cambio de pilas, ajuste de eslabones, mantenimiento básico de relojes y medición de talla.
+- Permitido: "taller en tienda" / "nuestro taller en tienda" para lo que se hace en el mostrador: grabado, pulido, limpieza de joyas, cambio de pilas, cambio de correas, cambio de cristal, ajuste de eslabones, mantenimiento básico de relojes y medición de talla.
 - Prohibido: "taller propio", "taller de orfebrería propio", "taller artesanal", "taller físico", "fabricamos", "fundimos", "fabricación propia".
 - Fundición, fabricación, diseño a medida y reparaciones de oro que no sean simples: talleres colaboradores externos, gestionados como compostura.
 - No atribuir a talleres colaboradores lo que se hace en tienda, ni al revés. Ante la duda sobre quién hace un trabajo, no editar el texto y preguntar.
