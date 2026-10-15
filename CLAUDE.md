@@ -44,5 +44,5 @@ Silos: #tendencias (Luxenter) · #colecciones (Vidal & Vidal) · #alta-joyeria (
 - Leer siempre index.html y style.css antes de modificar nada
 - Hacer commit de seguridad antes de cada cambio importante
 - No publicar a producción (rama main) sin aprobación explícita
-- Rama de trabajo activa: eurodiamant
+- Producción: rama main (Vercel despliega main automáticamente). Cada tarea se hace en una rama propia creada desde main (ej. fase-1a-factual) y se revisa en su Preview de Vercel antes de fusionar. La rama eurodiamant está obsoleta (foto del 23-jun-2026, contenida en main): no usar.
 ```
