@@ -1,0 +1,239 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+
+  <title>Página no encontrada | A&amp;E Martínez Joyeros</title>
+
+  <!-- Favicon -->
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" href="/favicon-32x32.png" type="image/png" sizes="32x32">
+  <link rel="icon" href="/favicon-16x16.png" type="image/png" sizes="16x16">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+  <!-- Tipografías -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Montserrat:wght@400;500;600&display=swap">
+
+  <link rel="stylesheet" href="/style.css">
+
+  <style>
+    /* ===== 404 ===== */
+    body.nf-page {
+      padding-top: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      background: var(--crema);
+    }
+
+    .nf-header {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 64px;
+      padding: 8px 16px;
+    }
+    .nf-header a {
+      display: inline-flex;
+      align-items: center;
+      min-height: 48px;
+    }
+    .nf-header .logo-img {
+      height: 32px;
+      width: auto;
+    }
+
+    .nf-main {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 48px 16px 64px;
+    }
+
+    .nf-inner {
+      width: 100%;
+      max-width: 520px;
+      text-align: center;
+      animation: nf-fade 700ms cubic-bezier(0.16, 1, 0.3, 1) both;
+    }
+
+    .nf-title {
+      font-family: 'Playfair Display', serif;
+      font-weight: 500;
+      font-size: clamp(2rem, 8vw, 2.75rem);
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      color: var(--negro);
+      margin-bottom: 20px;
+    }
+
+    .nf-text {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1rem;
+      line-height: 1.7;
+      color: var(--gris);
+      margin-bottom: 40px;
+    }
+
+    .nf-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 28px;
+    }
+
+    .nf-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 12px 28px;
+      border-radius: 0;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: background-color 300ms cubic-bezier(0.16, 1, 0.3, 1),
+                  color 300ms cubic-bezier(0.16, 1, 0.3, 1),
+                  border-color 300ms cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .nf-btn--primary {
+      background: var(--negro);
+      color: var(--blanco);
+      border: 1px solid var(--negro);
+    }
+    .nf-btn--primary:hover {
+      background: var(--dorado);
+      border-color: var(--dorado);
+      color: var(--blanco);
+    }
+
+    .nf-btn--secondary {
+      background: transparent;
+      color: var(--negro);
+      border: 1px solid var(--dorado);
+    }
+    .nf-btn--secondary:hover {
+      background: var(--dorado);
+      color: var(--blanco);
+    }
+
+    .nf-phone {
+      display: inline-flex;
+      align-items: center;
+      min-height: 48px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--negro);
+      text-decoration: underline;
+      text-decoration-color: var(--dorado);
+      text-underline-offset: 4px;
+    }
+    .nf-phone:hover {
+      color: var(--dorado);
+    }
+
+    .nf-data {
+      margin-top: 40px;
+      padding-top: 28px;
+      border-top: 1px solid var(--dorado);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1rem;
+      line-height: 1.7;
+      color: var(--gris);
+    }
+    .nf-data p + p {
+      margin-top: 8px;
+    }
+
+    .nf-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      column-gap: 24px;
+      margin-top: 28px;
+    }
+    .nf-links a {
+      display: inline-flex;
+      align-items: center;
+      min-height: 48px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1rem;
+      color: var(--negro);
+    }
+    .nf-links a:hover {
+      color: var(--dorado);
+    }
+
+    @keyframes nf-fade {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @media (min-width: 769px) {
+      .nf-header {
+        justify-content: flex-start;
+        padding: 8px 40px;
+      }
+      .nf-header .logo-img {
+        height: 40px;
+      }
+      .nf-actions {
+        flex-direction: row;
+      }
+      .nf-btn {
+        flex: 1;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .nf-inner { animation: none; }
+      .nf-btn { transition: none; }
+    }
+  </style>
+</head>
+<body class="nf-page">
+
+<header class="nf-header">
+  <a href="/" aria-label="A&amp;E Martínez Joyeros - Inicio">
+    <img src="/imagenes/branding/logo-ae-martinez-joyeros.svg" alt="A&amp;E Martínez Joyeros" class="logo-img">
+  </a>
+</header>
+
+<main class="nf-main">
+  <div class="nf-inner">
+    <h1 class="nf-title">Esta página ya no está aquí</h1>
+    <p class="nf-text">Puede que el enlace haya cambiado. Lo que no cambia es que te esperamos en la tienda, en el corazón de Alcalá de Henares.</p>
+
+    <div class="nf-actions">
+      <a href="/" class="nf-btn nf-btn--primary">Ir a la joyería</a>
+      <a href="https://share.google/E8g7L2JX94vg79BGQ" class="nf-btn nf-btn--secondary" target="_blank" rel="noopener noreferrer">Cómo llegar</a>
+    </div>
+
+    <a href="tel:+34918825447" class="nf-phone">Llámanos: +34 918 82 54 47</a>
+
+    <div class="nf-data">
+      <p>A&amp;E Martínez Joyeros · Calle Marqués de Alonso Martínez, 5 · 28805 Alcalá de Henares</p>
+      <p>L-V 10:00-14:00 y 17:00-20:00 · Sáb 10:00-14:00</p>
+    </div>
+
+    <nav class="nf-links" aria-label="Enlaces principales">
+      <a href="/colecciones.html">Colecciones</a>
+      <a href="/diseno-y-joyeria.html">Diseño y joyería</a>
+      <a href="/ideas-de-regalo.html">Ideas de regalo</a>
+      <a href="/#contacto">Contacto</a>
+    </nav>
+  </div>
+</main>
+
+</body>
+</html>
