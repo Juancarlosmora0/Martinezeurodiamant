@@ -2086,3 +2086,9 @@ body:has(.mobile-cta-bar) {
     transition: none;
   }
 }
+
+.footer-col li:not(:has(a)) {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  color: rgba(255,255,255,0.6);
+}
