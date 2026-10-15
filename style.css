@@ -2062,7 +2062,7 @@ button:focus-visible {
   outline-offset: -4px;
 }
 
-body {
+body:has(.mobile-cta-bar) {
   padding-bottom: calc(56px + env(safe-area-inset-bottom));
 }
 
@@ -2076,7 +2076,7 @@ body {
   .mobile-cta-bar {
     display: none;
   }
-  body {
+  body:has(.mobile-cta-bar) {
     padding-bottom: 0;
   }
 }
