@@ -431,6 +431,25 @@
       transition: transform 0.2s ease;
     }
     .cookie-btn:hover { transform: scale(1.05); }
+
+    /* ===== CONTACTO SIN MAPA ===== */
+    .contacto-wrap {
+      max-width: 640px;
+    }
+    .contacto-texto {
+      text-align: center;
+    }
+    .contacto .cta-maps {
+      align-items: center;
+    }
+    @media (min-width: 769px) {
+      .contacto-wrap {
+        grid-template-columns: 1fr;
+      }
+      .contacto .cta-maps {
+        justify-content: center;
+      }
+    }
   </style>
 
   <!-- JSON-LD: SEO Local Avanzado -->
@@ -1002,16 +1021,6 @@
           ENVIAR MENSAJE
         </a>
       </div>
-    </div>
-    <div class="contacto-mapa" aria-hidden="true">
-      <iframe
-        title="Mapa de ubicación — A&E Martínez Joyeros en Alcalá de Henares"
-        src="https://www.google.com/maps?q=Calle%20Marqu%C3%A9s%20de%20Alonso%20Mart%C3%ADnez%205%2C%2028805%20Alcal%C3%A1%20de%20Henares&z=16&output=embed"
-        width="100%"
-        height="400"
-        loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade">
-      </iframe>
     </div>
   </div>
 </section>
